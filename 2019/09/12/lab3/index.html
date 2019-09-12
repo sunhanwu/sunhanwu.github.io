@@ -56,9 +56,10 @@
 </script>
 
   <meta name="description" content="实验三 实验报告 孙汉武    安全1601    16281047  实验源代码链接 Task 11.1 实验要求$\qquad$通过fork的方式，产生4个进程P1,P2,P3,P4，每个进程打印输出自己的名字，例如P1输出“I am the process P1”。要求P1最先执行，P2、P3互斥执行，P4最后执行。通过多次测试验证实现是否正确。 1.2 实验过程 实验源码 Task1.c">
+<meta name="keywords" content="操作系统">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SunPages">
-<meta property="og:url" content="http://yoursite.com/2019/04/06/lab3/index.html">
+<meta property="og:title" content="进程实验二">
+<meta property="og:url" content="http://yoursite.com/2019/09/12/lab3/index.html">
 <meta property="og:site_name" content="SunPages">
 <meta property="og:description" content="实验三 实验报告 孙汉武    安全1601    16281047  实验源代码链接 Task 11.1 实验要求$\qquad$通过fork的方式，产生4个进程P1,P2,P3,P4，每个进程打印输出自己的名字，例如P1输出“I am the process P1”。要求P1最先执行，P2、P3互斥执行，P4最后执行。通过多次测试验证实现是否正确。 1.2 实验过程 实验源码 Task1.c">
 <meta property="og:locale" content="zh-Hans">
@@ -99,12 +100,12 @@
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-174053.jpg">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-174058.jpg">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-174105.jpg">
-<meta property="og:updated_time" content="2019-04-29T17:41:08.332Z">
+<meta property="og:updated_time" content="2019-09-12T07:52:08.934Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SunPages">
+<meta name="twitter:title" content="进程实验二">
 <meta name="twitter:description" content="实验三 实验报告 孙汉武    安全1601    16281047  实验源代码链接 Task 11.1 实验要求$\qquad$通过fork的方式，产生4个进程P1,P2,P3,P4，每个进程打印输出自己的名字，例如P1输出“I am the process P1”。要求P1最先执行，P2、P3互斥执行，P4最后执行。通过多次测试验证实现是否正确。 1.2 实验过程 实验源码 Task1.c">
 <meta name="twitter:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-172743.jpg">
-  <link rel="canonical" href="http://yoursite.com/2019/04/06/lab3/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/12/lab3/">
 
 
 <script id="page-configurations">
@@ -118,7 +119,7 @@
   };
 </script>
 
-  <title> | SunPages</title>
+  <title>进程实验二 | SunPages</title>
   
 
 
@@ -255,7 +256,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/06/lab3/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/12/lab3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sun">
@@ -267,7 +268,7 @@
       <meta itemprop="name" content="SunPages">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h1 class="post-title" itemprop="name headline">进程实验二
 
           
         </h1>
@@ -283,20 +284,8 @@
                 
               
 
-              <time title="Created: 2019-04-06 19:23:48" itemprop="dateCreated datePublished" datetime="2019-04-06T19:23:48+08:00">2019-04-06</time>
+              <time title="Created: 2019-09-12 15:52:08" itemprop="dateCreated datePublished" datetime="2019-09-12T15:52:08+08:00">2019-09-12</time>
             </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-04-30 01:41:08" itemprop="dateModified" datetime="2019-04-30T01:41:08+08:00">2019-04-30</time>
-              </span>
-            
           
 
           
@@ -1103,14 +1092,23 @@
       
 
       <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/操作系统/" rel="tag"># 操作系统</a>
+            
+          </div>
+        
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/04/06/qemu/" rel="next" title="">
-                  <i class="fa fa-chevron-left"></i> 
+                <a href="/2019/09/12/lab2/" rel="next" title="进程实验">
+                  <i class="fa fa-chevron-left"></i> 进程实验
                 </a>
               
             </div>
@@ -1119,8 +1117,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/04/15/pintos-install/" rel="prev" title="">
-                   <i class="fa fa-chevron-right"></i>
+                <a href="/2019/09/12/lab4/" rel="prev" title="页面置换算法实验">
+                  页面置换算法实验 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -1194,7 +1192,7 @@
       
       <div class="site-state-item site-state-tags">
         
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">tags</span>
         
       </div>
