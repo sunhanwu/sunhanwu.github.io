@@ -55,13 +55,13 @@
   };
 </script>
 
-  <meta name="description" content="实验五-文件系统 实验报告 孙汉武    16281047    安全1601   实验源码链接:https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab5 pdf下载 一 概要设计$\qquad$本次的实验的实验目的是在模拟的I/O系统中开发一个简单的文件系统，并且提供一些借口给用户用于交互，从实">
+  <meta name="description" content="实验五-文件系统 实验报告 孙汉武    16281047    安全1601  实验源码链接:https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab5pdf下载一 概要设计$\qquad$本次的实验的实验目的是在模拟的I/O系统中开发一个简单的文件系统，并且提供一些借口给用户用于交互，从实验目的">
 <meta name="keywords" content="操作系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="文件系统实验">
 <meta property="og:url" content="http://yoursite.com/2019/03/01/lab5/index.html">
 <meta property="og:site_name" content="SunPages">
-<meta property="og:description" content="实验五-文件系统 实验报告 孙汉武    16281047    安全1601   实验源码链接:https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab5 pdf下载 一 概要设计$\qquad$本次的实验的实验目的是在模拟的I/O系统中开发一个简单的文件系统，并且提供一些借口给用户用于交互，从实">
+<meta property="og:description" content="实验五-文件系统 实验报告 孙汉武    16281047    安全1601  实验源码链接:https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab5pdf下载一 概要设计$\qquad$本次的实验的实验目的是在模拟的I/O系统中开发一个简单的文件系统，并且提供一些借口给用户用于交互，从实验目的">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-06-14-082923.jpg">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-06-14-090054.jpg">
@@ -87,7 +87,7 @@
 <meta property="og:updated_time" content="2019-09-12T09:34:38.954Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="文件系统实验">
-<meta name="twitter:description" content="实验五-文件系统 实验报告 孙汉武    16281047    安全1601   实验源码链接:https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab5 pdf下载 一 概要设计$\qquad$本次的实验的实验目的是在模拟的I/O系统中开发一个简单的文件系统，并且提供一些借口给用户用于交互，从实">
+<meta name="twitter:description" content="实验五-文件系统 实验报告 孙汉武    16281047    安全1601  实验源码链接:https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab5pdf下载一 概要设计$\qquad$本次的实验的实验目的是在模拟的I/O系统中开发一个简单的文件系统，并且提供一些借口给用户用于交互，从实验目的">
 <meta name="twitter:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-06-14-082923.jpg">
   <link rel="canonical" href="http://yoursite.com/2019/03/01/lab5/">
 
@@ -343,10 +343,10 @@
         <h1 id="实验五-文件系统-实验报告"><a href="#实验五-文件系统-实验报告" class="headerlink" title="实验五-文件系统 实验报告"></a><center>实验五-文件系统 实验报告</center></h1><blockquote>
 <center>孙汉武    16281047    安全1601</center>
 
-</blockquote>
-<p><a href="https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab5" target="_blank" rel="noopener">实验源码链接:https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab5</a></p>
-<p><a href="https://github.com/sunhanwu/16281047_OperatingSystemExperiment/raw/master/lab5/lab5.pdf" target="_blank" rel="noopener">pdf下载</a></p>
-<h2 id="一-概要设计"><a href="#一-概要设计" class="headerlink" title="一 概要设计"></a>一 概要设计</h2><p>$\qquad$本次的实验的实验目的是在模拟的I/O系统中开发一个简单的文件系统，并且提供一些借口给用户用于交互，从实验目的可以看出，本实验重点在于构建模拟的I/O系统和基于I/O系统的文件系统。所以，在概要设计中，将详细介绍模拟I/O系统的设计、文件系统的设计和测试模块的设计这三个部分。</p>
+</blockquote><p><a href="https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab5" target="_blank" rel="noopener">实验源码链接:https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab5</a></p><p><a href="https://github.com/sunhanwu/16281047_OperatingSystemExperiment/raw/master/lab5/lab5.pdf" target="_blank" rel="noopener">pdf下载</a></p><h2 id="一-概要设计"><a href="#一-概要设计" class="headerlink" title="一 概要设计"></a>一 概要设计</h2><p>$\qquad$本次的实验的实验目的是在模拟的I/O系统中开发一个简单的文件系统，并且提供一些借口给用户用于交互，从实验目的可以看出，本实验重点在于构建模拟的I/O系统和基于I/O系统的文件系统。所以，在概要设计中，将详细介绍模拟I/O系统的设计、文件系统的设计和测试模块的设计这三个部分。</p><a id="more"></a>
+
+
+
 <h3 id="1-1-I-O系统设计"><a href="#1-1-I-O系统设计" class="headerlink" title="1.1 I/O系统设计"></a>1.1 I/O系统设计</h3><p> $\qquad$IO系设计首先要解决的是需要有一个物理磁盘，为此，我们通过定义一个三维的磁盘块结构体数组表示物理磁盘，该结构体数组的每一个维度分别表示物理磁盘中的一个层次。</p>
 <div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-06-14-082923.jpg" width="400"></div>
 
@@ -1254,7 +1254,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">博客</span>
         </a>
       </div>
@@ -1267,7 +1267,7 @@
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -1280,7 +1280,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -1352,7 +1352,7 @@
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">123k</span>
+    <span title="站点总字数">124k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

@@ -55,13 +55,13 @@
   };
 </script>
 
-  <meta name="description" content="2 Switching Hub[TOC] 2.1 Switching Hub交换集线器有很多种不同的功能，在这我们看看拥有以下功能的集线器：  能够学习集线器端口连接主机的MAC地址并将其保存在MAC地址表中 当收到MAC地址已知的报文时，将其转发到对应端口 当收到地址未知的报文的时候，进行泛洪  让我们用ryu来实现这种功能的交换机 2.2 openflow交换集线器openflow交换机可以实">
+  <meta name="description" content="2 Switching Hub[TOC]2.1 Switching Hub交换集线器有很多种不同的功能，在这我们看看拥有以下功能的集线器： 能够学习集线器端口连接主机的MAC地址并将其保存在MAC地址表中 当收到MAC地址已知的报文时，将其转发到对应端口 当收到地址未知的报文的时候，进行泛洪 让我们用ryu来实现这种功能的交换机">
 <meta name="keywords" content="SDN">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ryu控制器实现集线器">
 <meta property="og:url" content="http://yoursite.com/2019/04/06/2/index.html">
 <meta property="og:site_name" content="SunPages">
-<meta property="og:description" content="2 Switching Hub[TOC] 2.1 Switching Hub交换集线器有很多种不同的功能，在这我们看看拥有以下功能的集线器：  能够学习集线器端口连接主机的MAC地址并将其保存在MAC地址表中 当收到MAC地址已知的报文时，将其转发到对应端口 当收到地址未知的报文的时候，进行泛洪  让我们用ryu来实现这种功能的交换机 2.2 openflow交换集线器openflow交换机可以实">
+<meta property="og:description" content="2 Switching Hub[TOC]2.1 Switching Hub交换集线器有很多种不同的功能，在这我们看看拥有以下功能的集线器： 能够学习集线器端口连接主机的MAC地址并将其保存在MAC地址表中 当收到MAC地址已知的报文时，将其转发到对应端口 当收到地址未知的报文的时候，进行泛洪 让我们用ryu来实现这种功能的交换机">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-10-133501.jpg">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-10-133821.jpg">
@@ -76,7 +76,7 @@
 <meta property="og:updated_time" content="2019-09-12T09:35:05.856Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ryu控制器实现集线器">
-<meta name="twitter:description" content="2 Switching Hub[TOC] 2.1 Switching Hub交换集线器有很多种不同的功能，在这我们看看拥有以下功能的集线器：  能够学习集线器端口连接主机的MAC地址并将其保存在MAC地址表中 当收到MAC地址已知的报文时，将其转发到对应端口 当收到地址未知的报文的时候，进行泛洪  让我们用ryu来实现这种功能的交换机 2.2 openflow交换集线器openflow交换机可以实">
+<meta name="twitter:description" content="2 Switching Hub[TOC]2.1 Switching Hub交换集线器有很多种不同的功能，在这我们看看拥有以下功能的集线器： 能够学习集线器端口连接主机的MAC地址并将其保存在MAC地址表中 当收到MAC地址已知的报文时，将其转发到对应端口 当收到地址未知的报文的时候，进行泛洪 让我们用ryu来实现这种功能的交换机">
 <meta name="twitter:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-10-133501.jpg">
   <link rel="canonical" href="http://yoursite.com/2019/04/06/2/">
 
@@ -329,14 +329,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="2-Switching-Hub"><a href="#2-Switching-Hub" class="headerlink" title="2 Switching Hub"></a>2 Switching Hub</h1><p>[TOC]</p>
-<h2 id="2-1-Switching-Hub"><a href="#2-1-Switching-Hub" class="headerlink" title="2.1 Switching Hub"></a>2.1 Switching Hub</h2><p>交换集线器有很多种不同的功能，在这我们看看拥有以下功能的集线器：</p>
-<ul>
+        <h1 id="2-Switching-Hub"><a href="#2-Switching-Hub" class="headerlink" title="2 Switching Hub"></a>2 Switching Hub</h1><p>[TOC]</p><h2 id="2-1-Switching-Hub"><a href="#2-1-Switching-Hub" class="headerlink" title="2.1 Switching Hub"></a>2.1 Switching Hub</h2><p>交换集线器有很多种不同的功能，在这我们看看拥有以下功能的集线器：</p><ul>
 <li>能够学习集线器端口连接主机的MAC地址并将其保存在MAC地址表中</li>
 <li>当收到MAC地址已知的报文时，将其转发到对应端口</li>
 <li>当收到地址未知的报文的时候，进行泛洪</li>
-</ul>
-<p>让我们用ryu来实现这种功能的交换机</p>
+</ul><p>让我们用ryu来实现这种功能的交换机</p><a id="more"></a>
+
+
+
 <h2 id="2-2-openflow交换集线器"><a href="#2-2-openflow交换集线器" class="headerlink" title="2.2 openflow交换集线器"></a>2.2 openflow交换集线器</h2><p>openflow交换机可以实现下列功能通过接受控制器的指令(例如ryu控制器)</p>
 <ul>
 <li>改写接受数据包的地址或者从特定端口转发数据包</li>
@@ -641,7 +641,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">博客</span>
         </a>
       </div>
@@ -654,7 +654,7 @@
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -667,7 +667,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -739,7 +739,7 @@
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">123k</span>
+    <span title="站点总字数">124k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

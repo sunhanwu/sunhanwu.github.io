@@ -55,13 +55,13 @@
   };
 </script>
 
-  <meta name="description" content="实验一实验报告 孙汉武    16281047    安全1601  [TOC] Task 1 系统调用实验1.1 直接调用和汇编中断调用系统调用getpidC语言直接调用 实验步骤  源代码getpid_c.c：  123456789#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;unistd.h&amp;gt;int main()&amp;#123;	pid_t pid;	pid = g">
+  <meta name="description" content="实验一实验报告 孙汉武    16281047    安全1601 [TOC]Task 1 系统调用实验1.1 直接调用和汇编中断调用系统调用getpidC语言直接调用 实验步骤  源代码getpid_c.c：  123456789#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;unistd.h&amp;gt;int main()&amp;#123;	pid_t pid;	pid = get">
 <meta name="keywords" content="操作系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="系统调用实验">
 <meta property="og:url" content="http://yoursite.com/2019/03/01/lab1/index.html">
 <meta property="og:site_name" content="SunPages">
-<meta property="og:description" content="实验一实验报告 孙汉武    16281047    安全1601  [TOC] Task 1 系统调用实验1.1 直接调用和汇编中断调用系统调用getpidC语言直接调用 实验步骤  源代码getpid_c.c：  123456789#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;unistd.h&amp;gt;int main()&amp;#123;	pid_t pid;	pid = g">
+<meta property="og:description" content="实验一实验报告 孙汉武    16281047    安全1601 [TOC]Task 1 系统调用实验1.1 直接调用和汇编中断调用系统调用getpidC语言直接调用 实验步骤  源代码getpid_c.c：  123456789#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;unistd.h&amp;gt;int main()&amp;#123;	pid_t pid;	pid = get">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171700.jpg">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171717.jpg">
@@ -81,10 +81,10 @@
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171837.jpg">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171842.jpg">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171850.jpg">
-<meta property="og:updated_time" content="2019-09-12T09:33:41.125Z">
+<meta property="og:updated_time" content="2019-09-12T12:10:34.974Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统调用实验">
-<meta name="twitter:description" content="实验一实验报告 孙汉武    16281047    安全1601  [TOC] Task 1 系统调用实验1.1 直接调用和汇编中断调用系统调用getpidC语言直接调用 实验步骤  源代码getpid_c.c：  123456789#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;unistd.h&amp;gt;int main()&amp;#123;	pid_t pid;	pid = g">
+<meta name="twitter:description" content="实验一实验报告 孙汉武    16281047    安全1601 [TOC]Task 1 系统调用实验1.1 直接调用和汇编中断调用系统调用getpidC语言直接调用 实验步骤  源代码getpid_c.c：  123456789#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;unistd.h&amp;gt;int main()&amp;#123;	pid_t pid;	pid = get">
 <meta name="twitter:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171700.jpg">
   <link rel="canonical" href="http://yoursite.com/2019/03/01/lab1/">
 
@@ -287,7 +287,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-12 17:33:41" itemprop="dateModified" datetime="2019-09-12T17:33:41+08:00">2019-09-12</time>
+                <time title="修改时间：2019-09-12 20:10:34" itemprop="dateModified" datetime="2019-09-12T20:10:34+08:00">2019-09-12</time>
               </span>
             
           
@@ -339,9 +339,7 @@
       
         <h1 id="实验一实验报告"><a href="#实验一实验报告" class="headerlink" title="实验一实验报告"></a>实验一实验报告</h1><blockquote>
 <p>孙汉武    16281047    安全1601</p>
-</blockquote>
-<p>[TOC]</p>
-<h2 id="Task-1-系统调用实验"><a href="#Task-1-系统调用实验" class="headerlink" title="Task 1 系统调用实验"></a>Task 1 系统调用实验</h2><h3 id="1-1-直接调用和汇编中断调用系统调用getpid"><a href="#1-1-直接调用和汇编中断调用系统调用getpid" class="headerlink" title="1.1 直接调用和汇编中断调用系统调用getpid"></a>1.1 直接调用和汇编中断调用系统调用getpid</h3><h4 id="C语言直接调用"><a href="#C语言直接调用" class="headerlink" title="C语言直接调用"></a>C语言直接调用</h4><ol>
+</blockquote><p>[TOC]</p><h2 id="Task-1-系统调用实验"><a href="#Task-1-系统调用实验" class="headerlink" title="Task 1 系统调用实验"></a>Task 1 系统调用实验</h2><h3 id="1-1-直接调用和汇编中断调用系统调用getpid"><a href="#1-1-直接调用和汇编中断调用系统调用getpid" class="headerlink" title="1.1 直接调用和汇编中断调用系统调用getpid"></a>1.1 直接调用和汇编中断调用系统调用getpid</h3><h4 id="C语言直接调用"><a href="#C语言直接调用" class="headerlink" title="C语言直接调用"></a>C语言直接调用</h4><ol>
 <li><p>实验步骤</p>
 <ul>
 <li>源代码<code>getpid_c.c</code>：</li>
@@ -362,7 +360,9 @@
 </li>
 <li><p>系统调用号跟操作系统的位数(32或64)和不同的发行版本(debian和Ubuntu)有关，例如Ubuntu 64位机器上getpid的系统调用号是172，而网上查到Linux内核64位为39，32位为20。 出现不一致的原因是，在Linux64位系统中，对32位程序进行了兼容操作。之前的32位机中，系统通过开放0x80搭配系统调用号来实现用户程序使用系统调用功能。但在64位机中，已经不使用int 0x80作为触发系统调用的机制了，而使用syscall指令来触发。但为了保持兼容性，系统仍然支持int 0x80进行‘32位’风格的调用。自然我们的汇编代码使用20这个系统调用号，依然可以正确运行在64位机器上。</p>
 </li>
-</ol>
+</ol><a id="more"></a>
+
+
 <h4 id="汇编中断调用"><a href="#汇编中断调用" class="headerlink" title="汇编中断调用"></a>汇编中断调用</h4><ol>
 <li><p>实验步骤</p>
 <ul>
@@ -669,7 +669,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">博客</span>
         </a>
       </div>
@@ -682,7 +682,7 @@
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -695,7 +695,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -767,7 +767,7 @@
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">123k</span>
+    <span title="站点总字数">124k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

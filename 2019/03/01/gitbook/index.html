@@ -55,13 +55,13 @@
   };
 </script>
 
-  <meta name="description" content="gitbook使用本地修改 在本地利用 yu writer进行编辑之后使用git上传到github123git add &amp;lt;修改的文件名&amp;gt;git commit -m &quot;修改的简述&quot;git push -u github master   服务器从github同步数据1git pull github master  重启gitbook服务1234lsof -i:4000# 找到pid之后杀死">
+  <meta name="description" content="gitbook使用本地修改 在本地利用 yu writer进行编辑之后使用git上传到github123git add &amp;lt;修改的文件名&amp;gt;git commit -m &quot;修改的简述&quot;git push -u github master 服务器从github同步数据1git pull github master">
 <meta name="keywords" content="Linux,极客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在github部署gitbook教程">
 <meta property="og:url" content="http://yoursite.com/2019/03/01/gitbook/index.html">
 <meta property="og:site_name" content="SunPages">
-<meta property="og:description" content="gitbook使用本地修改 在本地利用 yu writer进行编辑之后使用git上传到github123git add &amp;lt;修改的文件名&amp;gt;git commit -m &quot;修改的简述&quot;git push -u github master   服务器从github同步数据1git pull github master  重启gitbook服务1234lsof -i:4000# 找到pid之后杀死">
+<meta property="og:description" content="gitbook使用本地修改 在本地利用 yu writer进行编辑之后使用git上传到github123git add &amp;lt;修改的文件名&amp;gt;git commit -m &quot;修改的简述&quot;git push -u github master 服务器从github同步数据1git pull github master">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://pdt3s257u.bkt.clouddn.com/Snip20180822_8.png">
 <meta property="og:image" content="http://pdt3s257u.bkt.clouddn.com/Snip20180822_9.png">
@@ -69,7 +69,7 @@
 <meta property="og:updated_time" content="2019-09-12T09:35:27.214Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在github部署gitbook教程">
-<meta name="twitter:description" content="gitbook使用本地修改 在本地利用 yu writer进行编辑之后使用git上传到github123git add &amp;lt;修改的文件名&amp;gt;git commit -m &quot;修改的简述&quot;git push -u github master   服务器从github同步数据1git pull github master  重启gitbook服务1234lsof -i:4000# 找到pid之后杀死">
+<meta name="twitter:description" content="gitbook使用本地修改 在本地利用 yu writer进行编辑之后使用git上传到github123git add &amp;lt;修改的文件名&amp;gt;git commit -m &quot;修改的简述&quot;git push -u github master 服务器从github同步数据1git pull github master">
 <meta name="twitter:image" content="http://pdt3s257u.bkt.clouddn.com/Snip20180822_8.png">
   <link rel="canonical" href="http://yoursite.com/2019/03/01/gitbook/">
 
@@ -324,9 +324,9 @@
       
         <h1 id="gitbook使用"><a href="#gitbook使用" class="headerlink" title="gitbook使用"></a>gitbook使用</h1><h2 id="本地修改"><a href="#本地修改" class="headerlink" title="本地修改"></a>本地修改</h2><blockquote>
 <p>在本地利用 yu writer进行编辑之后使用git上传到github<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add &lt;修改的文件名&gt;</span><br><span class="line">git commit -m <span class="string">"修改的简述"</span></span><br><span class="line">git push -u github master</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p><img src="http://pdt3s257u.bkt.clouddn.com/Snip20180822_8.png" alt></p>
-<h2 id="服务器从github同步数据"><a href="#服务器从github同步数据" class="headerlink" title="服务器从github同步数据"></a>服务器从github同步数据</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull github master</span><br></pre></td></tr></table></figure>
+</blockquote><p><img src="http://pdt3s257u.bkt.clouddn.com/Snip20180822_8.png" alt></p><h2 id="服务器从github同步数据"><a href="#服务器从github同步数据" class="headerlink" title="服务器从github同步数据"></a>服务器从github同步数据</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull github master</span><br></pre></td></tr></table></figure><a id="more"></a>
+
+
 <p><img src="http://pdt3s257u.bkt.clouddn.com/Snip20180822_9.png" alt></p>
 <h2 id="重启gitbook服务"><a href="#重启gitbook服务" class="headerlink" title="重启gitbook服务"></a>重启gitbook服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:4000</span><br><span class="line"><span class="comment"># 找到pid之后杀死进程</span></span><br><span class="line"><span class="built_in">kill</span> -9 pid</span><br><span class="line">setsid gitbook serve .</span><br></pre></td></tr></table></figure>
 <p><img src="http://pdt3s257u.bkt.clouddn.com/20180822/Snip20180822_10.png" alt></p>
@@ -436,7 +436,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">博客</span>
         </a>
       </div>
@@ -449,7 +449,7 @@
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -462,7 +462,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -534,7 +534,7 @@
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">123k</span>
+    <span title="站点总字数">124k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
