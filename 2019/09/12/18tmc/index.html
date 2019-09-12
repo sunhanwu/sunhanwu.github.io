@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="对论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》的复现">
+  <meta name="description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
 <meta name="keywords" content="机器学习,IoT,网络流量">
 <meta property="og:type" content="article">
 <meta property="og:title" content="对论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》的复现">
 <meta property="og:url" content="http://yoursite.com/2019/09/12/18tmc/index.html">
 <meta property="og:site_name" content="SunPages">
-<meta property="og:description" content="对论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》的复现">
+<meta property="og:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-12T12:38:09.778Z">
+<meta property="og:updated_time" content="2019-09-12T15:07:59.712Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》的复现">
-<meta name="twitter:description" content="对论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》的复现">
+<meta name="twitter:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
   <link rel="canonical" href="http://yoursite.com/2019/09/12/18tmc/">
 
 
@@ -257,7 +257,7 @@
                 
               
 
-              <time title="创建时间：2019-09-12 20:06:19 / 修改时间：20:38:09" itemprop="dateCreated datePublished" datetime="2019-09-12T20:06:19+08:00">2019-09-12</time>
+              <time title="创建时间：2019-09-12 20:06:19 / 修改时间：23:07:59" itemprop="dateCreated datePublished" datetime="2019-09-12T20:06:19+08:00">2019-09-12</time>
             </span>
           
             
@@ -324,7 +324,46 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="对论文《Classifying-IoT-Devices-in-Smart-Environments-Using-Network-Traffic-Characteristics》的复现"><a href="#对论文《Classifying-IoT-Devices-in-Smart-Environments-Using-Network-Traffic-Characteristics》的复现" class="headerlink" title="对论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》的复现"></a>对论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》的复现</h1><h2 id><a href="#" class="headerlink" title=" "></a> </h2>
+        <script src="/js/crypto-js.js"></script><script>
+function doDecrypt (pwd, onError) {
+	console.log('in doDecrypt');
+	const txt = document.getElementById('enc_content').innerHTML;
+	let plantext;
+	try {
+		const bytes = CryptoJS.AES.decrypt(txt, pwd);
+		var plaintext = bytes.toString(CryptoJS.enc.Utf8);
+	} catch(err) {
+		if(onError) {
+			onError(err);
+		}
+		return;
+	}
+	document.getElementById('enc_content').innerHTML = plaintext;
+	document.getElementById('enc_content').style.display = 'block';
+	document.getElementById('enc_passwd').style.display = 'none';
+	if(typeof MathJax !== 'undefined') {
+		MathJax.Hub.Queue(
+			['resetEquationNumbers', MathJax.InputJax.TeX],
+			['PreProcess', MathJax.Hub],
+			['Reprocess', MathJax.Hub]
+		);
+	}
+}
+</script><a id="more"></a>
+
+<div id="enc_content" style="display:none">U2FsdGVkX1+S/bQdNxXyiNFehHlF6c3Vi3bO3kpI4GwQ8rtH/ET/DckZKQJFhtfJlaQlXXJbyhg0ZIlKEZwSoD4/9z200oG+cWTtrEC5R7hJ7jHepEiVpGFTxN21jH8SpSwzFdesq8wESdNTXlX+qf2fPbRaiVyzNVieojIrNR49wa5JcCW2r0GtrL7U7VIabkFA0etWku6KM9DftD7/FN3y5Vx0Vi/RoyGC+eyHuTm1dAgTGdCsc/VvoKWPBCkZRZSRQ4xY6G8vqCKiM3H6pZ3wj7XNcWFjcQV3XMeSuhix1OcskC1YMO22m6AQwf349Fj4OkXdPaO8gZhTD8BIUsDphI2M1NjqvYOVO4Ex+jwd7nSTVIvgU0gMDhGcj1V/z6C2veZf8v0T54TbHWygPGWBpMsTnGgmSU0QxKL37XvT4zIz+sLIsR8Fpy+9fvRO8tz/By2kC9RQVVhh3aRhprg80KfxqzvY57z7QuG4o1YXmS+BVjyvAxUnrBg15Jo45esJQinjlGr2/sx/7tLyRRCYV0+YHs51oXt0XHrfipo6R4iC2ia4btRn1ueJs7of/cVEdgpT6XK37OyzYkNSk7t361AC4n4W9BnSWNiZl4gYIZSe1Eb8O8iOJuXFg3iSFW1V4uyTrFGftp6uWRKk4KZcS69p0mibl4/uv3MuNm3oW5wOiRALfVn2aXId25xfLtV1r5DpseYFKUrdPbf5yyVUBprx+qeXgB3DgsDBGYg4bXcia7G+i5oENj9RfB/2</div>
+<div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
+<script>
+var onError = function(error) {
+	document.getElementById("enc_error").innerHTML = "password error!"
+};
+function decrypt() {
+var passwd = document.getElementById("enc_pwd_input").value;
+console.log(passwd);
+doDecrypt(passwd, onError);
+}
+</script>
+</div>
     </div>
 
     
@@ -417,8 +456,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#对论文《Classifying-IoT-Devices-in-Smart-Environments-Using-Network-Traffic-Characteristics》的复现"><span class="nav-number">1.</span> <span class="nav-text">对论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》的复现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text"> </span></a></li></ol></li></ol></div>
-        
       </div>
       <!--/noindex-->
 
