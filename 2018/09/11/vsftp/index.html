@@ -55,17 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="Talk is cheap, show me the code!">
-<meta property="og:type" content="website">
+  <meta name="description" content="ubuntu16.04配置vsftp服务器安装vsftpd 安装 1sudo apt-get install vsftpd  配置 /etc/vsftp.conf 1234567891011121314151617181920# 允许匿名用户和本地用户登录，本地用户即/etc/passwd中的用户anonymous_enable=YESlocal_enable=YES# 禁止全局写命令write_">
+<meta property="og:type" content="article">
 <meta property="og:title" content="SunPages">
-<meta property="og:url" content="http://yoursite.com/tags/Pintos-操作系统/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/09/11/vsftp/index.html">
 <meta property="og:site_name" content="SunPages">
-<meta property="og:description" content="Talk is cheap, show me the code!">
+<meta property="og:description" content="ubuntu16.04配置vsftp服务器安装vsftpd 安装 1sudo apt-get install vsftpd  配置 /etc/vsftp.conf 1234567891011121314151617181920# 允许匿名用户和本地用户登录，本地用户即/etc/passwd中的用户anonymous_enable=YESlocal_enable=YES# 禁止全局写命令write_">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-10T20:53:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SunPages">
-<meta name="twitter:description" content="Talk is cheap, show me the code!">
-  <link rel="canonical" href="http://yoursite.com/tags/Pintos-操作系统/">
+<meta name="twitter:description" content="ubuntu16.04配置vsftp服务器安装vsftpd 安装 1sudo apt-get install vsftpd  配置 /etc/vsftp.conf 1234567891011121314151617181920# 允许匿名用户和本地用户登录，本地用户即/etc/passwd中的用户anonymous_enable=YESlocal_enable=YES# 禁止全局写命令write_">
+  <link rel="canonical" href="http://yoursite.com/2018/09/11/vsftp/">
 
 
 <script id="page-configurations">
@@ -73,13 +74,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>标签: Pintos 操作系统 | SunPages</title>
+  <title> | SunPages</title>
   
 
 
@@ -207,81 +208,137 @@
         <div class="content-wrap">
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block tag">
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">Pintos 操作系统<small>标签</small>
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/11/vsftp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="sunhanwu">
+      <meta itemprop="description" content="Talk is cheap, show me the code!">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SunPages">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+
+          
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-11 04:53:38" itemprop="dateCreated datePublished" datetime="2018-09-11T04:53:38+08:00">2018-09-11</time>
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>606</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>1 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+        <h1 id="ubuntu16-04配置vsftp服务器"><a href="#ubuntu16-04配置vsftp服务器" class="headerlink" title="ubuntu16.04配置vsftp服务器"></a>ubuntu16.04配置vsftp服务器</h1><h2 id="安装vsftpd"><a href="#安装vsftpd" class="headerlink" title="安装vsftpd"></a>安装vsftpd</h2><ul>
+<li><p>安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install vsftpd</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置 /etc/vsftp.conf</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 允许匿名用户和本地用户登录，本地用户即/etc/passwd中的用户</span></span><br><span class="line">anonymous_enable=YES</span><br><span class="line">local_enable=YES</span><br><span class="line"></span><br><span class="line"><span class="comment"># 禁止全局写命令</span></span><br><span class="line">write_enable=YES</span><br><span class="line"></span><br><span class="line"><span class="comment"># 禁止匿名用户上传和创建文件夹</span></span><br><span class="line">anon_upload_enable=NO</span><br><span class="line">anon_mkdir_write_enable=NO</span><br><span class="line"></span><br><span class="line"><span class="comment"># 只允许userlist的用户登录</span></span><br><span class="line">userlist_enable=YES</span><br><span class="line">userlist_deny=NO</span><br><span class="line">userlist_file=/etc/vsftpd.user_list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意：使用了vsftpd.user_list后，要在其中加入anonymous才能使用匿名用户登录，如以下内容，表示只有匿名用户和名为ftp的用户，以及本地用户ubuntu可以登录</span></span><br><span class="line">anonymous</span><br><span class="line">ftp</span><br><span class="line">ubuntu</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建/etc/vsftpd.user_list文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ubuntu</span><br><span class="line">root</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><ul>
+<li><p>启动、重启、关闭</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/vsftpd start</span><br><span class="line">sudo /etc/init.d/vsftpd stop</span><br><span class="line">sudo /etc/init.d/vsftpd restart</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 
-  
-  
+    </div>
 
-  
     
-    <div class="collection-year">
-      <h1 class="collection-header">2019</h1>
-    </div>
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
+    
+    
         
-          <a class="post-title-link" href="/2019/04/02/qemu/" itemprop="url">
-            <span itemprop="name">qemu虚拟机的安装</span>
-          </a>
+      
+
+      <footer class="post-footer">
+
         
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-04-02T00:00:00+08:00"
-              content="2019-04-02">
-          04-02
-        </time>
-      </div>
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2018/09/11/zsh/" rel="next" title="">
+                  <i class="fa fa-chevron-left"></i> 
+                </a>
+              
+            </div>
 
-    </header>
-  </article>
+            <span class="post-nav-divider"></span>
 
-
-
-    </div>
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2018/09/11/ss_err/" rel="prev" title="">
+                   <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
   </div>
   
   
   
+  </article>
 
-  
-
+  </div>
 
 
           </div>
@@ -300,6 +357,11 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -312,6 +374,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ubuntu16-04配置vsftp服务器"><span class="nav-number">1.</span> <span class="nav-text">ubuntu16.04配置vsftp服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装vsftpd"><span class="nav-number">1.1.</span> <span class="nav-text">安装vsftpd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本操作"><span class="nav-number">1.2.</span> <span class="nav-text">基本操作</span></a></li></ol></li></ol></div>
+        
       </div>
       <!--/noindex-->
 
