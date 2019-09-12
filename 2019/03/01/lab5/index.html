@@ -55,13 +55,13 @@
   };
 </script>
 
-  <meta name="description" content="实验五-文件系统 实验报告 孙汉武    16281047    安全1601  实验源码链接:https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab5 pdf下载 一 概要设计$\qquad$本次的实验的实验目的是在模拟的I/O系统中开发一个简单的文件系统，并且提供一些借口给用户用于交互，从实验">
+  <meta name="description" content="实验五-文件系统 实验报告 孙汉武    16281047    安全1601   实验源码链接:https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab5 pdf下载 一 概要设计$\qquad$本次的实验的实验目的是在模拟的I/O系统中开发一个简单的文件系统，并且提供一些借口给用户用于交互，从实">
 <meta name="keywords" content="操作系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="文件系统实验">
-<meta property="og:url" content="http://yoursite.com/2019/09/12/lab5/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/03/01/lab5/index.html">
 <meta property="og:site_name" content="SunPages">
-<meta property="og:description" content="实验五-文件系统 实验报告 孙汉武    16281047    安全1601  实验源码链接:https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab5 pdf下载 一 概要设计$\qquad$本次的实验的实验目的是在模拟的I/O系统中开发一个简单的文件系统，并且提供一些借口给用户用于交互，从实验">
+<meta property="og:description" content="实验五-文件系统 实验报告 孙汉武    16281047    安全1601   实验源码链接:https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab5 pdf下载 一 概要设计$\qquad$本次的实验的实验目的是在模拟的I/O系统中开发一个简单的文件系统，并且提供一些借口给用户用于交互，从实">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-06-14-082923.jpg">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-06-14-090054.jpg">
@@ -84,12 +84,12 @@
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-06-14-155027.jpg">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-06-14-155232.jpg">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-06-14-155252.jpg">
-<meta property="og:updated_time" content="2019-09-12T07:53:40.411Z">
+<meta property="og:updated_time" content="2019-09-12T09:34:38.954Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="文件系统实验">
-<meta name="twitter:description" content="实验五-文件系统 实验报告 孙汉武    16281047    安全1601  实验源码链接:https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab5 pdf下载 一 概要设计$\qquad$本次的实验的实验目的是在模拟的I/O系统中开发一个简单的文件系统，并且提供一些借口给用户用于交互，从实验">
+<meta name="twitter:description" content="实验五-文件系统 实验报告 孙汉武    16281047    安全1601   实验源码链接:https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab5 pdf下载 一 概要设计$\qquad$本次的实验的实验目的是在模拟的I/O系统中开发一个简单的文件系统，并且提供一些借口给用户用于交互，从实">
 <meta name="twitter:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-06-14-082923.jpg">
-  <link rel="canonical" href="http://yoursite.com/2019/09/12/lab5/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/01/lab5/">
 
 
 <script id="page-configurations">
@@ -240,7 +240,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/12/lab5/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/01/lab5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="sunhanwu">
@@ -268,7 +268,32 @@
                 
               
 
-              <time title="创建时间：2019-09-12 15:53:40" itemprop="dateCreated datePublished" datetime="2019-09-12T15:53:40+08:00">2019-09-12</time>
+              <time title="创建时间：2019-03-01 20:10:33" itemprop="dateCreated datePublished" datetime="2019-03-01T20:10:33+08:00">2019-03-01</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-12 17:34:38" itemprop="dateModified" datetime="2019-09-12T17:34:38+08:00">2019-09-12</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/操作系统实验/" itemprop="url" rel="index"><span itemprop="name">操作系统实验</span></a></span>
+
+                
+                
+              
             </span>
           
 
@@ -306,6 +331,7 @@
       
         <h1 id="实验五-文件系统-实验报告"><a href="#实验五-文件系统-实验报告" class="headerlink" title="实验五-文件系统 实验报告"></a><center>实验五-文件系统 实验报告</center></h1><blockquote>
 <center>孙汉武    16281047    安全1601</center>
+
 </blockquote>
 <p><a href="https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab5" target="_blank" rel="noopener">实验源码链接:https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab5</a></p>
 <p><a href="https://github.com/sunhanwu/16281047_OperatingSystemExperiment/raw/master/lab5/lab5.pdf" target="_blank" rel="noopener">pdf下载</a></p>
@@ -320,174 +346,198 @@
 <ul>
 <li>磁盘初始化</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">函数名</th>
-<th align="center">参数</th>
-<th align="center">返回值</th>
-<th align="center">功能</th>
+<th style="text-align:center">函数名</th>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">返回值</th>
+<th style="text-align:center">功能</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">InitDisk()</td>
-<td align="center">无</td>
-<td align="center">无</td>
-<td align="center">初始化磁盘数组</td>
+<tbody>
+<tr>
+<td style="text-align:center">InitDisk()</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">初始化磁盘数组</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <ul>
 <li>磁盘搜索 </li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">函数名</th>
-<th align="center">参数</th>
-<th align="center">返回值</th>
-<th align="center">功能</th>
+<th style="text-align:center">函数名</th>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">返回值</th>
+<th style="text-align:center">功能</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">SearchBitMap</td>
-<td align="center">无</td>
-<td align="center">空闲磁盘块号</td>
-<td align="center">搜索并返回最小的空闲磁盘块号</td>
+<tbody>
+<tr>
+<td style="text-align:center">SearchBitMap</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">空闲磁盘块号</td>
+<td style="text-align:center">搜索并返回最小的空闲磁盘块号</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <ul>
 <li>磁盘读写</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">函数名</th>
-<th align="center">参数</th>
-<th align="center">返回值</th>
-<th align="center">功能</th>
+<th style="text-align:center">函数名</th>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">返回值</th>
+<th style="text-align:center">功能</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">ReadBlock</td>
-<td align="center">int i :指定读取的磁盘块号<br>char *p ：返回读取内容</td>
-<td align="center">无</td>
-<td align="center">读取指定磁盘块内容</td>
+<tbody>
+<tr>
+<td style="text-align:center">ReadBlock</td>
+<td style="text-align:center">int i :指定读取的磁盘块号<br>char *p ：返回读取内容</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">读取指定磁盘块内容</td>
 </tr>
 <tr>
-<td align="center">WriteBlock</td>
-<td align="center">int i：指定写入的磁盘块号<br>char *p:写入的内容</td>
-<td align="center">无</td>
-<td align="center">写入内容到指定磁盘块</td>
+<td style="text-align:center">WriteBlock</td>
+<td style="text-align:center">int i：指定写入的磁盘块号<br>char *p:写入的内容</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">写入内容到指定磁盘块</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <ul>
 <li>磁盘位图处理</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">函数名</th>
-<th align="center">参数</th>
-<th align="center">返回值</th>
-<th align="center">功能</th>
+<th style="text-align:center">函数名</th>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">返回值</th>
+<th style="text-align:center">功能</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">InitBitMap</td>
-<td align="center">无</td>
-<td align="center">无</td>
-<td align="center">初始化位图</td>
+<tbody>
+<tr>
+<td style="text-align:center">InitBitMap</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">初始化位图</td>
 </tr>
 <tr>
-<td align="center">ChangeBitMap</td>
-<td align="center">int i:要修改的磁盘块号<br>char p:修改的内容(Y/N)</td>
-<td align="center">无</td>
-<td align="center">修改位图每一位的值</td>
+<td style="text-align:center">ChangeBitMap</td>
+<td style="text-align:center">int i:要修改的磁盘块号<br>char p:修改的内容(Y/N)</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">修改位图每一位的值</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <ul>
 <li>磁盘与文件的转化</li>
 </ul>
 <p>$\qquad$由于是在内从中创建数组模拟物理磁盘，所以这种方式无法模拟物理磁盘断电不丢失信息的特性。为了满足这个要求，设计一下的函数用于将数组中的信息存储到文件中和文件中读取相关信息。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">函数名</th>
-<th align="center">参数</th>
-<th align="center">返回值</th>
-<th align="center">功能</th>
+<th style="text-align:center">函数名</th>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">返回值</th>
+<th style="text-align:center">功能</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">DiskToFile</td>
-<td align="center">char filename[]：文件名</td>
-<td align="center">无</td>
-<td align="center">将磁盘数组信息存储为文件</td>
+<tbody>
+<tr>
+<td style="text-align:center">DiskToFile</td>
+<td style="text-align:center">char filename[]：文件名</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">将磁盘数组信息存储为文件</td>
 </tr>
 <tr>
-<td align="center">FileToDsik</td>
-<td align="center">char filename[]:文件名</td>
-<td align="center">无</td>
-<td align="center">将文件读取到磁盘数组中</td>
+<td style="text-align:center">FileToDsik</td>
+<td style="text-align:center">char filename[]:文件名</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">将文件读取到磁盘数组中</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="1-2-文件系统设计"><a href="#1-2-文件系统设计" class="headerlink" title="1.2 文件系统设计"></a>1.2 文件系统设计</h3><p>$\qquad$在上一节设计的IO系统的基础上，进行文件系统的设计，文件系统设计时有两个很重要的概念，分别是文件描述符和目录项这两个数据结构的定以及在这个基础上进行的一系列操作。</p>
 <ol>
 <li>用户接口</li>
 </ol>
 <p>$\qquad$文件系统提供了一系列便于用户操作的接口，用于对文件系统中的文件进行增删改查，具体接口信息如下：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">函数名</th>
-<th align="center">参数</th>
-<th align="center">返回值</th>
-<th align="center">功能</th>
+<th style="text-align:center">函数名</th>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">返回值</th>
+<th style="text-align:center">功能</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">create</td>
-<td align="center">char filename[]</td>
-<td align="center">无</td>
-<td align="center">创建文件</td>
+<tbody>
+<tr>
+<td style="text-align:center">create</td>
+<td style="text-align:center">char filename[]</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">创建文件</td>
 </tr>
 <tr>
-<td align="center">destroy</td>
-<td align="center">char filename[]</td>
-<td align="center">无</td>
-<td align="center">删除文件</td>
+<td style="text-align:center">destroy</td>
+<td style="text-align:center">char filename[]</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">删除文件</td>
 </tr>
 <tr>
-<td align="center">open</td>
-<td align="center">char  filename[]</td>
-<td align="center">无</td>
-<td align="center">打开文件</td>
+<td style="text-align:center">open</td>
+<td style="text-align:center">char  filename[]</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">打开文件</td>
 </tr>
 <tr>
-<td align="center">close</td>
-<td align="center">char filename[]</td>
-<td align="center">无</td>
-<td align="center">关闭文件</td>
+<td style="text-align:center">close</td>
+<td style="text-align:center">char filename[]</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">关闭文件</td>
 </tr>
 <tr>
-<td align="center">read</td>
-<td align="center">index:文件描述符号<br>mem_area:读取的位置<br>count:读取的字节数</td>
-<td align="center">无</td>
-<td align="center">读取文件内容</td>
+<td style="text-align:center">read</td>
+<td style="text-align:center">index:文件描述符号<br>mem_area:读取的位置<br>count:读取的字节数</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">读取文件内容</td>
 </tr>
 <tr>
-<td align="center">write</td>
-<td align="center">index:文件描述符<br>mem_area:x写入的位置<br>count:写入字节数</td>
-<td align="center">无</td>
-<td align="center">向文件中写入信息</td>
+<td style="text-align:center">write</td>
+<td style="text-align:center">index:文件描述符<br>mem_area:x写入的位置<br>count:写入字节数</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">向文件中写入信息</td>
 </tr>
 <tr>
-<td align="center">lseek</td>
-<td align="center">index:文件描述符 号<br>pos:位置</td>
-<td align="center">无</td>
-<td align="center">移动文件读写指针</td>
+<td style="text-align:center">lseek</td>
+<td style="text-align:center">index:文件描述符 号<br>pos:位置</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">移动文件读写指针</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>$\qquad$文件系统提供的上述接口已经可以满足对文件系统的常规操作。上面的接口中提到的文件描述符在文件系统中是一个很重要的概念，每个文件都必须 通过一个文件描述符来表示 ，其文件长度信息 ，文件存储位置等常规 信息都存储在文件描述符中。</p>
 <p>$\qquad$为此我设计了一个结构体<code>FileDescriptor</code>用于表示文件描述符，并且将该结构体进行4字节对齐，方便后续以二进制形式存储在文件中。</p>
 <p>$\qquad$在文件系统中另外一个重要概念就是目录，因此定义一个结构体表示目录项，用于存储文件名和文件描述符号。</p>
@@ -502,92 +552,104 @@
 <ul>
 <li>文件系统初始化</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">函数名</th>
-<th align="center">参数</th>
-<th align="center">返回值</th>
-<th align="center">功能</th>
+<th style="text-align:center">函数名</th>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">返回值</th>
+<th style="text-align:center">功能</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">InitFileDescriptor</td>
-<td align="center">无</td>
-<td align="center">无</td>
-<td align="center">初始化文件描述符数组</td>
+<tbody>
+<tr>
+<td style="text-align:center">InitFileDescriptor</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">初始化文件描述符数组</td>
 </tr>
 <tr>
-<td align="center">InitMenu</td>
-<td align="center">无</td>
-<td align="center">无</td>
-<td align="center">初始化目录项数组</td>
+<td style="text-align:center">InitMenu</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">初始化目录项数组</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <ul>
 <li>文件系统用户接口(上面已经介绍过，不在赘述)</li>
 <li>文件系统搜索</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">函数名</th>
-<th align="center">参数</th>
-<th align="center">返回值</th>
-<th align="center">功能</th>
+<th style="text-align:center">函数名</th>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">返回值</th>
+<th style="text-align:center">功能</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">SearchFileDescriptor</td>
-<td align="center">无</td>
-<td align="center">无</td>
-<td align="center">搜索空闲的文件描述符</td>
+<tbody>
+<tr>
+<td style="text-align:center">SearchFileDescriptor</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">搜索空闲的文件描述符</td>
 </tr>
 <tr>
-<td align="center">SearchMenuItem</td>
-<td align="center">无</td>
-<td align="center">无</td>
-<td align="center">搜索空闲的目录项</td>
+<td style="text-align:center">SearchMenuItem</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">搜索空闲的目录项</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <ul>
 <li>其他</li>
 </ul>
 <p>$\qquad$这部分主要定义的是一些方便操作的函数，例如将文件描述符数组写入磁盘块中去，将目录系统写入磁盘块等等。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">函数名</th>
-<th align="center">参数</th>
-<th align="center">返回值</th>
-<th align="center">功能</th>
+<th style="text-align:center">函数名</th>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">返回值</th>
+<th style="text-align:center">功能</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">DiskToFileDescriptor</td>
-<td align="center">无</td>
-<td align="center">无</td>
-<td align="center">从磁盘块中恢复文件描述符数组</td>
+<tbody>
+<tr>
+<td style="text-align:center">DiskToFileDescriptor</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">从磁盘块中恢复文件描述符数组</td>
 </tr>
 <tr>
-<td align="center">FileDescriptorToDisk</td>
-<td align="center">无</td>
-<td align="center">无</td>
-<td align="center">将文件描述符数组信息写入磁盘块</td>
+<td style="text-align:center">FileDescriptorToDisk</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">将文件描述符数组信息写入磁盘块</td>
 </tr>
 <tr>
-<td align="center">MenuToFileDescriptor</td>
-<td align="center">无</td>
-<td align="center">无</td>
-<td align="center">将目录项数组写入第一个文件描述符</td>
+<td style="text-align:center">MenuToFileDescriptor</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">将目录项数组写入第一个文件描述符</td>
 </tr>
 <tr>
-<td align="center">FileDescriptorToMenu</td>
-<td align="center">无</td>
-<td align="center">无</td>
-<td align="center">将第一个文件描述符内容恢复到目录项数组</td>
+<td style="text-align:center">FileDescriptorToMenu</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">将第一个文件描述符内容恢复到目录项数组</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>$\qquad$到此，文件系统部分所有数据结构和函数均介绍完毕</p>
 <h3 id="1-3-菜单系统设计"><a href="#1-3-菜单系统设计" class="headerlink" title="1.3 菜单系统设计"></a>1.3 菜单系统设计</h3><p>$\qquad$完成IO系统的设计和文件系统的设计，需要对上述的功能设计一个外壳程序，即一个用户界面便于使用，总结文件系统的所有功能，设计的菜单驱动程序包含如下两层菜单。</p>
 <ol>
@@ -616,78 +678,77 @@
 </ol>
 <p>$\qquad$设计整个I/O系统的基础就是设计模拟磁盘块的结构体，并用结构体数组代表磁盘，通过定义三维的结构体数组来模拟出整个磁盘的物理结构，这三维分别代表柱面、磁头和扇区。下面是磁盘块(逻辑块)结构体的定义：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BLOCK</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> Content[<span class="number">512</span>]; <span class="comment">//逻辑块存储的内容</span></span><br><span class="line">    <span class="keyword">int</span> BlockNnum; <span class="comment">//逻辑块号</span></span><br><span class="line">    <span class="keyword">int</span> c; <span class="comment">// 柱面号</span></span><br><span class="line">    <span class="keyword">int</span> h; <span class="comment">//磁头号</span></span><br><span class="line">    <span class="keyword">int</span> b; <span class="comment">//扇区号</span></span><br><span class="line">&#125;BLOCK;</span><br></pre></td></tr></table></figure>
-
 <p>$\qquad$磁盘块结构体最重要的成员就是用于存储信息Content，这是一个字符型数组，大小为512个字节。而另外的逻辑块号，柱面号，磁头号和扇区号这四个成员是为了便于后续程序设计的。下面的表格详细表示每个成员的信息：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">成员名</th>
-<th align="center">类型</th>
-<th align="center">大小</th>
-<th align="center">作用</th>
+<th style="text-align:center">成员名</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">大小</th>
+<th style="text-align:center">作用</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">Content</td>
-<td align="center">字符数组</td>
-<td align="center">512字节</td>
-<td align="center">存储磁盘块内容</td>
+<tbody>
+<tr>
+<td style="text-align:center">Content</td>
+<td style="text-align:center">字符数组</td>
+<td style="text-align:center">512字节</td>
+<td style="text-align:center">存储磁盘块内容</td>
 </tr>
 <tr>
-<td align="center">BlockNum</td>
-<td align="center">整型</td>
-<td align="center">4字节</td>
-<td align="center">磁盘块的逻辑块号</td>
+<td style="text-align:center">BlockNum</td>
+<td style="text-align:center">整型</td>
+<td style="text-align:center">4字节</td>
+<td style="text-align:center">磁盘块的逻辑块号</td>
 </tr>
 <tr>
-<td align="center">c</td>
-<td align="center">整型</td>
-<td align="center">4字节</td>
-<td align="center">柱面号</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">整型</td>
+<td style="text-align:center">4字节</td>
+<td style="text-align:center">柱面号</td>
 </tr>
 <tr>
-<td align="center">h</td>
-<td align="center">整型</td>
-<td align="center">4字节</td>
-<td align="center">磁头号</td>
+<td style="text-align:center">h</td>
+<td style="text-align:center">整型</td>
+<td style="text-align:center">4字节</td>
+<td style="text-align:center">磁头号</td>
 </tr>
 <tr>
-<td align="center">b</td>
-<td align="center">整型</td>
-<td align="center">4字节</td>
-<td align="center">扇区号</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">整型</td>
+<td style="text-align:center">4字节</td>
+<td style="text-align:center">扇区号</td>
 </tr>
-</tbody></table>
-<ol start="2">
+</tbody>
+</table>
+</div>
+<ol>
 <li>物理磁盘(BLOCK数组)</li>
 </ol>
 <p>$\qquad$磁盘块结构体定义好之后，可以模拟出一个磁盘块，但是完整的磁盘是一个三维的磁盘块结构体数组构成的。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> C 10 <span class="comment">// 柱面号</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> H 10 <span class="comment">//磁头号</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> B 10 <span class="comment">//扇区号</span></span></span><br><span class="line">BLOCK ldisk[C][H][B];<span class="comment">//磁盘模型</span></span><br></pre></td></tr></table></figure>
-
 <p>$\qquad$在<code>IO.h</code>直接定义ldisk数组，模拟物理磁盘。并且通过宏定义C、H和B三个量调整物理磁盘的大小。</p>
-<ol start="3">
+<ol>
 <li>磁盘初始化函数</li>
 </ol>
 <p>$\qquad$在模拟物理磁盘的三维结构体数组定义好之后，需要对该数组进行初始化，对数组中的每个元素，即每个磁盘块进行初始化。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitDisk</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;C;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;H;j++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;B;k++)</span><br><span class="line">            &#123;</span><br><span class="line">                ldisk[i][j][k].c=i;</span><br><span class="line">                ldisk[i][j][k].h=j;</span><br><span class="line">                ldisk[i][j][k].b=k;</span><br><span class="line">                ldisk[i][j][k].BlockNnum=DiskNumToBlock(i,j,k);<span class="comment">//计算对应的逻辑块号</span></span><br><span class="line">            &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>$\qquad$可以看到对磁盘块数组进行初始化的方式非常简单，主要包含两个工作，一个就是顺序编号其柱面号、磁头号和扇区号；还有一个功能就是计算逻辑块号</p>
 <h3 id="2-2-磁盘读写"><a href="#2-2-磁盘读写" class="headerlink" title="2.2 磁盘读写"></a>2.2 磁盘读写</h3><p>$\qquad$说道磁盘系统的API函数，最重要的两个函数就是对磁盘块进行读写操作的两个函数。下面分别介绍这个两个函数的详细内容。</p>
 <ol>
 <li>读磁盘块函数：<code>ReadBlock(int i,char *p):</code></li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ReadBlock</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">char</span> *p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> c,h,b;<span class="comment">//磁盘的柱面 磁道 扇区</span></span><br><span class="line">    c = i % (H*B);<span class="comment">//</span></span><br><span class="line">    h = (i -c*H*B) % B;<span class="comment">//</span></span><br><span class="line">    b = i-c*H*B - h*B;<span class="comment">//</span></span><br><span class="line">    <span class="built_in">memcpy</span>(p,ldisk[c][h][b].Content,<span class="number">512</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>$\qquad$3-6行计算逻辑号为i的逻辑块在磁盘系统中的柱面号、磁头号和扇区号；</p>
 <p>$\qquad$第7行可以看作此函数的核心操作，完成的工作就是将制定磁盘块中的内容通过<code>memcpy</code>函数复制到字符型指针p中去。</p>
 <blockquote>
 <p>注意：这里不能使用strcpy函数复制字符串，因为strcpy函数在复制的时候会遇到第一个\0就会停止复制，但是磁盘块中存储的信息可能不是连续的字符串，可能是一些其他信息，例如文件描述符等，这个时候就会碰到一些空位置用\0补充，但是后面还有有用的信息，所以使用memcp函数，按照指定字节数复制，而不考虑\0的问题</p>
 </blockquote>
-<ol start="2">
+<ol>
 <li>写磁盘块函数：<code>WriteBlock(int i,char *p):</code></li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">WriteBlock</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">char</span> *p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> c,h,b;</span><br><span class="line">    b = i % B;</span><br><span class="line">    h = ((i - b) / B) % H;</span><br><span class="line">    c = (i -b -h*B) / (H*B);</span><br><span class="line">    b = i -c*H*B -h*B ;</span><br><span class="line">    <span class="built_in">memcpy</span>(ldisk[c][h][b].Content,p,<span class="number">512</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>$\qquad$3-6行操作与上面相似，就是计算柱面号、磁头号和扇区号这三个参数</p>
 <p>$\qquad$8第8行主要用于将参数p指针中的内容复制到磁盘块中</p>
 <h3 id="2-3-磁盘位图"><a href="#2-3-磁盘位图" class="headerlink" title="2.3 磁盘位图"></a>2.3 磁盘位图</h3><p>$\qquad$为了方便查询磁盘中的空闲磁盘块，直接遍历查询的效率非常低，所以本实验中采用了位图的方式来表示磁盘块的占用与否，一个字符表示一个磁盘块的占用与否，其中Y表示占用，N表示空闲。而位图编号就是磁盘块的逻辑块号数。</p>
@@ -695,35 +756,30 @@
 <li>初始化磁盘位图函数：<code>InitBitMap(void)：</code></li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitBitMap</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//第0，1号磁盘已经被占用</span></span><br><span class="line">    ChangeBitMap(<span class="number">0</span>,<span class="string">'Y'</span>);</span><br><span class="line">    ChangeBitMap(<span class="number">1</span>,<span class="string">'Y'</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;C*H*B;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ChangeBitMap(i,<span class="string">'N'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>$\qquad$可以看到初始化函数中将磁盘块数量(C*B*H)个单位的字符修改为N，表示为占用。4-5两行表示第一块和第二块物理磁盘初始化就被占用，因为这两块物理磁盘用于存储位图。</p>
-<ol start="2">
+<ol>
 <li>修改位图函数：<code>ChangeBitMap(int i,char p):</code></li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ChangeBitMap</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">char</span> p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i &lt;<span class="number">512</span>)</span><br><span class="line">        ldisk[<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>].Content[i] = p;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        ldisk[<span class="number">0</span>][<span class="number">0</span>][<span class="number">1</span>].Content[i<span class="number">-512</span>] = p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>$\qquad$这个函数使用一个if结构判断逻辑块号，如果大于512的话存入 第二个磁盘块中，否则存入第一个磁盘块中。</p>
 <h3 id="2-4-磁盘文件的存取"><a href="#2-4-磁盘文件的存取" class="headerlink" title="2.4 磁盘文件的存取"></a>2.4 磁盘文件的存取</h3><p>$\qquad$在内存中定义的磁盘块结构体数组无法满足断电后信息还能保存的特性，因此需要内存中的磁盘块数组中的信息保存到文件中去，需要的时候再加载出来。</p>
 <ol>
 <li>将磁盘数组保存为文件：<code>DiskToFile(char filename[])：</code></li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DiskToFile</span><span class="params">(<span class="keyword">char</span> filename[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//    FileDescriptorToDisk();</span></span><br><span class="line">    FILE *fp;</span><br><span class="line">    fp = fopen(filename,<span class="string">"wb"</span>);</span><br><span class="line">    <span class="comment">//判断fp打开成功</span></span><br><span class="line">    <span class="keyword">if</span> (fp ==<span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"File Open Fail"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 循环遍历，将磁盘块内容写入二进制文件中去</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;C;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;H;j++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;B;k++)</span><br><span class="line">                <span class="comment">//以二进制的形式写入二进制文件中</span></span><br><span class="line">                fwrite(ldisk[i][j][k].Content,<span class="number">512</span>,<span class="number">1</span>,fp);</span><br><span class="line">    fclose(fp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>$\qquad$3-5行以二进制写入形式打开指定文件名的文件</p>
 <p>$\qquad$7-11行判断文件是否打开成功，没打开成功的话输出错误信息并退出程序</p>
 <p>$\qquad$13-17行，遍历磁盘数组，以二进制的形式将磁盘块中存储的内容写入到文件中去。最后关闭文件</p>
-<ol start="2">
+<ol>
 <li>加载文件到磁盘块数组：<code>FileToDisk(char filename[])：</code></li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从文件中读取数据，恢复磁盘系统</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FileToDisk</span><span class="params">(<span class="keyword">char</span> filename[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">     FILE *fp;</span><br><span class="line">     fp = fopen(filename,<span class="string">"rb"</span>);</span><br><span class="line">     <span class="keyword">if</span>(fp == <span class="literal">NULL</span>)</span><br><span class="line">     &#123;</span><br><span class="line">         <span class="built_in">printf</span>(<span class="string">"File Open Fail"</span>);</span><br><span class="line">         <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">     <span class="keyword">while</span>(!feof(fp))</span><br><span class="line">     &#123;</span><br><span class="line">         <span class="keyword">int</span> c,h,b;</span><br><span class="line">         b = index % B;</span><br><span class="line">         h = ((index - b) / B) % H;</span><br><span class="line">         c = (index -b -h*B) / (H*B);</span><br><span class="line">         b = index -c*H*B -h*B ;</span><br><span class="line">         fread(ldisk[c][h][b].Content,<span class="number">512</span>,<span class="number">1</span>,fp);</span><br><span class="line">         ldisk[c][h][b].c = c;</span><br><span class="line">         ldisk[c][h][b].h = h;</span><br><span class="line">         ldisk[c][h][b].b = b;</span><br><span class="line">         index++;</span><br><span class="line">     &#125;</span><br><span class="line">     fclose(fp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>$\qquad$这段程序除了打开文件等常规操作之外，核心的代码是while循环中的，首先计算逻辑号为index的逻辑块的柱面号、磁头号和扇区号；之后每次读取512字节数据到对应磁盘块数组中的磁盘块中去。</p>
 <h3 id="2-5-空闲磁盘块搜索"><a href="#2-5-空闲磁盘块搜索" class="headerlink" title="2.5 空闲磁盘块搜索"></a>2.5 空闲磁盘块搜索</h3><p>$\qquad$2.3节中定义了位图，用于存储磁块的空闲状态，所以当需要使用磁盘块的时候 ，需要查询位图找到一个空闲磁盘块号返回。</p>
 <ol>
 <li>空闲磁盘块搜索函数：`SearchBitMap(void)：</li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//搜索位图，找到空闲磁盘块号</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">SearchBitMap</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">14</span>;i&lt;C*H*B;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(i&lt;<span class="number">512</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(ldisk[<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>].Content[i]==<span class="string">'N'</span>)</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(ldisk[<span class="number">0</span>][<span class="number">0</span>][<span class="number">1</span>].Content[i<span class="number">-512</span>]==<span class="string">'N'</span>)</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p> $\qquad$本函数的实现方式就是通过遍位图知道找到一个空闲的磁盘块。不过由于所有的位图 信息并不是全部存储在一个磁盘块中，而是两个磁盘块，所以在遍历的时候需要判断在哪个磁盘块。</p>
 <h2 id="三-文件系统"><a href="#三-文件系统" class="headerlink" title="三 文件系统"></a>三 文件系统</h2><blockquote>
 <p>文件系统全部代码存储在FS.h文件中</p>
@@ -734,155 +790,148 @@
 </li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(4)</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">FileDescriptor</span> //此文件描述符总共占据磁盘24字节</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> Length;<span class="comment">//文件长度</span></span><br><span class="line">    <span class="keyword">int</span> DiskNum[DiskNumLen]; <span class="comment">//第二个3只是表示每个磁盘块好最大长度是3位</span></span><br><span class="line">    <span class="keyword">int</span> Num; <span class="comment">//文件描述符号</span></span><br><span class="line">    <span class="keyword">char</span> IsFree; <span class="comment">//表示此文件描述符是否空闲</span></span><br><span class="line">&#125;FileDescriptor;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(pop)</span></span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>在这个结构体定义有一个特别的地方需要注意，就是使用了4字节对齐机制，因为后来这些结构体需要存储到字符型数组中，如果不采用对齐的话可能会导致不同结构体的长度不同，读取的时候就没办法读取.</p>
 </blockquote>
 <p>$\qquad$下面是该结构体各个成员的详细解释：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">成员名</th>
-<th align="center">类型</th>
-<th align="center">大小</th>
-<th align="center">作用</th>
+<th style="text-align:center">成员名</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">大小</th>
+<th style="text-align:center">作用</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">Length</td>
-<td align="center">整型</td>
-<td align="center">4字节</td>
-<td align="center">存储文件大小</td>
+<tbody>
+<tr>
+<td style="text-align:center">Length</td>
+<td style="text-align:center">整型</td>
+<td style="text-align:center">4字节</td>
+<td style="text-align:center">存储文件大小</td>
 </tr>
 <tr>
-<td align="center">DiskNum</td>
-<td align="center">整型数组</td>
-<td align="center">12字节</td>
-<td align="center">存储文件内容的磁盘块好数组</td>
+<td style="text-align:center">DiskNum</td>
+<td style="text-align:center">整型数组</td>
+<td style="text-align:center">12字节</td>
+<td style="text-align:center">存储文件内容的磁盘块好数组</td>
 </tr>
 <tr>
-<td align="center">Num</td>
-<td align="center">整型</td>
-<td align="center">4字节</td>
-<td align="center">文件描述符号</td>
+<td style="text-align:center">Num</td>
+<td style="text-align:center">整型</td>
+<td style="text-align:center">4字节</td>
+<td style="text-align:center">文件描述符号</td>
 </tr>
 <tr>
-<td align="center">IsFree</td>
-<td align="center">字符型</td>
-<td align="center">4字节(对齐后)</td>
-<td align="center">表示当前描述符时候空闲</td>
+<td style="text-align:center">IsFree</td>
+<td style="text-align:center">字符型</td>
+<td style="text-align:center">4字节(对齐后)</td>
+<td style="text-align:center">表示当前描述符时候空闲</td>
 </tr>
-</tbody></table>
-<ol start="2">
+</tbody>
+</table>
+</div>
+<ol>
 <li>目录项结构体定义</li>
 </ol>
 <p>$\qquad$目录是文件系统必不可缺的组成部分，本实验中通过目录项数组组成一个目录，而每个目录项由文件名和文件描述符号组成。下面是目录项结构体定义：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(4)</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">MenuItem</span> //目录对应0号文件描述符,一个目录项占据16字节，所以一个文件描述符可以存储96个文件</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> FileName[<span class="number">12</span>]; <span class="comment">//目录项中文件名的最大长度为16字节</span></span><br><span class="line">    <span class="keyword">int</span> FileDescriptorNum;<span class="comment">//文件描述符号</span></span><br><span class="line">&#125;MenuItem;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(pop)</span></span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>同样目录项结构体也是经过4字节对齐的，作用与上面的文件描述符结构体相似</p>
 </blockquote>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">成员名</th>
-<th align="center">类型</th>
-<th align="center">大小</th>
-<th align="center">作用</th>
+<th style="text-align:center">成员名</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">大小</th>
+<th style="text-align:center">作用</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">FileName</td>
-<td align="center">字符型数组</td>
-<td align="center">12字节</td>
-<td align="center">存储文件名</td>
+<tbody>
+<tr>
+<td style="text-align:center">FileName</td>
+<td style="text-align:center">字符型数组</td>
+<td style="text-align:center">12字节</td>
+<td style="text-align:center">存储文件名</td>
 </tr>
 <tr>
-<td align="center">FileDescriptorNum</td>
-<td align="center">整型</td>
-<td align="center">4字节</td>
-<td align="center">文件描述符号</td>
+<td style="text-align:center">FileDescriptorNum</td>
+<td style="text-align:center">整型</td>
+<td style="text-align:center">4字节</td>
+<td style="text-align:center">文件描述符号</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="3-2-文件系统初始化"><a href="#3-2-文件系统初始化" class="headerlink" title="3.2 文件系统初始化"></a>3.2 文件系统初始化</h3><p>$\qquad$文件系统的初始化包括对文件描述符数组的初始化和目录项数组的初始化，和IO系统中的磁盘数组初始化一样，文件系统的初始化也就是对这两个数组进行一些编号操作等基本操作。</p>
 <ol>
 <li>文件描述符初始化：<code>InitFileDescriptor(void):</code></li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitFileDescriptor</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">256</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">int</span>  DiskNum[<span class="number">3</span>]; <span class="comment">//磁盘号数组</span></span><br><span class="line">      DiskNum[<span class="number">0</span>] = i;</span><br><span class="line">      DiskNum[<span class="number">1</span>] = <span class="number">-1</span>;</span><br><span class="line">      DiskNum[<span class="number">2</span>] = <span class="number">-1</span>;</span><br><span class="line">      <span class="keyword">int</span> FileDescriptorNum = i; <span class="comment">//文件描述符号</span></span><br><span class="line">      ChangeFileDescriptor(&amp;filedescriptor[i],<span class="number">0</span>,DiskNum,FileDescriptorNum,<span class="string">'Y'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    filedescriptor[<span class="number">0</span>].IsFree = <span class="string">'N'</span>;</span><br><span class="line">    FileDescriptorToDisk();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>$\qquad$首先遍历整个文件描述符数组，进行编号并且初始化的时候文件描述符对应的三个磁盘块只分配一个。</p>
-<ol start="2">
+<ol>
 <li>目录项初始化</li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitMenu</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">32</span>;i++)</span><br><span class="line">        menuitem[i].FileDescriptorNum = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h3 id="3-3-文件系统用户接口"><a href="#3-3-文件系统用户接口" class="headerlink" title="3.3 文件系统用户接口"></a>3.3 文件系统用户接口</h3><ol>
 <li>创建文件：<code>create(char filename[]):</code></li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//下面是文件系统与用户直接的接口</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">create</span><span class="params">(<span class="keyword">char</span> filename[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> FileDescriptorNum,MenuItemNum,DiskNum;</span><br><span class="line">    <span class="comment">//寻找空闲目录项</span></span><br><span class="line">    MenuItemNum = SearchMenuItem();</span><br><span class="line">    <span class="built_in">strcpy</span>(menuitem[MenuItemNum].FileName,filename);</span><br><span class="line">    <span class="comment">//寻找空闲文件描述符</span></span><br><span class="line">    FileDescriptorNum = SearchFileDescriptor();</span><br><span class="line">    menuitem[MenuItemNum].FileDescriptorNum = FileDescriptorNum;</span><br><span class="line">    <span class="comment">//寻找空闲磁盘块</span></span><br><span class="line">    DiskNum = SearchBitMap();</span><br><span class="line">    filedescriptor[FileDescriptorNum].DiskNum[<span class="number">0</span>] = DiskNum;</span><br><span class="line">    filedescriptor[FileDescriptorNum].IsFree = <span class="string">'N'</span>;</span><br><span class="line">    <span class="comment">//修改磁盘位图</span></span><br><span class="line">    ChangeBitMap(DiskNum,<span class="string">'Y'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>$\qquad$创建一个新的文件的时候，首先需要搜索一个空闲的目录项，将文件名存储在目录项中，然后在搜索一个空闲的描述符，分配该文件描述符给他文件，在搜索 一个空闲的磁盘块，将该磁盘块存储在文件描述符中。最后修改文件描述符状态和位图对应磁盘块的状态为占用。</p>
-<ol start="2">
+<ol>
 <li>删除文件：<code>destroy(char filename[])：</code></li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">destroy</span><span class="params">(<span class="keyword">char</span> filename[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> MenuItemNum=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">32</span>;i++)</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">strcmp</span>(menuitem[i].FileName,filename)==<span class="number">0</span>)</span><br><span class="line">            MenuItemNum = i;</span><br><span class="line">    <span class="keyword">if</span>(MenuItemNum==<span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"目录中没有此文件！\n"</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> FileDesCriptorNum = menuitem[MenuItemNum].FileDescriptorNum;</span><br><span class="line">    <span class="comment">//将目录项重置,重置时只需要将文件名删除，而不需要重置文件描述符，因为前面判断文件是否存在的条件是文件名是否存在</span></span><br><span class="line">    <span class="built_in">memset</span>(menuitem[MenuItemNum].FileName,<span class="number">0</span>, <span class="keyword">sizeof</span>(menuitem[MenuItemNum].FileName));</span><br><span class="line">    <span class="comment">//修改文件描述符为空闲状态</span></span><br><span class="line">    filedescriptor[FileDesCriptorNum].IsFree = <span class="string">'Y'</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(filedescriptor[FileDesCriptorNum].DiskNum[i]!=<span class="number">-1</span>)</span><br><span class="line">        ChangeBitMap(filedescriptor[FileDesCriptorNum].DiskNum[i],<span class="string">'N'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>$\qquad$根据文件名在目录项数组中搜索对应的目录项，删除文件名，再找到目录项后读取该文件对应的文件描述符号，修改文件描述符状态为空闲；再讲文件描述符中记录的所有磁盘块状态全部改为空闲。</p>
-<ol start="3">
+<ol>
 <li>打开文件：<code>open(char filename[])</code></li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">open</span><span class="params">(<span class="keyword">char</span> filename[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> MenuItemNum=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">32</span>;i++)</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">strcmp</span>(menuitem[i].FileName,filename)==<span class="number">0</span>)</span><br><span class="line">            MenuItemNum = i;</span><br><span class="line">    <span class="keyword">if</span>(MenuItemNum==<span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"目录中没有此文件！\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="comment">//返回文件描述符号</span></span><br><span class="line">        <span class="keyword">return</span> menuitem[MenuItemNum].FileDescriptorNum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>$\qquad$这个函数通过遍历目录项数组，找到文件名符合的目录项，读取其文件描述符号返回，没有找到的话打印错误信息并返回-1</p>
-<ol start="4">
+<ol>
 <li>读取文件：<code>read(int index,int mem_area,int count)：</code></li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">read</span><span class="params">(<span class="keyword">int</span> index,<span class="keyword">int</span> mem_area,<span class="keyword">int</span> count)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">char</span> *temp;</span><br><span class="line">   <span class="keyword">char</span> block[<span class="number">512</span>];</span><br><span class="line">   temp = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>(count* <span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line">   ReadBlock(filedescriptor[index].DiskNum[<span class="number">0</span>],block);</span><br><span class="line">   <span class="built_in">memcpy</span>(temp,&amp;block[mem_area],count);</span><br><span class="line">   <span class="keyword">return</span> temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>$\qquad$读取文件内容函数首先找到文件描述符中的磁盘号，然后调用IO系统提供的读取磁盘块的接口读取该磁盘块，读取后按照要求取对应位置指定长度的数据返回。</p>
-<ol start="5">
+<ol>
 <li>写文件：<code>write(int index,int mem_area,int count,char content[])：</code></li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">int</span> index,<span class="keyword">int</span> mem_area,<span class="keyword">int</span> count,<span class="keyword">char</span> content[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> temp[<span class="number">512</span>];</span><br><span class="line">    <span class="keyword">char</span> *s1=(<span class="keyword">char</span>*)<span class="built_in">malloc</span>(mem_area* <span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line">    <span class="keyword">char</span> *s2=(<span class="keyword">char</span>*)<span class="built_in">malloc</span>(mem_area* <span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line">    <span class="keyword">char</span> *s;</span><br><span class="line">    <span class="keyword">int</span> DiskNum = filedescriptor[index].DiskNum[<span class="number">0</span>];</span><br><span class="line">    ReadBlock(DiskNum,temp);</span><br><span class="line">    <span class="built_in">memcpy</span>(s1,temp,mem_area);</span><br><span class="line">    <span class="built_in">memcpy</span>(s2,&amp;temp[mem_area],<span class="number">512</span>-mem_area);</span><br><span class="line">    s = <span class="built_in">strcat</span>(s1,content);</span><br><span class="line">    s = <span class="built_in">strcat</span>(s,s2);</span><br><span class="line">    filedescriptor[index].Length = <span class="built_in">strlen</span>(s);</span><br><span class="line">    WriteBlock(DiskNum,s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>$\qquad$写文件的时候需要考虑可能是在原来文件的基础上，在某段插入一些内容，所以用s1字符指针保存mem_area之前的信息，s2保存mem_area之后的信息，加入要加入的内容后在连接成为一个完整的字符数组，最后调用IO系统提供的写入磁盘块接口写入 对应磁盘块。</p>
 <h3 id="3-4-搜索文件系统"><a href="#3-4-搜索文件系统" class="headerlink" title="3.4 搜索文件系统"></a>3.4 搜索文件系统</h3><p>$\qquad$上面文件系统的用户接口中 很多地方用到了搜索文件描述符、搜索目录项等操作，所以需要单独写几个函数用于搜索文件描述符和目录项等结构。</p>
 <ol>
 <li>搜索空闲文件描述符:<code>SearchFileDescriptor():</code></li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">SearchFileDescriptor</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">256</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(filedescriptor[i].IsFree == <span class="string">'Y'</span>)</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>$\qquad$遍历文件描述符数组，找到空闲的文件描述符号返回</p>
-<ol start="2">
+<ol>
 <li>搜索空闲目录项：<code>SearchMenuItem()：</code></li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">SearchMenuItem</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">32</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">strlen</span>(menuitem[i].FileName)==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>$\qquad$遍历所有的目录项数组，知道找到空闲的目录项返回目录项号</p>
 <h3 id="3-5-其它文件系统函数"><a href="#3-5-其它文件系统函数" class="headerlink" title="3.5 其它文件系统函数"></a>3.5 其它文件系统函数</h3><p>$\qquad$除了上面介绍的文件操作之外，还需一些函数，例如将文件描述符写入到磁盘中去，将目录项数组写入到第一个文件描述符对应的磁盘中；从磁盘中恢复文件描述符数组，恢复目录项数组。</p>
 <ol>
 <li>将文件描述符数组写入磁盘：<code>FileDescriptorToDisk(void)：</code></li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将文件描述符写入磁盘中</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FileDescriptorToDisk</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> temp_block[<span class="number">512</span>];</span><br><span class="line">    <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> DiskNumIndex = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">256</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">char</span> temp_descriptor[<span class="number">24</span>];</span><br><span class="line">        <span class="built_in">memcpy</span>(temp_descriptor,&amp;filedescriptor[i], <span class="keyword">sizeof</span>(FileDescriptor));</span><br><span class="line">        <span class="built_in">memcpy</span>(&amp;temp_block[index*<span class="number">24</span>],temp_descriptor,<span class="number">24</span>);</span><br><span class="line">        index++;</span><br><span class="line">        <span class="keyword">int</span> t = index % <span class="number">21</span>;</span><br><span class="line">        <span class="keyword">if</span>(t == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            index = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span>(DiskNumIndex&lt;<span class="number">10</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">memcpy</span>(ldisk[<span class="number">0</span>][<span class="number">0</span>][DiskNumIndex].Content,temp_block,<span class="number">512</span>);</span><br><span class="line">                ChangeBitMap(DiskNumIndex,<span class="string">'Y'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">memcpy</span>(ldisk[<span class="number">0</span>][<span class="number">1</span>][DiskNumIndex-B].Content,temp_block,<span class="number">512</span>);</span><br><span class="line">                ChangeBitMap(DiskNumIndex,<span class="string">'Y'</span>);<span class="comment">//修改位图</span></span><br><span class="line">            &#125;</span><br><span class="line">            DiskNumIndex++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>$\qquad$遍历整个文件描述符数组，每个文件描述符占据24字节信息，21个文件描述符一组，一共504字节，将每组504字节信息存入到一个磁盘块中，存入后修改磁盘的状态为占用。</p>
-<ol start="2">
+<ol>
 <li>从磁盘恢复文件描述符数组：<code>DiskToFileDescriptor(void)：</code></li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将磁盘读取的信息恢复</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DiskToFileDescriptor</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;<span class="number">15</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">char</span> temp[<span class="number">512</span>];</span><br><span class="line">        <span class="keyword">if</span> (i&lt;B)</span><br><span class="line">            <span class="built_in">memcpy</span>(temp,ldisk[<span class="number">0</span>][<span class="number">0</span>][i].Content,<span class="number">512</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">memcpy</span>(temp,ldisk[<span class="number">0</span>][<span class="number">1</span>][i-B].Content,<span class="number">512</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">21</span>;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(((i<span class="number">-2</span>)*<span class="number">21</span>+j)&gt;<span class="number">256</span>)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">char</span> temp_FileDescriptor[<span class="number">24</span>];</span><br><span class="line">            <span class="built_in">memcpy</span>(temp_FileDescriptor,&amp;temp[j*<span class="number">24</span>],<span class="number">24</span>);</span><br><span class="line">            FileDescriptor *f;</span><br><span class="line">            f = (FileDescriptor*)temp_FileDescriptor;</span><br><span class="line">            <span class="keyword">int</span> num = (i<span class="number">-2</span>)*<span class="number">21</span>+j;</span><br><span class="line">            filedescriptor[num].IsFree = f-&gt;IsFree;</span><br><span class="line">            filedescriptor[num].DiskNum[<span class="number">0</span>] = f-&gt;DiskNum[<span class="number">0</span>];</span><br><span class="line">            filedescriptor[num].DiskNum[<span class="number">1</span>] = f-&gt;DiskNum[<span class="number">1</span>];</span><br><span class="line">            filedescriptor[num].DiskNum[<span class="number">2</span>] = f-&gt;DiskNum[<span class="number">2</span>];</span><br><span class="line">            filedescriptor[num].Length = f-&gt;Length;</span><br><span class="line">            filedescriptor[num].Num = f-&gt;Num;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>$\qquad$由于每个磁盘块的空间只能存储21个文件描述符，所以每隔21就需要将index归零一次，用于从新读取一个新的磁盘的文件描述符信息，每次读取的是一整个磁盘的信息，长度是512字节，而每个文件描述符的大小为24，所以首先全部服务磁盘块信息到<code>temp_block</code>，然后每次读取24字节信息到<code>temp_descriptor</code>,之后通过强制类型转换，将字符换数组转化为文件描述符结构体指针，这样就将磁盘块中的信息读入。</p>
-<ol start="3">
+<ol>
 <li>将目录项数组写入文件描述符：<code>MenuToFileDescriptor(void)：</code></li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将目录内容写入文件描述中</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MenuToFileDescriptor</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> temp_FileDescriptor[<span class="number">512</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">32</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">char</span> temp_menuitem[<span class="number">16</span>];</span><br><span class="line">        <span class="built_in">memcpy</span>(temp_menuitem,&amp;menuitem[i],<span class="number">16</span>);</span><br><span class="line">        <span class="built_in">memcpy</span>(&amp;temp_FileDescriptor[i*<span class="number">16</span>],temp_menuitem,<span class="number">16</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    filedescriptor[<span class="number">0</span>].IsFree = <span class="string">'N'</span>;</span><br><span class="line">    filedescriptor[<span class="number">0</span>].DiskNum[<span class="number">0</span>] = SearchBitMap();</span><br><span class="line">    filedescriptor[<span class="number">0</span>].Length = <span class="number">512</span>;</span><br><span class="line">    WriteBlock(filedescriptor[<span class="number">0</span>].DiskNum[<span class="number">0</span>],temp_FileDescriptor);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>$\qquad$将所有的目录项合并为一个512字节的字符数组(注意使用的是memcpy而不是strcpy)然后将第一个文件描述符的状态修改位占用，并将字符数组写入第一个文件描述符对应的磁盘块。</p>
-<ol start="4">
+<ol>
 <li>从第一个文件描述符恢复目录项数组：<code>FileDescriptorToMenu(void)：</code></li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FileDescriptorToMenu</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> MenuContent[<span class="number">512</span>];</span><br><span class="line">    ReadBlock(filedescriptor[<span class="number">0</span>].DiskNum[<span class="number">0</span>],MenuContent);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">32</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">char</span> temp_menuitem[<span class="number">16</span>];</span><br><span class="line">        <span class="built_in">memcpy</span>(temp_menuitem,&amp;MenuContent[i*<span class="number">16</span>],<span class="number">16</span>);</span><br><span class="line">        MenuItem *t;</span><br><span class="line">        t = (MenuItem *)temp_menuitem;</span><br><span class="line">        <span class="built_in">strcpy</span>(menuitem[i].FileName,t-&gt;FileName);</span><br><span class="line">        menuitem[i].FileDescriptorNum = t-&gt;FileDescriptorNum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>$\qquad$首先读取第一个文件描述符对应的磁盘块信息到<code>MenuContent</code>字符数中去，然后每次读取16字节信息，将读取的16字节信息强制转换为目录项指针。这样磁盘上存储的所欲目录项信息就会被全部读取。</p>
 <h2 id="四-菜单系统"><a href="#四-菜单系统" class="headerlink" title="四 菜单系统"></a>四 菜单系统</h2><blockquote>
 <p>菜单系统代码在main.cpp文件中</p>
@@ -893,74 +942,75 @@
 <li>查看目录函数：<code>ShowDir()</code></li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShowDir</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> index =<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> exist = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"****************目录***********************\n"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"当前目录下文件有:\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">32</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">strlen</span>(menuitem[i].FileName)!=<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d %s %dB\n"</span>,index,menuitem[i].FileName,filedescriptor[menuitem[i].FileDescriptorNum].Length);</span><br><span class="line">            exist++;</span><br><span class="line">        &#125;</span><br><span class="line">        index++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"一共存在%d个文件\n"</span>,exist);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"****************************************\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>$\qquad$可以看到这个查看目录函数遍历目录项数组，打印所有非空目录项 内容，包括文件名和文件大小，最后统计出一共存在多少个文件。</p>
-<ol start="2">
+<ol>
 <li>打印位图：<code>ShowBitMap()</code></li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShowBitMap</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n****************位图**********************\n"</span>);</span><br><span class="line">    <span class="keyword">int</span> used = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"当前的磁盘使用情况如下(Y表示使用，N表示未使用)\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;C;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d号柱面磁盘信息如下:\n"</span>,i);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"   区:0 1 2 3 4 5 6 7 8 9\n"</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"头\n"</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;H;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\t:"</span>,j);</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;B;k++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> t=i*H*B+j*B+k;</span><br><span class="line">                <span class="keyword">if</span>(t&lt;<span class="number">512</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="built_in">printf</span>(<span class="string">"%c "</span>,ldisk[<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>].Content[t]);</span><br><span class="line">                    <span class="keyword">if</span>(ldisk[<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>].Content[t] == <span class="string">'Y'</span>)</span><br><span class="line">                        used++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="built_in">printf</span>(<span class="string">"%c "</span>,ldisk[<span class="number">0</span>][<span class="number">0</span>][<span class="number">1</span>].Content[t<span class="number">-512</span>]);</span><br><span class="line">                    <span class="keyword">if</span>(ldisk[<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>].Content[t] == <span class="string">'Y'</span>)</span><br><span class="line">                        used++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"总共使用%d个磁盘块，剩余%d个磁盘块空闲\n"</span>,used,(C*B*H-used));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"****************************************\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>$\qquad$这个函数的大部分代码在进行位图打印信息的排版，每个柱面为一页，每一页中每一行表示一个磁头，每一列表示一个扇区。最后统计出所有磁盘的使用占比。</p>
-<ol start="3">
+<ol>
 <li>主菜单程序</li>
 </ol>
 <blockquote>
 <p>由于整个函数代码太长，所以只展示核心代码，完整代码请查看github</p>
 </blockquote>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (choice2)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:ShowDir();<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"请输入要创建的文件名："</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%s"</span>,filename);</span><br><span class="line">        create(filename);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"请输入要删除的文件名："</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%s"</span>,filename);</span><br><span class="line">        destroy(filename);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"请输入要打开的文件名："</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%s"</span>,filename);</span><br><span class="line">        ReadFile(filename);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">        <span class="keyword">int</span> choice3;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"1. 增加内容\t2. 删除内容"</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n请选择："</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;choice3);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"请输入要修改的文件名:"</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%s"</span>,filename);</span><br><span class="line">        <span class="keyword">if</span>(choice3==<span class="number">1</span>)</span><br><span class="line">            ChangeFileAdd(filename);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(choice3==<span class="number">2</span>)</span><br><span class="line">            ChangeFileDel(filename);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">        ShowBitMap();</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"请输入要保存的文件名："</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%s"</span>,filename);</span><br><span class="line">        save(filename);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">        flag=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>$\qquad$这个switch结构提供个8个选择，对应8个功能。</p>
 <h2 id="五-文件系统测试"><a href="#五-文件系统测试" class="headerlink" title="五 文件系统测试"></a>五 文件系统测试</h2><p>$\qquad$IO系统、文件系统和菜单系统完成之后需要对文件系统进行测试，下面是测试的详细过程。</p>
 <h3 id="5-1-测试概述"><a href="#5-1-测试概述" class="headerlink" title="5.1 测试概述"></a>5.1 测试概述</h3><p>$\qquad$测试部分分别测试IO系统、文件系统对应的功能，测试计划如下所示：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">测试名称</th>
-<th align="center">测试描述</th>
-<th align="center">被测试模块</th>
+<th style="text-align:center">测试名称</th>
+<th style="text-align:center">测试描述</th>
+<th style="text-align:center">被测试模块</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">保存磁盘文件测试</td>
-<td align="center">将当前磁盘信息存入二进制文件</td>
-<td align="center">IO系统磁盘写入文件功能、菜单系统等</td>
+<tbody>
+<tr>
+<td style="text-align:center">保存磁盘文件测试</td>
+<td style="text-align:center">将当前磁盘信息存入二进制文件</td>
+<td style="text-align:center">IO系统磁盘写入文件功能、菜单系统等</td>
 </tr>
 <tr>
-<td align="center">读取磁盘文件测试</td>
-<td align="center">从文件系统中读取磁盘文件，装载到磁盘系统中</td>
-<td align="center">IO系统磁盘写入文件功能、菜单系统等</td>
+<td style="text-align:center">读取磁盘文件测试</td>
+<td style="text-align:center">从文件系统中读取磁盘文件，装载到磁盘系统中</td>
+<td style="text-align:center">IO系统磁盘写入文件功能、菜单系统等</td>
 </tr>
 <tr>
-<td align="center">目录查看测试</td>
-<td align="center">查看当前目录中存在的所有文件</td>
-<td align="center">文件系统目录模块、文件描述符模块；<br>菜单系统</td>
+<td style="text-align:center">目录查看测试</td>
+<td style="text-align:center">查看当前目录中存在的所有文件</td>
+<td style="text-align:center">文件系统目录模块、文件描述符模块；<br>菜单系统</td>
 </tr>
 <tr>
-<td align="center">文件创建测试</td>
-<td align="center">创建新的文件</td>
-<td align="center">文件系统目录模块、文件系统用户接口</td>
+<td style="text-align:center">文件创建测试</td>
+<td style="text-align:center">创建新的文件</td>
+<td style="text-align:center">文件系统目录模块、文件系统用户接口</td>
 </tr>
 <tr>
-<td align="center">文件删除测试</td>
-<td align="center">删除已有(不存在)文件</td>
-<td align="center">文件系统目录模块、文件系统用户接口</td>
+<td style="text-align:center">文件删除测试</td>
+<td style="text-align:center">删除已有(不存在)文件</td>
+<td style="text-align:center">文件系统目录模块、文件系统用户接口</td>
 </tr>
 <tr>
-<td align="center">打开文件测试</td>
-<td align="center">打开并查看文件内容</td>
-<td align="center">文件系统用户接口</td>
+<td style="text-align:center">打开文件测试</td>
+<td style="text-align:center">打开并查看文件内容</td>
+<td style="text-align:center">文件系统用户接口</td>
 </tr>
 <tr>
-<td align="center">修改文件测试</td>
-<td align="center">修改文件内容</td>
-<td align="center">文件系统目录模块、文件系统用户接口，IO系统</td>
+<td style="text-align:center">修改文件测试</td>
+<td style="text-align:center">修改文件内容</td>
+<td style="text-align:center">文件系统目录模块、文件系统用户接口，IO系统</td>
 </tr>
 <tr>
-<td align="center">查看位图测试</td>
-<td align="center">查看当前磁盘位图信息</td>
-<td align="center">IO系统位图模块，菜单系统</td>
+<td style="text-align:center">查看位图测试</td>
+<td style="text-align:center">查看当前磁盘位图信息</td>
+<td style="text-align:center">IO系统位图模块，菜单系统</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="5-2-系统测试"><a href="#5-2-系统测试" class="headerlink" title="5.2 系统测试"></a>5.2 系统测试</h3><ol>
 <li>保存磁盘文件测试 &amp; 文件创建测试</li>
 </ol>
@@ -1015,7 +1065,7 @@
 <blockquote>
 <p>可以看到检索’Hello’和文件名’test’的时候都有对应内容，说明磁盘信息缺失保存了下来</p>
 </blockquote>
-<ol start="2">
+<ol>
 <li>读取磁盘文件测试 &amp; 目录查看测试 &amp; 打开文件测试</li>
 </ol>
 <ul>
@@ -1034,7 +1084,7 @@
 <blockquote>
 <p>可以看到文件内容没有发生改变</p>
 </blockquote>
-<ol start="3">
+<ol>
 <li>文件删除测试</li>
 </ol>
 <ul>
@@ -1047,7 +1097,7 @@
 </ul>
 <div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-06-14-154041.jpg" width="400"></div>
 
-<ol start="4">
+<ol>
 <li>修改文件测试</li>
 </ol>
 <p>$\qquad$修改文件测时候分为在原有文件的基础上增加内容和删除内容，我们这在<code>test.txt</code>的基础上进行增加和删除操作</p>
@@ -1067,7 +1117,7 @@
 <blockquote>
 <p>可以看到指定位置的指定内容被删除了</p>
 </blockquote>
-<ol start="5">
+<ol>
 <li>查看位图测试</li>
 </ol>
 <ul>
@@ -1114,8 +1164,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/12/lab4/" rel="next" title="页面置换算法实验">
-                  <i class="fa fa-chevron-left"></i> 页面置换算法实验
+                <a href="/2019/03/01/gitbook/" rel="next" title="在github部署gitbook教程">
+                  <i class="fa fa-chevron-left"></i> 在github部署gitbook教程
                 </a>
               
             </div>
@@ -1124,8 +1174,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/09/12/2/" rel="prev" title="ryu控制器实现集线器">
-                  ryu控制器实现集线器 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/03/11/lab2/" rel="prev" title="进程实验">
+                  进程实验 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -1190,7 +1240,7 @@
         
           <a href="/archives">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1203,7 +1253,7 @@
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -1216,7 +1266,7 @@
             <a href="/tags">
           
         
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -1248,14 +1298,14 @@
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">116k</span>
+    <span title="站点总字数">122k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">1:46</span>
+    <span title="站点阅读时长">1:51</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
   <span class="post-meta-divider">|</span>
