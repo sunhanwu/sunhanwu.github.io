@@ -5,15 +5,21 @@
   
 
   
-  <title>Archives | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="在QEMU虚拟机中安装pintos 下载pintos源码 1git clone http://cs140.stanford.edu/pintos.git  编译安装 123cd ~/pintos/src/threadsmake../utils/pintos --qemu -- run alarm-multiple  修改utils/pintos 脚本 1my (@cmd) = (&apos;/usr/loc">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/04/15/pintos-install/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在QEMU虚拟机中安装pintos 下载pintos源码 1git clone http://cs140.stanford.edu/pintos.git  编译安装 123cd ~/pintos/src/threadsmake../utils/pintos --qemu -- run alarm-multiple  修改utils/pintos 脚本 1my (@cmd) = (&apos;/usr/loc">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-174153.jpg">
+<meta property="og:updated_time" content="2019-04-29T17:41:55.018Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="在QEMU虚拟机中安装pintos 下载pintos源码 1git clone http://cs140.stanford.edu/pintos.git  编译安装 123cd ~/pintos/src/threadsmake../utils/pintos --qemu -- run alarm-multiple  修改utils/pintos 脚本 1my (@cmd) = (&apos;/usr/loc">
+<meta name="twitter:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-174153.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,163 +66,66 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/09/12/hello-world/" class="archive-article-date">
-  <time datetime="2019-09-12T06:06:49.802Z" itemprop="datePublished">Sep 12</time>
+        <section id="main"><article id="post-pintos-install" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/15/pintos-install/" class="article-date">
+  <time datetime="2019-04-15T02:48:44.000Z" itemprop="datePublished">2019-04-15</time>
 </a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/12/hello-world/">Hello World</a>
-    </h1>
-  
+        <h1 id="在QEMU虚拟机中安装pintos"><a href="#在QEMU虚拟机中安装pintos" class="headerlink" title="在QEMU虚拟机中安装pintos"></a>在QEMU虚拟机中安装pintos</h1><ol>
+<li><p>下载pintos源码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone http://cs140.stanford.edu/pintos.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/pintos/src/threads</span><br><span class="line">make</span><br><span class="line">../utils/pintos --qemu -- run alarm-multiple</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改utils/pintos 脚本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">my (@cmd) = ('/usr/local/src/qemu/bin/qemu');</span><br></pre></td></tr></table></figure>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/06/15/lab5/" class="archive-article-date">
-  <time datetime="2019-06-15T12:37:30.905Z" itemprop="datePublished">Jun 15</time>
-</a>
-      
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/05/28/lab4/" class="archive-article-date">
-  <time datetime="2019-05-27T16:17:06.428Z" itemprop="datePublished">May 28</time>
-</a>
-      
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/05/10/2/" class="archive-article-date">
-  <time datetime="2019-05-10T13:18:57.460Z" itemprop="datePublished">May 10</time>
-</a>
-      
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/04/15/pintos-install/" class="archive-article-date">
-  <time datetime="2019-04-15T02:48:44.000Z" itemprop="datePublished">Apr 15</time>
-</a>
-      
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/04/06/lab2/" class="archive-article-date">
-  <time datetime="2019-04-06T11:45:03.000Z" itemprop="datePublished">Apr 6</time>
-</a>
-      
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/04/06/lab3/" class="archive-article-date">
-  <time datetime="2019-04-06T11:23:48.000Z" itemprop="datePublished">Apr 6</time>
-</a>
-      
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/04/06/qemu/" class="archive-article-date">
-  <time datetime="2019-04-06T11:15:20.000Z" itemprop="datePublished">Apr 6</time>
-</a>
-      
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/04/02/thread/" class="archive-article-date">
-  <time datetime="2019-04-01T16:00:00.000Z" itemprop="datePublished">Apr 2</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/02/thread/">操作系统拔草 系列二 Pintos实验一全解</a>
-    </h1>
-  
+<p>将pintos脚本中第622行修改成如上图所示，引号中的内容是qemu可执行程序的绝对路径。</p>
+</li>
+<li><p>出现下面的截图说明正确安装好了</p>
+<p><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-174153.jpg" alt></p>
+</li>
+</ol>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/03/16/lab1/" class="archive-article-date">
-  <time datetime="2019-03-16T08:39:33.000Z" itemprop="datePublished">Mar 16</time>
-</a>
       
-    </header>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/15/pintos-install/" data-id="ck0gb1muj0002s0qc83rlt7uc" class="article-share-link">Share</a>
+      
+      
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/05/10/2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/04/06/lab2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         

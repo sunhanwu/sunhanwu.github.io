@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="实验四 实验报告 孙汉武    16281047    16281047  实验源码链接:https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab4 一 概要设计 实验源码请参考test.h  1.1 模块说明$\qquad$本实验共包含测试模块在内一共有7个模块，其中五个模块是算法模块，分别实现最">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/05/28/lab4/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="实验四 实验报告 孙汉武    16281047    16281047  实验源码链接:https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab4 一 概要设计 实验源码请参考test.h  1.1 模块说明$\qquad$本实验共包含测试模块在内一共有7个模块，其中五个模块是算法模块，分别实现最">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-123542.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-125913.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-131355.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-132453.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-134926.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-135121.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-143913.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-141851.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-142312.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-144704.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-154625.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-145440.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-160411.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-160610.jpg">
+<meta property="og:updated_time" content="2019-05-27T16:17:06.428Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="实验四 实验报告 孙汉武    16281047    16281047  实验源码链接:https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab4 一 概要设计 实验源码请参考test.h  1.1 模块说明$\qquad$本实验共包含测试模块在内一共有7个模块，其中五个模块是算法模块，分别实现最">
+<meta name="twitter:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-123542.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-lab4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/28/lab4/" class="article-date">
+  <time datetime="2019-05-27T16:17:06.428Z" itemprop="datePublished">2019-05-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="实验四-实验报告"><a href="#实验四-实验报告" class="headerlink" title="实验四 实验报告"></a><center>实验四 实验报告</center></h1><blockquote>
+<center>孙汉武    16281047    16281047</center>
+</blockquote>
+<p><a href="https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab4" target="_blank" rel="noopener">实验源码链接:https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab4</a></p>
+<h2 id="一-概要设计"><a href="#一-概要设计" class="headerlink" title="一 概要设计"></a>一 概要设计</h2><blockquote>
+<p>实验源码请参考test.h</p>
+</blockquote>
+<h3 id="1-1-模块说明"><a href="#1-1-模块说明" class="headerlink" title="1.1 模块说明"></a>1.1 模块说明</h3><p>$\qquad$本实验共包含测试模块在内一共有7个模块，其中五个模块是算法模块，分别实现最佳置换算法、先入先出算法、最久未使用算法、改进的Clock算法、PBA页面缓冲算法和主模块。详细的细节如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">模块</th>
+<th align="center">文件</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">测试模块</td>
+<td align="center">test.h</td>
+<td align="center">包含页面帧结构体的定义、随机访问序列的生成等测试函数</td>
+</tr>
+<tr>
+<td align="center">最佳置换算法模块</td>
+<td align="center">Optimal.h</td>
+<td align="center">包含最佳置换算法函数</td>
+</tr>
+<tr>
+<td align="center">先入先出算法模块</td>
+<td align="center">FIFO.h</td>
+<td align="center">包含先入先出算法函数</td>
+</tr>
+<tr>
+<td align="center">最久未使用算法模块</td>
+<td align="center">LRU.h</td>
+<td align="center">包含最久未使用算法函数</td>
+</tr>
+<tr>
+<td align="center">改进Clock算法模块</td>
+<td align="center">Clock.h</td>
+<td align="center">包含改进的Clock算法函数</td>
+</tr>
+<tr>
+<td align="center">PBA页面缓冲算法模块</td>
+<td align="center">PBA.h</td>
+<td align="center">包含页面缓冲算法函数</td>
+</tr>
+<tr>
+<td align="center">主模块</td>
+<td align="center">main.cpp</td>
+<td align="center">主函数</td>
+</tr>
+</tbody></table>
+<h3 id="1-2-接口说明"><a href="#1-2-接口说明" class="headerlink" title="1.2 接口说明"></a>1.2 接口说明</h3><p>$\qquad$1.1 中所说的的各个模块中，测试模块是一个最基本的模块，它包含最基本的页面帧结构体的定义和随机访问序列生成函数等基本数据结构和函数。而六个算法模块都会引用测试模块中的数据结构和随机访问序列生成函数。而在主函数中进行对各个算法模块的调用。下面图示了各个模块之间的关系：</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-123542.jpg" width="600"></div>
+
+<h3 id="1-3-数据结构说明"><a href="#1-3-数据结构说明" class="headerlink" title="1.3 数据结构说明"></a>1.3 数据结构说明</h3><p>$\qquad$在本实验定一个很重要的表示页面帧的结构体，其成员变量及其作用如下图所示：</p>
+<ol>
+<li>WorkItem(表示帧结构体)</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">WorkItem</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> seq;</span><br><span class="line">    <span class="keyword">int</span> priority;</span><br><span class="line">    <span class="keyword">char</span> Used;</span><br><span class="line">    <span class="keyword">char</span> Modified;</span><br><span class="line">&#125;WorkItem;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="center">变量名</th>
+<th align="center">作用</th>
+<th align="center">变量名</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">seq</td>
+<td align="center">访问的序列号</td>
+<td align="center">priority</td>
+<td align="center">优先级</td>
+</tr>
+<tr>
+<td align="center">Used</td>
+<td align="center">Clock中的使用位</td>
+<td align="center">Modified</td>
+<td align="center">Clock中的修改位</td>
+</tr>
+</tbody></table>
+<ol start="2">
+<li>MemSchedule(表示内存分配调度结构体)</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">MemSchedule</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    WorkItem* WorkSpace=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">int</span> *VisitSeq=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">int</span> N=<span class="number">64</span>;</span><br><span class="line">    <span class="keyword">int</span> p=<span class="number">0</span>;</span><br><span class="line">    <span class="comment">//工作集大小</span></span><br><span class="line">    <span class="keyword">int</span> e=<span class="number">5</span>;</span><br><span class="line">    <span class="keyword">int</span> m=<span class="number">1</span>;</span><br><span class="line">    <span class="comment">//定义访问序列长度o</span></span><br><span class="line">    <span class="keyword">int</span> length;</span><br><span class="line">    <span class="comment">//当前已使用物理块数</span></span><br><span class="line">    <span class="keyword">int</span> work_len=<span class="number">0</span>;</span><br><span class="line">    <span class="comment">//发生替换的物理块号</span></span><br><span class="line">    <span class="keyword">int</span> change=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">float</span> t,r;</span><br><span class="line"><span class="comment">//   队列长度</span></span><br><span class="line">    <span class="keyword">int</span> queue_free_len = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> queue_modified_len = <span class="number">0</span>;</span><br><span class="line">    WorkItem <span class="built_in">free</span>[<span class="number">2</span>];</span><br><span class="line">    WorkItem Modified[<span class="number">2</span>];</span><br><span class="line">&#125;MemSchedule;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="center">变量名</th>
+<th align="center">作用</th>
+<th align="center">变量名</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">WorkSpace</td>
+<td align="center">工作区间结构体数组</td>
+<td align="center">VisitSeq</td>
+<td align="center">访问序列数组</td>
+</tr>
+<tr>
+<td align="center">N</td>
+<td align="center">虚拟内存大小</td>
+<td align="center">p</td>
+<td align="center">工作集起始位置</td>
+</tr>
+<tr>
+<td align="center">e</td>
+<td align="center">工作区间大小</td>
+<td align="center">m</td>
+<td align="center">工作区间移动效率</td>
+</tr>
+<tr>
+<td align="center">length</td>
+<td align="center">访问序列长度</td>
+<td align="center">work_len</td>
+<td align="center">工作集中使用长度</td>
+</tr>
+<tr>
+<td align="center">chang</td>
+<td align="center">上一次发生替换的物理块号</td>
+<td align="center">t,r</td>
+<td align="center">随机访问序列算法参数</td>
+</tr>
+<tr>
+<td align="center">queue_free_len</td>
+<td align="center">PBA中的空闲队列长度</td>
+<td align="center">queue_modifie_len</td>
+<td align="center">PBA中修改队列长度</td>
+</tr>
+<tr>
+<td align="center">free</td>
+<td align="center">PBA中的空闲队列</td>
+<td align="center">Modified</td>
+<td align="center">PBA中的修改队列</td>
+</tr>
+</tbody></table>
+<h3 id="1-4-随机访问序列生成算法"><a href="#1-4-随机访问序列生成算法" class="headerlink" title="1.4 随机访问序列生成算法"></a>1.4 随机访问序列生成算法</h3><p>$\qquad$实验中需要使用到随机访问序列，所以生成一个好的随机访问序列能很好的测试出各个算法的性能。下面是本实验中的随机算法访问序列生成算法的源码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">MemSchedule <span class="title">GeneVisitSeq</span><span class="params">(<span class="keyword">int</span> l)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    MemSchedule schedule1;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"是否设定调度算法参数(Y/N):"</span>);</span><br><span class="line">    <span class="keyword">char</span> flag;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%c"</span>,&amp;flag);</span><br><span class="line">    <span class="keyword">if</span> (flag==<span class="string">'Y'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        schedule1=SetMemSchedule(schedule1);</span><br><span class="line">    &#125;</span><br><span class="line">	schedule1.t=rand()%<span class="number">1000</span>/<span class="number">1000.0</span>;</span><br><span class="line">    schedule1.VisitSeq=(<span class="keyword">int</span> *)<span class="built_in">malloc</span>(l*<span class="keyword">sizeof</span>(schedule1.m));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"生成随机内存访问序列：\n"</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;l;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;schedule1.m;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            schedule1.VisitSeq[i*schedule1.m+j] = rand()%schedule1.e+schedule1.p;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>,schedule1.VisitSeq[i*schedule1.m+j]);</span><br><span class="line">        &#125;</span><br><span class="line">        schedule1.r=rand()%<span class="number">1000</span>/<span class="number">1000.0</span>;</span><br><span class="line">        <span class="keyword">if</span>(schedule1.r&lt;schedule1.t)</span><br><span class="line">        &#123;</span><br><span class="line">            schedule1.p=(schedule1.p+<span class="number">1</span>)%schedule1.N;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    schedule1.length=l*schedule1.m;</span><br><span class="line">    schedule1.WorkSpace = (WorkItem *)<span class="built_in">malloc</span>(schedule1.e *<span class="keyword">sizeof</span>(WorkItem));</span><br><span class="line">    <span class="keyword">return</span> schedule1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面是其流程图：</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-125913.jpg" width="500"></div>
+
+<p>其描述为：</p>
+<ul>
+<li>首先生成算法需要的N p e m t等基本参数</li>
+<li>生成m个范围在p到p+e之间的随机数加入到序列中</li>
+<li>生成随机小数r</li>
+<li>比较t和r，如果t比r小；则取一个新的p值；否则p=p+1 mod N</li>
+<li>如果需要继续加长访问序列，则返回第二部继续执行；否则结束</li>
+</ul>
+<h3 id="1-5-算法通用流程"><a href="#1-5-算法通用流程" class="headerlink" title="1.5 算法通用流程"></a>1.5 算法通用流程</h3><p>$\qquad$各个页面置换算法中，大部分流程是一致的，只是在选择要替换的页面的时候选择的算法不一样，下面是这些算法的通用流程，而每个算法选择替换页号的时候将在后面仔细解释。</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-131355.jpg" width="600"></div>
+
+<p>其描述为：</p>
+<ul>
+<li>在访问序列中取出下一个要访问的页号，序列为空的话结束。</li>
+<li>查看分配的内存内存块中是否还有剩余空间，有的话进行第三步；没有进行第四步</li>
+<li>查看要访问的页号在以装入内存中是否存在，存在的话直接去下一个要访问的页号，从第一步开始执行；不存在则将新的物理块装入内存</li>
+<li>查看要访问的页号在以装入内存中是否存在，存在的话直接去下一个要访问的页号，从第二部开始执行；不存在则利用算法找到要替换的内存块号，并将其替换，返回第一步</li>
+</ul>
+<h2 id="二-最佳置换算法"><a href="#二-最佳置换算法" class="headerlink" title="二 最佳置换算法"></a>二 最佳置换算法</h2><blockquote>
+<p>实验源码请参照github中Optimal.h</p>
+</blockquote>
+<ol>
+<li>算法描述</li>
+</ol>
+<p>$\qquad$最佳置换算法是一个理想的算法，其选择淘汰的页面是以后用不使用的，或者在将来最长时间用不使用的页面。采用最佳置换算法通常可以保证最低的缺页率。</p>
+<ol start="2">
+<li><p>算法模拟</p>
+<table>
+<thead>
+<tr>
+<th>访问页面</th>
+<th>4</th>
+<th>4</th>
+<th>3</th>
+<th>5</th>
+<th>6</th>
+<th>3</th>
+<th>6</th>
+<th>7</th>
+<th>9</th>
+<th>7</th>
+<th>10</th>
+<th>9</th>
+<th>11</th>
+<th>12</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>内存块1</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+</tr>
+<tr>
+<td>内存块2</td>
+<td></td>
+<td></td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>10</td>
+<td>10</td>
+<td>11</td>
+<td>11</td>
+</tr>
+<tr>
+<td>内存块3</td>
+<td></td>
+<td></td>
+<td></td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>12</td>
+</tr>
+<tr>
+<td>内存块4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+</tr>
+<tr>
+<td>内存块5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+</tr>
+</tbody></table>
+<p> 上面是算法执行过程中页面的替换过程</p>
+</li>
+<li><p>算法实现</p>
+<p> $\qquad$在概要设计中给出了各个算法的通用算法流程，但是各个算法在选择替换的内存块号的时候是不一致的。下面的是最佳置换算法中的实现。</p>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (flag == <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//min表示最小优先级的那个内存块号</span></span><br><span class="line">    <span class="keyword">int</span> min_pri=<span class="number">0xffffff</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> m=<span class="number">0</span>;m&lt;s1.work_len;m++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> n = SearchVisitSqe(s1.VisitSeq,i<span class="number">-1</span>,s1.WorkSpace[m].seq,<span class="number">0</span>,s1.length-s1.work_len+m);</span><br><span class="line">        s1.WorkSpace[m].priority = n;</span><br><span class="line">        <span class="keyword">if</span> (n &lt; min_pri)</span><br><span class="line">        &#123;</span><br><span class="line">            s1.change = m;</span><br><span class="line">            min_pri = n;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//表示发生替换变化的块号s1.change</span></span><br><span class="line">    s1.WorkSpace[s1.change].seq = pointer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> $\qquad$在这个代码片段中可以看到，通过<code>SearchVisitSeq</code>函数找到当前内存块中的页号下一次在访问序列中出现的距离，并将该距离最为优先级的值更新给每个内存块。最后判断哪个优先级小，说明那个物理块将来出现的时间越长，将替换它。</p>
+</li>
+<li><p>在主函数中调用最佳置换算法函数，会得到如下结果：</p>
+</li>
+</ol>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-132453.jpg" width="600"></div>
+
+<blockquote>
+<p>带有@符号的表示这是新替换的页面，带有@的一行说明发生了缺页</p>
+</blockquote>
+<ol start="5">
+<li>算法性能评价</li>
+</ol>
+<p>$\qquad$程序设计中给出了两个评价算法性能的指标，分别是缺页率，下面将会给出在不同的虚拟内存和工作集的情况下两个指标的变化情况。</p>
+<p>$\qquad$由于时间开销在算法中无法模拟，只能通过了理论的分析得到。下面只给出缺页率与工作集大小和虚拟内训大小之间的关系。</p>
+<p>​    工作集大小与缺页率之间的关系：</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-134926.jpg" width="400"></div>
+
+<p>$\qquad$对应的曲线为：</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-135121.jpg" width="400"></div> 
+
+<p>$\qquad$对于这个曲线做出的解释如下：</p>
+<ul>
+<li>当工作集比较小的时候，频繁的发生缺页导致缺页率高</li>
+<li>当工作集增大时，由于内存块数增多，减少页面的发生，缺页率减少。</li>
+<li>当工作集再继续增大的时候，前面物理块空闲的时候页面装入也算做缺页，所以缺页率再次上升</li>
+<li>当工作集大小达到一定程度的时候，缺页率会一直减小</li>
+</ul>
+<p>当工作集不变的时候，更改虚拟内存的时候分析缺页率的变化：</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-143913.jpg" width="400"></div>
+
+<p>其对应的曲线图为：</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-141851.jpg" width="400"></div>
+
+<h2 id="三-先入先出置换算法"><a href="#三-先入先出置换算法" class="headerlink" title="三  先入先出置换算法"></a>三  先入先出置换算法</h2><blockquote>
+<p>实验源码请参考github中的FIFO.h</p>
+</blockquote>
+<ol>
+<li><p>算法描述</p>
+<p> 是最简单的页面置换算法。这种算法的基本思想是：当需要淘汰一个页面时，总是选择驻留主存时间最长的页面进行淘汰，即先进入主存的页面先淘汰。其理由是：最早调入主存的页面不再被使用的可能性最大。 </p>
+</li>
+<li><p>算法模拟</p>
+<table>
+<thead>
+<tr>
+<th>访问页面</th>
+<th>4</th>
+<th>4</th>
+<th>3</th>
+<th>5</th>
+<th>6</th>
+<th>3</th>
+<th>6</th>
+<th>7</th>
+<th>9</th>
+<th>7</th>
+<th>10</th>
+<th>9</th>
+<th>11</th>
+<th>12</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>内存块1</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+</tr>
+<tr>
+<td>内存块2</td>
+<td></td>
+<td></td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>11</td>
+<td>11</td>
+</tr>
+<tr>
+<td>内存块3</td>
+<td></td>
+<td></td>
+<td></td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+</tr>
+<tr>
+<td>内存块4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>12</td>
+</tr>
+<tr>
+<td>内存块5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>算法实现</p>
+<p> 在概要设计中给出了各个算法的通用算法流程，但是各个算法在选择替换的内存块号的时候是不一致的。下面的是先入先出置换算法中的实现。</p>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (flag == <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//min表示最小优先级的那个内存块号</span></span><br><span class="line">    <span class="keyword">int</span> min_pri=<span class="number">0xffffff</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> m=<span class="number">0</span>;m&lt;s1.work_len;m++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//和其他算法的区别只有优先级排序计算的方式不同</span></span><br><span class="line">        <span class="keyword">int</span> n = s1.WorkSpace[m].priority;</span><br><span class="line">        <span class="keyword">if</span> (n &lt; min_pri)</span><br><span class="line">        &#123;</span><br><span class="line">            s1.change = m;</span><br><span class="line">            min_pri = n;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//表示发生替换变化的块号s1.change</span></span><br><span class="line">    s1.WorkSpace[s1.change].seq = pointer;</span><br><span class="line">    <span class="comment">//设置新换入的页面优先级为work_len</span></span><br><span class="line">    s1.WorkSpace[s1.change].priority = s1.e;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> $\qquad$在先入先出置换算法中每次新置换一个内存块将其优先级设置为工作区大小，之后每次运行一次，工作区中的所有内存块的优先级都减一，替换的时候找到优先级最小的替换就行了。</p>
+</li>
+<li><p>运行结果</p>
+ <div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-142312.jpg" width="600"></div>
+
+</li>
+</ol>
+<h2 id="四-最久未使用置换算法"><a href="#四-最久未使用置换算法" class="headerlink" title="四 最久未使用置换算法"></a>四 最久未使用置换算法</h2><blockquote>
+<p>实验源码请参考github中的LRU.h文件</p>
+</blockquote>
+<ol>
+<li><p>算法描述</p>
+<p> 这种算法的基本思想是：利用局部性原理，根据一个作业在执行过程中过去的页面访问历史来推测未来的行为。它认为过去一段时间里不曾被访问过的页面，在最近的将来可能也不会再被访问。所以，这种算法的实质是：当需要淘汰一个页面时，总是选择在最近一段时间内最久不用的页面予以淘汰。</p>
+</li>
+<li><p>算法模拟</p>
+<table>
+<thead>
+<tr>
+<th>访问页面</th>
+<th>4</th>
+<th>4</th>
+<th>3</th>
+<th>5</th>
+<th>6</th>
+<th>3</th>
+<th>6</th>
+<th>7</th>
+<th>9</th>
+<th>7</th>
+<th>10</th>
+<th>9</th>
+<th>11</th>
+<th>12</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>内存块1</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>5</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+</tr>
+<tr>
+<td>内存块2</td>
+<td></td>
+<td></td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>11</td>
+<td>11</td>
+</tr>
+<tr>
+<td>内存块3</td>
+<td></td>
+<td></td>
+<td></td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+</tr>
+<tr>
+<td>内存块4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>12</td>
+</tr>
+<tr>
+<td>内存块5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>算法实现</p>
+<p> 在概要设计中给出了各个算法的通用算法流程，但是各个算法在选择替换的内存块号的时候是不一致的。下面的是最久未使用置换算法中的实现。</p>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (flag == <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//min表示最小优先级的那个内存块号</span></span><br><span class="line">    <span class="keyword">int</span> min_pri=<span class="number">-10000</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> m=<span class="number">0</span>;m&lt;s1.work_len;m++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> n = SearchVisitSqe(s1.VisitSeq,i,s1.WorkSpace[m].seq,<span class="number">1</span>,i);</span><br><span class="line">        s1.WorkSpace[m].priority = n;</span><br><span class="line">        <span class="keyword">if</span> (n &gt; min_pri)</span><br><span class="line">        &#123;</span><br><span class="line">            s1.change = m;</span><br><span class="line">            min_pri = n;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//表示发生替换变化的块号s1.change</span></span><br><span class="line">    s1.WorkSpace[s1.change].seq = pointer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> $\qquad$在LRU算法中，使用函数<code>SearchVisitSeq</code>向访问序列中已经访问过的序列反向查找与当前页号相同的页号的距离，并将其最为优先级赋值给内存块，每次替换前更新所有的内存块的优先级；替换的时候找到优先级最大的进行替换。</p>
+</li>
+<li><p>运行结果</p>
+ <div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-144704.jpg" width="600"></div>
+
+</li>
+</ol>
+<h2 id="五-改进的Clock置换算法"><a href="#五-改进的Clock置换算法" class="headerlink" title="五 改进的Clock置换算法"></a>五 改进的Clock置换算法</h2><ol>
+<li><p>算法描述</p>
+<p> $\qquad$LRU算法的性能接近于OPT,但是实现起来比较困难，且开销大；FIFO算法实现简单，但性能差。所以操作系统的设计者尝试了很多算法，试图用比较小的开销接近LRU的性能，这类算法都是CLOCK算法的变体。</p>
+<p> $\qquad$简单的CLOCK算法是给每一帧关联一个附加位，称为使用位。当某一页首次装入主存时，该帧的使用位设置为1;当该页随后再被访问到时，它的使用位也被置为1。对于页替换算法，用于替换的候选帧集合看做一个循环缓冲区，并且有一个指针与之相关联。当某一页被替换时，该指针被设置成指向缓冲区中的下一帧。当需要替换一页时，操作系统扫描缓冲区，以查找使用位被置为0的一帧。每当遇到一个使用位为1的帧时，操作系统就将该位重新置为0；如果在这个过程开始时，缓冲区中所有帧的使用位均为0，则选择遇到的第一个帧替换；如果所有帧的使用位均为1,则指针在缓冲区中完整地循环一周，把所有使用位都置为0，并且停留在最初的位置上，替换该帧中的页。由于该算法循环地检查各页面的情况，故称为CLOCK算法，又称为最近未用(Not Recently Used, NRU)算法。</p>
+<p> $\qquad$CLOCK算法的性能比较接近LRU，而通过增加使用的位数目，可以使得CLOCK算法更加高效。在使用位的基础上再增加一个修改位，则得到改进型的CLOCK置换算法。这样，每一帧都处于以下四种情况之一：</p>
+<ul>
+<li><p>最近未被访问，也未被修改(u=0, m=0)</p>
+</li>
+<li><p>最近被访问，但未被修改(u=1, m=0)</p>
+</li>
+<li><p>最近未被访问，但被修改(u=0, m=1)</p>
+</li>
+<li><p>最近被访问，被修改(u=1, m=1)</p>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>算法执行如下操作步骤：
+
++ 从指针的当前位置开始，扫描帧缓冲区。在这次扫描过程中，对使用位不做任何修改。选择遇到的第一个帧(u=0, m=0)用于替换。
+
++ 如果第1)步失败，则重新扫描，查找(u=0, m=1)的帧。选择遇到的第一个这样的帧用于替换。在这个扫描过程中，对每个跳过的帧，把它的使用位设置成0。
+
++ 如果第2)步失败，指针将回到它的最初位置，并且集合中所有帧的使用位均为0。重复第1步，并且如果有必要，重复第2步。这样将可以找到供替换的帧。</code></pre><ol start="2">
+<li><p>算法模拟</p>
+<table>
+<thead>
+<tr>
+<th>访问页面</th>
+<th>4</th>
+<th>4</th>
+<th>3</th>
+<th>5</th>
+<th>6</th>
+<th>3</th>
+<th>6</th>
+<th>7</th>
+<th>9</th>
+<th>7</th>
+<th>10</th>
+<th>9</th>
+<th>11</th>
+<th>12</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>内存块1</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>12</td>
+</tr>
+<tr>
+<td>内存块2</td>
+<td></td>
+<td></td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>11</td>
+<td>11</td>
+</tr>
+<tr>
+<td>内存块3</td>
+<td></td>
+<td></td>
+<td></td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+</tr>
+<tr>
+<td>内存块4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+</tr>
+<tr>
+<td>内存块5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>算法实现</p>
+<p> 改进的Clock算法比前几个算法来讲比较复杂，下面是其核心的实现过程，</p>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (flag == <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//表示内存块中没有出现过</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> t=<span class="number">0</span>;t&lt;<span class="number">2</span>;t++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> m=<span class="number">0</span>;m&lt;s1.work_len;m++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (s1.WorkSpace[m].Used ==<span class="string">'N'</span> &amp;&amp; s1.WorkSpace[m].Modified ==<span class="string">'N'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                s1.change =m;</span><br><span class="line">                flag =<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (flag == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> m=<span class="number">0</span>;m&lt;s1.work_len;m++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(s1.WorkSpace[m].Used ==<span class="string">'N'</span> &amp;&amp; s1.WorkSpace[m].Modified ==<span class="string">'Y'</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    s1.change = m;</span><br><span class="line">                    flag = <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                s1.WorkSpace[m].Used = <span class="string">'N'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag!=<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    s1.WorkSpace[s1.change].seq = pointer;</span><br><span class="line">    s1.WorkSpace[s1.change].Used = <span class="string">'Y'</span>;</span><br><span class="line">    s1.WorkSpace[s1.change].Modified = <span class="string">'N'</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 通过下面的流程图来解释该算法在选择替换物理块的时候的流程。</p>
+ <div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-154625.jpg" width="600"></div>
+
+<p> 算法描述：</p>
+<ul>
+<li>首先查找有没有(0，0)类型的页面，有的话替换该页面，没有的话进行第二步</li>
+<li>查找有没有(0，1)类型的页面，有的话替换该页面，没有的话进行第三步</li>
+<li>如果第一步第二步都没有找到的话就将所有页面的使用位都置为0然后重复第一步</li>
+</ul>
+</li>
+<li><p>运行结果</p>
+ <div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-145440.jpg" width="600"></div>
+
+</li>
+</ol>
+<blockquote>
+<p>运行结果中的的第一个’Y/N’表示使用位,第二个’Y/N’表示修改位，@表示是新置换的页面</p>
+</blockquote>
+<h2 id="六-页面缓冲算法PBA"><a href="#六-页面缓冲算法PBA" class="headerlink" title="六 页面缓冲算法PBA"></a>六 页面缓冲算法PBA</h2><blockquote>
+<p>实验源码请参考github中的PBA.h</p>
+</blockquote>
+<ol>
+<li><p>算法描述</p>
+<p> $\qquad$严格意义上说PBA算法是一种页面缓冲算法，意义在于提高算法性能，减少从磁盘读取物理块到内存中的时间，提高算法的效率。而真正的页面置换算法采用的是前面所述的几种页面置换算法。本实验中采用的是FIFO置换算法。</p>
+<p> $\qquad$在PBA算法中使用了两个队列，分别是使用空闲页面队列和修改页面队列。采用可变分配和基于先进先出的局部置换策略，并规定被淘汰页先不做物理移动，而是依据是否修改分别挂到空闲页面链表或已修改页面链表的末尾</p>
+<p> $\qquad$空闲页面链表同时用于物理块分配。当已修改页面链表达到一定长度如Z个页面时，一起将所有已修改页面写回磁盘，故可显著减少磁盘I/O操作次数</p>
+</li>
+<li><p>算法模拟</p>
+ <div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-160411.jpg" width="600"></div>
+</li>
+<li><p>算法实现</p>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (flag == <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//min表示最小优先级的那个内存块号</span></span><br><span class="line">    <span class="keyword">int</span> min_pri=<span class="number">0xffffff</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> m=<span class="number">0</span>;m&lt;s1.work_len;m++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//和其他算法的区别只有优先级排序计算的方式不同</span></span><br><span class="line">        <span class="keyword">int</span> n = s1.WorkSpace[m].priority;</span><br><span class="line">        <span class="keyword">if</span> (n &lt; min_pri)</span><br><span class="line">        &#123;</span><br><span class="line">            s1.change = m;</span><br><span class="line">            min_pri = n;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//表示发生替换变化的块号s1.change</span></span><br><span class="line">    s1.WorkSpace[s1.change].seq = pointer;</span><br><span class="line">    <span class="comment">//设置新换入的页面优先级为work_len</span></span><br><span class="line">    s1.WorkSpace[s1.change].priority = s1.e;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> $\qquad$PBA 算法在页面置换的时候算法实现和FIFO一致。这里不再赘述</p>
+</li>
+<li><p>运行结果</p>
+ <div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-160610.jpg" width="600"></div>
+
+
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/28/lab4/" data-id="ck0gb1muo0005s0qcd8qfe2gs" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/06/15/lab5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/05/10/2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pintos-操作系统/">Pintos 操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu-16-04/">Ubuntu 16.04</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/拔草/">拔草</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Pintos-操作系统/" style="font-size: 10px;">Pintos 操作系统</a> <a href="/tags/Ubuntu-16-04/" style="font-size: 10px;">Ubuntu 16.04</a> <a href="/tags/拔草/" style="font-size: 10px;">拔草</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/12/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/15/lab5/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/28/lab4/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/10/2/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/15/pintos-install/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

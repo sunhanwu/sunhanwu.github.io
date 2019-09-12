@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="实验一实验报告 孙汉武    16281047    安全1601  [TOC] Task 1 系统调用实验1.1 直接调用和汇编中断调用系统调用getpidC语言直接调用 实验步骤  源代码getpid_c.c：  123456789#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;unistd.h&amp;gt;int main()&amp;#123;	pid_t pid;	pid = g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/03/16/lab1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="实验一实验报告 孙汉武    16281047    安全1601  [TOC] Task 1 系统调用实验1.1 直接调用和汇编中断调用系统调用getpidC语言直接调用 实验步骤  源代码getpid_c.c：  123456789#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;unistd.h&amp;gt;int main()&amp;#123;	pid_t pid;	pid = g">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171700.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171717.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171721.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171732.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171737.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171743.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171749.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171754.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171801.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171809.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171812.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171818.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171825.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171829.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171833.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171837.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171842.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171850.jpg">
+<meta property="og:updated_time" content="2019-04-29T17:18:54.327Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="实验一实验报告 孙汉武    16281047    安全1601  [TOC] Task 1 系统调用实验1.1 直接调用和汇编中断调用系统调用getpidC语言直接调用 实验步骤  源代码getpid_c.c：  123456789#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;unistd.h&amp;gt;int main()&amp;#123;	pid_t pid;	pid = g">
+<meta name="twitter:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171700.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-lab1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/16/lab1/" class="article-date">
+  <time datetime="2019-03-16T08:39:33.000Z" itemprop="datePublished">2019-03-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="实验一实验报告"><a href="#实验一实验报告" class="headerlink" title="实验一实验报告"></a>实验一实验报告</h1><blockquote>
+<p>孙汉武    16281047    安全1601</p>
+</blockquote>
+<p>[TOC]</p>
+<h2 id="Task-1-系统调用实验"><a href="#Task-1-系统调用实验" class="headerlink" title="Task 1 系统调用实验"></a>Task 1 系统调用实验</h2><h3 id="1-1-直接调用和汇编中断调用系统调用getpid"><a href="#1-1-直接调用和汇编中断调用系统调用getpid" class="headerlink" title="1.1 直接调用和汇编中断调用系统调用getpid"></a>1.1 直接调用和汇编中断调用系统调用getpid</h3><h4 id="C语言直接调用"><a href="#C语言直接调用" class="headerlink" title="C语言直接调用"></a>C语言直接调用</h4><ol>
+<li><p>实验步骤</p>
+<ul>
+<li>源代码<code>getpid_c.c</code>：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">pid_t</span> pid;</span><br><span class="line">	pid = getpid();</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,pid);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>编译源代码，得到可执行文件getpid_c</li>
+<li>执行可执行文件，得到程序的pid</li>
+</ul>
+<img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171700.jpg" width="600">
+</li>
+<li><p>查看getpid的系统调用号</p>
+<p>64位Linux系统的系统调用列表保存在/usr/include/asm/unistd_64.h（32位在unistd_32.h）,查看该文件可得到<strong>getpid的系统调用号为39（32位系统的系统调用号为20）</strong></p>
+<img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171717.jpg" width="600">
+
+<img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171721.jpg" width="600">
+
+<p>通过上图可以看出，在64位系统中，有两套系统调用号的宏定义，除了64位正常的系统调用号表之外，还有一套用于向下兼容32位系统。</p>
+<p>在Linux(debian)中，/usr/include/asm中有两个h文件，分别是unistd_32.h和unistd_64.这两个头文件中保存着系统调用号的宏定义， 当在程序代码中用到系统调用时，编译器会将上面提到的宏展开，展开后的代码实际上是将系统调用号放入ax后移用int 0x80使处理器转向系统调用入口，然后查找系统调用表，进而由内核调用真正的功能函数。 通过汇编代码可以看到中断向量号是0x80,而0x14是指系统调用号，在32位系统中，getpid系统调用号为20，所以是16进制的0x14，而64位系统的getpid的系统调用号为39.</p>
+</li>
+<li><p>系统调用号跟操作系统的位数(32或64)和不同的发行版本(debian和Ubuntu)有关，例如Ubuntu 64位机器上getpid的系统调用号是172，而网上查到Linux内核64位为39，32位为20。 出现不一致的原因是，在Linux64位系统中，对32位程序进行了兼容操作。之前的32位机中，系统通过开放0x80搭配系统调用号来实现用户程序使用系统调用功能。但在64位机中，已经不使用int 0x80作为触发系统调用的机制了，而使用syscall指令来触发。但为了保持兼容性，系统仍然支持int 0x80进行‘32位’风格的调用。自然我们的汇编代码使用20这个系统调用号，依然可以正确运行在64位机器上。</p>
+</li>
+</ol>
+<h4 id="汇编中断调用"><a href="#汇编中断调用" class="headerlink" title="汇编中断调用"></a>汇编中断调用</h4><ol>
+<li><p>实验步骤</p>
+<ul>
+<li>源代码<code>getpid_asm.c</code>：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;  </span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">            <span class="keyword">pid_t</span> pid;  </span><br><span class="line">        <span class="function"><span class="keyword">asm</span> <span class="title">volatile</span> <span class="params">(  </span></span></span><br><span class="line"><span class="function"><span class="params">             <span class="string">"movl $0x14,%%eax\n\t"</span>  </span></span></span><br><span class="line"><span class="function"><span class="params">             <span class="string">"int $0x80\n\t"</span>  </span></span></span><br><span class="line"><span class="function"><span class="params">             <span class="string">"movl %%eax,%0\n\t"</span>  </span></span></span><br><span class="line"><span class="function"><span class="params">             :<span class="string">"=m"</span>(pid)  </span></span></span><br><span class="line"><span class="function"><span class="params">        )</span></span>;  </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" current PID is : %u\n"</span>,pid);  </span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>编译源码，得到可执行文件getpid_asm</li>
+<li>执行可执行文件，得到程序的pid</li>
+</ul>
+<img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171732.jpg" width="600">
+</li>
+<li><p>getpid的中断向量号</p>
+<p>在汇编代码<code>int $0x80\n\t</code>可以看到getpid的<strong>中断向量号为0x80</strong></p>
+</li>
+</ol>
+<h3 id="1-2-习题1-13"><a href="#1-2-习题1-13" class="headerlink" title="1.2 习题1.13"></a>1.2 习题1.13</h3><h4 id="使用C语言"><a href="#使用C语言" class="headerlink" title="使用C语言"></a>使用C语言</h4><ol>
+<li><p>实验步骤</p>
+<ul>
+<li>源代码<code>print_c.c</code>:</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Hello World!\n"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>编译源码，得到可执行文件print_c</li>
+<li>执行文件，屏幕打印Hello World</li>
+</ul>
+<img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171737.jpg" width="600">
+
+</li>
+</ol>
+<h4 id="使用汇编"><a href="#使用汇编" class="headerlink" title="使用汇编"></a>使用汇编</h4><ol>
+<li><p>实验步骤</p>
+<ul>
+<li>源代码<code>print_asm.asm</code>:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">section data</span><br><span class="line">msg db &quot;Hello World&quot;,0xA</span><br><span class="line">len equ $-msg</span><br><span class="line">section .text</span><br><span class="line">	global _start</span><br><span class="line">_start:</span><br><span class="line">	mov eax,4</span><br><span class="line">	mov ebx,1</span><br><span class="line">	mov ecx,msg</span><br><span class="line">	mov edx,len</span><br><span class="line">	int 0x80</span><br><span class="line">	mov eax,1</span><br><span class="line">	xor ebx,ebx</span><br><span class="line">	int 0x80</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>汇编源码，得到对象文件print_asm.o</li>
+<li>链接得到可执行文件print_asm</li>
+<li>执行可执行文件print_asm,屏幕打印Hello World</li>
+</ul>
+<img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171743.jpg" width="600">
+
+</li>
+</ol>
+<h3 id="1-3-阅读pintos源码"><a href="#1-3-阅读pintos源码" class="headerlink" title="1.3 阅读pintos源码"></a>1.3 阅读pintos源码</h3><p>​    pintos中关于系统调用的源码以下部分。下面分别介绍他们各自的作用：</p>
+<ol>
+<li><p><code>/src/lib/user/syscall.c</code></p>
+<ul>
+<li>这个文件中以宏定义的形式定义了四种系统调用的方式，分别是不传递参数、传递一个参数、传递两个参数、传递三个参数</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> syscall0(NUMBER) ...</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> syscall1(NUMBER, ARG0) ...</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> syscall2(NUMBER, ARG0, ARG1) ...</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> syscall3(NUMBER, ARG0, ARG1, ARG2) ...</span></span><br></pre></td></tr></table></figure>
+
+<p>四个系统调用方式的中断向量号均为0x30.</p>
+<ul>
+<li>定义了20种系统调用函数</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">halt</span> <span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exit</span> <span class="params">(<span class="keyword">int</span> status)</span></span></span><br><span class="line"><span class="function">pid_t <span class="title">exec</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *file)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">wait</span> <span class="params">(<span class="keyword">pid_t</span> pid)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">create</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *file, <span class="keyword">unsigned</span> initial_size)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">remove</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *file)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">open</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *file)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">filesize</span> <span class="params">(<span class="keyword">int</span> fd)</span> </span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span> <span class="params">(<span class="keyword">int</span> fd, <span class="keyword">void</span> *buffer, <span class="keyword">unsigned</span> size)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">write</span> <span class="params">(<span class="keyword">int</span> fd, <span class="keyword">const</span> <span class="keyword">void</span> *buffer, <span class="keyword">unsigned</span> size)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">seek</span> <span class="params">(<span class="keyword">int</span> fd, <span class="keyword">unsigned</span> position)</span> </span>;</span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">tell</span> <span class="params">(<span class="keyword">int</span> fd)</span> </span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">close</span> <span class="params">(<span class="keyword">int</span> fd)</span></span>;</span><br><span class="line"><span class="keyword">mapid_t</span> mmap (<span class="keyword">int</span> fd, <span class="keyword">void</span> *addr);</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">munmap</span> <span class="params">(<span class="keyword">mapid_t</span> mapid)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">chdir</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *dir)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">mkdir</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *dir)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">readdir</span> <span class="params">(<span class="keyword">int</span> fd, <span class="keyword">char</span> name[READDIR_MAX_LEN + <span class="number">1</span>])</span> </span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isdir</span> <span class="params">(<span class="keyword">int</span> fd)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">inumber</span> <span class="params">(<span class="keyword">int</span> fd)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>上面的系统调用在下面的头文件中都有对应的系统调用号</p>
+</li>
+<li><p><code>/src/lib/syscallnr.h</code></p>
+<p>这个文件中定义了系统调用列表，通过枚举类型定义了系统调用号</p>
+<p>具体如下：</p>
+<img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171749.jpg" width="600">
+</li>
+<li><p><code>src/userprog/syscall.c</code></p>
+<p>这个文件中只有两个函数<code>syscall_init</code>和<code>syscall_handler</code>,其中<code>syscall_init</code>是负责系统调用初始化工作的，<code>syscall_handler</code>是负责处理系统调用的</p>
+<ul>
+<li><p><code>syscall_init</code>函数</p>
+<p>这个函数内部调用了<code>intr_register_int</code>函数，用于注册软中断从而调用系统调用处理函数</p>
+</li>
+</ul>
+</li>
+<li><p>下面是pintos系统调用的完整流程图</p>
+<img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171754.jpg" width="300">
+
+</li>
+</ol>
+<h2 id="Task-2-并发实验"><a href="#Task-2-并发实验" class="headerlink" title="Task 2 并发实验"></a>Task 2 并发实验</h2><h3 id="2-1-实验步骤"><a href="#2-1-实验步骤" class="headerlink" title="2.1 实验步骤"></a>2.1 实验步骤</h3><ol>
+<li><p>编写<code>cpu.c</code>程序，代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sys/time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (argc!=<span class="number">2</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>,<span class="string">"usage:cpu&lt;string&gt;\n"</span>);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">char</span> *str=argv[<span class="number">1</span>];</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		sleep(<span class="number">1</span>);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%s\n"</span>,str);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译源码cpu.c，得到可执行文件cpu</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc cpu.c -o cpu</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行cpu程序</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./cpu A &amp; ; ./cpu B &amp; ; ./cpu C &amp; ; ./cpu D</span><br></pre></td></tr></table></figure>
+
+<img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171801.jpg" width="600">
+</li>
+<li><p>程序功能解释：</p>
+<p>该程序的接受且仅能接受一个参数，当正确接受到参数的时候打印该参数，没有正确接受参数的时候，通过打印标准错误输出提示用户正确输入参数。</p>
+</li>
+</ol>
+<h3 id="2-2-实验结果"><a href="#2-2-实验结果" class="headerlink" title="2.2 实验结果"></a>2.2 实验结果</h3><p>通过上面的实验可以观察到四个进程的运行顺序并没有规律。对于这种现象的解释如下：</p>
+<ul>
+<li>现代操作系统中进程的运行都是并发实现的，并不是像以前的单道批处理的操作系统那样，总是按照进程进入内存的先后顺序来执行，因此进程的运行的顺序并没有规律。</li>
+<li>现代CPU一般都是多核CUP（我的电脑是四核），因此实验中的四个进程可能也不是简单的在一个CPU中并发，而有可能是在多个CPU核心中并行运行，也有可能某两个进程在一个CPU核心中并发运行，和其他的进程在不同的CPU核心中并行运行。所以进程的运行顺序并没有特别的规律。</li>
+</ul>
+<h2 id="Task-3-内存分配实验"><a href="#Task-3-内存分配实验" class="headerlink" title="Task 3 内存分配实验"></a>Task 3 内存分配实验</h2><h3 id="3-1-实验步骤"><a href="#3-1-实验步骤" class="headerlink" title="3.1 实验步骤"></a>3.1 实验步骤</h3><ol>
+<li><p>编写<code>mem.c</code>程序，代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> *p = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">	assert(p!=<span class="literal">NULL</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"(%d) address pointed to by p: %p\n"</span>,getpid(),p);</span><br><span class="line">	*p=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		sleep(<span class="number">1</span>);</span><br><span class="line">		*p=*p+<span class="number">1</span>;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"(%d) p: %d\n"</span>,getpid(),*p);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译源码<code>mem.c</code>，得到可执行程序<code>mem</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc mem.c -o mem</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行mem程序</p>
+<ul>
+<li>测试一：</li>
+</ul>
+<img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171809.jpg" width="600">
+
+<ul>
+<li>测试二：</li>
+</ul>
+<img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171812.jpg" width="600">
+
+<ul>
+<li>测试三：</li>
+</ul>
+<img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171818.jpg" width="600">
+
+
+
+</li>
+</ol>
+<ol start="4">
+<li><p>程序功能解释</p>
+<p>mem程序的功能是首先申请一个int大小的内存地址，并打印进程号和内存地址。之后就是对该内存地址保存的值进行循环累加操作</p>
+</li>
+</ol>
+<h3 id="3-2-实验结果与结论"><a href="#3-2-实验结果与结论" class="headerlink" title="3.2 实验结果与结论"></a>3.2 实验结果与结论</h3><ol>
+<li><p>实验现象</p>
+<p>通过内存分配实验可以观察到如下现象：</p>
+<ul>
+<li>两个进程申请分配的内存地址有时一样，有时不一样，但是大概率出现的是不一样的。</li>
+<li>对于每个进程而言，每个进程一直在该分配的内存空间进行累加操作，并且两个进程之间没有相互影响。</li>
+<li>关闭地址空间随机化之后会发现每次执行两个进程申请的地址是相同的。</li>
+</ul>
+</li>
+<li><p>原理解释</p>
+<ul>
+<li>每个进程的4G内存空间只是虚拟内存空间，每次访问内存空间的某个地址，都需要把地址翻译为实际物理内存地址。</li>
+<li>所有进程共享同一物理内存，每个进程只把自己目前需要的虚拟内存空间映射并存储到物理内存上。进程需要用页表来记录哪些数据在物理地址，哪些不在，如果在的话在哪。</li>
+<li>printf函数中%p打印的是虚拟地址</li>
+<li>当关闭了地址空间随机化之后，在每个进程相当于有4G的独立虚拟内存，由于每个进程的程序是一模一样的，所以分配的地址肯定也一样。如果在申请的话应该就是顺序分配了。</li>
+</ul>
+</li>
+<li><p>现象解释</p>
+<p>由于每个进程都会有独立的4G虚拟内存，所以每个进程的内存地址在分配的时候可能相同，也可能不同，因为两个虚拟的地址之间没有任何关联。由于每个进程的虚拟地址是独立于其他进程的，通过页表将虚拟地址转换为真实地址，不论两个进程申请的虚拟内存地址是否相同，真实的物理地址一定是不一样的，所以两个进程对地址上的数值操作都是独立的。</p>
+<p>但是关闭地址空间随机化之后两个进程的操作是完全一样的，加上有没有地址空间随机化的干扰，所以地址就是相同的</p>
+</li>
+</ol>
+<h2 id="Task-4-共享问题"><a href="#Task-4-共享问题" class="headerlink" title="Task 4 共享问题"></a>Task 4 共享问题</h2><h3 id="4-1-实验步骤"><a href="#4-1-实验步骤" class="headerlink" title="4.1 实验步骤"></a>4.1 实验步骤</h3><ol>
+<li><p>编写程序<code>thread.c</code>,源码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="keyword">volatile</span> <span class="keyword">int</span> counter=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> loops;</span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">worker</span><span class="params">(<span class="keyword">void</span> *arg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;loops;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		counter++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(argc!=<span class="number">2</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>,<span class="string">"usage: thread &lt;value&gt;\n"</span>);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	loops=atoi(argv[<span class="number">1</span>]);</span><br><span class="line">	<span class="keyword">pthread_t</span> p1,p2;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Initial value: %d\n"</span>,counter);</span><br><span class="line">	pthread_create(&amp;p1,<span class="literal">NULL</span>,worker,<span class="literal">NULL</span>);</span><br><span class="line">	pthread_create(&amp;p2,<span class="literal">NULL</span>,worker,<span class="literal">NULL</span>);</span><br><span class="line">	pthread_join(p1,<span class="literal">NULL</span>);</span><br><span class="line">	pthread_join(p2,<span class="literal">NULL</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Final value: %d\n"</span>,counter);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译源码<code>thread.c</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o thread -lpthread thread.c</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行thread程序</p>
+<ul>
+<li><code>./thread 1000</code></li>
+</ul>
+<img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171825.jpg" width="600">
+
+<ul>
+<li><code>./thread 10000</code></li>
+</ul>
+<img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171829.jpg" width="600">
+
+<ul>
+<li><code>./thread_1 1000</code></li>
+</ul>
+<img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171833.jpg" width="600">
+
+<ul>
+<li><code>./thread_1 10000</code></li>
+</ul>
+<img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171837.jpg" width="600">
+</li>
+<li><p>程序功能解释</p>
+<p>程序一个main进程下创建了两个线程，两个线程执行相同的操作，都是对loops变量进行自增操作。</p>
+</li>
+</ol>
+<h3 id="4-2-实验结果与结论"><a href="#4-2-实验结果与结论" class="headerlink" title="4.2 实验结果与结论"></a>4.2 实验结果与结论</h3><ol>
+<li><p>实验现象</p>
+<p>可以看到当输入的参数比较小的时候，Final value等于Initial value的两倍，当输入的参数比较大的时候，Final value的值在Initial vlaue的一倍到两倍之间.并且在最后两个测试样例中可以看到两个线程操作的loops变量的内存地址是相同的。</p>
+</li>
+<li><p>原理解释</p>
+<ul>
+<li>由于两个线程在同一个进程中，并且访问操作的是共享的变量。如果每个线程对内存都是可读可写的话，就会发生读取脏数据的问题，即是线程A读取内存x的之后，对它进行+1，在线程A操作完成的数据写入x之前，线程B也读取了原来的数据，导致最终线程B写入的数据和A写入的一样，相当于两个线程只进行了一次操作。</li>
+<li>为了解决上面所说的脏数据的问题，现代CPU一般采用了加锁的解决办法，通过加锁使另一个线程不能读取。</li>
+<li>现代计算机都是多核心的，对于每个独立的CPU核心来说，都不会发生问题，但是不同CPU核心之间却依然有问题。</li>
+</ul>
+</li>
+<li><p>现象解释</p>
+<ul>
+<li>当输入的参数比较小的时候，一个CPU的核心足够处理，就是单核CPU运行多线程，由于每个核心都有内存锁机制，所以计算结果没有错误</li>
+<li>当输入的参数比较大的时候，使用多个CPU核心进行运算，就会发生读取脏数据的问题。</li>
+</ul>
+</li>
+</ol>
+<h2 id="5-实验疑问"><a href="#5-实验疑问" class="headerlink" title="5 实验疑问"></a>5 实验疑问</h2><ol>
+<li><p>在Task3中，关闭了地址空间随机化之后，按照理论上将申请两个int的地址应该是连续的，所以我我就验证了一下，在原本的代码中申请两个int类型的地址，然后打印这两个地址，看这两个地址连不连续。代码如下：</p>
+<img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171842.jpg" width="600">
+
+</li>
+</ol>
+<p>之后编译运行程序，结果如下：</p>
+<img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171850.jpg" width="600">
+
+<p>发现地址并不是连续的，因此还有一下疑问：</p>
+<ul>
+<li>0x1fd5260这个地址指的是啥，就是每个进程的虚拟内存的地址吗？</li>
+<li>我尝试过将int换成其他类型的，发现并没有发生变化，这是为啥呢？</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/16/lab1/" data-id="ck0gb1mud0000s0qc7fogvuz8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/04/02/thread/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          操作系统拔草 系列二 Pintos实验一全解
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pintos-操作系统/">Pintos 操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu-16-04/">Ubuntu 16.04</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/拔草/">拔草</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Pintos-操作系统/" style="font-size: 10px;">Pintos 操作系统</a> <a href="/tags/Ubuntu-16-04/" style="font-size: 10px;">Ubuntu 16.04</a> <a href="/tags/拔草/" style="font-size: 10px;">拔草</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/12/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/15/lab5/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/28/lab4/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/10/2/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/15/pintos-install/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

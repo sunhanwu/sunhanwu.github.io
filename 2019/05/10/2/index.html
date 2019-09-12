@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="2 Switching Hub[TOC] 2.1 Switching Hub交换集线器有很多种不同的功能，在这我们看看拥有以下功能的集线器：  能够学习集线器端口连接主机的MAC地址并将其保存在MAC地址表中 当收到MAC地址已知的报文时，将其转发到对应端口 当收到地址未知的报文的时候，进行泛洪  让我们用ryu来实现这种功能的交换机 2.2 openflow交换集线器openflow交换机可以实">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/05/10/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="2 Switching Hub[TOC] 2.1 Switching Hub交换集线器有很多种不同的功能，在这我们看看拥有以下功能的集线器：  能够学习集线器端口连接主机的MAC地址并将其保存在MAC地址表中 当收到MAC地址已知的报文时，将其转发到对应端口 当收到地址未知的报文的时候，进行泛洪  让我们用ryu来实现这种功能的交换机 2.2 openflow交换集线器openflow交换机可以实">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-10-133501.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-10-133821.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-10-134423.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-10-134853.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-11-053905.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-11-054538.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-11-061623.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-11-064100.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-11-064628.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-11-070404.jpg">
+<meta property="og:updated_time" content="2019-05-11T07:57:34.449Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="2 Switching Hub[TOC] 2.1 Switching Hub交换集线器有很多种不同的功能，在这我们看看拥有以下功能的集线器：  能够学习集线器端口连接主机的MAC地址并将其保存在MAC地址表中 当收到MAC地址已知的报文时，将其转发到对应端口 当收到地址未知的报文的时候，进行泛洪  让我们用ryu来实现这种功能的交换机 2.2 openflow交换集线器openflow交换机可以实">
+<meta name="twitter:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-10-133501.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/10/2/" class="article-date">
+  <time datetime="2019-05-10T13:18:57.460Z" itemprop="datePublished">2019-05-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="2-Switching-Hub"><a href="#2-Switching-Hub" class="headerlink" title="2 Switching Hub"></a>2 Switching Hub</h1><p>[TOC]</p>
+<h2 id="2-1-Switching-Hub"><a href="#2-1-Switching-Hub" class="headerlink" title="2.1 Switching Hub"></a>2.1 Switching Hub</h2><p>交换集线器有很多种不同的功能，在这我们看看拥有以下功能的集线器：</p>
+<ul>
+<li>能够学习集线器端口连接主机的MAC地址并将其保存在MAC地址表中</li>
+<li>当收到MAC地址已知的报文时，将其转发到对应端口</li>
+<li>当收到地址未知的报文的时候，进行泛洪</li>
+</ul>
+<p>让我们用ryu来实现这种功能的交换机</p>
+<h2 id="2-2-openflow交换集线器"><a href="#2-2-openflow交换集线器" class="headerlink" title="2.2 openflow交换集线器"></a>2.2 openflow交换集线器</h2><p>openflow交换机可以实现下列功能通过接受控制器的指令(例如ryu控制器)</p>
+<ul>
+<li>改写接受数据包的地址或者从特定端口转发数据包</li>
+<li>转发数据包到控制器(packet-In)</li>
+<li>控制器从指定端口转发数据包(Packet-Out)</li>
+</ul>
+<p>可以实现组合了这些功能的交换集线器。<br>首先，您需要使用Packet-In功能来学习MAC地址。控制器可以使用Packet-In函数从交换机接收数据包。交换机分析收到的数据包，以了解主机的MAC地址和有关连接端口的信息。<br>学习之后，交换机传输接收的数据包。交换机调查数据包的目的MAC地址是否属于已知主机。根据调查结果，交换机执行以下处理。</p>
+<ul>
+<li>如果主机已经是已知主机…使用Packet-Out功能从连接的端口转发数据包。</li>
+<li>如果主机是未知主机…使用Packet-Out功能执行泛洪</li>
+</ul>
+<p>以下使用附图以逐步的方式说明上述操作：</p>
+<ol>
+<li><p>初始状态</p>
+<p>初始状态下流表为空，假设主机A连接端口1，主机B连接端口4，主机C连接端口3</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-10-133501.jpg" width="600"></div>
+</li>
+<li><p>主机A-&gt; 主机B</p>
+<p>当数据包从主机A发送到主机B的时候，一个Packet-In消息将会被发送到控制器并且主机A的MAC地址将会被端口1学习。但是由于主机B的端口还不知道，因此数据包被泛洪到除了端口1以外的所有端口并且被主机B和主机C接受。</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-10-133821.jpg" width="600"></div>
+
+<ul>
+<li><p>Packet-In：</p>
+<p>入端口:1</p>
+<p>目的主机：B</p>
+<p>源主机：A</p>
+</li>
+<li><p>Packet-Out：</p>
+<p>动作：输出：泛洪</p>
+</li>
+</ul>
+</li>
+<li><p>主机B-&gt;主机A</p>
+<p>当主机B回应主机A的数据包返回的时候，由于已经有一个流表项被加入到流表中所以数据包将被转发到端口1，所以主机C将不会收到B发送的数据包</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-10-134423.jpg" width="600"></div>
+
+<ul>
+<li><p>Packet-In:</p>
+<p>入端口：4</p>
+<p>目的主机：主机A</p>
+<p>源主机：主机B</p>
+</li>
+<li><p>Packet-Out:</p>
+<p>动作：输出：端口1</p>
+</li>
+</ul>
+</li>
+<li><p>主机A-&gt;主机B</p>
+<p>当主机A再一次向主机B发送数据包的时候，由于前面主机B回应数据包的时候，端口4已经学习到主机B的MAC地址，所以这一次数据包将会直接向端口4发送</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-10-134853.jpg" width="600"></div>
+
+<ul>
+<li><p>Packet-In</p>
+<p>入端口：1</p>
+<p>目的主机：主机B</p>
+<p>源主机：主机A</p>
+</li>
+<li><p>Packet-Out：</p>
+<p>动作：输出：端口4</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>下面我们来看看交换集线器的ryu源码实现</p>
+<h2 id="2-3-使用Ryu实现交换集线器"><a href="#2-3-使用Ryu实现交换集线器" class="headerlink" title="2.3 使用Ryu实现交换集线器"></a>2.3 使用Ryu实现交换集线器</h2><p>源码在ryu/app/example_switch_13.py</p>
+<p>除了上述之外，还有simple_switch.py（OpenFlow 1.0）和simple_switch_12.py（OpenFlow 1.2），具体取决于OpenFlow的版本，但我们看一下支持OpenFlow 1.3的实现</p>
+<p>源代码很短，因此我们在下面显示了完整的源代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Copyright (C) 2016 Nippon Telegraph and Telephone Corporation.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Licensed under the Apache License, Version 2.0 (the "License");</span></span><br><span class="line"><span class="comment"># you may not use this file except in compliance with the License.</span></span><br><span class="line"><span class="comment"># You may obtain a copy of the License at</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#    http://www.apache.org/licenses/LICENSE-2.0</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Unless required by applicable law or agreed to in writing, software</span></span><br><span class="line"><span class="comment"># distributed under the License is distributed on an "AS IS" BASIS,</span></span><br><span class="line"><span class="comment"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or</span></span><br><span class="line"><span class="comment"># implied.</span></span><br><span class="line"><span class="comment"># See the License for the specific language governing permissions and</span></span><br><span class="line"><span class="comment"># limitations under the License.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> ryu.base <span class="keyword">import</span> app_manager</span><br><span class="line"><span class="keyword">from</span> ryu.controller <span class="keyword">import</span> ofp_event</span><br><span class="line"><span class="keyword">from</span> ryu.controller.handler <span class="keyword">import</span> CONFIG_DISPATCHER, MAIN_DISPATCHER</span><br><span class="line"><span class="keyword">from</span> ryu.controller.handler <span class="keyword">import</span> set_ev_cls</span><br><span class="line"><span class="keyword">from</span> ryu.ofproto <span class="keyword">import</span> ofproto_v1_3</span><br><span class="line"><span class="keyword">from</span> ryu.lib.packet <span class="keyword">import</span> packet</span><br><span class="line"><span class="keyword">from</span> ryu.lib.packet <span class="keyword">import</span> ethernet</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleSwitch13</span><span class="params">(app_manager.RyuApp)</span>:</span></span><br><span class="line">    OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, *args, **kwargs)</span>:</span></span><br><span class="line">        super(ExampleSwitch13, self).__init__(*args, **kwargs)</span><br><span class="line">        <span class="comment"># initialize mac address table.</span></span><br><span class="line">        self.mac_to_port = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">    @set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">switch_features_handler</span><span class="params">(self, ev)</span>:</span></span><br><span class="line">        datapath = ev.msg.datapath</span><br><span class="line">        ofproto = datapath.ofproto</span><br><span class="line">        parser = datapath.ofproto_parser</span><br><span class="line"></span><br><span class="line">        <span class="comment"># install the table-miss flow entry.</span></span><br><span class="line">        match = parser.OFPMatch()</span><br><span class="line">        actions = [parser.OFPActionOutput(ofproto.OFPP_CONTROLLER,</span><br><span class="line">                                          ofproto.OFPCML_NO_BUFFER)]</span><br><span class="line">        self.add_flow(datapath, <span class="number">0</span>, match, actions)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_flow</span><span class="params">(self, datapath, priority, match, actions)</span>:</span></span><br><span class="line">        ofproto = datapath.ofproto</span><br><span class="line">        parser = datapath.ofproto_parser</span><br><span class="line"></span><br><span class="line">        <span class="comment"># construct flow_mod message and send it.</span></span><br><span class="line">        inst = [parser.OFPInstructionActions(ofproto.OFPIT_APPLY_ACTIONS,</span><br><span class="line">                                             actions)]</span><br><span class="line">        mod = parser.OFPFlowMod(datapath=datapath, priority=priority,</span><br><span class="line">                                match=match, instructions=inst)</span><br><span class="line">        datapath.send_msg(mod)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @set_ev_cls(ofp_event.EventOFPPacketIn, MAIN_DISPATCHER)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_packet_in_handler</span><span class="params">(self, ev)</span>:</span></span><br><span class="line">        msg = ev.msg</span><br><span class="line">        datapath = msg.datapath</span><br><span class="line">        ofproto = datapath.ofproto</span><br><span class="line">        parser = datapath.ofproto_parser</span><br><span class="line"></span><br><span class="line">        <span class="comment"># get Datapath ID to identify OpenFlow switches.</span></span><br><span class="line">        dpid = datapath.id</span><br><span class="line">        self.mac_to_port.setdefault(dpid, &#123;&#125;)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># analyse the received packets using the packet library.</span></span><br><span class="line">        pkt = packet.Packet(msg.data)</span><br><span class="line">        eth_pkt = pkt.get_protocol(ethernet.ethernet)</span><br><span class="line">        dst = eth_pkt.dst</span><br><span class="line">        src = eth_pkt.src</span><br><span class="line"></span><br><span class="line">        <span class="comment"># get the received port number from packet_in message.</span></span><br><span class="line">        in_port = msg.match[<span class="string">'in_port'</span>]</span><br><span class="line"></span><br><span class="line">        self.logger.info(<span class="string">"packet in %s %s %s %s"</span>, dpid, src, dst, in_port)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># learn a mac address to avoid FLOOD next time.</span></span><br><span class="line">        self.mac_to_port[dpid][src] = in_port</span><br><span class="line"></span><br><span class="line">        <span class="comment"># if the destination mac address is already learned,</span></span><br><span class="line">        <span class="comment"># decide which port to output the packet, otherwise FLOOD.</span></span><br><span class="line">        <span class="keyword">if</span> dst <span class="keyword">in</span> self.mac_to_port[dpid]:</span><br><span class="line">            out_port = self.mac_to_port[dpid][dst]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            out_port = ofproto.OFPP_FLOOD</span><br><span class="line"></span><br><span class="line">        <span class="comment"># construct action list.</span></span><br><span class="line">        actions = [parser.OFPActionOutput(out_port)]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># install a flow to avoid packet_in next time.</span></span><br><span class="line">        <span class="keyword">if</span> out_port != ofproto.OFPP_FLOOD:</span><br><span class="line">            match = parser.OFPMatch(in_port=in_port, eth_dst=dst)</span><br><span class="line">            self.add_flow(datapath, <span class="number">1</span>, match, actions)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># construct packet_out message and send it.</span></span><br><span class="line">        out = parser.OFPPacketOut(datapath=datapath,</span><br><span class="line">                                  buffer_id=ofproto.OFP_NO_BUFFER,</span><br><span class="line">                                  in_port=in_port, actions=actions,</span><br><span class="line">                                  data=msg.data)</span><br><span class="line">        datapath.send_msg(out)</span><br></pre></td></tr></table></figure>
+
+<p>让我们来看看各自实现的内容。</p>
+<h3 id="2-3-1-类定义和初始化"><a href="#2-3-1-类定义和初始化" class="headerlink" title="2.3.1 类定义和初始化"></a>2.3.1 类定义和初始化</h3><p>为了实现一个ryu应用， ryu.base.app_manager.RyuApp被引用，此外，要使用OpenFlow 1.3，OpenFlow 1.3版本是为OFP_VERSIONS指定的。此外，定义了MAC地址表mac_to_port.</p>
+<p>在OpenFlow协议中，已经定义了一些过程，例如Open-Flow交换机和控制器之间通信所需的握手。但是，由于Ryu的框架负责处理这些程序，因此在ryu app中不需要了解这些。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleSwitch13</span><span class="params">(app_manager.RyuApp)</span>:</span></span><br><span class="line">    OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, *args, **kwargs)</span>:</span></span><br><span class="line">        super(ExampleSwitch13, self).__init__(*args, **kwargs)</span><br><span class="line">        <span class="comment"># initialize mac address table.</span></span><br><span class="line">        self.mac_to_port = &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-2-事件处理函数"><a href="#2-3-2-事件处理函数" class="headerlink" title="2.3.2 事件处理函数"></a>2.3.2 事件处理函数</h3><p>对于Ryu，当接收到OpenFlow消息时，生成对应于该消息的事件。 Ryu应用程序实现了与希望接收的消息相对应的事件处理程序。事件处理程序定义了一个具有参数的事件对象的函数，并使用ryu.controller.handler.set_ev_cls装饰器来装饰。</p>
+<p>set_ev_cls指定支持接收消息的事件类以及参数的OpenFlow交换机的状态。事件类名称为ryu.controller.ofp_event.EventOFP + &lt;OpenFlow消息名称&gt;。例如，在Packet-In消息的情况下，它变为EventOFPPacketIn。有关详细信息，请参阅Ryu的标题为API Reference的文档。对于状态，请指定以下之一或列表。</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-11-053905.jpg" width="800"></div>
+
+<ol>
+<li><p>添加缺失流表项</p>
+<p>在与OpenFlow交换机完成握手之后，将缺失流表项添加到交换机流表中以准备接收Packet-In消息。具体地，在接收到交换机特征（特征回复）消息时，添加表缺失流条目。</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">switch_features_handler</span><span class="params">(self, ev)</span>:</span></span><br><span class="line">        datapath = ev.msg.datapath</span><br><span class="line">        ofproto = datapath.ofproto</span><br><span class="line">        parser = datapath.ofproto_parser</span><br></pre></td></tr></table></figure>
+
+<p>在ev.msg中，存储与该事件对应的OpenFlow消息类的实例。在本例中，它是ryu.ofproto.ofproto_v1_3_parser.OFPSwitchFeatures。在msg.datapath中，存储与发出此消息的OpenFlow交换机对应的ryu.controller.controller.Datapath类的实例。Datapath类执行重要的处理，例如与OpenFlow交换机的实际通信以及与接收的消息相对应的事件的发布。<br>Ryu应用程序使用的datapath主要属性如下：</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-11-054538.jpg" width="800"></div>
+
+<p>Ryu应用程序中使用的Datapath类的主要方法如下：</p>
+<p><code>send_msg（msg）</code></p>
+<p>发送OpenFlow消息。 msg是与发送OpenFlow消息对应的ryu.ofproto.ofproto_parser.MsgBase的子类。<br>交换集线器并不特别使用收到的交换机功能消息本身。它被作为事件处理以获得添加表缺失流条目的定时。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">switch_features_handler</span><span class="params">(self, ev)</span>:</span></span><br><span class="line">        <span class="comment"># install the table-miss flow entry.</span></span><br><span class="line">        match = parser.OFPMatch()</span><br><span class="line">        actions = [parser.OFPActionOutput(ofproto.OFPP_CONTROLLER,</span><br><span class="line">                                          ofproto.OFPCML_NO_BUFFER)]</span><br><span class="line">        self.add_flow(datapath, <span class="number">0</span>, match, actions)</span><br></pre></td></tr></table></figure>
+
+<p>Table-miss流条目具有最低（0）优先级，并且该条目匹配所有分组。在该条目的指令中，通过指定输出到控制器端口的输出动作，如果接收的数据包与任何正常流条目都不匹配，则发出Packet-In。生成空匹配以匹配所有数据包。匹配在OFPMatch类中表示。<br>接下来，生成OUTPUT操作类（OFPActionOutput）的实例以传输到控制器端口。控制器被指定为输出目的地，OFPCML_NO_BUFFER被指定为max_len，以便将所有数据包发送到控制器。<br>最后，为优先级指定0（最低），并执行add_flow（）方法以发送Flow Mod消息。 add_flow（）方法的内容将在后面的部分中介绍。</p>
+<ol start="2">
+<li><p>Packet-In 消息</p>
+<p>创建Packet-In事件处理程序的处理程序，以接受具有未知目标的已接收数据包</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@set_ev_cls(ofp_event.EventOFPPacketIn, MAIN_DISPATCHER)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_packet_in_handler</span><span class="params">(self, ev)</span>:</span></span><br><span class="line">        msg = ev.msg</span><br><span class="line">        datapath = msg.datapath</span><br><span class="line">        ofproto = datapath.ofproto</span><br><span class="line">        parser = datapath.ofproto_parser</span><br></pre></td></tr></table></figure>
+
+<p>常用的OFPPacketIn类属性如下所示：</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-11-061623.jpg" width="800"></div>
+
+<ol start="3">
+<li>更新MAC地址表</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_packet_in_handler</span><span class="params">(self, ev)</span>:</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment"># get the received port number from packet_in message.</span></span><br><span class="line">        in_port = msg.match[<span class="string">'in_port'</span>]</span><br><span class="line"></span><br><span class="line">        self.logger.info(<span class="string">"packet in %s %s %s %s"</span>, dpid, src, dst, in_port)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># learn a mac address to avoid FLOOD next time.</span></span><br><span class="line">        self.mac_to_port[dpid][src] = in_port</span><br></pre></td></tr></table></figure>
+
+<p>$\qquad$从OFPPacketIn匹配中获取接收端口（in_port）。目标MAC地址和发送方MAC地址使用Ryu的数据包库从接收到的数据包的以太网报头中获取。基于获取的发送方MAC地址和接收的端口号，更新MAC地址表。<br>$\qquad$为了支持与多个OpenFlow交换机的连接，MAC地址表被设计为针对每个OpenFlow交换机进行管理。datapath ID用于标识OpenFlow交换机。</p>
+<ol start="4">
+<li><p>判断转发目的端口</p>
+<p>当MAC地址表中存在目的MAC地址时，使用相应的端口号。如果未找到，则生成OUTPUT操作类的实例，该实例指定输出端口的泛洪（OFPP_FLOOD）</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_packet_in_handler</span><span class="params">(self, ev)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># if the destination mac address is already learned,</span></span><br><span class="line">        <span class="comment"># decide which port to output the packet, otherwise FLOOD.</span></span><br><span class="line">        <span class="keyword">if</span> dst <span class="keyword">in</span> self.mac_to_port[dpid]:</span><br><span class="line">            out_port = self.mac_to_port[dpid][dst]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            out_port = ofproto.OFPP_FLOOD</span><br><span class="line"></span><br><span class="line">        <span class="comment"># construct action list.</span></span><br><span class="line">        actions = [parser.OFPActionOutput(out_port)]</span><br><span class="line">        <span class="comment"># install a flow to avoid packet_in next time.</span></span><br><span class="line">        <span class="keyword">if</span> out_port != ofproto.OFPP_FLOOD:</span><br><span class="line">            match = parser.OFPMatch(in_port=in_port, eth_dst=dst)</span><br><span class="line">            self.add_flow(datapath, <span class="number">1</span>, match, actions)</span><br></pre></td></tr></table></figure>
+
+<p>$\qquad$如果找到目标MAC地址，则会在OpenFlow交换机的流表中添加一个条目。与添加Table-miss流条目一样，指定匹配和操作，并执行add_flow（）以添加流条目。</p>
+<p>$\qquad$与Table-miss流条目不同，此次设置匹配条件。这次实现了交换集线器，指定了接收端口（in_port）和目标MAC地址（eth_dst）。例如，由端口1接收的寻址到主机B的分组是目标。<br>$\qquad$对于此次的流条目，优先级指定为1,值越大，优先级越高，因此，此处添加的流条目将在Table-miss流条目之前进行评估。<br>$\qquad$根据包含上述操作的摘要，将以下条目添加到流表中。将端口1接收到的主机B（目标MAC地址为B）的数据包传输到端口4。</p>
+<blockquote>
+<p>对于OpenFlow，在选项中规定了一个名为NORMAL的逻辑输出端口，当为输出端口指定NORMAL时，交换机的L2 / L3功能用于处理数据包。这意味着，通过指示将所有数据包输出到NORMAL端口，可以使交换机作为交换集线器运行。但是，我们使用OpenFlow实现每个处理</p>
+</blockquote>
+<ol start="5">
+<li>添加流表项</li>
+</ol>
+<p>Packet-In处理程序的处理尚未完成，但这里将介绍添加流表项的方法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_flow</span><span class="params">(self, datapath, priority, match, actions)</span>:</span></span><br><span class="line">        ofproto = datapath.ofproto</span><br><span class="line">        parser = datapath.ofproto_parser</span><br><span class="line"></span><br><span class="line">        <span class="comment"># construct flow_mod message and send it.</span></span><br><span class="line">        inst = [parser.OFPInstructionActions(ofproto.OFPIT_APPLY_ACTIONS,</span><br><span class="line">                                             actions)]</span><br></pre></td></tr></table></figure>
+
+<p>对于流表项，设置指示目标数据包条件的匹配，以及指示对数据包的操作，条目优先级和有效时间的指令。在交换集线器实现中，Apply Actions用于设置指令，以便立即使用指定的操作。<br>最后，通过发出Flow Mod消息向流表添加条目</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_flow</span><span class="params">(self, datapath, priority, match, actions)</span>:</span></span><br><span class="line">        mod = parser.OFPFlowMod(datapath=datapath, priority=priority,</span><br><span class="line">                                match=match, instructions=inst)</span><br><span class="line">        datapath.send_msg(mod)</span><br></pre></td></tr></table></figure>
+
+<p>与Flow Mod消息对应的类是OFPFlowMod类。生成OFPFlowMod类的实例，并使用Datapath.send_msg（）方法将消息发送到OpenFlow交换机。OFPFlowMod类的构造函数有很多参数。其中许多通常可以是默认值。括号内是默认值。</p>
+<ul>
+<li><p>datapath</p>
+<p>这是支持流表操作的OpenFlow交换机的Datapath类实例。通常，指定从传递给处理程序的事件中获取的那个，例如Packet-In消息。</p>
+</li>
+<li><p>cookie(0)</p>
+<p>控制器指定的可选值，可在更新或删除条目时用作过滤条件。这不用于数据包处理。</p>
+</li>
+<li><p>cookie_mask(0)</p>
+<p>更新或删除条目时，如果指定了0以外的值，则使用条目的cookie值将其用作操作目标条目的过滤器</p>
+</li>
+<li><p>table_id</p>
+<p>指定操作目标流表的表ID</p>
+</li>
+<li><p>command (ofproto_v1_3.OFPFC_ADD)、</p>
+<p>指定要执行的操作。</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-11-064100.jpg" width="600"></div>
+</li>
+<li><p>idle_timeout(0)</p>
+<p>指定此条目的有效期，以秒为单位。如果未引用该条目并且idle_timeout指定的时间过去，则删除该条目。引用该条目时，将重置已用时间。<br>删除条目后，会向控制器发送Flow Removed消息。</p>
+</li>
+<li><p>hard_timeout (0)</p>
+<p>指定此条目的有效期，以秒为单位。与idle_timeout不同，使用hard_timeout，即使引用了条目，也不会重置已用时间。也就是说，无论条目的引用如何，都在指定的时间过去时删除该条目。<br>与idle_timeout一样，当删除条目时，将发送Flow Removed消息。</p>
+</li>
+<li><p>priority(0)</p>
+<p>指定此条目的优先级顺序。值越大，优先级越高。</p>
+</li>
+<li><p>buffer_id (ofproto_v1_3.OFP_NO_BUFFER)</p>
+<p>指定OpenFlow交换机上缓冲的数据包的缓冲区ID。在分组输入消息中通知缓冲区ID，并且当指定的处理与发送两个消息时相同，即，为输出端口和流模式消息指定了OFPP_TABLE的分组输出消息。当命令为OFPFC_DELETE或OFPFC_DELETE_STRICT时，将忽略此项。<br>如果未指定缓冲区ID，请设置OFP_NO_BUFFER</p>
+</li>
+<li><p>out_port</p>
+<p>如果命令为OFPFC_DELETE或OFPFC_DELETE_STRICT，则输出端口将过滤目标条目。如果命令为OFPFC_ADD，OFPFC_MODIFY或OFPFC_MODIFY_STRICT，则忽略该命令。<br>要禁用输出端口的过滤，请指定OFPP_ANY。</p>
+</li>
+<li><p>out_group(0)</p>
+<p>与out_port一样，按输出组过滤。要禁用，请指定OFPG_ANY。</p>
+</li>
+<li><p>flag(0)</p>
+<p>您可以指定以下标志组合</p>
+</li>
+</ul>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-11-064628.jpg" width="800"></div>
+
+<ul>
+<li><p>match(None)</p>
+<p>具体的match</p>
+</li>
+<li><p>instructions ([])</p>
+<p>指定指令列表</p>
+</li>
+</ul>
+<ol start="6">
+<li><p>数据包转移</p>
+<p>现在我们返回Packet-In处理程序并解释最终处理。无论是否从MAC地址表中找到目的地MAC地址，最后都发出分组输出消息并传送接收的分组。</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_packet_in_handler</span><span class="params">(self, ev)</span>:</span></span><br><span class="line">        out = parser.OFPPacketOut(datapath=datapath,</span><br><span class="line">                                  buffer_id=ofproto.OFP_NO_BUFFER,</span><br><span class="line">                                  in_port=in_port, actions=actions,</span><br><span class="line">                                  data=msg.data)</span><br><span class="line">        datapath.send_msg(out)</span><br></pre></td></tr></table></figure>
+
+<p>与Packet-Out消息对应的类是OFPPacketOut类。 OFPPacketOut的构造函数的参数如下：</p>
+<ul>
+<li><p>datapath</p>
+<p>指定OpenFlow交换机对应的Datapath类的实例</p>
+</li>
+<li><p>buffer_id</p>
+<p>指定OpenFlow上缓冲的数据包的缓冲区ID。如果未缓冲，则指定OFP_NO_BUFFER。</p>
+</li>
+<li><p>in_port</p>
+<p>指定接收数据包的端口。如果不是收到的数据包，则指定OFPP_CONTROLLER</p>
+</li>
+<li><p>actions</p>
+<p>指定操作列表。</p>
+</li>
+<li><p>data</p>
+<p>指定数据包的二进制数据。当为buffer_id指定OFP_NO_BUFFER时使用此方法。使用OpenFlow交换机的缓冲区时，省略</p>
+</li>
+</ul>
+<p>$\qquad$在交换集线器实现中，已经为buffer_id指定了Packet-In消息的buffer_id。如果已禁用Packet-In消息的buffer-id，则为发送数据包的数据指定收到的Packet-In数据包。</p>
+<h2 id="2-4-ryu应用执行"><a href="#2-4-ryu应用执行" class="headerlink" title="2.4 ryu应用执行"></a>2.4 ryu应用执行</h2><p>因为xterm是从Mininet启动的，所以使用mn命令启动Mininet环境。要构建的环境具有简单的结构，具有三个主机和一个交换机。<br>mn命令参数如下：</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-11-070404.jpg" width="600"></div>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/10/2/" data-id="ck0gb1muh0001s0qc80269prj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/05/28/lab4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/04/15/pintos-install/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pintos-操作系统/">Pintos 操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu-16-04/">Ubuntu 16.04</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/拔草/">拔草</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Pintos-操作系统/" style="font-size: 10px;">Pintos 操作系统</a> <a href="/tags/Ubuntu-16-04/" style="font-size: 10px;">Ubuntu 16.04</a> <a href="/tags/拔草/" style="font-size: 10px;">拔草</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/12/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/15/lab5/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/28/lab4/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/10/2/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/15/pintos-install/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
