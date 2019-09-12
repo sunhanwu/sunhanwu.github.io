@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Linux服务器安装ftp服务]]></title>
+    <url>%2F2019%2F05%2F05%2Fvsftp%2F</url>
+    <content type="text"><![CDATA[ubuntu16.04配置vsftp服务器安装vsftpd 安装 1sudo apt-get install vsftpd 配置 /etc/vsftp.conf 1234567891011121314151617181920# 允许匿名用户和本地用户登录，本地用户即/etc/passwd中的用户anonymous_enable=YESlocal_enable=YES# 禁止全局写命令write_enable=YES# 禁止匿名用户上传和创建文件夹anon_upload_enable=NOanon_mkdir_write_enable=NO# 只允许userlist的用户登录userlist_enable=YESuserlist_deny=NOuserlist_file=/etc/vsftpd.user_list# 注意：使用了vsftpd.user_list后，要在其中加入anonymous才能使用匿名用户登录，如以下内容，表示只有匿名用户和名为ftp的用户，以及本地用户ubuntu可以登录anonymousftpubuntu 创建/etc/vsftpd.user_list文件 12ubunturoot 基本操作 启动、重启、关闭 123sudo /etc/init.d/vsftpd startsudo /etc/init.d/vsftpd stopsudo /etc/init.d/vsftpd restart]]></content>
+      <categories>
+        <category>tools</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[服务器搭建ss]]></title>
+    <url>%2F2019%2F05%2F01%2Fss%2F</url>
+    <content type="text"><![CDATA[Ubuntu16.04服务器搭建ss服务 安装unzip wget 1sudo apt-get install unzip wget 安装shadowsocks 12345wget https://github.com/ToyoDAdoubi/doubi/archive/master.zipunzip master.zipcd ./mastersudo chmod 777 ssr.shsudo ./ssr.sh 安装过程一路都有提示，十分简单]]></content>
+      <categories>
+        <category>tools</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux/MacOS 配置oh-my-zsh]]></title>
+    <url>%2F2019%2F04%2F28%2Fzsh%2F</url>
+    <content type="text"><![CDATA[Linux/Mac OS下安装oh my zsh并配置主题和插件安装oh my zsh 安装git 、zsh Linux(Ubuntu16.04) 1sudo apt-get install zsh git Mac OS 12#先自行百度安装homebrewbrew install git 安装oh my zsh(两种系统命令相同) 1sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" 修改主题：vim ～/.zshrc 12#找到对应行改为ZSH_THEME="agnoster" source ~/.zshrc 配置插件 wd 它的作用就是能够快速的切换到常用的目录。 ​ 我们用命令行时经常会遇到这样一种情况， 我们常用的目录就那么几个，而这些目录有时候会再很深的层级中。 使用 cd 命令在这些深层级目录中切换就比较耗费时间了。 ​ 例如 Nginx的wwwroot目录/usr/share/nginx/html ,我们进入这个目录，输入wd add html #这个html这个名称是可以随便取的. 下次再进入这个目录就可以直接输入 wd thml wd用法： 12345678910111213141516171819202122Usage: wd [command] [point]Commands: add &lt;point&gt; Adds the current working directory to your warp points add Adds the current working directory to your warp points with current directory&apos;s name add! &lt;point&gt; Overwrites existing warp point add! Overwrites existing warp point with current directory&apos;s name rm &lt;point&gt; Removes the given warp point rm Removes the given warp point with current directory&apos;s name show &lt;point&gt; Print path to given warp point show Print warp points to current directory list Print all stored warp points ls &lt;point&gt; Show files from given warp point (ls) path &lt;point&gt; Show the path to given warp point (pwd) clean! Remove points warping to nonexistent directories -v | --version Print version -d | --debug Exit after execution with exit codes (for testing) -c | --config Specify config file (default ~/.warprc) -q | --quiet Suppress all output help Show this extremely helpful text sudo 连按两次Esc添加或去掉sudo zsh-syntax-highlighting ​ #高亮可用命令 Linux 1git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting Mac OS 12brew install zsh-syntax-highlightingsource /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh zsh-autosuggestions ​ #记录上一条命令，并自动建议 1git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions 安装 在～/.zshrc下配置 12345678# Add wisely, as too many plugins slow down shell startup.plugins=( git zsh-autosuggestions zsh-syntax-highlighting wd sudo) 最后source ~/.zshrc]]></content>
+      <categories>
+        <category>tools</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>极客</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[七牛云命令行上载工具使用]]></title>
     <url>%2F2019%2F04%2F24%2Fqshell%2F</url>
     <content type="text"><![CDATA[Linux/Mac OS 下七牛云同步工具qshell的配置与使用@TOC 下载与安装 在官方下载页面下载即可，qshell 下载后解压，并将系统所对应版本重命名为qshell 配置环境变量 编辑～/.zshrc 或者～/.bashrc文件将qshell路径添加到环境变量中，我的路径为 1export PATH=$PATH:/home/sun/文档/tools/qiniu 使配置文件生效 1source ~/.zshrc 登录账户1qshell account ak sk 马赛克位置分别填写个人的ak 和sk qupload的使用 配置文件qupload.json,每个参数的具体作用请参考官方文档 12345678910111213141516&#123; "src_dir" : "/home/sun/图片", "bucket" : "ydm-ng", "up_host" : "http://upload-z1.qiniu.com", "ignore_dir" : false, "overwrite" : false, "check_exists" : true, "check_hash" : false, "check_size" : false, "rescan_local" : true, "log_file" : "upload.log", "log_level" : "info", "log_rotate" : 1, "log_stdout" : false, "file_type" : 0&#125; 执行命令为 1qshell qupload [&lt;ThreadCount&gt;] &lt;LocalUploadConfig&gt; 第一个为可选参数，一般选10，第二个为配置文件路径 一般为了节省操作时间，在zshrc配置别名 1alias qupload="qshell qupload 10 /Users/sun/Documents/tools/qshell/qupload.json" 在生效source ~/.zsh即可]]></content>
@@ -165,22 +199,7 @@
   </entry>
   <entry>
     <title></title>
-    <url>%2F2018%2F09%2F11%2Fss%2F</url>
-    <content type="text"><![CDATA[Ubuntu16.04服务器搭建ss服务 安装unzip wget 1sudo apt-get install unzip wget 安装shadowsocks 12345wget https://github.com/ToyoDAdoubi/doubi/archive/master.zipunzip master.zipcd ./mastersudo chmod 777 ssr.shsudo ./ssr.sh 安装过程一路都有提示，十分简单]]></content>
-  </entry>
-  <entry>
-    <title></title>
     <url>%2F2018%2F09%2F11%2Fss_err%2F</url>
     <content type="text"><![CDATA[shadowsocks启动报错]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F2018%2F09%2F11%2Fzsh%2F</url>
-    <content type="text"><![CDATA[Linux/Mac OS下安装oh my zsh并配置主题和插件安装oh my zsh 安装git 、zsh Linux(Ubuntu16.04) 1sudo apt-get install zsh git Mac OS 12#先自行百度安装homebrewbrew install git 安装oh my zsh(两种系统命令相同) 1sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" 修改主题：vim ～/.zshrc 12#找到对应行改为ZSH_THEME="agnoster" source ~/.zshrc 配置插件 wd 它的作用就是能够快速的切换到常用的目录。 ​ 我们用命令行时经常会遇到这样一种情况， 我们常用的目录就那么几个，而这些目录有时候会再很深的层级中。 使用 cd 命令在这些深层级目录中切换就比较耗费时间了。 ​ 例如 Nginx的wwwroot目录/usr/share/nginx/html ,我们进入这个目录，输入wd add html #这个html这个名称是可以随便取的. 下次再进入这个目录就可以直接输入 wd thml wd用法： 12345678910111213141516171819202122Usage: wd [command] [point]Commands: add &lt;point&gt; Adds the current working directory to your warp points add Adds the current working directory to your warp points with current directory&apos;s name add! &lt;point&gt; Overwrites existing warp point add! Overwrites existing warp point with current directory&apos;s name rm &lt;point&gt; Removes the given warp point rm Removes the given warp point with current directory&apos;s name show &lt;point&gt; Print path to given warp point show Print warp points to current directory list Print all stored warp points ls &lt;point&gt; Show files from given warp point (ls) path &lt;point&gt; Show the path to given warp point (pwd) clean! Remove points warping to nonexistent directories -v | --version Print version -d | --debug Exit after execution with exit codes (for testing) -c | --config Specify config file (default ~/.warprc) -q | --quiet Suppress all output help Show this extremely helpful text sudo 连按两次Esc添加或去掉sudo zsh-syntax-highlighting ​ #高亮可用命令 Linux 1git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting Mac OS 12brew install zsh-syntax-highlightingsource /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh zsh-autosuggestions ​ #记录上一条命令，并自动建议 1git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions 安装 在～/.zshrc下配置 12345678# Add wisely, as too many plugins slow down shell startup.plugins=( git zsh-autosuggestions zsh-syntax-highlighting wd sudo) 最后source ~/.zshrc]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F2018%2F09%2F11%2Fvsftp%2F</url>
-    <content type="text"><![CDATA[ubuntu16.04配置vsftp服务器安装vsftpd 安装 1sudo apt-get install vsftpd 配置 /etc/vsftp.conf 1234567891011121314151617181920# 允许匿名用户和本地用户登录，本地用户即/etc/passwd中的用户anonymous_enable=YESlocal_enable=YES# 禁止全局写命令write_enable=YES# 禁止匿名用户上传和创建文件夹anon_upload_enable=NOanon_mkdir_write_enable=NO# 只允许userlist的用户登录userlist_enable=YESuserlist_deny=NOuserlist_file=/etc/vsftpd.user_list# 注意：使用了vsftpd.user_list后，要在其中加入anonymous才能使用匿名用户登录，如以下内容，表示只有匿名用户和名为ftp的用户，以及本地用户ubuntu可以登录anonymousftpubuntu 创建/etc/vsftpd.user_list文件 12ubunturoot 基本操作 启动、重启、关闭 123sudo /etc/init.d/vsftpd startsudo /etc/init.d/vsftpd stopsudo /etc/init.d/vsftpd restart]]></content>
   </entry>
 </search>
