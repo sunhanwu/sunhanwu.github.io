@@ -56,9 +56,10 @@
 </script>
 
   <meta name="description" content="实验二实验报告 孙汉武    16281047    安全1601  Task 11.1 实验步骤 打开一个vi进程  通过ps命令找到名字为vi的进程，命令如下 1ps -auxc | grep vi$    这里对该命令中的参数做出解释  -aux:    显示所有进程 -c:            将command列输出更改为可执行文件名而不是命令名称 grep         正则表达式搜">
+<meta name="keywords" content="操作系统,Another Tag">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SunPages">
-<meta property="og:url" content="http://yoursite.com/2019/04/06/lab2/index.html">
+<meta property="og:title" content="进程实验">
+<meta property="og:url" content="http://yoursite.com/2019/09/12/lab2/index.html">
 <meta property="og:site_name" content="SunPages">
 <meta property="og:description" content="实验二实验报告 孙汉武    16281047    安全1601  Task 11.1 实验步骤 打开一个vi进程  通过ps命令找到名字为vi的进程，命令如下 1ps -auxc | grep vi$    这里对该命令中的参数做出解释  -aux:    显示所有进程 -c:            将command列输出更改为可执行文件名而不是命令名称 grep         正则表达式搜">
 <meta property="og:locale" content="zh-Hans">
@@ -106,12 +107,12 @@
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-172220.jpg">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-172223.jpg">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-172226.jpg">
-<meta property="og:updated_time" content="2019-04-29T17:22:29.777Z">
+<meta property="og:updated_time" content="2019-09-12T07:47:04.472Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SunPages">
+<meta name="twitter:title" content="进程实验">
 <meta name="twitter:description" content="实验二实验报告 孙汉武    16281047    安全1601  Task 11.1 实验步骤 打开一个vi进程  通过ps命令找到名字为vi的进程，命令如下 1ps -auxc | grep vi$    这里对该命令中的参数做出解释  -aux:    显示所有进程 -c:            将command列输出更改为可执行文件名而不是命令名称 grep         正则表达式搜">
 <meta name="twitter:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171938.jpg">
-  <link rel="canonical" href="http://yoursite.com/2019/04/06/lab2/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/12/lab2/">
 
 
 <script id="page-configurations">
@@ -125,7 +126,7 @@
   };
 </script>
 
-  <title> | SunPages</title>
+  <title>进程实验 | SunPages</title>
   
 
 
@@ -262,7 +263,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/06/lab2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/12/lab2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sun">
@@ -274,7 +275,7 @@
       <meta itemprop="name" content="SunPages">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h1 class="post-title" itemprop="name headline">进程实验
 
           
         </h1>
@@ -290,20 +291,8 @@
                 
               
 
-              <time title="Created: 2019-04-06 19:45:03" itemprop="dateCreated datePublished" datetime="2019-04-06T19:45:03+08:00">2019-04-06</time>
+              <time title="Created: 2019-09-12 15:47:04" itemprop="dateCreated datePublished" datetime="2019-09-12T15:47:04+08:00">2019-09-12</time>
             </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-04-30 01:22:29" itemprop="dateModified" datetime="2019-04-30T01:22:29+08:00">2019-04-30</time>
-              </span>
-            
           
 
           
@@ -587,7 +576,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -g task3.c -o task3</span><br></pre></td></tr></table></figure>
 
 <p>通过<code>gdb task3</code>命令进入调试器，首先是配置成多进程调试模式：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在gdb中按照如下命令设置，可以设置成对进城调试模式</span></span><br><span class="line">set follow-fork-mode parent</span><br><span class="line">set detach-on-fork off</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 在gdb中按照如下命令设置，可以设置成对进城调试模式</span><br><span class="line">set follow-fork-mode parent</span><br><span class="line">set detach-on-fork off</span><br></pre></td></tr></table></figure>
 
 <img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-172052.jpg" width="600">
 
@@ -750,14 +739,25 @@
       
 
       <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/操作系统/" rel="tag"># 操作系统</a>
+            
+              <a href="/tags/Another-Tag/" rel="tag"># Another Tag</a>
+            
+          </div>
+        
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/04/06/lab3/" rel="next" title="">
-                  <i class="fa fa-chevron-left"></i> 
+                <a href="/2019/09/12/lab1/" rel="next" title="系统调用实验">
+                  <i class="fa fa-chevron-left"></i> 系统调用实验
                 </a>
               
             </div>
@@ -765,10 +765,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/04/15/pintos-install/" rel="prev" title="">
-                   <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -832,7 +828,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -841,7 +837,7 @@
       
       <div class="site-state-item site-state-tags">
         
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">tags</span>
         
       </div>
