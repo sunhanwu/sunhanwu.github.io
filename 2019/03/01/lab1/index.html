@@ -6,7 +6,7 @@
 
 <html lang="zh-CN">
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 3.9.0">
@@ -55,13 +55,13 @@
   };
 </script>
 
-  <meta name="description" content="实验一实验报告 孙汉武    16281047    安全1601 [TOC]Task 1 系统调用实验1.1 直接调用和汇编中断调用系统调用getpidC语言直接调用 实验步骤  源代码getpid_c.c：  123456789#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;unistd.h&amp;gt;int main()&amp;#123;	pid_t pid;	pid = get">
+  <meta name="description" content="实验一实验报告 孙汉武    16281047    安全1601">
 <meta name="keywords" content="操作系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="系统调用实验">
 <meta property="og:url" content="http://yoursite.com/2019/03/01/lab1/index.html">
 <meta property="og:site_name" content="SunPages">
-<meta property="og:description" content="实验一实验报告 孙汉武    16281047    安全1601 [TOC]Task 1 系统调用实验1.1 直接调用和汇编中断调用系统调用getpidC语言直接调用 实验步骤  源代码getpid_c.c：  123456789#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;unistd.h&amp;gt;int main()&amp;#123;	pid_t pid;	pid = get">
+<meta property="og:description" content="实验一实验报告 孙汉武    16281047    安全1601">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171700.jpg">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171717.jpg">
@@ -84,7 +84,7 @@
 <meta property="og:updated_time" content="2019-09-12T12:10:34.974Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统调用实验">
-<meta name="twitter:description" content="实验一实验报告 孙汉武    16281047    安全1601 [TOC]Task 1 系统调用实验1.1 直接调用和汇编中断调用系统调用getpidC语言直接调用 实验步骤  源代码getpid_c.c：  123456789#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;unistd.h&amp;gt;int main()&amp;#123;	pid_t pid;	pid = get">
+<meta name="twitter:description" content="实验一实验报告 孙汉武    16281047    安全1601">
 <meta name="twitter:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171700.jpg">
   <link rel="canonical" href="http://yoursite.com/2019/03/01/lab1/">
 
@@ -132,12 +132,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</noscript>
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+  <div class="container use-motion">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -221,6 +221,17 @@
     
 
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-photos">
+      
+    
+
+    <a href="/photo/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br>Photos</a>
 
   </li>
   </ul>
@@ -355,7 +366,9 @@
       
         <h1 id="实验一实验报告"><a href="#实验一实验报告" class="headerlink" title="实验一实验报告"></a>实验一实验报告</h1><blockquote>
 <p>孙汉武    16281047    安全1601</p>
-</blockquote><p>[TOC]</p><h2 id="Task-1-系统调用实验"><a href="#Task-1-系统调用实验" class="headerlink" title="Task 1 系统调用实验"></a>Task 1 系统调用实验</h2><h3 id="1-1-直接调用和汇编中断调用系统调用getpid"><a href="#1-1-直接调用和汇编中断调用系统调用getpid" class="headerlink" title="1.1 直接调用和汇编中断调用系统调用getpid"></a>1.1 直接调用和汇编中断调用系统调用getpid</h3><h4 id="C语言直接调用"><a href="#C语言直接调用" class="headerlink" title="C语言直接调用"></a>C语言直接调用</h4><ol>
+</blockquote><a id="more"></a>
+<p>[TOC]</p>
+<h2 id="Task-1-系统调用实验"><a href="#Task-1-系统调用实验" class="headerlink" title="Task 1 系统调用实验"></a>Task 1 系统调用实验</h2><h3 id="1-1-直接调用和汇编中断调用系统调用getpid"><a href="#1-1-直接调用和汇编中断调用系统调用getpid" class="headerlink" title="1.1 直接调用和汇编中断调用系统调用getpid"></a>1.1 直接调用和汇编中断调用系统调用getpid</h3><h4 id="C语言直接调用"><a href="#C语言直接调用" class="headerlink" title="C语言直接调用"></a>C语言直接调用</h4><ol>
 <li><p>实验步骤</p>
 <ul>
 <li>源代码<code>getpid_c.c</code>：</li>
@@ -376,9 +389,7 @@
 </li>
 <li><p>系统调用号跟操作系统的位数(32或64)和不同的发行版本(debian和Ubuntu)有关，例如Ubuntu 64位机器上getpid的系统调用号是172，而网上查到Linux内核64位为39，32位为20。 出现不一致的原因是，在Linux64位系统中，对32位程序进行了兼容操作。之前的32位机中，系统通过开放0x80搭配系统调用号来实现用户程序使用系统调用功能。但在64位机中，已经不使用int 0x80作为触发系统调用的机制了，而使用syscall指令来触发。但为了保持兼容性，系统仍然支持int 0x80进行‘32位’风格的调用。自然我们的汇编代码使用20这个系统调用号，依然可以正确运行在64位机器上。</p>
 </li>
-</ol><a id="more"></a>
-
-
+</ol>
 <h4 id="汇编中断调用"><a href="#汇编中断调用" class="headerlink" title="汇编中断调用"></a>汇编中断调用</h4><ol>
 <li><p>实验步骤</p>
 <ul>
@@ -882,7 +893,7 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     path: location.pathname
   });
 }, window.Valine);
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script>
 
 </body>
 </html>

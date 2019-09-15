@@ -6,7 +6,7 @@
 
 <html lang="zh-CN">
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 3.9.0">
@@ -111,12 +111,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</noscript>
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+  <div class="container use-motion">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -200,6 +200,17 @@
     
 
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-photos">
+      
+    
+
+    <a href="/photo/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br>Photos</a>
 
   </li>
   </ul>
@@ -360,11 +371,19 @@
                 
               
 
-              <time title="创建时间：2019-09-12 20:06:19 / 修改时间：23:07:59" itemprop="dateCreated datePublished" datetime="2019-09-12T20:06:19+08:00">2019-09-12</time>
+              <time title="创建时间：2019-09-12 20:06:19" itemprop="dateCreated datePublished" datetime="2019-09-12T20:06:19+08:00">2019-09-12</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-15 17:28:50" itemprop="dateModified" datetime="2019-09-15T17:28:50+08:00">2019-09-15</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -427,32 +446,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <script src="/js/crypto-js.js"></script><script>
-function doDecrypt (pwd, onError) {
-	console.log('in doDecrypt');
-	const txt = document.getElementById('enc_content').innerHTML;
-	let plantext;
-	try {
-		const bytes = CryptoJS.AES.decrypt(txt, pwd);
-		var plaintext = bytes.toString(CryptoJS.enc.Utf8);
-	} catch(err) {
-		if(onError) {
-			onError(err);
-		}
-		return;
-	}
-	document.getElementById('enc_content').innerHTML = plaintext;
-	document.getElementById('enc_content').style.display = 'block';
-	document.getElementById('enc_passwd').style.display = 'none';
-	if(typeof MathJax !== 'undefined') {
-		MathJax.Hub.Queue(
-			['resetEquationNumbers', MathJax.InputJax.TeX],
-			['PreProcess', MathJax.Hub],
-			['Reprocess', MathJax.Hub]
-		);
-	}
-}
-</script>
+          <h1 id="对论文《Classifying-IoT-Devices-in-Smart-Environments-Using-Network-Traffic-Characteristics》的复现"><a href="#对论文《Classifying-IoT-Devices-in-Smart-Environments-Using-Network-Traffic-Characteristics》的复现" class="headerlink" title="对论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》的复现"></a>对论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》的复现</h1>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -589,17 +583,7 @@ function doDecrypt (pwd, onError) {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="ubuntu16-04配置vsftp服务器"><a href="#ubuntu16-04配置vsftp服务器" class="headerlink" title="ubuntu16.04配置vsftp服务器"></a>ubuntu16.04配置vsftp服务器</h1><h2 id="安装vsftpd"><a href="#安装vsftpd" class="headerlink" title="安装vsftpd"></a>安装vsftpd</h2><ul>
-<li><p>安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install vsftpd</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置 /etc/vsftp.conf</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 允许匿名用户和本地用户登录，本地用户即/etc/passwd中的用户</span></span><br><span class="line">anonymous_enable=YES</span><br><span class="line">local_enable=YES</span><br><span class="line"></span><br><span class="line"><span class="comment"># 禁止全局写命令</span></span><br><span class="line">write_enable=YES</span><br><span class="line"></span><br><span class="line"><span class="comment"># 禁止匿名用户上传和创建文件夹</span></span><br><span class="line">anon_upload_enable=NO</span><br><span class="line">anon_mkdir_write_enable=NO</span><br><span class="line"></span><br><span class="line"><span class="comment"># 只允许userlist的用户登录</span></span><br><span class="line">userlist_enable=YES</span><br><span class="line">userlist_deny=NO</span><br><span class="line">userlist_file=/etc/vsftpd.user_list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意：使用了vsftpd.user_list后，要在其中加入anonymous才能使用匿名用户登录，如以下内容，表示只有匿名用户和名为ftp的用户，以及本地用户ubuntu可以登录</span></span><br><span class="line">anonymous</span><br><span class="line">ftp</span><br><span class="line">ubuntu</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建/etc/vsftpd.user_list文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ubuntu</span><br><span class="line">root</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+          <h1 id="ubuntu16-04配置vsftp服务器"><a href="#ubuntu16-04配置vsftp服务器" class="headerlink" title="ubuntu16.04配置vsftp服务器"></a>ubuntu16.04配置vsftp服务器</h1>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -874,18 +858,7 @@ function doDecrypt (pwd, onError) {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Linux-Mac-OS下安装oh-my-zsh并配置主题和插件"><a href="#Linux-Mac-OS下安装oh-my-zsh并配置主题和插件" class="headerlink" title="Linux/Mac OS下安装oh my zsh并配置主题和插件"></a>Linux/Mac OS下安装oh my zsh并配置主题和插件</h1><h2 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh my zsh"></a>安装oh my zsh</h2><ol>
-<li><p>安装git 、zsh</p>
-<ul>
-<li>Linux(Ubuntu16.04)</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install zsh git</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Mac OS</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#先自行百度安装homebrew</span></span><br><span class="line">brew install git</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+          <h1 id="Linux-Mac-OS下安装oh-my-zsh并配置主题和插件"><a href="#Linux-Mac-OS下安装oh-my-zsh并配置主题和插件" class="headerlink" title="Linux/Mac OS下安装oh my zsh并配置主题和插件"></a>Linux/Mac OS下安装oh my zsh并配置主题和插件</h1>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1022,17 +995,7 @@ function doDecrypt (pwd, onError) {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Linux-Mac-OS-下七牛云同步工具qshell的配置与使用"><a href="#Linux-Mac-OS-下七牛云同步工具qshell的配置与使用" class="headerlink" title="Linux/Mac OS 下七牛云同步工具qshell的配置与使用"></a>Linux/Mac OS 下七牛云同步工具qshell的配置与使用</h1><p>@TOC</p><h2 id="下载与安装"><a href="#下载与安装" class="headerlink" title="下载与安装"></a>下载与安装</h2><ul>
-<li>在官方下载页面下载即可，<a href="https://developer.qiniu.com/kodo/tools/1302/qshell" target="_blank" rel="noopener">qshell</a></li>
-<li>下载后解压，并将系统所对应版本重命名为qshell</li>
-</ul><p><img src="http://pdt3s257u.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20180821191839.png" alt></p><h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><ul>
-<li><p>编辑～/.zshrc 或者～/.bashrc文件将qshell路径添加到环境变量中，我的路径为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/home/sun/文档/tools/qiniu</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使配置文件生效</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+          <h1 id="Linux-Mac-OS-下七牛云同步工具qshell的配置与使用"><a href="#Linux-Mac-OS-下七牛云同步工具qshell的配置与使用" class="headerlink" title="Linux/Mac OS 下七牛云同步工具qshell的配置与使用"></a>Linux/Mac OS 下七牛云同步工具qshell的配置与使用</h1>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1169,7 +1132,7 @@ function doDecrypt (pwd, onError) {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Linux服务器配置jupyter-notebook实现远程访问"><a href="#Linux服务器配置jupyter-notebook实现远程访问" class="headerlink" title="Linux服务器配置jupyter-notebook实现远程访问"></a>Linux服务器配置jupyter-notebook实现远程访问</h1><h2 id="下载anaconda"><a href="#下载anaconda" class="headerlink" title="下载anaconda"></a>下载anaconda</h2><p>在<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/" target="_blank" rel="noopener">清华镜像</a>上下载anaconda对应版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-5.2.0-Linux-x86_64.sh</span><br><span class="line"></span><br><span class="line">sudo chmod +x Anaconda*</span><br></pre></td></tr></table></figure></p>
+          <h1 id="Linux服务器配置jupyter-notebook实现远程访问"><a href="#Linux服务器配置jupyter-notebook实现远程访问" class="headerlink" title="Linux服务器配置jupyter-notebook实现远程访问"></a>Linux服务器配置jupyter-notebook实现远程访问</h1>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1309,16 +1272,15 @@ function doDecrypt (pwd, onError) {
           <h1 id="Linux下用dd命令制作U盘启动盘"><a href="#Linux下用dd命令制作U盘启动盘" class="headerlink" title="Linux下用dd命令制作U盘启动盘"></a>Linux下用dd命令制作U盘启动盘</h1><blockquote>
 <p>在manjaro系统下测试</p>
 </blockquote>
-<ol>
-<li><p>查询U盘对应文件sudo fdisk -l</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Disk /dev/nvme0n1：238.5 GiB，256060514304 字节，500118192 个扇区</span><br><span class="line">单元：扇区 / 1 * 512 = 512 字节</span><br><span class="line">扇区大小(逻辑/物理)：512 字节 / 512 字节</span><br><span class="line">I/O 大小(最小/最佳)：512 字节 / 512 字节</span><br><span class="line">磁盘标签类型：gpt</span><br><span class="line">磁盘标识符：09CDCE5C-F487-42C9-83BF-B41ACD262434</span><br><span class="line"></span><br><span class="line">设备                起点      末尾      扇区   大小 类型</span><br><span class="line">/dev/nvme0n1p1      4097    618497    614401   300M EFI 系统</span><br><span class="line">/dev/nvme0n1p2    618498 481648510 481030013 229.4G Linux 文件系统</span><br><span class="line">/dev/nvme0n1p3 481648511 500103449  18454939   8.8G Linux swap</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Disk /dev/sda：28.7 GiB，30752000000 字节，60062500 个扇区</span><br><span class="line">单元：扇区 / 1 * 512 = 512 字节</span><br><span class="line">扇区大小(逻辑/物理)：512 字节 / 512 字节</span><br><span class="line">I/O 大小(最小/最佳)：512 字节 / 512 字节</span><br><span class="line">磁盘标签类型：dos</span><br><span class="line">磁盘标识符：0xcad4ebea</span><br><span class="line"></span><br><span class="line">设备       启动 起点     末尾     扇区  大小 Id 类型</span><br><span class="line">/dev/sda4  *     256 60062499 60062244 28.7G  c W95 FAT32 (LBA)</span><br></pre></td></tr></table></figure>
-<p>发现U盘对应的是/dev/sda4</p>
-</li>
-<li><p>使用dd命令写入iso文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dd <span class="keyword">if</span>=/home/sun/manjaro.iso of=/dev/sda4 bs=4M</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/17/dd/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1446,10 +1408,7 @@ function doDecrypt (pwd, onError) {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="CoolMusic的使用方法"><a href="#CoolMusic的使用方法" class="headerlink" title="CoolMusic的使用方法"></a>CoolMusic的使用方法</h1><h2 id="MusicDownloader"><a href="#MusicDownloader" class="headerlink" title="MusicDownloader"></a>MusicDownloader</h2><p>MusicDownloader 是基于python的一个音乐下载项目。</p><p><a href="https://github.com/Michel-liu/MusicDownloader" target="_blank" rel="noopener">项目地址:https://github.com/Michel-liu/MusicDownloader</a><br>其主要功能有：</p><ul>
-<li>批量下载网易云音乐歌单</li>
-<li>通过关键字搜索，搜索并下载特定的音乐</li>
-</ul>
+          <h1 id="CoolMusic的使用方法"><a href="#CoolMusic的使用方法" class="headerlink" title="CoolMusic的使用方法"></a>CoolMusic的使用方法</h1><h2 id="MusicDownloader"><a href="#MusicDownloader" class="headerlink" title="MusicDownloader"></a>MusicDownloader</h2>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1586,23 +1545,16 @@ function doDecrypt (pwd, onError) {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="ubuntu-16-04配置shadowsocks-proxychains4-实现终端代理"><a href="#ubuntu-16-04配置shadowsocks-proxychains4-实现终端代理" class="headerlink" title="ubuntu 16.04配置shadowsocks+proxychains4 实现终端代理"></a>ubuntu 16.04配置shadowsocks+proxychains4 实现终端代理</h1><h2 id="安装Python-pip"><a href="#安装Python-pip" class="headerlink" title="安装Python-pip"></a>安装Python-pip</h2><ul>
-<li><p>ubuntu16.04默认安装Python2.7，所以不需要安装python，安装python的包管理工具就行了</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-pip</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装shadowsocks</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install shadowsocks</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置本地vim /home/ubuntu/shadowsocks.json</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "server":"11.22.33.44",# 你服务端的IP</span><br><span class="line">    "server_port":50003, # 你服务端的端口</span><br><span class="line">    "local_port":1080, #本地端口，一般默认1080</span><br><span class="line">    "password":"123456", #ss服务端设置的密码</span><br><span class="line">    "timeout":600, #超时设置 和服务端一样</span><br><span class="line">    "method":"aes-256-cfb" #加密方法 和服务端一样</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建服务启动脚本shadowsocks.sh</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sslocal -c /home/ubuntu/shadowsocks.json</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>可能会报错</p>
-</li>
-</ul>
-
+          <h1 id="ubuntu-16-04配置shadowsocks-proxychains4-实现终端代理"><a href="#ubuntu-16-04配置shadowsocks-proxychains4-实现终端代理" class="headerlink" title="ubuntu 16.04配置shadowsocks+proxychains4 实现终端代理"></a>ubuntu 16.04配置shadowsocks+proxychains4 实现终端代理</h1>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/11/CLI_ss/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1889,7 +1841,7 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     path: location.pathname
   });
 }, window.Valine);
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script>
 
 </body>
 </html>

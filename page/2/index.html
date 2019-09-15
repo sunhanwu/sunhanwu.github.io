@@ -6,7 +6,7 @@
 
 <html lang="zh-CN">
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 3.9.0">
@@ -111,12 +111,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</noscript>
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+  <div class="container use-motion">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -200,6 +200,17 @@
     
 
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-photos">
+      
+    
+
+    <a href="/photo/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br>Photos</a>
 
   </li>
   </ul>
@@ -332,11 +343,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="2-Switching-Hub"><a href="#2-Switching-Hub" class="headerlink" title="2 Switching Hub"></a>2 Switching Hub</h1><p>[TOC]</p><h2 id="2-1-Switching-Hub"><a href="#2-1-Switching-Hub" class="headerlink" title="2.1 Switching Hub"></a>2.1 Switching Hub</h2><p>交换集线器有很多种不同的功能，在这我们看看拥有以下功能的集线器：</p><ul>
-<li>能够学习集线器端口连接主机的MAC地址并将其保存在MAC地址表中</li>
-<li>当收到MAC地址已知的报文时，将其转发到对应端口</li>
-<li>当收到地址未知的报文的时候，进行泛洪</li>
-</ul><p>让我们用ryu来实现这种功能的交换机</p>
+          <h1 id="2-Switching-Hub"><a href="#2-Switching-Hub" class="headerlink" title="2 Switching Hub"></a>2 Switching Hub</h1><p>[TOC]</p><h2 id="2-1-Switching-Hub"><a href="#2-1-Switching-Hub" class="headerlink" title="2.1 Switching Hub"></a>2.1 Switching Hub</h2>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -476,9 +483,7 @@
           <h1 id="实验四-实验报告"><a href="#实验四-实验报告" class="headerlink" title="实验四 实验报告"></a><center>实验四 实验报告</center></h1><blockquote>
 <center>孙汉武    16281047    16281047</center>
 
-</blockquote><p><a href="https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab4" target="_blank" rel="noopener">实验源码链接:https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab4</a></p><h2 id="一-概要设计"><a href="#一-概要设计" class="headerlink" title="一 概要设计"></a>一 概要设计</h2><blockquote>
-<p>实验源码请参考test.h</p>
-</blockquote><h3 id="1-1-模块说明"><a href="#1-1-模块说明" class="headerlink" title="1.1 模块说明"></a>1.1 模块说明</h3>
+</blockquote>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -862,7 +867,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="操作系统Pintos-实验一-Thread-全解"><a href="#操作系统Pintos-实验一-Thread-全解" class="headerlink" title="操作系统Pintos 实验一 Thread 全解"></a>操作系统Pintos 实验一 Thread 全解</h1><p>孙汉武    2019.04.02</p><hr><h3 id="内容简介"><a href="#内容简介" class="headerlink" title="内容简介"></a>内容简介</h3><p>操作系统课程的必修内容是实现斯坦福大学开发的pintos操作系统。通过对pintos的开发与运行，实现对操作系统各个部分的理解与深入。</p><p>本实验一律采用Ubuntu 16.04 Server版作为运行环境。</p><p>本教程旨在记录使用pintos实验一的全过程，涉及到安装、调试、开发等等方面，将持续进行更新，希望大家多多支持。</p>
+          <h1 id="操作系统Pintos-实验一-Thread-全解"><a href="#操作系统Pintos-实验一-Thread-全解" class="headerlink" title="操作系统Pintos 实验一 Thread 全解"></a>操作系统Pintos 实验一 Thread 全解</h1>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1002,7 +1007,7 @@
           <h1 id="实验三-实验报告"><a href="#实验三-实验报告" class="headerlink" title="实验三 实验报告"></a><center>实验三 实验报告</center></h1><blockquote>
 <center>孙汉武    安全1601    16281047</center>
 
-</blockquote><p><a href="https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab3" target="_blank" rel="noopener">实验源代码链接</a></p><h2 id="Task-1"><a href="#Task-1" class="headerlink" title="Task 1"></a>Task 1</h2><h3 id="1-1-实验要求"><a href="#1-1-实验要求" class="headerlink" title="1.1 实验要求"></a>1.1 实验要求</h3><p>$\qquad$通过fork的方式，产生4个进程P1,P2,P3,P4，每个进程打印输出自己的名字，例如P1输出“I am the process P1”。要求P1最先执行，P2、P3互斥执行，P4最后执行。通过多次测试验证实现是否正确。</p>
+</blockquote>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1141,22 +1146,7 @@
       
           <h1 id="实验二实验报告"><a href="#实验二实验报告" class="headerlink" title="实验二实验报告"></a>实验二实验报告</h1><blockquote>
 <p>孙汉武    16281047    安全1601</p>
-</blockquote><h2 id="Task-1"><a href="#Task-1" class="headerlink" title="Task 1"></a>Task 1</h2><h3 id="1-1-实验步骤"><a href="#1-1-实验步骤" class="headerlink" title="1.1 实验步骤"></a>1.1 实验步骤</h3><ol>
-<li><p>打开一个vi进程</p>
-</li>
-<li><p>通过ps命令找到名字为vi的进程，命令如下</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -auxc | grep vi$</span><br></pre></td></tr></table></figure>
-<p><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171938.jpg" width="600"></p>
-<p>这里对该命令中的参数做出解释</p>
-<ul>
-<li><code>-aux</code>:    显示所有进程</li>
-<li><code>-c</code>:            将command列输出更改为可执行文件名而不是命令名称</li>
-<li><code>grep</code>         正则表达式搜索</li>
-<li><code>vi$</code>           匹配结尾为vi字符串    </li>
-</ul>
-<p>这里对ps命令的输出结果每一列的含义做出解释，<code>ps -aux</code>命令的输出结果一共有十一列，从左往右分别是：</p>
-</li>
-</ol>
+</blockquote>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1295,7 +1285,7 @@
       
           <h1 id="gitbook使用"><a href="#gitbook使用" class="headerlink" title="gitbook使用"></a>gitbook使用</h1><h2 id="本地修改"><a href="#本地修改" class="headerlink" title="本地修改"></a>本地修改</h2><blockquote>
 <p>在本地利用 yu writer进行编辑之后使用git上传到github<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add &lt;修改的文件名&gt;</span><br><span class="line">git commit -m <span class="string">"修改的简述"</span></span><br><span class="line">git push -u github master</span><br></pre></td></tr></table></figure></p>
-</blockquote><p><img src="http://pdt3s257u.bkt.clouddn.com/Snip20180822_8.png" alt></p><h2 id="服务器从github同步数据"><a href="#服务器从github同步数据" class="headerlink" title="服务器从github同步数据"></a>服务器从github同步数据</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull github master</span><br></pre></td></tr></table></figure>
+</blockquote>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1435,7 +1425,7 @@
           <h1 id="实验五-文件系统-实验报告"><a href="#实验五-文件系统-实验报告" class="headerlink" title="实验五-文件系统 实验报告"></a><center>实验五-文件系统 实验报告</center></h1><blockquote>
 <center>孙汉武    16281047    安全1601</center>
 
-</blockquote><p><a href="https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab5" target="_blank" rel="noopener">实验源码链接:https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab5</a></p><p><a href="https://github.com/sunhanwu/16281047_OperatingSystemExperiment/raw/master/lab5/lab5.pdf" target="_blank" rel="noopener">pdf下载</a></p><h2 id="一-概要设计"><a href="#一-概要设计" class="headerlink" title="一 概要设计"></a>一 概要设计</h2><p>$\qquad$本次的实验的实验目的是在模拟的I/O系统中开发一个简单的文件系统，并且提供一些借口给用户用于交互，从实验目的可以看出，本实验重点在于构建模拟的I/O系统和基于I/O系统的文件系统。所以，在概要设计中，将详细介绍模拟I/O系统的设计、文件系统的设计和测试模块的设计这三个部分。</p>
+</blockquote>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1574,28 +1564,7 @@
       
           <h1 id="实验一实验报告"><a href="#实验一实验报告" class="headerlink" title="实验一实验报告"></a>实验一实验报告</h1><blockquote>
 <p>孙汉武    16281047    安全1601</p>
-</blockquote><p>[TOC]</p><h2 id="Task-1-系统调用实验"><a href="#Task-1-系统调用实验" class="headerlink" title="Task 1 系统调用实验"></a>Task 1 系统调用实验</h2><h3 id="1-1-直接调用和汇编中断调用系统调用getpid"><a href="#1-1-直接调用和汇编中断调用系统调用getpid" class="headerlink" title="1.1 直接调用和汇编中断调用系统调用getpid"></a>1.1 直接调用和汇编中断调用系统调用getpid</h3><h4 id="C语言直接调用"><a href="#C语言直接调用" class="headerlink" title="C语言直接调用"></a>C语言直接调用</h4><ol>
-<li><p>实验步骤</p>
-<ul>
-<li>源代码<code>getpid_c.c</code>：</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">pid_t</span> pid;</span><br><span class="line">	pid = getpid();</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,pid);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>编译源代码，得到可执行文件getpid_c</li>
-<li>执行可执行文件，得到程序的pid</li>
-</ul>
-<p><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171700.jpg" width="600"></p>
-</li>
-<li><p>查看getpid的系统调用号</p>
-<p>64位Linux系统的系统调用列表保存在/usr/include/asm/unistd_64.h（32位在unistd_32.h）,查看该文件可得到<strong>getpid的系统调用号为39（32位系统的系统调用号为20）</strong></p>
-<p><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171717.jpg" width="600"></p>
-<p><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171721.jpg" width="600"></p>
-<p>通过上图可以看出，在64位系统中，有两套系统调用号的宏定义，除了64位正常的系统调用号表之外，还有一套用于向下兼容32位系统。</p>
-<p>在Linux(debian)中，/usr/include/asm中有两个h文件，分别是unistd_32.h和unistd_64.这两个头文件中保存着系统调用号的宏定义， 当在程序代码中用到系统调用时，编译器会将上面提到的宏展开，展开后的代码实际上是将系统调用号放入ax后移用int 0x80使处理器转向系统调用入口，然后查找系统调用表，进而由内核调用真正的功能函数。 通过汇编代码可以看到中断向量号是0x80,而0x14是指系统调用号，在32位系统中，getpid系统调用号为20，所以是16进制的0x14，而64位系统的getpid的系统调用号为39.</p>
-</li>
-<li><p>系统调用号跟操作系统的位数(32或64)和不同的发行版本(debian和Ubuntu)有关，例如Ubuntu 64位机器上getpid的系统调用号是172，而网上查到Linux内核64位为39，32位为20。 出现不一致的原因是，在Linux64位系统中，对32位程序进行了兼容操作。之前的32位机中，系统通过开放0x80搭配系统调用号来实现用户程序使用系统调用功能。但在64位机中，已经不使用int 0x80作为触发系统调用的机制了，而使用syscall指令来触发。但为了保持兼容性，系统仍然支持int 0x80进行‘32位’风格的调用。自然我们的汇编代码使用20这个系统调用号，依然可以正确运行在64位机器上。</p>
-</li>
-</ol>
+</blockquote>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1891,7 +1860,7 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     path: location.pathname
   });
 }, window.Valine);
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script>
 
 </body>
 </html>
