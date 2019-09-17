@@ -65,7 +65,15 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-023850.jpg">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-031005.jpg">
-<meta property="og:updated_time" content="2019-09-17T05:33:01.852Z">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-055154.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-060240.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-062418.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-063141.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-064238.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-064828.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-065458.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-065922.jpg">
+<meta property="og:updated_time" content="2019-09-17T07:05:47.844Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》的翻译">
 <meta name="twitter:description" content="摘要物联网被誉为社会的下一个发展浪潮，智能家居、企业和城市装备着大量的物联网设备，然而这些智能环境的控制者并没有充分意识到这些物联网设备的价值，更不用说能否让这些设备抵御网络攻击了。在这片论文中，我们通过使用在网络级获得的流量特性开发用于物联网设备的强大的（robust）框架来应对（address）这个挑战。我们的工作主要分为四个部分。首先，我们搭建了一个拥有28个不同IoT设备的的智能环境，这些">
@@ -284,7 +292,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-17 13:33:01" itemprop="dateModified" datetime="2019-09-17T13:33:01+08:00">2019-09-17</time>
+                <time title="修改时间：2019-09-17 15:05:47" itemprop="dateModified" datetime="2019-09-17T15:05:47+08:00">2019-09-17</time>
               </span>
             
           
@@ -325,7 +333,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>5.8k</span>
+              <span>10k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -335,7 +343,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>5 分钟</span>
+              <span>9 分钟</span>
             </span>
           
 
@@ -382,6 +390,58 @@
 <p>我们从2016年10月1日至2017年4月13日开始在智能环境中记录网络流量为期26周。原始跟踪数据包含数据包标头和有效负载信息，数据收集和存储过程每天在当地时间午夜开始，使用OpenWrt上的Cron作业。我们在OpenWrt上编写了一个监控脚本，以确保数据收集/存储顺利进行。该脚本以5秒的间隔检查网关上运行的进程。如果日志记录过程未运行，则脚本会立即重新启动它，从而将任何数据丢失事件限制为仅5秒。为了使跟踪数据公开可用，我们在大学数据中心的虚拟机（VM）上设置了Apache服务器，并编写了一个脚本，用于定期将存储在硬盘驱动器上的前一天的跟踪数据传输到VM上。</p>
 <p>两周的跟踪数据可以从<a href="http://iotanalytics.unsw.edu.au/下载。每日日志的大小在61" target="_blank" rel="noopener">http://iotanalytics.unsw.edu.au/下载。每日日志的大小在61</a> MB到2 GB之间变化，平均为365 MB</p>
 <h2 id="IoT流量特征"><a href="#IoT流量特征" class="headerlink" title="IoT流量特征"></a>IoT流量特征</h2><p>我们现在使用对26个物联网设备的流量进行无源数据包级分析，在26周内进行观察，我们研究了广泛的物联网流量特性，包括活动模式（例如活动/睡眠期间的音量/时间分布）和信令（例如，请求的域名，使用的服务器端端口号和TLS握手交换）</p>
+<p><strong>Iot流量构成</strong>：</p>
+<ul>
+<li>由设备自主产生的流量 - 例如不受人为干预影响的DNS，NTP等</li>
+<li>由于用户与设备交互而产生的流量 - 例如Belkin Wemo传感器响应移动检测，Amazon Echo响应用户发出的语音命令，LiFX灯泡根据用户要求改变颜色和强度，Netatmo Welcome相机检测到占用者并指示LiFX灯泡打开并具体显示颜色，等等。</li>
+</ul>
+<p>我们的数据集很好地捕获了来自代表生活智能环境的实验室的这两种类型的物联网流量（即覆盖人类在环境中存在或不存在的时期）。</p>
+<p>为了提供有关物联网流量特征的见解，我们在图2中显示了Amazon Echo和LiFX灯泡在24小时内看到的网络流量的桑葚图，选择这些设备仅用于说明目的，每个图描绘了由相应设备生成的流级信息。流量包括：</p>
+<ul>
+<li>单播或多播/广播</li>
+<li>发往本地主机（LAN）或Internet服务器（WAN</li>
+<li>绑定到协议（TCP，UDP，ICMP或IGMP）和端口号。</li>
+</ul>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-055154.jpg" width="800"></div>
+
+<p>图2提供了描绘两个设备所展示的潜在流量标志的视觉辅助，例如，Amazon Echo和LiFX灯泡都使用DNS（端口号53）和NTP（端口号123）。虽然Amazon Echo使用HTTP（端口号80），HTTPS（端口号443）和ICMP（端口号0），但LiFX灯泡不使用任何这些应用程序，此外，每个设备似乎与WAN服务器上的唯一端口号通信;用于Amazon Echo的TCP 33434和用于LiFX灯泡的UDP 56700，如图2（a）和2（b）中的顶部流程所示。最后，我们观察到Amazon Echo访问了许多域名，包括softwareupdates.amazon.com，device-metrics-su.amazon.com，example.org，pindorama.amazon.com和pool.ntp.org。然而，LiFX灯泡仅与两个域通信，即v2.broker.lifx.co和pool.ntp.org。</p>
+<h3 id="IoT活动和卷模式（暂时先这么翻译）"><a href="#IoT活动和卷模式（暂时先这么翻译）" class="headerlink" title="IoT活动和卷模式（暂时先这么翻译）"></a>IoT活动和卷模式（暂时先这么翻译）</h3><p>我们从IoT设备的活动模式开始，这些模式由其流量属性定义，我们在每个流级别定义四个关键属性，以根据其网络活动来表征物联网设备：</p>
+<ul>
+<li><strong>流量</strong>：即下载和上传字节的总和</li>
+<li><strong>流持续时间</strong>：即流中第一个和最后一个数据包之间的时间</li>
+<li><strong>平均流量</strong>：即流量除以流量持续时间</li>
+<li><strong>设备休眠时间</strong>：（即物联网设备没有活动流的时间间隔）</li>
+</ul>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-060240.jpg" width="800"></div>
+
+<p>我们使用在26周内收集的跟踪数据，在图3中绘制了一组选定的IoT设备的上述四个属性的概率分布，从图3a中可以看出每个物联网设备倾向于每个流交换少量数据。对于LiFX灯泡的情况（用红色条表示），26％的流量在[130,140]字节之间传输，20％在[120,130]字节之间传输，Belkin运动传感器的流量（由绿色条表示）略高;超过35％的流量在[2800,3800]字节之间传输。对于Amazon Echo（由蓝条表示），超过95％的流量传输少于1000个字节。虽然我们仅为少数设备提供流量直方图，但我们的大多数物联网设备都呈现出类似的可预测模式。</p>
+<p>流动持续时间也出现类似的模式。参考图3（b），我们注意到Amazon Echo的流量持续时间为53秒，流量持续时间超过40％，而LiFX灯泡和Belkin运动传感器的持续时间为60秒分别为50％和21％。对于平均流速属性，图3（c）显示平均速率相当小，以每秒位数为单位，如定性预期。定量地，该图显示LiFX灯泡的平均流速为每秒18位，接近60％的时间。近30％的Belkin流的比特率在59到60比特/秒的范围内，而近40％的Amazon Echo流的比特率在70到71比特每秒的范围内。</p>
+<p>最后，就设备的睡眠时间而言，图3（d）显示Belkin运动传感器和LiFX灯泡表现出明显的睡眠模式，持续时间为1秒和60秒，概率分别为73％和48％。然而，对于Amazon Echo，观察到具有小概率的多个睡眠时间。这是因为Amazon Echo使其TCP连接保持活动状态，并且只有在断开Internet连接时才会进入休眠状态。我们的测试台中的其他设备也表现得像Echo，并且似乎没有占主导地位的睡眠模式。</p>
+<h3 id="IoT信令模式"><a href="#IoT信令模式" class="headerlink" title="IoT信令模式"></a>IoT信令模式</h3><p>我们现在关注应用层协议，使用端口号推断，物联网设备主要用于在LAN本地和/或外部与公共互联网上的服务器进行通信.</p>
+<h4 id="服务端口号"><a href="#服务端口号" class="headerlink" title="服务端口号"></a>服务端口号</h4><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-062418.jpg" width="800"></div>
+
+<p>图4显示了从各种IoT设备发起的所有流的服务器端端口号的文字云。对于每个设备，如果更频繁地使用端口，则在相应的字云中以更大的字体大小显示它。子标题（即{}内的数字）报告每个设备的唯一服务器端口数。可以看出，IoT设备各自与少数服务器端口唯一通信，而非IoT设备使用更广泛的服务（即图4（h）中显示了2382个独特端口，其中许多非常罕见） 。我们观察到非标准端口33434,56700,8883和25050分别在源自Amazon Echo，LiFX灯泡，Awair空气质量监测器和Netatmo气象站的流量中突出显示，如图4的顶行所示。此外，我们注意到来自同一制造商的设备共享某些端口，例如，端口号8443和3478在Belkin的运动传感器，电源开关和相机之间是常见的，如图4（e）-4（g）所示。我们也注意到，众所周知的标准端口号（如53（DNS），123（NTP），0（ICMP）和1900（SSDP））被许多物联网设备以及具有各种频率的非物联网使用，如图所示在图4中。此外，许多物联网设备也使用服务器端端口号443（TLS / SSL）。</p>
+<h4 id="DNS查询"><a href="#DNS查询" class="headerlink" title="DNS查询"></a>DNS查询</h4><p>DNS是几乎所有联网设备使用的常见应用程序。由于物联网设备是为特定目的而定制设计的，因此它们访问与其供应商特定的端点服务器相对应的有限数量的域，我们在图5中绘制了由几个IoT设备以及非IoT访问的域名的词云</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-063141.jpg" width="800"></div>
+
+<p>可以看出，IoT设备可以通过它们与之通信的域名进行相当区分，例如，如图5（a）-5（c）所示，Amazon Echo经常请求诸如example.com，example.net和example.org之类的域。hp.com和hpeprint.com的子域在HP打印机的DNS查询中可见。但是，我们也看到一些着名的域名在不同的设备之间共享。例如，belkin.com和d3gjecg2uu2faq.cloudfront.net通常被Belkin设备（即摄像机，运动传感器和电源开关）使用，如图5（d）-5（f）所示。或者pool.ntp.org在Google Dropcam，Awair空气质量监测器和LiFX灯泡产生的交通流量方面非常突出，如图5（b）-5（h）所示，再次考虑图5（i）中的非IoT，我们看到大约12000个访问过的唯一域，与IoT设备相比，其中只有少数域被重复访问。</p>
+<p>我们还发现IoT设备在使用DNS协议的频率方面存在差异，我们从流量跟踪中观察到物联网设备在其运行的不同阶段生成DNS查询;例如，仅在启动阶段（例如Google Dropcamp）或与用户（例如Hello Barbie）交互时或定期（例如Amazon Echo）如图6所示，某些IoT设备在其DNS查询的频率中表现出特征签名。</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-064238.jpg" width="800"></div>
+
+<p>LiFX灯泡和Amazon Echo非常频繁地发送DNS查询（即每5分钟），但像Belkin运动传感器这样的设备每30分钟只请求一次域名。</p>
+<h4 id="NTP查询"><a href="#NTP查询" class="headerlink" title="NTP查询"></a>NTP查询</h4><p>如前所述，NTP是物联网设备使用的另一种流行协议，因为精确和可验证的时序对于物联网操作至关重要。许多物联网设备倾向于以周期性方式使用NTP协议（UDP端口123），以便将它们的时间与公共可用的NTP服务器同步。例如，Awair空气质量监测器，LiFX灯泡和Google Dropcam从pool.ntp.org获取时间服务器的IP地址。我们还发现时间同步在我们的测试台中反复出现，并且许多物联网设备在使用NTP时表现出可识别的模式。例如，Belkin电源开关，LiFX灯泡和SmartThings集线器分别每隔60,300和600秒发送NTP请求，如图7的直方图所示。</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-064828.jpg" width="800"></div>
+
+<h4 id="密码套件"><a href="#密码套件" class="headerlink" title="密码套件"></a>密码套件</h4><p>许多物联网设备使用TLS / SSL协议（端口号443）与Internet上各自的服务器进行通信，为了启动TLS连接并与服务器协商安全算法，设备通过发送“客户端Hello”数据包开始握手，该数据包具有可以支持的“密码套件”列表，按其优先顺序排列。例如，图8（a）和8（b）描绘了Amazon Echo向两个不同的Amazon服务器提供的密码套件。每个密码套件（即4位代码）可以采用380个可能值中的一个，并表示密钥交换，批量加密和消息认证码（MAC）的算法</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-065458.jpg" width="800"></div>
+
+<p>例如，由Amazon服务器协商的密码002f分别使用RSA，AES 128 CBC和SHA协议进行密钥交换，批量加密和消息认证。</p>
+<p>在我们的设置中，我们发现28个IoT设备中有17个，包括Amazon Echo，August Doorbell Cam，Awair空气质量监视器，Belkin相机，Canary相机，Drop-cam，Google Chromecast，Hello Barbie，HP ENVY打印机,iHome，Netatmo欢迎相机，飞利浦Hue灯泡，皮克斯相框，Ring Doorbell，Trilby，Withings Aura智能睡眠传感器和Withings Scale，使用TLS / SSL进行通信.我们发现，当将SSL传送到不同的服务器时，Amazon Echo总共使用五个不同的密码套件字符串，Triby扬声器使用两个字符串，而Pixtar相框仅使用一个字符串进行所有SSL通信。</p>
+<p>我们将图9中这三个设备的唯一密码套件字符串绘制为离散信号：x轴是出现在提供的套件中的4位密码的顺序，y轴是各个密码的索引（即来自{1,2，…，380}的值。</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-065922.jpg" width="800"></div>
+
+<p>可以看出，密码套件信号的集合为每个IoT设备发出了唯一的签名。在特殊情况下，我们发现Pixtar photoframe与8个门铃使用的18个套件中的一个共享其单个密码套件 - 我们将在§5.2中看到，仅依靠密码套件属性将无法有效地对Pixtar相框流量进行分类..</p>
+<p>然而，有许多设备很少交换密码套件，而是希望长时间保持其TLS连接存活。例如，Google Dropcam在启动时建立与其自身服务器的TLS连接，并且只要它具有网络连接就维持此连接，而Amazon Echo和Pixstar照相框每小时分别启动平均1和2个TLS连接。</p>
 
     </div>
 
@@ -420,10 +480,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/09/12/test/" rel="prev" title="test">
-                  test <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -475,7 +531,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">2.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关工作"><span class="nav-number">3.</span> <span class="nav-text">相关工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#物联网流量收集和整合"><span class="nav-number">4.</span> <span class="nav-text">物联网流量收集和整合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实验试验台"><span class="nav-number">4.1.</span> <span class="nav-text">实验试验台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跟踪数据"><span class="nav-number">4.2.</span> <span class="nav-text">跟踪数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IoT流量特征"><span class="nav-number">5.</span> <span class="nav-text">IoT流量特征</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">2.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关工作"><span class="nav-number">3.</span> <span class="nav-text">相关工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#物联网流量收集和整合"><span class="nav-number">4.</span> <span class="nav-text">物联网流量收集和整合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实验试验台"><span class="nav-number">4.1.</span> <span class="nav-text">实验试验台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跟踪数据"><span class="nav-number">4.2.</span> <span class="nav-text">跟踪数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IoT流量特征"><span class="nav-number">5.</span> <span class="nav-text">IoT流量特征</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IoT活动和卷模式（暂时先这么翻译）"><span class="nav-number">5.1.</span> <span class="nav-text">IoT活动和卷模式（暂时先这么翻译）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IoT信令模式"><span class="nav-number">5.2.</span> <span class="nav-text">IoT信令模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#服务端口号"><span class="nav-number">5.2.1.</span> <span class="nav-text">服务端口号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS查询"><span class="nav-number">5.2.2.</span> <span class="nav-text">DNS查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NTP查询"><span class="nav-number">5.2.3.</span> <span class="nav-text">NTP查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#密码套件"><span class="nav-number">5.2.4.</span> <span class="nav-text">密码套件</span></a></li></ol></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -493,7 +549,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">博客</span>
         </a>
       </div>
@@ -591,14 +647,14 @@
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">129k</span>
+    <span title="站点总字数">133k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">1:58</span>
+    <span title="站点阅读时长">2:01</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
   <span class="post-meta-divider">|</span>
