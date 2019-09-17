@@ -65,7 +65,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-023850.jpg">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-031005.jpg">
-<meta property="og:updated_time" content="2019-09-17T03:25:11.791Z">
+<meta property="og:updated_time" content="2019-09-17T05:33:01.852Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》的翻译">
 <meta name="twitter:description" content="摘要物联网被誉为社会的下一个发展浪潮，智能家居、企业和城市装备着大量的物联网设备，然而这些智能环境的控制者并没有充分意识到这些物联网设备的价值，更不用说能否让这些设备抵御网络攻击了。在这片论文中，我们通过使用在网络级获得的流量特性开发用于物联网设备的强大的（robust）框架来应对（address）这个挑战。我们的工作主要分为四个部分。首先，我们搭建了一个拥有28个不同IoT设备的的智能环境，这些">
@@ -284,7 +284,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-17 11:25:11" itemprop="dateModified" datetime="2019-09-17T11:25:11+08:00">2019-09-17</time>
+                <time title="修改时间：2019-09-17 13:33:01" itemprop="dateModified" datetime="2019-09-17T13:33:01+08:00">2019-09-17</time>
               </span>
             
           
@@ -325,7 +325,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>4.1k</span>
+              <span>5.8k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -335,7 +335,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>4 分钟</span>
+              <span>5 分钟</span>
             </span>
           
 
@@ -366,15 +366,23 @@
 </ol>
 <p>本文的其余部分安排如下：§2描述了相关的先前工作。我们在§3中介绍了IoT设置和数据跟踪，并在§4中描述了各种IoT设备的流量属性。在§5中，我们提出了基于机器学习的多阶段设备分类方法并评估其性能，然后在§6中讨论了所提出的系统的实时操作。该论文在§7中得出结论。</p>
 <h2 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h2><p>有大量的工作表征一般的互联网流量。这些先前的工作主要集中在应用程序检测（例如Web浏览，游戏，邮件，Skype VoIP，点对点等）。然而，专注于表征物联网流量（也称为机器对机器或M2M流量）的研究仍处于起步阶段。</p>
-<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-031005.jpg" width="800"></div>
-
 <p><strong>实证痕迹分析</strong>:[20]中的工作是第一次深入研究M2M流量性质的大规模研究之一。需要了解M2M流量是否对蜂窝网络的设计和管理提出了新的挑战.该工作使用跨越一级蜂窝网络运营商一周的流量跟踪，并将M2M流量与传统智能手机流量从多个不同角度进行比较 - 时间变化，移动性，网络性能等。该研究通知网络运营商在管理网络时要认识到这些因素</p>
 <p>在[21]中，作者指出单个M2M设备产生的流量可能很小，但数百或数千个M2M设备产生的总流量将是巨大的,这些观察结果在某种程度上得到了[22]，[23]的证实，其中指出，远程患者监测应用预计每天产生约0.35 MB，智能电表每天产生约0.07 MB。</p>
 <p><strong>聚合流量模型</strong>:在[24]中提出了耦合马尔可夫调制泊松过程框架来捕获单个机器类型通信的行为以及数万个M2M设备的集体行为。CMMPP框架的复杂性随着M2M设备的数量呈线性增长，使其有效地大规模合成M2M流量,在[25]中，作者表明可以将M2M设备的（流量）状态分为三个通用类别，即定期更新，事件驱动和有效负载交换，以及一些使用这些类型的建模策略。通过车队管理中的用例示出了模型配件的图示，该车辆管理包括由运输公司运行的1000辆卡车.该拟合基于来自2G / 3G网络的测量的M2M流量,在[26]中构建了一个简单的模型，用于估算无线传感器网络中连接的家庭中产生的M2M流量。由于传感器的行为非常特定于应用，因此该工作识别可归因于任何传感器设备的某些常见通信模式.使用这些属性，提出了四个广义方程来估计由传感器网络启用的连接公寓/家庭产生的流量。</p>
 <p><strong>使用机器学习</strong>：在文献中已经提出了各种基于机器学习的分析方法来对交通应用进行分类或识别典型计算机网络的恶意软件/僵尸网络。[27]中的工作使用深度学习来分类流，例如HTTP，SMTP，Telnet，QUIC，Office365和YouTube，通过考虑六个特征，即源/目的端口号，有效载荷量，TCP窗口大小，到达间隔时间和从流的前20个包中提取的流量方向。[28]中开展的工作表明，僵尸网络具有可识别的流量模式，可以通过考虑连续流量之间的平均时间，流量持续时间，入站/出站流量以及流量开始时间内的傅里叶变换等特征进行分类。通过将这些流级特征与包级别属性（包括包大小，有效载荷的字节分布，包的到达间隔时间和TLS握手元数据）相结合，在[29]和[30]中增强了对网络上恶意活动的检测（即密码套件代码）。此外，作者发布了一个名为Joy [31]的基于libpcap的开源工具，用于从网络流量的被动捕获中提取这些功能</p>
 <p>在物联网的背景下，[32]使用机器学习来对来自网络上的授权设备的单个TCP流进行分类。它使用了300多个属性（数据包级和流级），但最有影响力的是数据包生存时间（TTL）的最小值，中值和平均值，发送和接收的总字节数，包的总数重置（RST）标志，以及服务器的Alexa排名</p>
 <p>虽然上述所有工作都做出了重要贡献，但他们并未在智能环境（如家庭，城市，校园或企业）中对物联网设备进行细粒度表征和分类。此外，还没有开发出能够根据网络流量特征进行物联网设备分类的统计模型，最重要的是，先前的工作不会公开任何数据集供研究社区使用和构建。我们的工作克服了这些缺点。</p>
-<h2 id="物联网流量收集和整合"><a href="#物联网流量收集和整合" class="headerlink" title="物联网流量收集和整合"></a>物联网流量收集和整合</h2>
+<h2 id="物联网流量收集和整合"><a href="#物联网流量收集和整合" class="headerlink" title="物联网流量收集和整合"></a>物联网流量收集和整合</h2><p>在本节中，我们将介绍用于收集和合成来自各种物联网设备的流量的智能环境基础架构</p>
+<h3 id="实验试验台"><a href="#实验试验台" class="headerlink" title="实验试验台"></a>实验试验台</h3><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-031005.jpg" width="800"></div>
+
+<p>图1描述了“智能环境”的真实体系结构，它通过其（有线/无线）网络基础设施为各种物联网和非物联网设备提供服务，并允许它们通过网关与互联网服务器通信。使用OpenWrt固件版本Chaos Calmer（15.05.1，r48532）刷新的TP-Link接入点充当公共互联网的网关。我们还在网关上安装了额外的OpenWrt软件包，即用于捕获流量的tcpdump，用于编写脚本的bash（4.3.39-1），用于在网关上安装外部USB存储的块安装包，kmod-usb-core和kmod-usb-storage（3.18.23-1），用于将流量跟踪数据存储在USB存储器上。</p>
+<p>在我们的实验室设置中，TP-Link接入点的WAN接口通过大学网络连接到公共Internet，而IoT设备分别连接到LAN和WLAN接口。我们的智能环境共有28个独特的物联网设备，代表不同的类别以及几个非物联网设备，在这里，物联网是指特定用途的互联网连接设备（例如摄像机和烟雾传感器），而通用设备（例如电话和笔记本电脑）属于非物联网类别。</p>
+<p>物联网设备包括摄像头（Nest Dropcam，Sam-sung SmartCam，Netatmo Welcome，Belkin摄像头，TP-Link日夜云摄像头，Withings智能婴儿监视器，金丝雀摄像头，八月门铃，铃铛门铃），开关和触发器（iHome） ，TP-Link智能插头，Belkin Wemo运动传感器，Belkin Wemo Switch），集线器（Smart Things，Amazon Echo），空气质量传感器（NEST Protect烟雾报警器，Netatmo气象站，Awair空气质量监测器），电子设备（Triby扬声器， PIXSTAR Photoframe，惠普打印机，Hello芭比娃娃，谷歌Chromecast），医疗设备（带智能秤，Withings Aura智能睡眠传感器，Blipcare血压计）和灯泡（Phips Hue和LiFX智能灯泡）。一些非物联网设备也连接到测试平台，如笔记本电脑，手机和Android平板电脑。平板电脑用于配置各个设备制造商推荐的物联网设备</p>
+<h3 id="跟踪数据"><a href="#跟踪数据" class="headerlink" title="跟踪数据"></a>跟踪数据</h3><p>使用在OpenWrt上运行的tcpdump工具收集LAN端的所有流量。在流量跟踪中，物理设备与已知MAC地址（由于处于同一LAN中）或IP地址（即无NAT）之间进行一对一映射非常重要。捕获LAN上的流量允许我们使用MAC地址作为设备的标识符，以将其流量与包括网络中的许多其他设备的流量混合隔离。我们开发了一个脚本来自动化数据收集和存储过程。生成的跟踪作为pcap文件存储在连接到网关的1 TB存储的外部USB硬盘驱动器上，此设置允许连续几个月记录流量</p>
+<p>我们从2016年10月1日至2017年4月13日开始在智能环境中记录网络流量为期26周。原始跟踪数据包含数据包标头和有效负载信息，数据收集和存储过程每天在当地时间午夜开始，使用OpenWrt上的Cron作业。我们在OpenWrt上编写了一个监控脚本，以确保数据收集/存储顺利进行。该脚本以5秒的间隔检查网关上运行的进程。如果日志记录过程未运行，则脚本会立即重新启动它，从而将任何数据丢失事件限制为仅5秒。为了使跟踪数据公开可用，我们在大学数据中心的虚拟机（VM）上设置了Apache服务器，并编写了一个脚本，用于定期将存储在硬盘驱动器上的前一天的跟踪数据传输到VM上。</p>
+<p>两周的跟踪数据可以从<a href="http://iotanalytics.unsw.edu.au/下载。每日日志的大小在61" target="_blank" rel="noopener">http://iotanalytics.unsw.edu.au/下载。每日日志的大小在61</a> MB到2 GB之间变化，平均为365 MB</p>
+<h2 id="IoT流量特征"><a href="#IoT流量特征" class="headerlink" title="IoT流量特征"></a>IoT流量特征</h2><p>我们现在使用对26个物联网设备的流量进行无源数据包级分析，在26周内进行观察，我们研究了广泛的物联网流量特性，包括活动模式（例如活动/睡眠期间的音量/时间分布）和信令（例如，请求的域名，使用的服务器端端口号和TLS握手交换）</p>
+
     </div>
 
     
@@ -467,7 +475,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">2.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关工作"><span class="nav-number">3.</span> <span class="nav-text">相关工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#物联网流量收集和整合"><span class="nav-number">4.</span> <span class="nav-text">物联网流量收集和整合</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">2.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关工作"><span class="nav-number">3.</span> <span class="nav-text">相关工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#物联网流量收集和整合"><span class="nav-number">4.</span> <span class="nav-text">物联网流量收集和整合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实验试验台"><span class="nav-number">4.1.</span> <span class="nav-text">实验试验台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跟踪数据"><span class="nav-number">4.2.</span> <span class="nav-text">跟踪数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IoT流量特征"><span class="nav-number">5.</span> <span class="nav-text">IoT流量特征</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -583,14 +591,14 @@
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">128k</span>
+    <span title="站点总字数">129k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">1:56</span>
+    <span title="站点阅读时长">1:58</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
   <span class="post-meta-divider">|</span>
