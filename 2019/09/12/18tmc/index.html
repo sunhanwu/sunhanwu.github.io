@@ -73,7 +73,7 @@
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-064828.jpg">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-065458.jpg">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-065922.jpg">
-<meta property="og:updated_time" content="2019-09-17T07:05:47.844Z">
+<meta property="og:updated_time" content="2019-09-17T07:30:26.189Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》的翻译">
 <meta name="twitter:description" content="摘要物联网被誉为社会的下一个发展浪潮，智能家居、企业和城市装备着大量的物联网设备，然而这些智能环境的控制者并没有充分意识到这些物联网设备的价值，更不用说能否让这些设备抵御网络攻击了。在这片论文中，我们通过使用在网络级获得的流量特性开发用于物联网设备的强大的（robust）框架来应对（address）这个挑战。我们的工作主要分为四个部分。首先，我们搭建了一个拥有28个不同IoT设备的的智能环境，这些">
@@ -292,7 +292,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-17 15:05:47" itemprop="dateModified" datetime="2019-09-17T15:05:47+08:00">2019-09-17</time>
+                <time title="修改时间：2019-09-17 15:30:26" itemprop="dateModified" datetime="2019-09-17T15:30:26+08:00">2019-09-17</time>
               </span>
             
           
@@ -333,7 +333,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>10k</span>
+              <span>11k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -343,7 +343,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>9 分钟</span>
+              <span>10 分钟</span>
             </span>
           
 
@@ -442,6 +442,9 @@
 
 <p>可以看出，密码套件信号的集合为每个IoT设备发出了唯一的签名。在特殊情况下，我们发现Pixtar photoframe与8个门铃使用的18个套件中的一个共享其单个密码套件 - 我们将在§5.2中看到，仅依靠密码套件属性将无法有效地对Pixtar相框流量进行分类..</p>
 <p>然而，有许多设备很少交换密码套件，而是希望长时间保持其TLS连接存活。例如，Google Dropcam在启动时建立与其自身服务器的TLS连接，并且只要它具有网络连接就维持此连接，而Amazon Echo和Pixstar照相框每小时分别启动平均1和2个TLS连接。</p>
+<p><strong>总结</strong>：在本节中，我们根据物联网设备的基础网络流量特征确定了8个关键属性。它们是流量，流量持续时间，平均流量，设备休眠时间，服务器端口号，DNS查询，NTP查询和密码套件。虽然可以通过仅考虑一个或两个流量属性（例如域名，端口号或密码套件列表）来唯一地识别某些设备（例如，Amazon Echo或LiFX灯泡），但这些设备都存在挑战。例如，在流量中很少观察到诸如密码套件列表之类的强属性（例如，每天仅一次）。作为另一示例，来自相同供应商的不同类型的设备访问类似的域并使用相同的端口号来访问云服务器。捕获诸如这些属性的出现次数（例如，访问域的次数或使用该端口的流的数量）等方面，结合其他属性，极大地提高了区分来自同一制造商的设备的预测能力。在下一节中，我们将使用这些属性的组合开发基于多阶段机器学习的算法，以帮助高精度地对物联网设备进行分类。</p>
+<h2 id="基于分类模型的机器学习"><a href="#基于分类模型的机器学习" class="headerlink" title="基于分类模型的机器学习"></a>基于分类模型的机器学习</h2><p>为了从我们的跟踪数据合成属性，我们首先使用Joy工具将原始pcap文件转换为每小时流量,然后，对于给定的IoT设备，我们计算上一节中针对每小时实例定义的流量活动和信令属性。从跨越26周的跟踪中获得的每个设备的实例数取决于诸如设备在线的持续时间或设备如何生成流量（自主或交互式）等因素,例如，Blipcare BP监视器只有13个小时实例，因为它仅在用户使用设备时才生成流量。另一方面，我们为Google Dropcam收集了4177个实例</p>
+<h3 id="多级设备分类架构"><a href="#多级设备分类架构" class="headerlink" title="多级设备分类架构"></a>多级设备分类架构</h3><p>我们注意到我们的三个属性，即“域名集”，“远程端口号集”和“密码套件集”是名义上的（即不被视为数值）和多值（例如，{“ 53“：3，”123“：1，”443“：2}表示一组远程端口号，其中三个出现端口号53，两次出现端口123，一次出现端口号443）。</p>
 
     </div>
 
@@ -531,7 +534,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">2.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关工作"><span class="nav-number">3.</span> <span class="nav-text">相关工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#物联网流量收集和整合"><span class="nav-number">4.</span> <span class="nav-text">物联网流量收集和整合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实验试验台"><span class="nav-number">4.1.</span> <span class="nav-text">实验试验台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跟踪数据"><span class="nav-number">4.2.</span> <span class="nav-text">跟踪数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IoT流量特征"><span class="nav-number">5.</span> <span class="nav-text">IoT流量特征</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IoT活动和卷模式（暂时先这么翻译）"><span class="nav-number">5.1.</span> <span class="nav-text">IoT活动和卷模式（暂时先这么翻译）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IoT信令模式"><span class="nav-number">5.2.</span> <span class="nav-text">IoT信令模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#服务端口号"><span class="nav-number">5.2.1.</span> <span class="nav-text">服务端口号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS查询"><span class="nav-number">5.2.2.</span> <span class="nav-text">DNS查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NTP查询"><span class="nav-number">5.2.3.</span> <span class="nav-text">NTP查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#密码套件"><span class="nav-number">5.2.4.</span> <span class="nav-text">密码套件</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">2.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关工作"><span class="nav-number">3.</span> <span class="nav-text">相关工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#物联网流量收集和整合"><span class="nav-number">4.</span> <span class="nav-text">物联网流量收集和整合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实验试验台"><span class="nav-number">4.1.</span> <span class="nav-text">实验试验台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跟踪数据"><span class="nav-number">4.2.</span> <span class="nav-text">跟踪数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IoT流量特征"><span class="nav-number">5.</span> <span class="nav-text">IoT流量特征</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IoT活动和卷模式（暂时先这么翻译）"><span class="nav-number">5.1.</span> <span class="nav-text">IoT活动和卷模式（暂时先这么翻译）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IoT信令模式"><span class="nav-number">5.2.</span> <span class="nav-text">IoT信令模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#服务端口号"><span class="nav-number">5.2.1.</span> <span class="nav-text">服务端口号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS查询"><span class="nav-number">5.2.2.</span> <span class="nav-text">DNS查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NTP查询"><span class="nav-number">5.2.3.</span> <span class="nav-text">NTP查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#密码套件"><span class="nav-number">5.2.4.</span> <span class="nav-text">密码套件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于分类模型的机器学习"><span class="nav-number">6.</span> <span class="nav-text">基于分类模型的机器学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#多级设备分类架构"><span class="nav-number">6.1.</span> <span class="nav-text">多级设备分类架构</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -647,14 +650,14 @@
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">133k</span>
+    <span title="站点总字数">134k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">2:01</span>
+    <span title="站点阅读时长">2:02</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
   <span class="post-meta-divider">|</span>
