@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="Linux下用dd命令制作U盘启动盘 在manjaro系统下测试">
-<meta name="keywords" content="Linux">
+  <meta name="description" content="最近由于需要在Linux中处理大量的网路数据，没有可视化的wireshark可用，转而时候命令行版本的tshark，但是用于在命令行中运行，当数据量巨大的时候操作繁杂，所以写了一个小脚本自动化运行，记录一下自己从零开始学shell编程的过程">
+<meta name="keywords" content="Linux,shell">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux系统dd命令使用">
-<meta property="og:url" content="http://yoursite.com/2019/04/17/dd/index.html">
+<meta property="og:title" content="shell编程（一）">
+<meta property="og:url" content="http://yoursite.com/2019/09/18/tshark/index.html">
 <meta property="og:site_name" content="SunPages">
-<meta property="og:description" content="Linux下用dd命令制作U盘启动盘 在manjaro系统下测试">
+<meta property="og:description" content="最近由于需要在Linux中处理大量的网路数据，没有可视化的wireshark可用，转而时候命令行版本的tshark，但是用于在命令行中运行，当数据量巨大的时候操作繁杂，所以写了一个小脚本自动化运行，记录一下自己从零开始学shell编程的过程">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-12T10:24:57.348Z">
+<meta property="og:updated_time" content="2019-09-18T13:33:07.212Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux系统dd命令使用">
-<meta name="twitter:description" content="Linux下用dd命令制作U盘启动盘 在manjaro系统下测试">
-  <link rel="canonical" href="http://yoursite.com/2019/04/17/dd/">
+<meta name="twitter:title" content="shell编程（一）">
+<meta name="twitter:description" content="最近由于需要在Linux中处理大量的网路数据，没有可视化的wireshark可用，转而时候命令行版本的tshark，但是用于在命令行中运行，当数据量巨大的时候操作繁杂，所以写了一个小脚本自动化运行，记录一下自己从零开始学shell编程的过程">
+  <link rel="canonical" href="http://yoursite.com/2019/09/18/tshark/">
 
 
 <script id="page-configurations">
@@ -81,7 +81,7 @@
   };
 </script>
 
-  <title>Linux系统dd命令使用 | SunPages</title>
+  <title>shell编程（一） | SunPages</title>
   
 
 
@@ -242,7 +242,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/17/dd/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/18/tshark/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="sunhanwu">
@@ -254,7 +254,7 @@
       <meta itemprop="name" content="SunPages">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Linux系统dd命令使用
+        <h1 class="post-title" itemprop="name headline">shell编程（一）
 
           
         </h1>
@@ -270,19 +270,11 @@
                 
               
 
-              <time title="创建时间：2019-04-17 20:10:33" itemprop="dateCreated datePublished" datetime="2019-04-17T20:10:33+08:00">2019-04-17</time>
+              <time title="创建时间：2019-09-18 20:06:19 / 修改时间：21:33:07" itemprop="dateCreated datePublished" datetime="2019-09-18T20:06:19+08:00">2019-09-18</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-12 18:24:57" itemprop="dateModified" datetime="2019-09-12T18:24:57+08:00">2019-09-12</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -291,7 +283,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/命令/" itemprop="url" rel="index"><span itemprop="name">命令</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习科研/" itemprop="url" rel="index"><span itemprop="name">学习科研</span></a></span>
 
                 
                 
@@ -310,7 +302,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/04/17/dd/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/04/17/dd/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/09/18/tshark/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/09/18/tshark/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -322,7 +314,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>841</span>
+              <span>2.3k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -332,7 +324,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
           
 
@@ -345,17 +337,76 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Linux下用dd命令制作U盘启动盘"><a href="#Linux下用dd命令制作U盘启动盘" class="headerlink" title="Linux下用dd命令制作U盘启动盘"></a>Linux下用dd命令制作U盘启动盘</h1><blockquote>
-<p>在manjaro系统下测试</p>
+        <blockquote>
+<p>最近由于需要在Linux中处理大量的网路数据，没有可视化的wireshark可用，转而时候命令行版本的tshark，但是用于在命令行中运行，当数据量巨大的时候操作繁杂，所以写了一个小脚本自动化运行，记录一下自己从零开始学shell编程的过程</p>
 </blockquote><a id="more"></a>
+<h2 id="脚本功能"><a href="#脚本功能" class="headerlink" title="脚本功能"></a>脚本功能</h2><ol>
+<li>统计每个pcap文件中的tcp流号</li>
+<li>将每个pcap文件中的所有数据包按照同一个flow分开，每一个flow保存为一个pcap文件，即批流</li>
+<li>由于批流之后的小文件特别多，所以注意命名和文件的存放管理</li>
+</ol>
+<h2 id="脚本编写过程"><a href="#脚本编写过程" class="headerlink" title="脚本编写过程"></a>脚本编写过程</h2><h3 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line"></span><br><span class="line">find ./rawpcap -name <span class="string">'*.pcap'</span> &gt; pcapfilename.txt</span><br><span class="line"><span class="keyword">while</span> <span class="built_in">read</span> line</span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">"<span class="variable">$(line)</span>"</span></span><br><span class="line">		filedir=$(<span class="built_in">echo</span> <span class="string">"<span class="variable">$(line)</span>"</span> | awk -F <span class="string">'/'</span> <span class="string">'&#123;print $3&#125;'</span> | awk -F <span class="string">'.'</span> <span class="string">'&#123;print $1&#125;'</span>)</span><br><span class="line">		<span class="built_in">echo</span> <span class="variable">$filedir</span></span><br><span class="line">		dir=<span class="string">"./streampcap/"</span><span class="variable">$&#123;filedir&#125;</span></span><br><span class="line">		mkdir -p <span class="variable">$dir</span></span><br><span class="line">		tshark -r <span class="variable">$line</span> -T fields -e tcp.stream | sort -n | uniq -c | awk -F <span class="string">' '</span> <span class="string">'&#123;if ($2&gt;=0)print $2 &#125;'</span> &gt; tcp_stream_number.txt</span><br><span class="line">		<span class="keyword">while</span> <span class="built_in">read</span> tcpnumber</span><br><span class="line">			<span class="keyword">do</span></span><br><span class="line">				stream=`tshark -r <span class="variable">$line</span> -Y <span class="string">"tcp.stream eq <span class="variable">$(($tcpnumber)</span>) "</span> -w<span class="variable">$dir</span>/<span class="variable">$tcpnumber</span>.pcap`</span><br><span class="line">				<span class="keyword">if</span> [ ! <span class="variable">$stream</span> ]</span><br><span class="line">				<span class="keyword">then</span></span><br><span class="line">					<span class="built_in">echo</span> <span class="string">"IS NULL"</span></span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">					<span class="built_in">echo</span> <span class="variable">$stream</span></span><br><span class="line">				<span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">done</span> &lt;tcp_stream_number.txt</span><br><span class="line"></span><br><span class="line"><span class="keyword">done</span> &lt; pcapfilename.txt</span><br></pre></td></tr></table></figure>
+<h3 id="语法解读"><a href="#语法解读" class="headerlink" title="语法解读"></a>语法解读</h3><ol>
+<li>找到所有pcap文件并将文件路径保存到pcapfilename.txt文件中</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find ./rawpcap -name <span class="string">'*.pcap'</span> &gt; pcapfilename.txt</span><br></pre></td></tr></table></figure>
+<ul>
+<li>find命令后接两个参数，第一个参数<code>./rawpcap</code>表示查找的路径，-name指定按照给定的名称格式查找，使用正则表达式匹配所有pcap结尾的文件</li>
+<li>通过重定向符<code>&gt;</code>将find 的结果输出到pacpfilename.txt中</li>
+</ul>
 <ol>
-<li><p>查询U盘对应文件sudo fdisk -l</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Disk /dev/nvme0n1：238.5 GiB，256060514304 字节，500118192 个扇区</span><br><span class="line">单元：扇区 / 1 * 512 = 512 字节</span><br><span class="line">扇区大小(逻辑/物理)：512 字节 / 512 字节</span><br><span class="line">I/O 大小(最小/最佳)：512 字节 / 512 字节</span><br><span class="line">磁盘标签类型：gpt</span><br><span class="line">磁盘标识符：09CDCE5C-F487-42C9-83BF-B41ACD262434</span><br><span class="line"></span><br><span class="line">设备                起点      末尾      扇区   大小 类型</span><br><span class="line">/dev/nvme0n1p1      4097    618497    614401   300M EFI 系统</span><br><span class="line">/dev/nvme0n1p2    618498 481648510 481030013 229.4G Linux 文件系统</span><br><span class="line">/dev/nvme0n1p3 481648511 500103449  18454939   8.8G Linux swap</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Disk /dev/sda：28.7 GiB，30752000000 字节，60062500 个扇区</span><br><span class="line">单元：扇区 / 1 * 512 = 512 字节</span><br><span class="line">扇区大小(逻辑/物理)：512 字节 / 512 字节</span><br><span class="line">I/O 大小(最小/最佳)：512 字节 / 512 字节</span><br><span class="line">磁盘标签类型：dos</span><br><span class="line">磁盘标识符：0xcad4ebea</span><br><span class="line"></span><br><span class="line">设备       启动 起点     末尾     扇区  大小 Id 类型</span><br><span class="line">/dev/sda4  *     256 60062499 60062244 28.7G  c W95 FAT32 (LBA)</span><br></pre></td></tr></table></figure>
-<p>发现U盘对应的是/dev/sda4</p>
-</li>
-<li><p>使用dd命令写入iso文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dd <span class="keyword">if</span>=/home/sun/manjaro.iso of=/dev/sda4 bs=4M</span><br></pre></td></tr></table></figure>
-</li>
+<li>逐行读取文本文件<code>pcpafilename.txt</code></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="built_in">read</span> line</span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">		...</span><br><span class="line">		...</span><br><span class="line">		...</span><br><span class="line"><span class="keyword">done</span> &lt; pcapfilename.txt</span><br></pre></td></tr></table></figure>
+<ul>
+<li>上面这种结构是shell脚本中逐行读取文本文件的标准格式</li>
+<li>line是读取文本文件中每一行的值的变量，后面对line进行操作</li>
+<li>done &lt;后面的文件名是要读取的文件名</li>
+</ul>
+<ol>
+<li>Linux三剑客之一awk的简单使用方法</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$(line)</span>"</span> | awk -F <span class="string">'/'</span> <span class="string">'&#123;print $3&#125;'</span> | awk -F <span class="string">'.'</span> <span class="string">'&#123;print $1&#125;'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>利用管道符将echo的输出结果向后传递，之后类似</li>
+<li>awk命令的 -F 参数指定分隔符</li>
+<li>后面第二个参数的用法<code>&#39;{字符串1 字符串2}&#39;</code>其中字符串1 指定命令，上面用的是print表示输出，第二个字符串是<code>$2</code>表示输出分割之后的第二部分（从1开始数）</li>
+</ul>
+<ol>
+<li>将某一行命令的运行结果传送给某个变量</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filedir=$(<span class="built_in">echo</span> <span class="string">"<span class="variable">$(line)</span>"</span> | awk -F <span class="string">'/'</span> <span class="string">'&#123;print $3&#125;'</span> | awk -F <span class="string">'.'</span> <span class="string">'&#123;print $1&#125;'</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用<code>$()</code>格式，括号中的内容是要运行的命令</li>
+</ul>
+<ol>
+<li>shell脚本中两个字符串的连接</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir=<span class="string">"./streampcap/"</span><span class="variable">$&#123;filedir&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>如上所示，直接将两个字符串放一起，不要空格就行</li>
+</ul>
+<ol>
+<li>tshark的使用</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tshark -r <span class="variable">$line</span> -T fields -e tcp.stream | sort -n | uniq -c | awk -F <span class="string">' '</span> <span class="string">'&#123;if ($2&gt;=0)print $2 &#125;'</span> &gt; tcp_stream_number.txt</span><br></pre></td></tr></table></figure>
+<ul>
+<li>-r 参数指定输入文件</li>
+<li>-e 指定输出字段</li>
+<li>sort -n排序</li>
+<li>uniq -c去重</li>
+</ul>
+<ol>
+<li>if判定语句格式</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ 逻辑表达式 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">	...</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	...</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<h2 id="脚本解读"><a href="#脚本解读" class="headerlink" title="脚本解读"></a>脚本解读</h2><ol>
+<li>第3行找到<code>./rawpcap</code>文件夹中所有的pcap文件，并将文件所在路径名存放在pcapfilename.txt中</li>
+<li>第4-24行的大循环逐行遍历文件pcapfilename.txt，将每一行的内容读取到变量line中</li>
+<li>第6-10行通过awk工具找到路径中需要的部分路径名（除了文件名之外的路径名），保存在变量中，并相应穿件对应的文件夹用于存放批流之后的流文件</li>
+<li>第11行通过tshark遍历line变量所指向的pcap文件，提取出所有的flow号，保存在tcp_stream_number.txt中</li>
+<li>第12-22行的小循环遍历每一个flow号，将其保存在tcpnumber变量中</li>
+<li>第14行用tshark进行批流处理，从line指向的文件中提取出所有flow号为tcpnumber的所有数据包保存为名称为tcpnumber的pcap文件</li>
 </ol>
 
     </div>
@@ -374,6 +425,8 @@
             
               <a href="/tags/Linux/" rel="tag"># Linux</a>
             
+              <a href="/tags/shell/" rel="tag"># shell</a>
+            
           </div>
         
 
@@ -382,8 +435,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/04/14/CoolMusic/" rel="next" title="音乐下载工具">
-                  <i class="fa fa-chevron-left"></i> 音乐下载工具
+                <a href="/2019/09/17/scapy/" rel="next" title="使用python scapy库分析pcap流量文件">
+                  <i class="fa fa-chevron-left"></i> 使用python scapy库分析pcap流量文件
                 </a>
               
             </div>
@@ -391,10 +444,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/04/21/jupyter-notebook/" rel="prev" title="在服务器上部署jupyterbook">
-                  在服务器上部署jupyterbook <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -446,7 +495,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux下用dd命令制作U盘启动盘"><span class="nav-number">1.</span> <span class="nav-text">Linux下用dd命令制作U盘启动盘</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#脚本功能"><span class="nav-number">1.</span> <span class="nav-text">脚本功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#脚本编写过程"><span class="nav-number">2.</span> <span class="nav-text">脚本编写过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概览"><span class="nav-number">2.1.</span> <span class="nav-text">概览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法解读"><span class="nav-number">2.2.</span> <span class="nav-text">语法解读</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#脚本解读"><span class="nav-number">3.</span> <span class="nav-text">脚本解读</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
