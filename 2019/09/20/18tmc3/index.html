@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="继续数据预处理工作，在缓慢的批流工作进行了将近三天之后，完成了三个原始数据样本（不到2G）的数据的批流，进行完批流得到的是一个flow一个pcap文件，接下来需要做的工作就是通过python的Scapy库逐个读取flow，统计所需的统计属性">
+<meta name="keywords" content="python,流量,Scapy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文复现实验思路-数据预处理（二）">
+<meta property="og:url" content="http://yoursite.com/2019/09/20/18tmc3/index.html">
+<meta property="og:site_name" content="SunPages">
+<meta property="og:description" content="继续数据预处理工作，在缓慢的批流工作进行了将近三天之后，完成了三个原始数据样本（不到2G）的数据的批流，进行完批流得到的是一个flow一个pcap文件，接下来需要做的工作就是通过python的Scapy库逐个读取flow，统计所需的统计属性">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-20T15:09:28.450Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="论文复现实验思路-数据预处理（二）">
+<meta name="twitter:description" content="继续数据预处理工作，在缓慢的批流工作进行了将近三天之后，完成了三个原始数据样本（不到2G）的数据的批流，进行完批流得到的是一个flow一个pcap文件，接下来需要做的工作就是通过python的Scapy库逐个读取flow，统计所需的统计属性">
+  <link rel="canonical" href="http://yoursite.com/2019/09/20/18tmc3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>论文复现实验思路-数据预处理（二） | SunPages</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SunPages</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">屁话少说,放码过来！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-photos">
+      
+    
+
+    <a href="/photo/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br>Photos</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/20/18tmc3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="sunhanwu">
+      <meta itemprop="description" content="Talk is cheap, show me the code!">
+      <meta itemprop="image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-12-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SunPages">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">论文复现实验思路-数据预处理（二）
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-20 20:06:19 / 修改时间：23:09:28" itemprop="dateCreated datePublished" datetime="2019-09-20T20:06:19+08:00">2019-09-20</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习科研/" itemprop="url" rel="index"><span itemprop="name">学习科研</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/09/20/18tmc3/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/09/20/18tmc3/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>2.5k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>2 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>继续数据预处理工作，在缓慢的批流工作进行了将近三天之后，完成了三个原始数据样本（不到2G）的数据的批流，进行完批流得到的是一个flow一个pcap文件，接下来需要做的工作就是通过python的Scapy库逐个读取flow，统计所需的统计属性 </p>
+</blockquote><a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> scapy.all <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> config <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>上面是导入的库</p>
+</blockquote>
+<h2 id="一、获取所有的flow路径"><a href="#一、获取所有的flow路径" class="headerlink" title="一、获取所有的flow路径"></a>一、获取所有的flow路径</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">GetPathList</span><span class="params">(data_path)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    获取流文件的路径信息</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        flow_path_list = [data_root_path + x <span class="keyword">for</span> x <span class="keyword">in</span> os.listdir(data_root_path)]</span><br><span class="line">        flow_path_list = sorted(flow_path_list,key= <span class="keyword">lambda</span> x: int(x.split(<span class="string">'/'</span>)[<span class="number">-1</span>].split(<span class="string">'.'</span>)[<span class="number">-2</span>]))</span><br><span class="line">        <span class="keyword">return</span> flow_path_list</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">"GetPathList Error!"</span>)</span><br><span class="line">        <span class="keyword">return</span> []</span><br></pre></td></tr></table></figure>
+<p>这个函数没有什么太多好讲的，只是有两点技巧说一下：</p>
+<ul>
+<li>列表生成表达式：在第6行使用列表生成表达式的形式生成列表，[含x表达式  for  x in  列表]</li>
+<li>lambda表达式 ：在 排序等函数中，可以 通过lambda表达式指定排序的关键字，即通过元素的那一部分进行排序</li>
+</ul>
+<h2 id="二、加载flow并得到统计数据"><a href="#二、加载flow并得到统计数据" class="headerlink" title="二、加载flow并得到统计数据"></a>二、加载flow并得到统计数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">LoadOnePcap</span><span class="params">(flow_path)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    加载一个flow的pcap文件，计算需要的统计数据</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    packets = rdpcap(flow_path)</span><br><span class="line">    Volume = <span class="number">0</span> <span class="comment"># 数据总量</span></span><br><span class="line">    Duration = <span class="number">0</span> <span class="comment"># 持续时间</span></span><br><span class="line">    <span class="keyword">for</span> packet <span class="keyword">in</span> packets:</span><br><span class="line">        Volume += len(packets)</span><br><span class="line">    StartTime = packets[<span class="number">0</span>].time <span class="comment">#开始时间</span></span><br><span class="line">    EndTime = packets[<span class="number">-1</span>].time <span class="comment">#结束时间</span></span><br><span class="line">    Duration = EndTime - StartTime</span><br><span class="line">    <span class="keyword">if</span> Duration &gt; <span class="number">0</span>:</span><br><span class="line">        Rate = Volume / Duration</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        Rate = <span class="number">0</span></span><br><span class="line">    <span class="comment"># sleep time通过连续的两个flow之间的时间计算，不在这个函数中计算</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># DNS 变量用于存储dns查询,DNS_FLAG 表示是否含有DNS</span></span><br><span class="line">    DNSQuery = <span class="string">''</span></span><br><span class="line">    DNS_FLAG = <span class="literal">False</span></span><br><span class="line">    NTPQuery = <span class="string">''</span></span><br><span class="line">    NTP_FLAG = <span class="literal">False</span></span><br><span class="line">    <span class="comment"># 下面的这个循环遍历整个flow查找是否含有DNS查询</span></span><br><span class="line">    <span class="keyword">for</span> packet <span class="keyword">in</span> packets:</span><br><span class="line">        <span class="keyword">if</span> packet.haslayer(<span class="string">'DNS'</span>):</span><br><span class="line">            DNS_FLAG = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> packet.haslayer(<span class="string">'NTP'</span>):</span><br><span class="line">            NTP_FLAG = <span class="literal">True</span></span><br><span class="line">    <span class="comment">## 获取DNS查询的域名</span></span><br><span class="line">    <span class="keyword">if</span> DNS_FLAG:</span><br><span class="line">        DNSQuery = bytes.decode(packets[<span class="number">0</span>][<span class="string">'DNS'</span>].qd.qname)</span><br><span class="line">    <span class="keyword">if</span> NTP_FLAG:</span><br><span class="line">        NTPQuery = packets[<span class="number">0</span>][<span class="string">'UDP'</span>].id</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 下面几行处理得到远程端口号</span></span><br><span class="line">    TCP_FLAG = packets[<span class="number">0</span>].haslayer(<span class="string">'TCP'</span>)</span><br><span class="line">    UDP_FLAG = packets[<span class="number">0</span>].haslayer(<span class="string">'UDP'</span>)</span><br><span class="line">    <span class="keyword">if</span> TCP_FLAG:</span><br><span class="line">        TransPro = <span class="string">'TCP'</span></span><br><span class="line">    <span class="keyword">elif</span> UDP_FLAG:</span><br><span class="line">        TransPro = <span class="string">'UDP'</span></span><br><span class="line">    RemotePort = packets[<span class="number">0</span>][TransPro].dport</span><br><span class="line">    <span class="comment"># 下面一行得到mac地址</span></span><br><span class="line">    Mac = packets[<span class="number">0</span>][<span class="string">'Ethernet'</span>].src</span><br><span class="line">    flow_features = &#123;</span><br><span class="line">        <span class="string">'Volume'</span>: Volume,</span><br><span class="line">        <span class="string">'StartTime'</span>:StartTime,</span><br><span class="line">        <span class="string">'EndTime'</span>:EndTime,</span><br><span class="line">        <span class="string">'Duration'</span>:Duration,</span><br><span class="line">        <span class="string">'Rate'</span>:Rate,</span><br><span class="line">        <span class="string">'DNSQuery'</span>:DNSQuery,</span><br><span class="line">        <span class="string">'NTPQuery'</span>:NTPQuery,</span><br><span class="line">        <span class="string">'RemotePort'</span>:RemotePort,</span><br><span class="line">        <span class="string">'TransPro'</span>:TransPro,</span><br><span class="line">        <span class="string">'Mac'</span>:Mac</span><br><span class="line">    &#125;</span><br><span class="line">    print(<span class="string">'%s文件夹中,第%s个flow分析完毕！'</span>%(flow_path.split(<span class="string">'/'</span>)[<span class="number">-2</span>],flow_path.split(<span class="string">'/'</span>)[<span class="number">-1</span>].split(<span class="string">'.'</span>)[<span class="number">-2</span>]))</span><br><span class="line">    print(flow_features)</span><br><span class="line">    <span class="keyword">return</span> flow_features</span><br></pre></td></tr></table></figure>
+<h2 id="待更新（太累了明天再写）"><a href="#待更新（太累了明天再写）" class="headerlink" title="待更新（太累了明天再写）"></a>待更新（太累了明天再写）</h2>
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/python/" rel="tag"># python</a>
+            
+              <a href="/tags/流量/" rel="tag"># 流量</a>
+            
+              <a href="/tags/Scapy/" rel="tag"># Scapy</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/19/18tmc2/" rel="next" title="论文复现实验思路-数据预处理（一）">
+                  <i class="fa fa-chevron-left"></i> 论文复现实验思路-数据预处理（一）
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、获取所有的flow路径"><span class="nav-number">1.</span> <span class="nav-text">一、获取所有的flow路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、加载flow并得到统计数据"><span class="nav-number">2.</span> <span class="nav-text">二、加载flow并得到统计数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#待更新（太累了明天再写）"><span class="nav-number">3.</span> <span class="nav-text">待更新（太累了明天再写）</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-12-logo.jpg"
+      alt="sunhanwu">
+  <p class="site-author-name" itemprop="name">sunhanwu</p>
+  <div class="site-description" itemprop="description">Talk is cheap, show me the code!</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">博客</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/sunhanwu" title="GitHub &rarr; https://github.com/sunhanwu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:1965190613@qq.com" title="E-Mail &rarr; mailto:1965190613@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://jackyanghc.github.io/" title="https://jackyanghc.github.io/" rel="noopener" target="_blank">Jackyanghc</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://michel-liu.github.io/" title="https://michel-liu.github.io/" rel="noopener" target="_blank">Michel</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">sunhanwu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">143k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">2:10</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'ToSqcWxrMe4Fx1bTFKjHnFQn-gzGzoHsz',
+    appKey: 'WIlMiWIudPsl2Q2PsMVfiUUH',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>
