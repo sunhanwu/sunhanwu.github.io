@@ -63,7 +63,7 @@
 <meta property="og:site_name" content="SunPages">
 <meta property="og:description" content="继续数据预处理工作，在缓慢的批流工作进行了将近三天之后，完成了三个原始数据样本（不到2G）的数据的批流，进行完批流得到的是一个flow一个pcap文件，接下来需要做的工作就是通过python的Scapy库逐个读取flow，统计所需的统计属性">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-20T15:09:28.450Z">
+<meta property="og:updated_time" content="2019-09-23T11:38:35.703Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文复现实验思路-数据预处理（二）">
 <meta name="twitter:description" content="继续数据预处理工作，在缓慢的批流工作进行了将近三天之后，完成了三个原始数据样本（不到2G）的数据的批流，进行完批流得到的是一个flow一个pcap文件，接下来需要做的工作就是通过python的Scapy库逐个读取flow，统计所需的统计属性">
@@ -270,11 +270,19 @@
                 
               
 
-              <time title="创建时间：2019-09-20 20:06:19 / 修改时间：23:09:28" itemprop="dateCreated datePublished" datetime="2019-09-20T20:06:19+08:00">2019-09-20</time>
+              <time title="创建时间：2019-09-20 20:06:19" itemprop="dateCreated datePublished" datetime="2019-09-20T20:06:19+08:00">2019-09-20</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-23 19:38:35" itemprop="dateModified" datetime="2019-09-23T19:38:35+08:00">2019-09-23</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -314,7 +322,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>2.5k</span>
+              <span>2.9k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -324,7 +332,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
           
 
@@ -351,7 +359,72 @@
 <li>lambda表达式 ：在 排序等函数中，可以 通过lambda表达式指定排序的关键字，即通过元素的那一部分进行排序</li>
 </ul>
 <h2 id="二、加载flow并得到统计数据"><a href="#二、加载flow并得到统计数据" class="headerlink" title="二、加载flow并得到统计数据"></a>二、加载flow并得到统计数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">LoadOnePcap</span><span class="params">(flow_path)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    加载一个flow的pcap文件，计算需要的统计数据</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    packets = rdpcap(flow_path)</span><br><span class="line">    Volume = <span class="number">0</span> <span class="comment"># 数据总量</span></span><br><span class="line">    Duration = <span class="number">0</span> <span class="comment"># 持续时间</span></span><br><span class="line">    <span class="keyword">for</span> packet <span class="keyword">in</span> packets:</span><br><span class="line">        Volume += len(packets)</span><br><span class="line">    StartTime = packets[<span class="number">0</span>].time <span class="comment">#开始时间</span></span><br><span class="line">    EndTime = packets[<span class="number">-1</span>].time <span class="comment">#结束时间</span></span><br><span class="line">    Duration = EndTime - StartTime</span><br><span class="line">    <span class="keyword">if</span> Duration &gt; <span class="number">0</span>:</span><br><span class="line">        Rate = Volume / Duration</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        Rate = <span class="number">0</span></span><br><span class="line">    <span class="comment"># sleep time通过连续的两个flow之间的时间计算，不在这个函数中计算</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># DNS 变量用于存储dns查询,DNS_FLAG 表示是否含有DNS</span></span><br><span class="line">    DNSQuery = <span class="string">''</span></span><br><span class="line">    DNS_FLAG = <span class="literal">False</span></span><br><span class="line">    NTPQuery = <span class="string">''</span></span><br><span class="line">    NTP_FLAG = <span class="literal">False</span></span><br><span class="line">    <span class="comment"># 下面的这个循环遍历整个flow查找是否含有DNS查询</span></span><br><span class="line">    <span class="keyword">for</span> packet <span class="keyword">in</span> packets:</span><br><span class="line">        <span class="keyword">if</span> packet.haslayer(<span class="string">'DNS'</span>):</span><br><span class="line">            DNS_FLAG = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> packet.haslayer(<span class="string">'NTP'</span>):</span><br><span class="line">            NTP_FLAG = <span class="literal">True</span></span><br><span class="line">    <span class="comment">## 获取DNS查询的域名</span></span><br><span class="line">    <span class="keyword">if</span> DNS_FLAG:</span><br><span class="line">        DNSQuery = bytes.decode(packets[<span class="number">0</span>][<span class="string">'DNS'</span>].qd.qname)</span><br><span class="line">    <span class="keyword">if</span> NTP_FLAG:</span><br><span class="line">        NTPQuery = packets[<span class="number">0</span>][<span class="string">'UDP'</span>].id</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 下面几行处理得到远程端口号</span></span><br><span class="line">    TCP_FLAG = packets[<span class="number">0</span>].haslayer(<span class="string">'TCP'</span>)</span><br><span class="line">    UDP_FLAG = packets[<span class="number">0</span>].haslayer(<span class="string">'UDP'</span>)</span><br><span class="line">    <span class="keyword">if</span> TCP_FLAG:</span><br><span class="line">        TransPro = <span class="string">'TCP'</span></span><br><span class="line">    <span class="keyword">elif</span> UDP_FLAG:</span><br><span class="line">        TransPro = <span class="string">'UDP'</span></span><br><span class="line">    RemotePort = packets[<span class="number">0</span>][TransPro].dport</span><br><span class="line">    <span class="comment"># 下面一行得到mac地址</span></span><br><span class="line">    Mac = packets[<span class="number">0</span>][<span class="string">'Ethernet'</span>].src</span><br><span class="line">    flow_features = &#123;</span><br><span class="line">        <span class="string">'Volume'</span>: Volume,</span><br><span class="line">        <span class="string">'StartTime'</span>:StartTime,</span><br><span class="line">        <span class="string">'EndTime'</span>:EndTime,</span><br><span class="line">        <span class="string">'Duration'</span>:Duration,</span><br><span class="line">        <span class="string">'Rate'</span>:Rate,</span><br><span class="line">        <span class="string">'DNSQuery'</span>:DNSQuery,</span><br><span class="line">        <span class="string">'NTPQuery'</span>:NTPQuery,</span><br><span class="line">        <span class="string">'RemotePort'</span>:RemotePort,</span><br><span class="line">        <span class="string">'TransPro'</span>:TransPro,</span><br><span class="line">        <span class="string">'Mac'</span>:Mac</span><br><span class="line">    &#125;</span><br><span class="line">    print(<span class="string">'%s文件夹中,第%s个flow分析完毕！'</span>%(flow_path.split(<span class="string">'/'</span>)[<span class="number">-2</span>],flow_path.split(<span class="string">'/'</span>)[<span class="number">-1</span>].split(<span class="string">'.'</span>)[<span class="number">-2</span>]))</span><br><span class="line">    print(flow_features)</span><br><span class="line">    <span class="keyword">return</span> flow_features</span><br></pre></td></tr></table></figure>
-<h2 id="待更新（太累了明天再写）"><a href="#待更新（太累了明天再写）" class="headerlink" title="待更新（太累了明天再写）"></a>待更新（太累了明天再写）</h2>
+<p>通过上面的代码可以分析出，其实逻辑很简单，从每个flow中提取出10个值，有的直接值特征值，有一些是为了以后计算特征值而提取的中间值，每个值的含义如下：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">变量名</th>
+<th style="text-align:center">含义</th>
+<th style="text-align:center">计算方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Volume</td>
+<td style="text-align:center">flow的数据大小</td>
+<td style="text-align:center">累加整个flow的所有数据包</td>
+</tr>
+<tr>
+<td style="text-align:center">StartTime</td>
+<td style="text-align:center">flow的起始时间</td>
+<td style="text-align:center">第一个packet的time</td>
+</tr>
+<tr>
+<td style="text-align:center">EndTime</td>
+<td style="text-align:center">flow的结束时间</td>
+<td style="text-align:center">最后一个packet的time</td>
+</tr>
+<tr>
+<td style="text-align:center">Duration</td>
+<td style="text-align:center">flow的持续时间</td>
+<td style="text-align:center">结束时间减去其实时间</td>
+</tr>
+<tr>
+<td style="text-align:center">Rate</td>
+<td style="text-align:center">flow的平均速率</td>
+<td style="text-align:center">数据量除以持续时间</td>
+</tr>
+<tr>
+<td style="text-align:center">DNSQuery</td>
+<td style="text-align:center">DNS查询字段</td>
+<td style="text-align:center">如果有DNS查询，找到对应包的<br>DNS查询</td>
+</tr>
+<tr>
+<td style="text-align:center">NTPQuery</td>
+<td style="text-align:center">NTP查询字段</td>
+<td style="text-align:center">如果有NTP查询，找到对应包的<br>NTP查询</td>
+</tr>
+<tr>
+<td style="text-align:center">RemotePort</td>
+<td style="text-align:center">远程端口</td>
+<td style="text-align:center">第一个packet的目的端口号</td>
+</tr>
+<tr>
+<td style="text-align:center">TransPro</td>
+<td style="text-align:center">协议类型</td>
+<td style="text-align:center">协议类型是flow五元组的组成之一</td>
+</tr>
+<tr>
+<td style="text-align:center">Mac</td>
+<td style="text-align:center">flow本端的Mac地址</td>
+<td style="text-align:center">第一个packet的源Mac</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>将上述所有的值提取出来之后保存在字典中传出即可</p>
+
     </div>
 
     
@@ -440,7 +513,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、获取所有的flow路径"><span class="nav-number">1.</span> <span class="nav-text">一、获取所有的flow路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、加载flow并得到统计数据"><span class="nav-number">2.</span> <span class="nav-text">二、加载flow并得到统计数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#待更新（太累了明天再写）"><span class="nav-number">3.</span> <span class="nav-text">待更新（太累了明天再写）</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、获取所有的flow路径"><span class="nav-number">1.</span> <span class="nav-text">一、获取所有的flow路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、加载flow并得到统计数据"><span class="nav-number">2.</span> <span class="nav-text">二、加载flow并得到统计数据</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
