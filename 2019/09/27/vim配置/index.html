@@ -55,19 +55,22 @@
   };
 </script>
 
-  <meta name="description" content="ubuntu16.04配置vsftp服务器">
-<meta name="keywords" content="Linux">
+  <meta name="description" content="如何配置一个顺手vim系列（一）：安装插件">
+<meta name="keywords" content="Linux,vim">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux服务器安装ftp服务">
-<meta property="og:url" content="http://yoursite.com/2019/05/05/vsftp/index.html">
+<meta property="og:title" content="如何配置一个顺手vim系列（一）：安装插件">
+<meta property="og:url" content="http://yoursite.com/2019/09/27/vim配置/index.html">
 <meta property="og:site_name" content="SunPages">
-<meta property="og:description" content="ubuntu16.04配置vsftp服务器">
+<meta property="og:description" content="如何配置一个顺手vim系列（一）：安装插件">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-12T11:59:45.037Z">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-27-081607.jpg">
+<meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-27-1.gif">
+<meta property="og:updated_time" content="2019-09-27T08:33:23.178Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux服务器安装ftp服务">
-<meta name="twitter:description" content="ubuntu16.04配置vsftp服务器">
-  <link rel="canonical" href="http://yoursite.com/2019/05/05/vsftp/">
+<meta name="twitter:title" content="如何配置一个顺手vim系列（一）：安装插件">
+<meta name="twitter:description" content="如何配置一个顺手vim系列（一）：安装插件">
+<meta name="twitter:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-27-081607.jpg">
+  <link rel="canonical" href="http://yoursite.com/2019/09/27/vim配置/">
 
 
 <script id="page-configurations">
@@ -81,7 +84,7 @@
   };
 </script>
 
-  <title>Linux服务器安装ftp服务 | SunPages</title>
+  <title>如何配置一个顺手vim系列（一）：安装插件 | SunPages</title>
   
 
 
@@ -242,7 +245,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/05/vsftp/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/27/vim配置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="sunhanwu">
@@ -254,7 +257,7 @@
       <meta itemprop="name" content="SunPages">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Linux服务器安装ftp服务
+        <h1 class="post-title" itemprop="name headline">如何配置一个顺手vim系列（一）：安装插件
 
           
         </h1>
@@ -270,19 +273,11 @@
                 
               
 
-              <time title="创建时间：2019-05-05 00:00:00" itemprop="dateCreated datePublished" datetime="2019-05-05T00:00:00+08:00">2019-05-05</time>
+              <time title="创建时间：2019-09-27 00:00:00 / 修改时间：16:33:23" itemprop="dateCreated datePublished" datetime="2019-09-27T00:00:00+08:00">2019-09-27</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-12 19:59:45" itemprop="dateModified" datetime="2019-09-12T19:59:45+08:00">2019-09-12</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -310,7 +305,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/05/05/vsftp/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/05/05/vsftp/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/09/27/vim配置/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/09/27/vim配置/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -322,7 +317,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>606</span>
+              <span>2.3k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -332,7 +327,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
           
 
@@ -345,22 +340,51 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="ubuntu16-04配置vsftp服务器"><a href="#ubuntu16-04配置vsftp服务器" class="headerlink" title="ubuntu16.04配置vsftp服务器"></a>ubuntu16.04配置vsftp服务器</h1><a id="more"></a><h2 id="安装vsftpd"><a href="#安装vsftpd" class="headerlink" title="安装vsftpd"></a>安装vsftpd</h2><ul>
-<li><p>安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install vsftpd</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置 /etc/vsftp.conf</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 允许匿名用户和本地用户登录，本地用户即/etc/passwd中的用户</span></span><br><span class="line">anonymous_enable=YES</span><br><span class="line">local_enable=YES</span><br><span class="line"></span><br><span class="line"><span class="comment"># 禁止全局写命令</span></span><br><span class="line">write_enable=YES</span><br><span class="line"></span><br><span class="line"><span class="comment"># 禁止匿名用户上传和创建文件夹</span></span><br><span class="line">anon_upload_enable=NO</span><br><span class="line">anon_mkdir_write_enable=NO</span><br><span class="line"></span><br><span class="line"><span class="comment"># 只允许userlist的用户登录</span></span><br><span class="line">userlist_enable=YES</span><br><span class="line">userlist_deny=NO</span><br><span class="line">userlist_file=/etc/vsftpd.user_list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意：使用了vsftpd.user_list后，要在其中加入anonymous才能使用匿名用户登录，如以下内容，表示只有匿名用户和名为ftp的用户，以及本地用户ubuntu可以登录</span></span><br><span class="line">anonymous</span><br><span class="line">ftp</span><br><span class="line">ubuntu</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建/etc/vsftpd.user_list文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ubuntu</span><br><span class="line">root</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><ul>
-<li><p>启动、重启、关闭</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/vsftpd start</span><br><span class="line">sudo /etc/init.d/vsftpd stop</span><br><span class="line">sudo /etc/init.d/vsftpd restart</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+        <h1 id="如何配置一个顺手vim系列（一）：安装插件"><a href="#如何配置一个顺手vim系列（一）：安装插件" class="headerlink" title="如何配置一个顺手vim系列（一）：安装插件"></a>如何配置一个顺手vim系列（一）：安装插件</h1><a id="more"></a><blockquote>
+<p>个人由于在服务器上进行科研和开发工作，所以使用vim比较多，这里简单记录一下自己配置vim的过程</p>
+</blockquote>
+<p>对于任何一个Linux玩家来说，vim都不可避免，其许多看似反人类的设计，其实背后都有原因。虽然前期的学习曲线比较高，但是一旦使用熟练之后，其开发和编辑的效率完全能和各种现代的编辑器媲美甚至更胜一筹，并且由于其打开速度快，线上开发方便等优点而深受程序员喜爱，下面就结合我自己的vim配置介绍一下。</p>
+<h2 id="一、安装插件管理器-vim-plug"><a href="#一、安装插件管理器-vim-plug" class="headerlink" title="一、安装插件管理器:vim-plug"></a>一、安装插件管理器:vim-plug</h2><p>vim-plug是一款优秀的插件管理器，其安装十分简单,命令如下:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fLo ~/.vim/<span class="built_in">autoload</span>/plug.vim --create-dirs \</span><br><span class="line">    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br></pre></td></tr></table></figure>
+<h2 id="二、安装插件"><a href="#二、安装插件" class="headerlink" title="二、安装插件"></a>二、安装插件</h2><p>在home目录下的.vimrc文件中添加如下配置：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">call plug<span class="comment">#begin('~/.vim/plugged')</span></span><br><span class="line">Plug <span class="string">'python-mode/python-mode'</span>, &#123; <span class="string">'branch'</span>: <span class="string">'develop'</span> &#125;</span><br><span class="line">Plug <span class="string">'mhinz/vim-startify'</span></span><br><span class="line">Plug <span class="string">'ervandew/supertab'</span></span><br><span class="line">Plug <span class="string">'python-mode/python-mode'</span></span><br><span class="line">Plug <span class="string">'scrooloose/nerdcommenter'</span></span><br><span class="line">Plug <span class="string">'kien/ctrlp.vim'</span></span><br><span class="line">Plug <span class="string">'inkarkat/vim-mark'</span></span><br><span class="line"><span class="string">" Plug 'vim-scripts/taglist.vim'</span></span><br><span class="line"><span class="string">Plug 'vim-scripts/The-NERD-Commenter'</span></span><br><span class="line"><span class="string">Plug 'junegunn/vim-easy-align'</span></span><br><span class="line"><span class="string">Plug 'easymotion/vim-easymotion'</span></span><br><span class="line"><span class="string">Plug 'vim-scripts/winmanager'</span></span><br><span class="line"><span class="string">Plug 'tomasr/molokai'</span></span><br><span class="line"><span class="string">Plug 'majutsushi/tagbar'</span></span><br><span class="line"><span class="string">Plug 'Raimondi/delimitMate'</span></span><br><span class="line"><span class="string">Plug 'vim-airline/vim-airline'</span></span><br><span class="line"><span class="string">Plug 'tpope/vim-surround'</span></span><br><span class="line"><span class="string">Plug 'vim-airline/vim-airline-themes'</span></span><br><span class="line"><span class="string">"</span> Plug <span class="string">'Yggdroot/indentLine'</span></span><br><span class="line">Plug <span class="string">'Xuyuanp/nerdtree-git-plugin'</span></span><br><span class="line">Plug <span class="string">'scrooloose/nerdtree'</span></span><br><span class="line">Plug <span class="string">'Chiel92/vim-autoformat'</span></span><br><span class="line">call plug<span class="comment">#end()</span></span><br><span class="line">filetype plugin indent on    <span class="string">" required</span></span><br></pre></td></tr></table></figure>
+<p>之后在vim中运行<code>:PlugInstalll</code>即可</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-27-081607.jpg" width="400"></div>
+
+<h2 id="三、插件介绍与配置"><a href="#三、插件介绍与配置" class="headerlink" title="三、插件介绍与配置"></a>三、插件介绍与配置</h2><h3 id="3-1-pyhton开发神器：python-mode"><a href="#3-1-pyhton开发神器：python-mode" class="headerlink" title="3.1 pyhton开发神器：python-mode"></a>3.1 pyhton开发神器：python-mode</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">" python-mode 配置</span></span><br><span class="line"><span class="string"> let g:pymode_python = 'python3' "</span>设置pyhton3模式</span><br><span class="line"> let g:pymode_trim_withespaces = <span class="number">1</span> <span class="string">" 保存是删除多于空格</span></span><br><span class="line"><span class="string"> "</span> let g:pymode_doc = <span class="number">0</span> <span class="string">"</span></span><br><span class="line"><span class="string"> "</span> let g:pymode_doc_bind  = <span class="string">'K'</span>  <span class="string">"</span></span><br><span class="line"><span class="string">let g:pymode_rope_completion = 1</span></span><br><span class="line"><span class="string">let g:pymode_rope_complete_on_dot = 0</span></span><br><span class="line"><span class="string">let g:pymode_rope_completion_bind = '&lt;C-Tab&gt;'</span></span><br><span class="line"><span class="string">"</span> <span class="string">" let g:pymode_indent = 1 时候用pep8风格的缩进</span></span><br><span class="line"><span class="string">"</span> <span class="string">" let g:pymode_motion = 1</span></span><br><span class="line"><span class="string"> let g:pymode_lint = 1</span></span><br><span class="line"><span class="string"> let g:pymode_rope_goto_definition_bind = "</span>&lt;C-]&gt;<span class="string">"</span></span><br><span class="line"><span class="string"> let g:pymode_options_max_line_length = 120</span></span><br><span class="line"><span class="string">"</span> <span class="string">" let g:pymode_lint_on_write = 0</span></span><br><span class="line"><span class="string"> let g:pymode_lint_checkers = ['pyflakes','pep8']</span></span><br><span class="line"><span class="string"> let g:pymode_folding = 1</span></span><br></pre></td></tr></table></figure>
+<p>上面的配置是python-mode中的一些配置，包括补全，缩进，折叠</p>
+<p>折叠相关快捷键：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">快捷键</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">zo</td>
+<td style="text-align:center">展开当前函数</td>
+</tr>
+<tr>
+<td style="text-align:center">zc</td>
+<td style="text-align:center">折叠当前函数</td>
+</tr>
+<tr>
+<td style="text-align:center">zn</td>
+<td style="text-align:center">展开所有喊你书</td>
+</tr>
+<tr>
+<td style="text-align:center">zN</td>
+<td style="text-align:center">折叠所有函数</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-27-1.gif" width="800"></div>
+
+<h3 id="3-2-文件管理插件：Nerd-tree"><a href="#3-2-文件管理插件：Nerd-tree" class="headerlink" title="3.2 文件管理插件：Nerd-tree"></a>3.2 文件管理插件：Nerd-tree</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="string">" nerdtree配置</span></span><br><span class="line"><span class="string"> nmap ,v :NERDTreeFind&lt;cr&gt;</span></span><br><span class="line"><span class="string"> nmap ,g :NERDTreeToggle&lt;cr&gt;</span></span><br><span class="line"><span class="string"> let NERDTreeShowHidden=1</span></span><br><span class="line"><span class="string">let NERDTreeIgnore = [</span></span><br><span class="line"><span class="string">            \ '\.git$', '\.hg$', '\.svn$', '\.stversions$', '\.pyc$', '\.pyo$', '\.svn$', '\.swp$',</span></span><br><span class="line"><span class="string">            \ '\.DS_Store$', '\.sass-cache$', '__pycache__$', '\.egg-info$', '\.ropeproject$',</span></span><br><span class="line"><span class="string">            \ ]</span></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -378,6 +402,8 @@
             
               <a href="/tags/Linux/" rel="tag"># Linux</a>
             
+              <a href="/tags/vim/" rel="tag"># vim</a>
+            
           </div>
         
 
@@ -386,8 +412,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/05/01/ss/" rel="next" title="服务器搭建ss">
-                  <i class="fa fa-chevron-left"></i> 服务器搭建ss
+                <a href="/2019/09/20/18tmc3/" rel="next" title="论文复现实验思路-数据预处理（二）">
+                  <i class="fa fa-chevron-left"></i> 论文复现实验思路-数据预处理（二）
                 </a>
               
             </div>
@@ -395,10 +421,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/09/12/18tmc/" rel="prev" title="对论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》的翻译">
-                  对论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》的翻译 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -450,7 +472,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ubuntu16-04配置vsftp服务器"><span class="nav-number">1.</span> <span class="nav-text">ubuntu16.04配置vsftp服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装vsftpd"><span class="nav-number">1.1.</span> <span class="nav-text">安装vsftpd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本操作"><span class="nav-number">1.2.</span> <span class="nav-text">基本操作</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#如何配置一个顺手vim系列（一）：安装插件"><span class="nav-number">1.</span> <span class="nav-text">如何配置一个顺手vim系列（一）：安装插件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、安装插件管理器-vim-plug"><span class="nav-number">1.1.</span> <span class="nav-text">一、安装插件管理器:vim-plug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、安装插件"><span class="nav-number">1.2.</span> <span class="nav-text">二、安装插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、插件介绍与配置"><span class="nav-number">1.3.</span> <span class="nav-text">三、插件介绍与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-pyhton开发神器：python-mode"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 pyhton开发神器：python-mode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-文件管理插件：Nerd-tree"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2 文件管理插件：Nerd-tree</span></a></li></ol></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
