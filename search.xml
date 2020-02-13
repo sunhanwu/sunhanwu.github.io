@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[vim 新手入门教程之增删改查]]></title>
+    <url>%2F2020%2F02%2F13%2Fvim-learn1%2F</url>
+    <content type="text"><![CDATA[vim 新手入门教程一: 增删改查​ 对于任何一个编辑器来说，对文本所做的操作无非就是增删改查这四种操作，但是由于vim里面的命令众多，学习成本较高，这样就劝退了很多新手，本篇博客将从增删改查四个操作来介绍一下如何入门vim。 一、添加操作​ vim有两种模式，一种是normal模式（命令模式），一种是insert模式（插入模式）。只有在命令模式下，所有的下面介绍的所有命令才会起作用，而插入模式下，键盘敲入的每个字符都会写入文本中。辨别vim是命令模式还是插入模式的方法很简单，插入模式的时候vim的底部有insert的字样，而什么都没有的时候表示处于命令模式。 ​ 当我们插入字符的时候，就需要从命令模式转为插入模式，在vim中从命令模式转为插入模式有三个命令，他们分别的作用如下表所示，区分大小写的话共有六种方式。 命令 作用 联想记忆 i 向当前字符前面一个字符插入 insert I 在当前行的行首插入 —- a 向当前字符后面一个字符插入 append A 在当前行的行尾插入 —- o 想当前字符下面一行插入 open a new line O 向当前行的上一行插入 —- 二、删除操作​ vim里面关于删除的操作命令十分的简单，只有两个，一个是x，他们的区别如下： x : 相当于不及物动词，后面不需要跟文本对象，按一下x直接删除贯标对应的字符，前面可以加上数字表示删除的字符的个数，比如说4x表示删除4个字符。 d: 相当于及物动词，一个单独的d事没有办法删除东西的，d的后面必须跟着一下文本对象，下面介绍一下vim中的各个文本对象的概念 命令 文本对象 示例 w 下一个单词开始 dw从当前删除到下一个单词 e 本单词的结尾 de表示删除到这个单词的结尾 b 上一个单词的开始 db删除到上一个单词 $ 行尾 d$表示从光标删除到行尾 0 行首 d0表示从光标删除到行首 gg 文件首 dgg表示从光标删除到文件首 G 文件结尾 dG表示从光标删除到文件结尾 另外还有以下特殊的操作： 命令 含义 dd 删除当前行 dt + [任意字符] 删除到[任意字符]处 三、修改操作在vim涉及到修改文本的目录有三个，一个是c（change），一个是r（replace）,他们分别的含义和作用如下： 命令 含义 注 c 修改 不及物 r 替换 替换完成之后依然处于命令模式 s 删除当前字符 删除之后进入插入模式 S 删除当前行 删除之后进入插入模式 对于修改操作，使用做多的还是c命令，c命令后面可以加上不同的文本对象实现不同的修改，具体用法如下： 命令 含义 cw 修改一个单词 c$ 修改到行尾 c0 修改到行首 cgg 修改到文件首 cG 修改到文件尾 Ct [任意字符] 修改到任意字符 ci [成对出现的字符] 修改成对出的字符内部的内容 c i [成对出现的字符]：这个命令里面相当于不及物动词后面加上一个介词i，然后在跟上字符（宾语），例如： ci + “(“: 修改小括号内部的内容 ci + “[“: 修改中括号内部的内容 ci + “: 表示修改引号内部的内容 四、查找操作vim中的查找操作的命令是/，在命令模式中输入反斜杠之后可以查找，查找完成之后n表示下一个匹配对象，N跳转到上一个匹配对象。 ​ 当然编辑文本的过程中还有一个操作就是所有替换，vim也支持搜索替换。 1: %查找范围s/查找文本/替换文本/替换标志]]></content>
+      <categories>
+        <category>tools</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>vim</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[如何配置一个顺手vim系列（一）：安装插件]]></title>
     <url>%2F2019%2F09%2F27%2Fvim%E9%85%8D%E7%BD%AE%2F</url>
     <content type="text"><![CDATA[如何配置一个顺手vim系列（一）：安装插件 个人由于在服务器上进行科研和开发工作，所以使用vim比较多，这里简单记录一下自己配置vim的过程 对于任何一个Linux玩家来说，vim都不可避免，其许多看似反人类的设计，其实背后都有原因。虽然前期的学习曲线比较高，但是一旦使用熟练之后，其开发和编辑的效率完全能和各种现代的编辑器媲美甚至更胜一筹，并且由于其打开速度快，线上开发方便等优点而深受程序员喜爱，下面就结合我自己的vim配置介绍一下。 一、安装插件管理器:vim-plugvim-plug是一款优秀的插件管理器，其安装十分简单,命令如下: 12curl -fLo ~/.vim/autoload/plug.vim --create-dirs \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 二、安装插件在home目录下的.vimrc文件中添加如下配置： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192set nocompatible " be iMproved, requiredfiletype off " requiredset backspace=2" 插件管理set rtp+=~/.vim/bundle/Vundle.vimcall plug#begin()" Plug 'VundleVim/Vundle.vim'Plug 'python-mode/python-mode', &#123; 'branch': 'develop' &#125;" Plug 'davidhalter/jedi-vim'Plug 'tpope/vim-surround'Plug 'majutsushi/tagbar'" Plug 'w0rp/ale'Plug 'mhinz/vim-startify'Plug 'ervandew/supertab'Plug 'python-mode/python-mode'Plug 'scrooloose/nerdcommenter'Plug 'kien/ctrlp.vim'Plug 'scrooloose/nerdtree'Plug 'vim-scripts/taglist.vim'Plug 'vim-scripts/The-NERD-Commenter'" Plug 'junegunn/vim-easy-align'Plug 'easymotion/vim-easymotion'Plug 'vim-scripts/winmanager'Plug 'tomasr/molokai'Plug 'vim-airline/vim-airline'Plug 'vim-airline/vim-airline-themes'Plug 'Yggdroot/indentLine'Plug 'Xuyuanp/nerdtree-git-plugin'Plug 'sbdchd/neoformat'" Plug 'Chiel92/vim-autoformat'" Plug 'lyokha/vim-xkbswitch'call plug#end() " requiredfiletype plugin indent on " required"基础配置let mapleader=','let g:indentLine_enabled = 1color desert "颜色设置syntax on "语法高亮set number "自动显示行号set cursorline "突出显示当前行set ts=4 "设置tab长度为4set shiftwidth=4 "设定 &lt;&lt; 和 &gt;&gt; 命令移动时的宽度为 4"解决中文编码乱码let &amp;termencoding=&amp;encodingset fileencodings=utf-8,gbk let g:NERDSpaceDelims=1 " 注释后面自动加空格"set clipboard=unnamed" python-mode 配置let g:pymode_python = 'python3' "设置pyhton3模式let g:pymode_trim_withespaces = 1 " 保存是删除多于空格let g:pymode_doc = 0 "" let g:pymode_doc_bind = 'K' "" let g:pymode_rope_completion = 1" let g:pymode_rope_complete_on_dot = 1" let g:pymode_rope_completion_bind = '&lt;C-Tab&gt;'" let g:pymode_indent = 1 时候用pep8风格的缩进let g:pymode_folding = 1let g:pymode_run_bind = '&lt;leader&gt;r'" let g:pymode_motion = 1let g:pymode_rope_goto_definition_bind = "&lt;C-]&gt;"let g:pymode_options_max_line_length = 140" let g:pymode_lint_on_write = 1" let g:pymode_lint_checkers = ['pyflakes','pep8']let g:pymode_rope_completion = 1let g:pymode_rope_complete_on_dot = 1let g:pymode_rope_completion_bind = '&lt;C-Tab&gt;'" let g:pymode_lint_error_symbol = 'EE'" nerdtree配置nmap ,v :NERDTreeFind&lt;cr&gt;nmap ,g :NERDTreeToggle&lt;cr&gt;let NERDTreeShowHidden=1let NERDTreeIgnore = [ \ '\.git$', '\.hg$', '\.svn$', '\.stversions$', '\.pyc$', '\.pyo$', '\.svn$', '\.swp$', \ '\.DS_Store$', '\.sass-cache$', '__pycache__$', '\.egg-info$', '\.ropeproject$', \ ]nnoremap &lt;leader&gt;t : TagbarToggle&lt;CR&gt;" ale 配置let g:ale_sign_error = '✗'let g:ale_linters = &#123;'python': []&#125;"easy-align配置" xmap ga &lt;Plug&gt;(EasyAlign)" nmap ga &lt;Plug&gt;(EasyAlign) 之后在vim中运行:PlugInstalll即可 三、插件介绍与配置3.1 pyhton开发神器：python-mode12345678910111213141516" python-mode 配置 let g:pymode_python = 'python3' "设置pyhton3模式 let g:pymode_trim_withespaces = 1 " 保存是删除多于空格 " let g:pymode_doc = 0 " " let g:pymode_doc_bind = 'K' "let g:pymode_rope_completion = 1let g:pymode_rope_complete_on_dot = 0let g:pymode_rope_completion_bind = '&lt;C-Tab&gt;'" " let g:pymode_indent = 1 时候用pep8风格的缩进" " let g:pymode_motion = 1 let g:pymode_lint = 1 let g:pymode_rope_goto_definition_bind = "&lt;C-]&gt;" let g:pymode_options_max_line_length = 120" " let g:pymode_lint_on_write = 0 let g:pymode_lint_checkers = ['pyflakes','pep8'] let g:pymode_folding = 1 上面的配置是python-mode中的一些配置，包括补全，缩进，折叠 折叠相关快捷键： 快捷键 作用 zo 展开当前函数 zc 折叠当前函数 zn 展开所有函数 zN 折叠所有函数 3.2 文件管理插件：Nerd-tree12345678 " nerdtree配置 nmap ,v :NERDTreeFind&lt;cr&gt; nmap ,g :NERDTreeToggle&lt;cr&gt; let NERDTreeShowHidden=1let NERDTreeIgnore = [ \ '\.git$', '\.hg$', '\.svn$', '\.stversions$', '\.pyc$', '\.pyo$', '\.svn$', '\.swp$', \ '\.DS_Store$', '\.sass-cache$', '__pycache__$', '\.egg-info$', '\.ropeproject$', \ ]]]></content>
@@ -33,8 +45,8 @@
         <category>学习科研</category>
       </categories>
       <tags>
-        <tag>IoT</tag>
         <tag>机器学习</tag>
+        <tag>IoT</tag>
       </tags>
   </entry>
   <entry>
@@ -57,8 +69,8 @@
         <category>学习科研</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>网络流量</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -69,8 +81,8 @@
         <category>学习科研</category>
       </categories>
       <tags>
-        <tag>IoT</tag>
         <tag>机器学习</tag>
+        <tag>IoT</tag>
         <tag>网络流量</tag>
       </tags>
   </entry>
@@ -192,19 +204,19 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[pintos操作系统安装]]></title>
-    <url>%2F2019%2F04%2F02%2Fpintos-install%2F</url>
-    <content type="text"><![CDATA[在QEMU虚拟机中安装pintos 下载pintos源码 1git clone http://cs140.stanford.edu/pintos.git 编译安装 123cd ~/pintos/src/threadsmake../utils/pintos --qemu -- run alarm-multiple 修改utils/pintos 脚本 1my (@cmd) = ('/usr/local/src/qemu/bin/qemu'); 将pintos脚本中第622行修改成如上图所示，引号中的内容是qemu可执行程序的绝对路径。 出现下面的截图说明正确安装好了]]></content>
-      <tags>
-        <tag>操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[qemu虚拟机的安装]]></title>
     <url>%2F2019%2F04%2F02%2Fqemu%2F</url>
     <content type="text"><![CDATA[QEMU虚拟安装 下载源码 123git clone https://git.qemu.org/git/qemu.gitcd qemugit checkout v2.10.0 # 使用2.10.0版本 安装依赖库 1sudo apt-get install libsdl2-dev libsdl2-gfx-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-net-dev libsdl2-ttf-dev 1sudo apt-get install build-essential flex bison cmake automake libtool gcc-multilib g++-multilib libpixman-dev libfdt-dev 编译安装i386版本虚拟机 12345mkdir buildcd build../configure --prefix=/usr/local/src/qemu --target-list="i386-softmmu" --enable-debug --python=/usr/bin/python2makesudo make install 添加软连接 12cd /usr/local/src/qemu/bin/sudo ln -s qemu-system-i386 qemu]]></content>
       <tags>
         <tag>Pintos 操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[pintos操作系统安装]]></title>
+    <url>%2F2019%2F04%2F02%2Fpintos-install%2F</url>
+    <content type="text"><![CDATA[在QEMU虚拟机中安装pintos 下载pintos源码 1git clone http://cs140.stanford.edu/pintos.git 编译安装 123cd ~/pintos/src/threadsmake../utils/pintos --qemu -- run alarm-multiple 修改utils/pintos 脚本 1my (@cmd) = ('/usr/local/src/qemu/bin/qemu'); 将pintos脚本中第622行修改成如上图所示，引号中的内容是qemu可执行程序的绝对路径。 出现下面的截图说明正确安装好了]]></content>
+      <tags>
+        <tag>操作系统</tag>
       </tags>
   </entry>
   <entry>

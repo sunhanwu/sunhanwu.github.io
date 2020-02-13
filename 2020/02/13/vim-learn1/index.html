@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="ubuntu16.04配置vsftp服务器">
-<meta name="keywords" content="Linux">
+  <meta name="description" content="vim  新手入门教程一: 增删改查​    对于任何一个编辑器来说，对文本所做的操作无非就是增删改查这四种操作，但是由于vim里面的命令众多，学习成本较高，这样就劝退了很多新手，本篇博客将从增删改查四个操作来介绍一下如何入门vim。">
+<meta name="keywords" content="Linux,vim">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux服务器安装ftp服务">
-<meta property="og:url" content="http://yoursite.com/2019/05/05/vsftp/index.html">
+<meta property="og:title" content="vim 新手入门教程之增删改查">
+<meta property="og:url" content="http://yoursite.com/2020/02/13/vim-learn1/index.html">
 <meta property="og:site_name" content="SunPages">
-<meta property="og:description" content="ubuntu16.04配置vsftp服务器">
+<meta property="og:description" content="vim  新手入门教程一: 增删改查​    对于任何一个编辑器来说，对文本所做的操作无非就是增删改查这四种操作，但是由于vim里面的命令众多，学习成本较高，这样就劝退了很多新手，本篇博客将从增删改查四个操作来介绍一下如何入门vim。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-12T11:59:45.020Z">
+<meta property="og:updated_time" content="2020-02-13T15:31:36.677Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux服务器安装ftp服务">
-<meta name="twitter:description" content="ubuntu16.04配置vsftp服务器">
-  <link rel="canonical" href="http://yoursite.com/2019/05/05/vsftp/">
+<meta name="twitter:title" content="vim 新手入门教程之增删改查">
+<meta name="twitter:description" content="vim  新手入门教程一: 增删改查​    对于任何一个编辑器来说，对文本所做的操作无非就是增删改查这四种操作，但是由于vim里面的命令众多，学习成本较高，这样就劝退了很多新手，本篇博客将从增删改查四个操作来介绍一下如何入门vim。">
+  <link rel="canonical" href="http://yoursite.com/2020/02/13/vim-learn1/">
 
 
 <script id="page-configurations">
@@ -81,7 +81,7 @@
   };
 </script>
 
-  <title>Linux服务器安装ftp服务 | SunPages</title>
+  <title>vim 新手入门教程之增删改查 | SunPages</title>
   
 
 
@@ -242,7 +242,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/05/vsftp/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/13/vim-learn1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="sunhanwu">
@@ -254,7 +254,7 @@
       <meta itemprop="name" content="SunPages">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Linux服务器安装ftp服务
+        <h1 class="post-title" itemprop="name headline">vim 新手入门教程之增删改查
 
           
         </h1>
@@ -270,19 +270,11 @@
                 
               
 
-              <time title="创建时间：2019-05-05 00:00:00" itemprop="dateCreated datePublished" datetime="2019-05-05T00:00:00+08:00">2019-05-05</time>
+              <time title="创建时间：2020-02-13 00:00:00 / 修改时间：23:31:36" itemprop="dateCreated datePublished" datetime="2020-02-13T00:00:00+08:00">2020-02-13</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-12 19:59:45" itemprop="dateModified" datetime="2019-09-12T19:59:45+08:00">2019-09-12</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -310,7 +302,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/05/05/vsftp/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/05/05/vsftp/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2020/02/13/vim-learn1/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/02/13/vim-learn1/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -322,7 +314,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>606</span>
+              <span>1.4k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -345,22 +337,210 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="ubuntu16-04配置vsftp服务器"><a href="#ubuntu16-04配置vsftp服务器" class="headerlink" title="ubuntu16.04配置vsftp服务器"></a>ubuntu16.04配置vsftp服务器</h1><a id="more"></a><h2 id="安装vsftpd"><a href="#安装vsftpd" class="headerlink" title="安装vsftpd"></a>安装vsftpd</h2><ul>
-<li><p>安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install vsftpd</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置 /etc/vsftp.conf</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 允许匿名用户和本地用户登录，本地用户即/etc/passwd中的用户</span></span><br><span class="line">anonymous_enable=YES</span><br><span class="line">local_enable=YES</span><br><span class="line"></span><br><span class="line"><span class="comment"># 禁止全局写命令</span></span><br><span class="line">write_enable=YES</span><br><span class="line"></span><br><span class="line"><span class="comment"># 禁止匿名用户上传和创建文件夹</span></span><br><span class="line">anon_upload_enable=NO</span><br><span class="line">anon_mkdir_write_enable=NO</span><br><span class="line"></span><br><span class="line"><span class="comment"># 只允许userlist的用户登录</span></span><br><span class="line">userlist_enable=YES</span><br><span class="line">userlist_deny=NO</span><br><span class="line">userlist_file=/etc/vsftpd.user_list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意：使用了vsftpd.user_list后，要在其中加入anonymous才能使用匿名用户登录，如以下内容，表示只有匿名用户和名为ftp的用户，以及本地用户ubuntu可以登录</span></span><br><span class="line">anonymous</span><br><span class="line">ftp</span><br><span class="line">ubuntu</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建/etc/vsftpd.user_list文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ubuntu</span><br><span class="line">root</span><br></pre></td></tr></table></figure>
-</li>
+        <h1 id="vim-新手入门教程一-增删改查"><a href="#vim-新手入门教程一-增删改查" class="headerlink" title="vim  新手入门教程一: 增删改查"></a>vim  新手入门教程一: 增删改查</h1><p>​    对于任何一个编辑器来说，对文本所做的操作无非就是增删改查这四种操作，但是由于vim里面的命令众多，学习成本较高，这样就劝退了很多新手，本篇博客将从增删改查四个操作来介绍一下如何入门vim。</p><a id="more"></a>
+<h2 id="一、添加操作"><a href="#一、添加操作" class="headerlink" title="一、添加操作"></a>一、添加操作</h2><p>​        vim有两种模式，一种是normal模式（命令模式），一种是insert模式（插入模式）。只有在命令模式下，所有的下面介绍的所有命令才会起作用，而插入模式下，键盘敲入的每个字符都会写入文本中。辨别vim是命令模式还是插入模式的方法很简单，插入模式的时候vim的底部有insert的字样，而什么都没有的时候表示处于命令模式。</p>
+<p>​        当我们插入字符的时候，就需要从命令模式转为插入模式，在vim中从命令模式转为插入模式有三个命令，他们分别的作用如下表所示，区分大小写的话共有六种方式。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">作用</th>
+<th style="text-align:center">联想记忆</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">i</td>
+<td style="text-align:center">向当前字符前面一个字符插入</td>
+<td style="text-align:center">insert</td>
+</tr>
+<tr>
+<td style="text-align:center">I</td>
+<td style="text-align:center">在当前行的行首插入</td>
+<td style="text-align:center">—-</td>
+</tr>
+<tr>
+<td style="text-align:center">a</td>
+<td style="text-align:center">向当前字符后面一个字符插入</td>
+<td style="text-align:center">append</td>
+</tr>
+<tr>
+<td style="text-align:center">A</td>
+<td style="text-align:center">在当前行的行尾插入</td>
+<td style="text-align:center">—-</td>
+</tr>
+<tr>
+<td style="text-align:center">o</td>
+<td style="text-align:center">想当前字符下面一行插入</td>
+<td style="text-align:center">open a new line</td>
+</tr>
+<tr>
+<td style="text-align:center">O</td>
+<td style="text-align:center">向当前行的上一行插入</td>
+<td style="text-align:center">—-</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="二、删除操作"><a href="#二、删除操作" class="headerlink" title="二、删除操作"></a>二、删除操作</h2><p>​        vim里面关于删除的操作命令十分的简单，只有两个，一个是x，他们的区别如下：</p>
+<ol>
+<li>x :    相当于不及物动词，后面不需要跟文本对象，按一下x直接删除贯标对应的字符，前面可以加上数字表示删除的字符的个数，比如说4x表示删除4个字符。</li>
+<li>d:   相当于及物动词，一个单独的d事没有办法删除东西的，d的后面必须跟着一下文本对象，下面介绍一下vim中的各个文本对象的概念</li>
+</ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">文本对象</th>
+<th style="text-align:center">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">w</td>
+<td style="text-align:center">下一个单词开始</td>
+<td style="text-align:center">dw从当前删除到下一个单词</td>
+</tr>
+<tr>
+<td style="text-align:center">e</td>
+<td style="text-align:center">本单词的结尾</td>
+<td style="text-align:center">de表示删除到这个单词的结尾</td>
+</tr>
+<tr>
+<td style="text-align:center">b</td>
+<td style="text-align:center">上一个单词的开始</td>
+<td style="text-align:center">db删除到上一个单词</td>
+</tr>
+<tr>
+<td style="text-align:center">$</td>
+<td style="text-align:center">行尾</td>
+<td style="text-align:center">d$表示从光标删除到行尾</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">行首</td>
+<td style="text-align:center">d0表示从光标删除到行首</td>
+</tr>
+<tr>
+<td style="text-align:center">gg</td>
+<td style="text-align:center">文件首</td>
+<td style="text-align:center">dgg表示从光标删除到文件首</td>
+</tr>
+<tr>
+<td style="text-align:center">G</td>
+<td style="text-align:center">文件结尾</td>
+<td style="text-align:center">dG表示从光标删除到文件结尾</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>另外还有以下特殊的操作：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">dd</td>
+<td style="text-align:center">删除当前行</td>
+</tr>
+<tr>
+<td style="text-align:center">dt + [任意字符]</td>
+<td style="text-align:center">删除到[任意字符]处</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="三、修改操作"><a href="#三、修改操作" class="headerlink" title="三、修改操作"></a>三、修改操作</h3><p>在vim涉及到修改文本的目录有三个，一个是c（change），一个是r（replace）,他们分别的含义和作用如下：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">含义</th>
+<th style="text-align:center">注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">c</td>
+<td style="text-align:center">修改</td>
+<td style="text-align:center">不及物</td>
+</tr>
+<tr>
+<td style="text-align:center">r</td>
+<td style="text-align:center">替换</td>
+<td style="text-align:center">替换完成之后依然处于命令模式</td>
+</tr>
+<tr>
+<td style="text-align:center">s</td>
+<td style="text-align:center">删除当前字符</td>
+<td style="text-align:center">删除之后进入插入模式</td>
+</tr>
+<tr>
+<td style="text-align:center">S</td>
+<td style="text-align:center">删除当前行</td>
+<td style="text-align:center">删除之后进入插入模式</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>对于修改操作，使用做多的还是c命令，c命令后面可以加上不同的文本对象实现不同的修改，具体用法如下：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">cw</td>
+<td style="text-align:center">修改一个单词</td>
+</tr>
+<tr>
+<td style="text-align:center">c$</td>
+<td style="text-align:center">修改到行尾</td>
+</tr>
+<tr>
+<td style="text-align:center">c0</td>
+<td style="text-align:center">修改到行首</td>
+</tr>
+<tr>
+<td style="text-align:center">cgg</td>
+<td style="text-align:center">修改到文件首</td>
+</tr>
+<tr>
+<td style="text-align:center">cG</td>
+<td style="text-align:center">修改到文件尾</td>
+</tr>
+<tr>
+<td style="text-align:center">Ct [任意字符]</td>
+<td style="text-align:center">修改到任意字符</td>
+</tr>
+<tr>
+<td style="text-align:center">ci [成对出现的字符]</td>
+<td style="text-align:center">修改成对出的字符内部的内容</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>c i [成对出现的字符]：这个命令里面相当于不及物动词后面加上一个介词i，然后在跟上字符（宾语），例如：</p>
+<ul>
+<li>ci + “(“: 修改小括号内部的内容</li>
+<li>ci + “[“: 修改中括号内部的内容</li>
+<li>ci + “: 表示修改引号内部的内容</li>
 </ul>
-<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><ul>
-<li><p>启动、重启、关闭</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/vsftpd start</span><br><span class="line">sudo /etc/init.d/vsftpd stop</span><br><span class="line">sudo /etc/init.d/vsftpd restart</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+<h3 id="四、查找操作"><a href="#四、查找操作" class="headerlink" title="四、查找操作"></a>四、查找操作</h3><p>vim中的查找操作的命令是/，在命令模式中输入反斜杠之后可以查找，查找完成之后n表示下一个匹配对象，N跳转到上一个匹配对象。</p>
+<p>​        当然编辑文本的过程中还有一个操作就是所有替换，vim也支持搜索替换。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">: %查找范围s/查找文本/替换文本/替换标志</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -378,6 +558,8 @@
             
               <a href="/tags/Linux/" rel="tag"># Linux</a>
             
+              <a href="/tags/vim/" rel="tag"># vim</a>
+            
           </div>
         
 
@@ -386,8 +568,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/05/01/ss/" rel="next" title="服务器搭建ss">
-                  <i class="fa fa-chevron-left"></i> 服务器搭建ss
+                <a href="/2019/09/27/vim配置/" rel="next" title="如何配置一个顺手vim系列（一）：安装插件">
+                  <i class="fa fa-chevron-left"></i> 如何配置一个顺手vim系列（一）：安装插件
                 </a>
               
             </div>
@@ -395,10 +577,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/09/12/18tmc/" rel="prev" title="对论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》的翻译">
-                  对论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》的翻译 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -450,7 +628,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ubuntu16-04配置vsftp服务器"><span class="nav-number">1.</span> <span class="nav-text">ubuntu16.04配置vsftp服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装vsftpd"><span class="nav-number">1.1.</span> <span class="nav-text">安装vsftpd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本操作"><span class="nav-number">1.2.</span> <span class="nav-text">基本操作</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vim-新手入门教程一-增删改查"><span class="nav-number">1.</span> <span class="nav-text">vim  新手入门教程一: 增删改查</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、添加操作"><span class="nav-number">1.1.</span> <span class="nav-text">一、添加操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、删除操作"><span class="nav-number">1.2.</span> <span class="nav-text">二、删除操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三、修改操作"><span class="nav-number">1.2.1.</span> <span class="nav-text">三、修改操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、查找操作"><span class="nav-number">1.2.2.</span> <span class="nav-text">四、查找操作</span></a></li></ol></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
