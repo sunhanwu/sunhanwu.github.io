@@ -20,8 +20,8 @@
         <category>学习科研</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>流量</tag>
+        <tag>python</tag>
         <tag>Scapy</tag>
       </tags>
   </entry>
@@ -33,8 +33,8 @@
         <category>学习科研</category>
       </categories>
       <tags>
-        <tag>机器学习</tag>
         <tag>IoT</tag>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -69,8 +69,8 @@
         <category>学习科研</category>
       </categories>
       <tags>
-        <tag>机器学习</tag>
         <tag>IoT</tag>
+        <tag>机器学习</tag>
         <tag>网络流量</tag>
       </tags>
   </entry>
@@ -99,7 +99,7 @@
   <entry>
     <title><![CDATA[Linux/MacOS 配置oh-my-zsh]]></title>
     <url>%2F2019%2F04%2F28%2Fzsh%2F</url>
-    <content type="text"><![CDATA[Linux/Mac OS下安装oh my zsh并配置主题和插件安装oh my zsh 安装git 、zsh Linux(Ubuntu16.04) 1sudo apt-get install zsh git Mac OS 12#先自行百度安装homebrewbrew install git 安装oh my zsh(两种系统命令相同) 1sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" 修改主题：vim ～/.zshrc 12#找到对应行改为ZSH_THEME="agnoster" source ~/.zshrc 配置插件 wd 它的作用就是能够快速的切换到常用的目录。 ​ 我们用命令行时经常会遇到这样一种情况， 我们常用的目录就那么几个，而这些目录有时候会再很深的层级中。 使用 cd 命令在这些深层级目录中切换就比较耗费时间了。 ​ 例如 Nginx的wwwroot目录/usr/share/nginx/html ,我们进入这个目录，输入wd add html #这个html这个名称是可以随便取的. 下次再进入这个目录就可以直接输入 wd thml wd用法： 12345678910111213141516171819202122Usage: wd [command] [point]Commands: add &lt;point&gt; Adds the current working directory to your warp points add Adds the current working directory to your warp points with current directory&apos;s name add! &lt;point&gt; Overwrites existing warp point add! Overwrites existing warp point with current directory&apos;s name rm &lt;point&gt; Removes the given warp point rm Removes the given warp point with current directory&apos;s name show &lt;point&gt; Print path to given warp point show Print warp points to current directory list Print all stored warp points ls &lt;point&gt; Show files from given warp point (ls) path &lt;point&gt; Show the path to given warp point (pwd) clean! Remove points warping to nonexistent directories -v | --version Print version -d | --debug Exit after execution with exit codes (for testing) -c | --config Specify config file (default ~/.warprc) -q | --quiet Suppress all output help Show this extremely helpful text sudo 连按两次Esc添加或去掉sudo zsh-syntax-highlighting ​ #高亮可用命令 Linux 1git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting Mac OS 12brew install zsh-syntax-highlightingsource /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh zsh-autosuggestions ​ #记录上一条命令，并自动建议 1git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions 安装 在～/.zshrc下配置 12345678# Add wisely, as too many plugins slow down shell startup.plugins=( git zsh-autosuggestions zsh-syntax-highlighting wd sudo) 最后source ~/.zshrc]]></content>
+    <content type="text"><![CDATA[Linux/Mac OS下安装oh my zsh并配置主题和插件Test安装oh my zsh 安装git 、zsh Linux(Ubuntu16.04) 1sudo apt-get install zsh git Mac OS 12#先自行百度安装homebrewbrew install git 安装oh my zsh(两种系统命令相同) 1sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" 修改主题：vim ～/.zshrc 12#找到对应行改为ZSH_THEME="agnoster" source ~/.zshrc 配置插件 wd 它的作用就是能够快速的切换到常用的目录。 ​ 我们用命令行时经常会遇到这样一种情况， 我们常用的目录就那么几个，而这些目录有时候会再很深的层级中。 使用 cd 命令在这些深层级目录中切换就比较耗费时间了。 ​ 例如 Nginx的wwwroot目录/usr/share/nginx/html ,我们进入这个目录，输入wd add html #这个html这个名称是可以随便取的. 下次再进入这个目录就可以直接输入 wd thml wd用法： 12345678910111213141516171819202122Usage: wd [command] [point]Commands: add &lt;point&gt; Adds the current working directory to your warp points add Adds the current working directory to your warp points with current directory&apos;s name add! &lt;point&gt; Overwrites existing warp point add! Overwrites existing warp point with current directory&apos;s name rm &lt;point&gt; Removes the given warp point rm Removes the given warp point with current directory&apos;s name show &lt;point&gt; Print path to given warp point show Print warp points to current directory list Print all stored warp points ls &lt;point&gt; Show files from given warp point (ls) path &lt;point&gt; Show the path to given warp point (pwd) clean! Remove points warping to nonexistent directories -v | --version Print version -d | --debug Exit after execution with exit codes (for testing) -c | --config Specify config file (default ~/.warprc) -q | --quiet Suppress all output help Show this extremely helpful text sudo 连按两次Esc添加或去掉sudo zsh-syntax-highlighting ​ #高亮可用命令 Linux 1git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting Mac OS 12brew install zsh-syntax-highlightingsource /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh zsh-autosuggestions ​ #记录上一条命令，并自动建议 1git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions 安装 在～/.zshrc下配置 12345678# Add wisely, as too many plugins slow down shell startup.plugins=( git zsh-autosuggestions zsh-syntax-highlighting wd sudo) 最后source ~/.zshrc]]></content>
       <categories>
         <category>tools</category>
       </categories>
@@ -128,9 +128,9 @@
         <category>tools</category>
       </categories>
       <tags>
+        <tag>python</tag>
         <tag>Linux</tag>
         <tag>极客</tag>
-        <tag>python</tag>
         <tag>开发</tag>
       </tags>
   </entry>
