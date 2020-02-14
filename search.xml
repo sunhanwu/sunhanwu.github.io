@@ -204,19 +204,19 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[qemu虚拟机的安装]]></title>
-    <url>%2F2019%2F04%2F02%2Fqemu%2F</url>
-    <content type="text"><![CDATA[QEMU虚拟安装 下载源码 123git clone https://git.qemu.org/git/qemu.gitcd qemugit checkout v2.10.0 # 使用2.10.0版本 安装依赖库 1sudo apt-get install libsdl2-dev libsdl2-gfx-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-net-dev libsdl2-ttf-dev 1sudo apt-get install build-essential flex bison cmake automake libtool gcc-multilib g++-multilib libpixman-dev libfdt-dev 编译安装i386版本虚拟机 12345mkdir buildcd build../configure --prefix=/usr/local/src/qemu --target-list="i386-softmmu" --enable-debug --python=/usr/bin/python2makesudo make install 添加软连接 12cd /usr/local/src/qemu/bin/sudo ln -s qemu-system-i386 qemu]]></content>
-      <tags>
-        <tag>Pintos 操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[pintos操作系统安装]]></title>
     <url>%2F2019%2F04%2F02%2Fpintos-install%2F</url>
     <content type="text"><![CDATA[在QEMU虚拟机中安装pintos 下载pintos源码 1git clone http://cs140.stanford.edu/pintos.git 编译安装 123cd ~/pintos/src/threadsmake../utils/pintos --qemu -- run alarm-multiple 修改utils/pintos 脚本 1my (@cmd) = ('/usr/local/src/qemu/bin/qemu'); 将pintos脚本中第622行修改成如上图所示，引号中的内容是qemu可执行程序的绝对路径。 出现下面的截图说明正确安装好了]]></content>
       <tags>
         <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[qemu虚拟机的安装]]></title>
+    <url>%2F2019%2F04%2F02%2Fqemu%2F</url>
+    <content type="text"><![CDATA[QEMU虚拟安装 下载源码 123git clone https://git.qemu.org/git/qemu.gitcd qemugit checkout v2.10.0 # 使用2.10.0版本 安装依赖库 1sudo apt-get install libsdl2-dev libsdl2-gfx-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-net-dev libsdl2-ttf-dev 1sudo apt-get install build-essential flex bison cmake automake libtool gcc-multilib g++-multilib libpixman-dev libfdt-dev 编译安装i386版本虚拟机 12345mkdir buildcd build../configure --prefix=/usr/local/src/qemu --target-list="i386-softmmu" --enable-debug --python=/usr/bin/python2makesudo make install 添加软连接 12cd /usr/local/src/qemu/bin/sudo ln -s qemu-system-i386 qemu]]></content>
+      <tags>
+        <tag>Pintos 操作系统</tag>
       </tags>
   </entry>
   <entry>
