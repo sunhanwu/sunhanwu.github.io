@@ -279,7 +279,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-04 18:09:14" itemprop="dateModified" datetime="2020-07-04T18:09:14+08:00">2020-07-04</time>
+                <time title="修改时间：2020-07-04 20:55:33" itemprop="dateModified" datetime="2020-07-04T20:55:33+08:00">2020-07-04</time>
               </span>
             
           
@@ -343,211 +343,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="vim-新手入门教程一-增删改查TEST"><a href="#vim-新手入门教程一-增删改查TEST" class="headerlink" title="vim  新手入门教程一: 增删改查TEST"></a>vim  新手入门教程一: 增删改查TEST</h1><p>​    对于任何一个编辑器来说，对文本所做的操作无非就是增删改查这四种操作，但是由于vim里面的命令众多，学习成本较高，这样就劝退了很多新手，本篇博客将从增删改查四个操作来介绍一下如何入门vim。</p>
-<h2 id="一、添加操作"><a href="#一、添加操作" class="headerlink" title="一、添加操作"></a>一、添加操作</h2><p>​        vim有两种模式，一种是normal模式（命令模式），一种是insert模式（插入模式）。只有在命令模式下，所有的下面介绍的所有命令才会起作用，而插入模式下，键盘敲入的每个字符都会写入文本中。辨别vim是命令模式还是插入模式的方法很简单，插入模式的时候vim的底部有insert的字样，而什么都没有的时候表示处于命令模式。</p>
-<p>​        当我们插入字符的时候，就需要从命令模式转为插入模式，在vim中从命令模式转为插入模式有三个命令，他们分别的作用如下表所示，区分大小写的话共有六种方式。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">命令</th>
-<th style="text-align:center">作用</th>
-<th style="text-align:center">联想记忆</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">i</td>
-<td style="text-align:center">向当前字符前面一个字符插入</td>
-<td style="text-align:center">insert</td>
-</tr>
-<tr>
-<td style="text-align:center">I</td>
-<td style="text-align:center">在当前行的行首插入</td>
-<td style="text-align:center">—-</td>
-</tr>
-<tr>
-<td style="text-align:center">a</td>
-<td style="text-align:center">向当前字符后面一个字符插入</td>
-<td style="text-align:center">append</td>
-</tr>
-<tr>
-<td style="text-align:center">A</td>
-<td style="text-align:center">在当前行的行尾插入</td>
-<td style="text-align:center">—-</td>
-</tr>
-<tr>
-<td style="text-align:center">o</td>
-<td style="text-align:center">想当前字符下面一行插入</td>
-<td style="text-align:center">open a new line</td>
-</tr>
-<tr>
-<td style="text-align:center">O</td>
-<td style="text-align:center">向当前行的上一行插入</td>
-<td style="text-align:center">—-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="二、删除操作"><a href="#二、删除操作" class="headerlink" title="二、删除操作"></a>二、删除操作</h2><p>​        vim里面关于删除的操作命令十分的简单，只有两个，一个是x，他们的区别如下：</p>
-<ol>
-<li>x :    相当于不及物动词，后面不需要跟文本对象，按一下x直接删除贯标对应的字符，前面可以加上数字表示删除的字符的个数，比如说4x表示删除4个字符。</li>
-<li>d:   相当于及物动词，一个单独的d事没有办法删除东西的，d的后面必须跟着一下文本对象，下面介绍一下vim中的各个文本对象的概念</li>
-</ol>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">命令</th>
-<th style="text-align:center">文本对象</th>
-<th style="text-align:center">示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">w</td>
-<td style="text-align:center">下一个单词开始</td>
-<td style="text-align:center">dw从当前删除到下一个单词</td>
-</tr>
-<tr>
-<td style="text-align:center">e</td>
-<td style="text-align:center">本单词的结尾</td>
-<td style="text-align:center">de表示删除到这个单词的结尾</td>
-</tr>
-<tr>
-<td style="text-align:center">b</td>
-<td style="text-align:center">上一个单词的开始</td>
-<td style="text-align:center">db删除到上一个单词</td>
-</tr>
-<tr>
-<td style="text-align:center">$</td>
-<td style="text-align:center">行尾</td>
-<td style="text-align:center">d$表示从光标删除到行尾</td>
-</tr>
-<tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center">行首</td>
-<td style="text-align:center">d0表示从光标删除到行首</td>
-</tr>
-<tr>
-<td style="text-align:center">gg</td>
-<td style="text-align:center">文件首</td>
-<td style="text-align:center">dgg表示从光标删除到文件首</td>
-</tr>
-<tr>
-<td style="text-align:center">G</td>
-<td style="text-align:center">文件结尾</td>
-<td style="text-align:center">dG表示从光标删除到文件结尾</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>另外还有以下特殊的操作：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">命令</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">dd</td>
-<td style="text-align:center">删除当前行</td>
-</tr>
-<tr>
-<td style="text-align:center">dt + [任意字符]</td>
-<td style="text-align:center">删除到[任意字符]处</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="三、修改操作"><a href="#三、修改操作" class="headerlink" title="三、修改操作"></a>三、修改操作</h2><p>在vim涉及到修改文本的目录有三个，一个是c（change），一个是r（replace）,他们分别的含义和作用如下：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">命令</th>
-<th style="text-align:center">含义</th>
-<th style="text-align:center">注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">c</td>
-<td style="text-align:center">修改</td>
-<td style="text-align:center">不及物</td>
-</tr>
-<tr>
-<td style="text-align:center">r</td>
-<td style="text-align:center">替换</td>
-<td style="text-align:center">替换完成之后依然处于命令模式</td>
-</tr>
-<tr>
-<td style="text-align:center">s</td>
-<td style="text-align:center">删除当前字符</td>
-<td style="text-align:center">删除之后进入插入模式</td>
-</tr>
-<tr>
-<td style="text-align:center">S</td>
-<td style="text-align:center">删除当前行</td>
-<td style="text-align:center">删除之后进入插入模式</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>对于修改操作，使用做多的还是c命令，c命令后面可以加上不同的文本对象实现不同的修改，具体用法如下：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">命令</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">cw</td>
-<td style="text-align:center">修改一个单词</td>
-</tr>
-<tr>
-<td style="text-align:center">c$</td>
-<td style="text-align:center">修改到行尾</td>
-</tr>
-<tr>
-<td style="text-align:center">c0</td>
-<td style="text-align:center">修改到行首</td>
-</tr>
-<tr>
-<td style="text-align:center">cgg</td>
-<td style="text-align:center">修改到文件首</td>
-</tr>
-<tr>
-<td style="text-align:center">cG</td>
-<td style="text-align:center">修改到文件尾</td>
-</tr>
-<tr>
-<td style="text-align:center">Ct [任意字符]</td>
-<td style="text-align:center">修改到任意字符</td>
-</tr>
-<tr>
-<td style="text-align:center">ci [成对出现的字符]</td>
-<td style="text-align:center">修改成对出的字符内部的内容</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>c i [成对出现的字符]：这个命令里面相当于不及物动词后面加上一个介词i，然后在跟上字符（宾语），例如：</p>
-<ul>
-<li>ci + “(“: 修改小括号内部的内容</li>
-<li>ci + “[“: 修改中括号内部的内容</li>
-<li>ci + “: 表示修改引号内部的内容</li>
-</ul>
-<h2 id="四、查找操作"><a href="#四、查找操作" class="headerlink" title="四、查找操作"></a>四、查找操作</h2><p>vim中的查找操作的命令是/，在命令模式中输入反斜杠之后可以查找，查找完成之后n表示下一个匹配对象，N跳转到上一个匹配对象。</p>
-<p>​        当然编辑文本的过程中还有一个操作就是所有替换，vim也支持搜索替换。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">: %查找范围s/查找文本/替换文本/替换标志</span><br></pre></td></tr></table></figure>
-
+          <h1 id="vim-新手入门教程一-增删改查"><a href="#vim-新手入门教程一-增删改查" class="headerlink" title="vim  新手入门教程一: 增删改查"></a>vim  新手入门教程一: 增删改查</h1><p>​    对于任何一个编辑器来说，对文本所做的操作无非就是增删改查这四种操作，但是由于vim里面的命令众多，学习成本较高，这样就劝退了很多新手，本篇博客将从增删改查四个操作来介绍一下如何入门vim。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/02/13/vim-learn1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -675,49 +480,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="如何配置一个顺手vim系列（一）：安装插件"><a href="#如何配置一个顺手vim系列（一）：安装插件" class="headerlink" title="如何配置一个顺手vim系列（一）：安装插件"></a>如何配置一个顺手vim系列（一）：安装插件</h1><blockquote>
-<p>个人由于在服务器上进行科研和开发工作，所以使用vim比较多，这里简单记录一下自己配置vim的过程</p>
-</blockquote>
-<p>对于任何一个Linux玩家来说，vim都不可避免，其许多看似反人类的设计，其实背后都有原因。虽然前期的学习曲线比较高，但是一旦使用熟练之后，其开发和编辑的效率完全能和各种现代的编辑器媲美甚至更胜一筹，并且由于其打开速度快，线上开发方便等优点而深受程序员喜爱，下面就结合我自己的vim配置介绍一下。</p>
-<h2 id="一、安装插件管理器-vim-plug"><a href="#一、安装插件管理器-vim-plug" class="headerlink" title="一、安装插件管理器:vim-plug"></a>一、安装插件管理器:vim-plug</h2><p>vim-plug是一款优秀的插件管理器，其安装十分简单,命令如下:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fLo ~/.vim/<span class="built_in">autoload</span>/plug.vim --create-dirs \</span><br><span class="line">    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br></pre></td></tr></table></figure>
-<h2 id="二、安装插件"><a href="#二、安装插件" class="headerlink" title="二、安装插件"></a>二、安装插件</h2><p>在home目录下的.vimrc文件中添加如下配置：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line">set nocompatible              <span class="string">" be iMproved, required</span></span><br><span class="line"><span class="string">filetype off                  "</span> required</span><br><span class="line">set backspace=<span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="string">" 插件管理</span></span><br><span class="line"><span class="string">set rtp+=~/.vim/bundle/Vundle.vim</span></span><br><span class="line"><span class="string">call plug#begin()</span></span><br><span class="line"><span class="string">"</span> Plug <span class="string">'VundleVim/Vundle.vim'</span></span><br><span class="line">Plug <span class="string">'python-mode/python-mode'</span>, &#123; <span class="string">'branch'</span>: <span class="string">'develop'</span> &#125;</span><br><span class="line"><span class="string">" Plug 'davidhalter/jedi-vim'</span></span><br><span class="line"><span class="string">Plug 'tpope/vim-surround'</span></span><br><span class="line"><span class="string">Plug 'majutsushi/tagbar'</span></span><br><span class="line"><span class="string">"</span> Plug <span class="string">'w0rp/ale'</span></span><br><span class="line">Plug <span class="string">'mhinz/vim-startify'</span></span><br><span class="line">Plug <span class="string">'ervandew/supertab'</span></span><br><span class="line">Plug <span class="string">'python-mode/python-mode'</span></span><br><span class="line">Plug <span class="string">'scrooloose/nerdcommenter'</span></span><br><span class="line">Plug <span class="string">'kien/ctrlp.vim'</span></span><br><span class="line">Plug <span class="string">'scrooloose/nerdtree'</span></span><br><span class="line">Plug <span class="string">'vim-scripts/taglist.vim'</span></span><br><span class="line">Plug <span class="string">'vim-scripts/The-NERD-Commenter'</span></span><br><span class="line"><span class="string">" Plug 'junegunn/vim-easy-align'</span></span><br><span class="line"><span class="string">Plug 'easymotion/vim-easymotion'</span></span><br><span class="line"><span class="string">Plug 'vim-scripts/winmanager'</span></span><br><span class="line"><span class="string">Plug 'tomasr/molokai'</span></span><br><span class="line"><span class="string">Plug 'vim-airline/vim-airline'</span></span><br><span class="line"><span class="string">Plug 'vim-airline/vim-airline-themes'</span></span><br><span class="line"><span class="string">Plug 'Yggdroot/indentLine'</span></span><br><span class="line"><span class="string">Plug 'Xuyuanp/nerdtree-git-plugin'</span></span><br><span class="line"><span class="string">Plug 'sbdchd/neoformat'</span></span><br><span class="line"><span class="string">"</span> Plug <span class="string">'Chiel92/vim-autoformat'</span></span><br><span class="line"><span class="string">" Plug 'lyokha/vim-xkbswitch'</span></span><br><span class="line"><span class="string">call plug#end()            "</span> required</span><br><span class="line">filetype plugin indent on    <span class="string">" required</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span>基础配置</span><br><span class="line">let mapleader=<span class="string">','</span></span><br><span class="line">let g:indentLine_enabled = <span class="number">1</span></span><br><span class="line">color desert <span class="string">"颜色设置</span></span><br><span class="line"><span class="string">syntax on "</span>语法高亮</span><br><span class="line">set number <span class="string">"自动显示行号</span></span><br><span class="line"><span class="string">set cursorline "</span>突出显示当前行</span><br><span class="line">set ts=<span class="number">4</span> <span class="string">"设置tab长度为4</span></span><br><span class="line"><span class="string">set shiftwidth=4 "</span>设定 &lt;&lt; 和 &gt;&gt; 命令移动时的宽度为 <span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="string">"解决中文编码乱码</span></span><br><span class="line"><span class="string">let &amp;termencoding=&amp;encoding</span></span><br><span class="line"><span class="string">set fileencodings=utf-8,gbk</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">	</span></span><br><span class="line"><span class="string">let g:NERDSpaceDelims=1     "</span> 注释后面自动加空格<span class="string">"</span></span><br><span class="line"><span class="string">set clipboard=unnamed</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span> python-mode 配置</span><br><span class="line">let g:pymode_python = <span class="string">'python3'</span> <span class="string">"设置pyhton3模式</span></span><br><span class="line"><span class="string">let g:pymode_trim_withespaces = 1 "</span> 保存是删除多于空格</span><br><span class="line">let g:pymode_doc = <span class="number">0</span> <span class="string">"</span></span><br><span class="line"><span class="string">"</span> let g:pymode_doc_bind  = <span class="string">'K'</span>  <span class="string">"</span></span><br><span class="line"><span class="string">"</span> let g:pymode_rope_completion = <span class="number">1</span></span><br><span class="line"><span class="string">" let g:pymode_rope_complete_on_dot = 1</span></span><br><span class="line"><span class="string">"</span> let g:pymode_rope_completion_bind = <span class="string">'&lt;C-Tab&gt;'</span></span><br><span class="line"><span class="string">" let g:pymode_indent = 1 时候用pep8风格的缩进</span></span><br><span class="line"><span class="string">let g:pymode_folding = 1</span></span><br><span class="line"><span class="string">let g:pymode_run_bind = '&lt;leader&gt;r'</span></span><br><span class="line"><span class="string">"</span> let g:pymode_motion = <span class="number">1</span></span><br><span class="line">let g:pymode_rope_goto_definition_bind = <span class="string">"&lt;C-]&gt;"</span></span><br><span class="line">let g:pymode_options_max_line_length = <span class="number">140</span></span><br><span class="line"><span class="string">" let g:pymode_lint_on_write = 1</span></span><br><span class="line"><span class="string">"</span> let g:pymode_lint_checkers = [<span class="string">'pyflakes'</span>,<span class="string">'pep8'</span>]</span><br><span class="line">let g:pymode_rope_completion = <span class="number">1</span></span><br><span class="line">let g:pymode_rope_complete_on_dot = <span class="number">1</span></span><br><span class="line">let g:pymode_rope_completion_bind = <span class="string">'&lt;C-Tab&gt;'</span></span><br><span class="line"><span class="string">" let g:pymode_lint_error_symbol = 'EE'</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span> nerdtree配置</span><br><span class="line">nmap ,v :NERDTreeFind&lt;cr&gt;</span><br><span class="line">nmap ,g :NERDTreeToggle&lt;cr&gt;</span><br><span class="line">let NERDTreeShowHidden=<span class="number">1</span></span><br><span class="line">let NERDTreeIgnore = [</span><br><span class="line">            \ <span class="string">'\.git$'</span>, <span class="string">'\.hg$'</span>, <span class="string">'\.svn$'</span>, <span class="string">'\.stversions$'</span>, <span class="string">'\.pyc$'</span>, <span class="string">'\.pyo$'</span>, <span class="string">'\.svn$'</span>, <span class="string">'\.swp$'</span>,</span><br><span class="line">            \ <span class="string">'\.DS_Store$'</span>, <span class="string">'\.sass-cache$'</span>, <span class="string">'__pycache__$'</span>, <span class="string">'\.egg-info$'</span>, <span class="string">'\.ropeproject$'</span>,</span><br><span class="line">            \ ]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">nnoremap &lt;leader&gt;t : TagbarToggle&lt;CR&gt;</span><br><span class="line"><span class="string">" ale 配置</span></span><br><span class="line"><span class="string">let g:ale_sign_error = '✗'</span></span><br><span class="line"><span class="string">let g:ale_linters = &#123;'python': []&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span>easy-align配置</span><br><span class="line"><span class="string">" xmap ga &lt;Plug&gt;(EasyAlign)</span></span><br><span class="line"><span class="string">"</span> nmap ga &lt;Plug&gt;(EasyAlign)</span><br></pre></td></tr></table></figure>
-<p>之后在vim中运行<code>:PlugInstalll</code>即可</p>
-<p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-27-081607.jpg" width="400"></div></p>
-<h2 id="三、插件介绍与配置"><a href="#三、插件介绍与配置" class="headerlink" title="三、插件介绍与配置"></a>三、插件介绍与配置</h2><h3 id="3-1-pyhton开发神器：python-mode"><a href="#3-1-pyhton开发神器：python-mode" class="headerlink" title="3.1 pyhton开发神器：python-mode"></a>3.1 pyhton开发神器：python-mode</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">" python-mode 配置</span></span><br><span class="line"><span class="string"> let g:pymode_python = 'python3' "</span>设置pyhton3模式</span><br><span class="line"> let g:pymode_trim_withespaces = <span class="number">1</span> <span class="string">" 保存是删除多于空格</span></span><br><span class="line"><span class="string"> "</span> let g:pymode_doc = <span class="number">0</span> <span class="string">"</span></span><br><span class="line"><span class="string"> "</span> let g:pymode_doc_bind  = <span class="string">'K'</span>  <span class="string">"</span></span><br><span class="line"><span class="string">let g:pymode_rope_completion = 1</span></span><br><span class="line"><span class="string">let g:pymode_rope_complete_on_dot = 0</span></span><br><span class="line"><span class="string">let g:pymode_rope_completion_bind = '&lt;C-Tab&gt;'</span></span><br><span class="line"><span class="string">"</span> <span class="string">" let g:pymode_indent = 1 时候用pep8风格的缩进</span></span><br><span class="line"><span class="string">"</span> <span class="string">" let g:pymode_motion = 1</span></span><br><span class="line"><span class="string"> let g:pymode_lint = 1</span></span><br><span class="line"><span class="string"> let g:pymode_rope_goto_definition_bind = "</span>&lt;C-]&gt;<span class="string">"</span></span><br><span class="line"><span class="string"> let g:pymode_options_max_line_length = 120</span></span><br><span class="line"><span class="string">"</span> <span class="string">" let g:pymode_lint_on_write = 0</span></span><br><span class="line"><span class="string"> let g:pymode_lint_checkers = ['pyflakes','pep8']</span></span><br><span class="line"><span class="string"> let g:pymode_folding = 1</span></span><br></pre></td></tr></table></figure>
-<p>上面的配置是python-mode中的一些配置，包括补全，缩进，折叠</p>
-<p>折叠相关快捷键：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">快捷键</th>
-<th style="text-align:center">作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">zo</td>
-<td style="text-align:center">展开当前函数</td>
-</tr>
-<tr>
-<td style="text-align:center">zc</td>
-<td style="text-align:center">折叠当前函数</td>
-</tr>
-<tr>
-<td style="text-align:center">zn</td>
-<td style="text-align:center">展开所有函数</td>
-</tr>
-<tr>
-<td style="text-align:center">zN</td>
-<td style="text-align:center">折叠所有函数</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="3-2-文件管理插件：Nerd-tree"><a href="#3-2-文件管理插件：Nerd-tree" class="headerlink" title="3.2 文件管理插件：Nerd-tree"></a>3.2 文件管理插件：Nerd-tree</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="string">" nerdtree配置</span></span><br><span class="line"><span class="string"> nmap ,v :NERDTreeFind&lt;cr&gt;</span></span><br><span class="line"><span class="string"> nmap ,g :NERDTreeToggle&lt;cr&gt;</span></span><br><span class="line"><span class="string"> let NERDTreeShowHidden=1</span></span><br><span class="line"><span class="string">let NERDTreeIgnore = [</span></span><br><span class="line"><span class="string">            \ '\.git$', '\.hg$', '\.svn$', '\.stversions$', '\.pyc$', '\.pyo$', '\.svn$', '\.swp$',</span></span><br><span class="line"><span class="string">            \ '\.DS_Store$', '\.sass-cache$', '__pycache__$', '\.egg-info$', '\.ropeproject$',</span></span><br><span class="line"><span class="string">            \ ]</span></span><br></pre></td></tr></table></figure>
-
+          <h1 id="如何配置一个顺手vim系列（一）：安装插件"><a href="#如何配置一个顺手vim系列（一）：安装插件" class="headerlink" title="如何配置一个顺手vim系列（一）：安装插件"></a>如何配置一个顺手vim系列（一）：安装插件</h1>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/27/vim配置/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -848,83 +620,15 @@
           <blockquote>
 <p>继续数据预处理工作，在缓慢的批流工作进行了将近三天之后，完成了三个原始数据样本（不到2G）的数据的批流，进行完批流得到的是一个flow一个pcap文件，接下来需要做的工作就是通过python的Scapy库逐个读取flow，统计所需的统计属性 </p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> scapy.all <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> config <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>上面是导入的库</p>
-</blockquote>
-<h2 id="一、获取所有的flow路径"><a href="#一、获取所有的flow路径" class="headerlink" title="一、获取所有的flow路径"></a>一、获取所有的flow路径</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">GetPathList</span><span class="params">(data_path)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    获取流文件的路径信息</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        flow_path_list = [data_root_path + x <span class="keyword">for</span> x <span class="keyword">in</span> os.listdir(data_root_path)]</span><br><span class="line">        flow_path_list = sorted(flow_path_list,key= <span class="keyword">lambda</span> x: int(x.split(<span class="string">'/'</span>)[<span class="number">-1</span>].split(<span class="string">'.'</span>)[<span class="number">-2</span>]))</span><br><span class="line">        <span class="keyword">return</span> flow_path_list</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">"GetPathList Error!"</span>)</span><br><span class="line">        <span class="keyword">return</span> []</span><br></pre></td></tr></table></figure>
-<p>这个函数没有什么太多好讲的，只是有两点技巧说一下：</p>
-<ul>
-<li>列表生成表达式：在第6行使用列表生成表达式的形式生成列表，[含x表达式  for  x in  列表]</li>
-<li>lambda表达式 ：在 排序等函数中，可以 通过lambda表达式指定排序的关键字，即通过元素的那一部分进行排序</li>
-</ul>
-<h2 id="二、加载flow并得到统计数据"><a href="#二、加载flow并得到统计数据" class="headerlink" title="二、加载flow并得到统计数据"></a>二、加载flow并得到统计数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">LoadOnePcap</span><span class="params">(flow_path)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    加载一个flow的pcap文件，计算需要的统计数据</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    packets = rdpcap(flow_path)</span><br><span class="line">    Volume = <span class="number">0</span> <span class="comment"># 数据总量</span></span><br><span class="line">    Duration = <span class="number">0</span> <span class="comment"># 持续时间</span></span><br><span class="line">    <span class="keyword">for</span> packet <span class="keyword">in</span> packets:</span><br><span class="line">        Volume += len(packets)</span><br><span class="line">    StartTime = packets[<span class="number">0</span>].time <span class="comment">#开始时间</span></span><br><span class="line">    EndTime = packets[<span class="number">-1</span>].time <span class="comment">#结束时间</span></span><br><span class="line">    Duration = EndTime - StartTime</span><br><span class="line">    <span class="keyword">if</span> Duration &gt; <span class="number">0</span>:</span><br><span class="line">        Rate = Volume / Duration</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        Rate = <span class="number">0</span></span><br><span class="line">    <span class="comment"># sleep time通过连续的两个flow之间的时间计算，不在这个函数中计算</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># DNS 变量用于存储dns查询,DNS_FLAG 表示是否含有DNS</span></span><br><span class="line">    DNSQuery = <span class="string">''</span></span><br><span class="line">    DNS_FLAG = <span class="literal">False</span></span><br><span class="line">    NTPQuery = <span class="string">''</span></span><br><span class="line">    NTP_FLAG = <span class="literal">False</span></span><br><span class="line">    <span class="comment"># 下面的这个循环遍历整个flow查找是否含有DNS查询</span></span><br><span class="line">    <span class="keyword">for</span> packet <span class="keyword">in</span> packets:</span><br><span class="line">        <span class="keyword">if</span> packet.haslayer(<span class="string">'DNS'</span>):</span><br><span class="line">            DNS_FLAG = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> packet.haslayer(<span class="string">'NTP'</span>):</span><br><span class="line">            NTP_FLAG = <span class="literal">True</span></span><br><span class="line">    <span class="comment">## 获取DNS查询的域名</span></span><br><span class="line">    <span class="keyword">if</span> DNS_FLAG:</span><br><span class="line">        DNSQuery = bytes.decode(packets[<span class="number">0</span>][<span class="string">'DNS'</span>].qd.qname)</span><br><span class="line">    <span class="keyword">if</span> NTP_FLAG:</span><br><span class="line">        NTPQuery = packets[<span class="number">0</span>][<span class="string">'UDP'</span>].id</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 下面几行处理得到远程端口号</span></span><br><span class="line">    TCP_FLAG = packets[<span class="number">0</span>].haslayer(<span class="string">'TCP'</span>)</span><br><span class="line">    UDP_FLAG = packets[<span class="number">0</span>].haslayer(<span class="string">'UDP'</span>)</span><br><span class="line">    <span class="keyword">if</span> TCP_FLAG:</span><br><span class="line">        TransPro = <span class="string">'TCP'</span></span><br><span class="line">    <span class="keyword">elif</span> UDP_FLAG:</span><br><span class="line">        TransPro = <span class="string">'UDP'</span></span><br><span class="line">    RemotePort = packets[<span class="number">0</span>][TransPro].dport</span><br><span class="line">    <span class="comment"># 下面一行得到mac地址</span></span><br><span class="line">    Mac = packets[<span class="number">0</span>][<span class="string">'Ethernet'</span>].src</span><br><span class="line">    flow_features = &#123;</span><br><span class="line">        <span class="string">'Volume'</span>: Volume,</span><br><span class="line">        <span class="string">'StartTime'</span>:StartTime,</span><br><span class="line">        <span class="string">'EndTime'</span>:EndTime,</span><br><span class="line">        <span class="string">'Duration'</span>:Duration,</span><br><span class="line">        <span class="string">'Rate'</span>:Rate,</span><br><span class="line">        <span class="string">'DNSQuery'</span>:DNSQuery,</span><br><span class="line">        <span class="string">'NTPQuery'</span>:NTPQuery,</span><br><span class="line">        <span class="string">'RemotePort'</span>:RemotePort,</span><br><span class="line">        <span class="string">'TransPro'</span>:TransPro,</span><br><span class="line">        <span class="string">'Mac'</span>:Mac</span><br><span class="line">    &#125;</span><br><span class="line">    print(<span class="string">'%s文件夹中,第%s个flow分析完毕！'</span>%(flow_path.split(<span class="string">'/'</span>)[<span class="number">-2</span>],flow_path.split(<span class="string">'/'</span>)[<span class="number">-1</span>].split(<span class="string">'.'</span>)[<span class="number">-2</span>]))</span><br><span class="line">    print(flow_features)</span><br><span class="line">    <span class="keyword">return</span> flow_features</span><br></pre></td></tr></table></figure>
-<p>通过上面的代码可以分析出，其实逻辑很简单，从每个flow中提取出10个值，有的直接值特征值，有一些是为了以后计算特征值而提取的中间值，每个值的含义如下：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">变量名</th>
-<th style="text-align:center">含义</th>
-<th style="text-align:center">计算方法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Volume</td>
-<td style="text-align:center">flow的数据大小</td>
-<td style="text-align:center">累加整个flow的所有数据包</td>
-</tr>
-<tr>
-<td style="text-align:center">StartTime</td>
-<td style="text-align:center">flow的起始时间</td>
-<td style="text-align:center">第一个packet的time</td>
-</tr>
-<tr>
-<td style="text-align:center">EndTime</td>
-<td style="text-align:center">flow的结束时间</td>
-<td style="text-align:center">最后一个packet的time</td>
-</tr>
-<tr>
-<td style="text-align:center">Duration</td>
-<td style="text-align:center">flow的持续时间</td>
-<td style="text-align:center">结束时间减去其实时间</td>
-</tr>
-<tr>
-<td style="text-align:center">Rate</td>
-<td style="text-align:center">flow的平均速率</td>
-<td style="text-align:center">数据量除以持续时间</td>
-</tr>
-<tr>
-<td style="text-align:center">DNSQuery</td>
-<td style="text-align:center">DNS查询字段</td>
-<td style="text-align:center">如果有DNS查询，找到对应包的<br>DNS查询</td>
-</tr>
-<tr>
-<td style="text-align:center">NTPQuery</td>
-<td style="text-align:center">NTP查询字段</td>
-<td style="text-align:center">如果有NTP查询，找到对应包的<br>NTP查询</td>
-</tr>
-<tr>
-<td style="text-align:center">RemotePort</td>
-<td style="text-align:center">远程端口</td>
-<td style="text-align:center">第一个packet的目的端口号</td>
-</tr>
-<tr>
-<td style="text-align:center">TransPro</td>
-<td style="text-align:center">协议类型</td>
-<td style="text-align:center">协议类型是flow五元组的组成之一</td>
-</tr>
-<tr>
-<td style="text-align:center">Mac</td>
-<td style="text-align:center">flow本端的Mac地址</td>
-<td style="text-align:center">第一个packet的源Mac</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>将上述所有的值提取出来之后保存在字典中传出即可</p>
-
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/20/18tmc3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1047,47 +751,15 @@
           <blockquote>
 <p>最近阅读完论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》，在复现的过程中出现了很多问题，现对于自己的复现过程和一下思考进行一下记录</p>
 </blockquote>
-<h2 id="一、批流"><a href="#一、批流" class="headerlink" title="一、批流"></a>一、批流</h2><p>由于论文中机器学习算法使用的特征值都是在flow意义上的统计信息，而不是单纯的packet的信息，例如流的大小，流的持续时间、流的平均速率等，所以必须要将杂乱无章的数据包按照一个一个flow分开，然后对于每个flow进行统计，计算这个flow的统计信息。</p>
-<h3 id="1-1-flow的理解"><a href="#1-1-flow的理解" class="headerlink" title="1.1 flow的理解"></a>1.1 flow的理解</h3><p>这里想 补充说一下flow的意义，关于这个概念我查了一些 资料，目前感觉最准确的说法就是五元组（源ip、源端口、目的ip、目的端口、传输层协议类型 ）一致的数据包是属于一个flow。我理解的flow即流的 含义就是两个主机一段时间之内的完整通信流程（可能不准确），在wireshark上进行了相关实验，得到了 一定的验证。</p>
-<blockquote>
-<p> wireshark上提取一个flow的过滤关键字是tcp.stream == [seq],这里的tcp可以换成udp表示过滤udp流</p>
-</blockquote>
-<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-19-110159.jpg" width="800"></div>
-
-<p>通过上图可以看出，同一个flow中的五元组是一致的，只是这是双向的，就是源和目的主机的ip和端口是可以对调的。</p>
-<p>再利用wireshark画出flow图，可以得到如下的结果：</p>
-<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-19-110556.jpg" width="800"></div>
-
-<p>通过flow图看出来，一个flow应该就是一次通信过程的所有的数据包。</p>
-<h3 id="1-2-批流处理"><a href="#1-2-批流处理" class="headerlink" title="1.2 批流处理"></a>1.2 批流处理</h3><h4 id="Scapy处理"><a href="#Scapy处理" class="headerlink" title="Scapy处理"></a>Scapy处理</h4><p>在批流的过程中尝试了两种方法，首先是通过python的Scapy库对pcap进行解析，之后按照五元组进行批流,但是这样处理会出现很多 问题 。问题记录 如下：</p>
-<ul>
-<li>使用rdpcap函数读取pcap文件，十分占用内存 ，读取 90M左右的pcap文件占用将近2-3G内存，并且读取速度 十分缓慢，不易于操作（虽然后来发现PcapReader函数读取速度上来了，但是之后的问题还是没办法解决）</li>
-<li>Scapy库对数据包的解析不完整，有些协议解析不出来，比如出现以下的情况，IP层之后直接就是Raw载荷了，猜想这里的raw数据是其他协议层 的数据，只是scapy没有解析出来</li>
-</ul>
-<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-19-111330.jpg" width="800"></div>
-
-<p>由于出现了以上的问题，导致后来就没有按照这种方法进行 下去，而是采用tshark的方法</p>
-<h4 id="Tshark处理"><a href="#Tshark处理" class="headerlink" title="Tshark处理"></a>Tshark处理</h4><p>在经过导师的指点之后发现用tshark的处理效率很高。就开始使用tshark处理，tshark是wireshark的命令行版本，拥有wireshark的大部分功能，能用相关的过滤规则直接进行批流，下面是进行批流的脚本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line"></span><br><span class="line">find ./rawpcap -name <span class="string">'*.pcap'</span> &gt; pcapfilename.txt</span><br><span class="line"><span class="keyword">while</span> <span class="built_in">read</span> line</span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">"<span class="variable">$(line)</span>"</span></span><br><span class="line">		filedir=$(<span class="built_in">echo</span> <span class="string">"<span class="variable">$(line)</span>"</span> | awk -F <span class="string">'/'</span> <span class="string">'&#123;print $3&#125;'</span> | awk -F <span class="string">'.'</span> <span class="string">'&#123;print $1&#125;'</span>)</span><br><span class="line">		<span class="built_in">echo</span> <span class="variable">$filedir</span></span><br><span class="line">		dir=<span class="string">"./streampcap/"</span><span class="variable">$&#123;filedir&#125;</span></span><br><span class="line">		mkdir -p <span class="variable">$dir</span></span><br><span class="line">		tshark -r <span class="variable">$line</span> -T fields -e tcp.stream | sort -n | uniq -c | awk -F <span class="string">' '</span> <span class="string">'&#123;if ($2&gt;=0)print $2 &#125;'</span> &gt; tcp_stream_number.txt</span><br><span class="line">		<span class="keyword">while</span> <span class="built_in">read</span> tcpnumber</span><br><span class="line">			<span class="keyword">do</span></span><br><span class="line">				stream=`tshark -r <span class="variable">$line</span> -Y <span class="string">"tcp.stream eq <span class="variable">$(($tcpnumber)</span>) "</span> -w<span class="variable">$dir</span>/<span class="variable">$tcpnumber</span>.pcap`</span><br><span class="line">				<span class="keyword">if</span> [ ! <span class="variable">$stream</span> ]</span><br><span class="line">				<span class="keyword">then</span></span><br><span class="line">					<span class="built_in">echo</span> <span class="string">"IS NULL"</span></span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">					<span class="built_in">echo</span> <span class="variable">$stream</span></span><br><span class="line">				<span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">done</span> &lt;tcp_stream_number.txt</span><br><span class="line"></span><br><span class="line"><span class="keyword">done</span> &lt; pcapfilename.txt</span><br></pre></td></tr></table></figure>
-<p>脚本的仔细解释在我的另一篇博客《shell编程一》里面已经详细介绍过，所以不再仔细赘述，这里主要介绍一下其中关于tshark的几个命令</p>
-<ul>
-<li>获取所有的流号</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tshark -r <span class="variable">$line</span> -T fields -e tcp.stream | sort -n | uniq -c | awk -F <span class="string">' '</span> <span class="string">'&#123;if ($2&gt;=0)print $2 &#125;'</span> &gt; tcp_stream_number.txt</span><br></pre></td></tr></table></figure>
-<p>tshark的-e 参数打印指定的字段，之后经过排序，去重，分割等操作得到流号保存在txt文件中</p>
-<ul>
-<li>批流，每一个flow保存为对应流号的pcap文件</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tshark -r <span class="variable">$line</span> -Y <span class="string">"tcp.stream eq <span class="variable">$(($tcpnumber)</span>) "</span> -w<span class="variable">$dir</span>/<span class="variable">$tcpnumber</span>.pcap</span><br></pre></td></tr></table></figure>
-<p>这样就将所有的pcap文件中的tcp flow提取出来了，之后在进行udp流的提取就可以了。</p>
-<h2 id="二、目前为止出现的一些问题"><a href="#二、目前为止出现的一些问题" class="headerlink" title="二、目前为止出现的一些问题"></a>二、目前为止出现的一些问题</h2><ul>
-<li><p>原始数据中除了tcp flow和udp flow之外还有一些arp 、icmp、igmp之类的报文信息，这些信息感觉上是没有flow概念的，因为都没有五元组的概念，所以这些报文是不是需要丢弃目前暂时只提取tcp和udp flow</p>
-</li>
-<li><p>批流完成之后需要对flow文件进行读取，统计flow的信息 ，包括flow 大小、flow持续时间、flow速率和sleep time，这里的这个sleep time不知道是如何处理的，由于在批流的过程中都不是按照时间顺序的，所以flow文件的序号并不是按照时间顺序排列的，所以无法通过前后两个flow的数据包的相对时间来计算sleep  time，目前的想法是按照每个flow的起始时间进行排序。之后用每个flow的后后一个flow之间的时间差算作sleep time，这样的话就要将tcp和udp整理在一起排序。</p>
-</li>
-<li>整理完所有的flow之后，会发现tcp flow中没有dns 和ntp的查询，所以这两个特征为空，怎么解决空值问题，目前的想法是将所有的空值都归为一类</li>
-</ul>
-
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/19/18tmc2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1210,75 +882,15 @@
           <blockquote>
 <p>最近由于需要在Linux中处理大量的网路数据，没有可视化的wireshark可用，转而时候命令行版本的tshark，但是用于在命令行中运行，当数据量巨大的时候操作繁杂，所以写了一个小脚本自动化运行，记录一下自己从零开始学shell编程的过程</p>
 </blockquote>
-<h2 id="脚本功能"><a href="#脚本功能" class="headerlink" title="脚本功能"></a>脚本功能</h2><ol>
-<li>统计每个pcap文件中的tcp流号</li>
-<li>将每个pcap文件中的所有数据包按照同一个flow分开，每一个flow保存为一个pcap文件，即批流</li>
-<li>由于批流之后的小文件特别多，所以注意命名和文件的存放管理</li>
-</ol>
-<h2 id="脚本编写过程"><a href="#脚本编写过程" class="headerlink" title="脚本编写过程"></a>脚本编写过程</h2><h3 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line"></span><br><span class="line">find ./rawpcap -name <span class="string">'*.pcap'</span> &gt; pcapfilename.txt</span><br><span class="line"><span class="keyword">while</span> <span class="built_in">read</span> line</span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">"<span class="variable">$(line)</span>"</span></span><br><span class="line">		filedir=$(<span class="built_in">echo</span> <span class="string">"<span class="variable">$(line)</span>"</span> | awk -F <span class="string">'/'</span> <span class="string">'&#123;print $3&#125;'</span> | awk -F <span class="string">'.'</span> <span class="string">'&#123;print $1&#125;'</span>)</span><br><span class="line">		<span class="built_in">echo</span> <span class="variable">$filedir</span></span><br><span class="line">		dir=<span class="string">"./streampcap/"</span><span class="variable">$&#123;filedir&#125;</span></span><br><span class="line">		mkdir -p <span class="variable">$dir</span></span><br><span class="line">		tshark -r <span class="variable">$line</span> -T fields -e tcp.stream | sort -n | uniq -c | awk -F <span class="string">' '</span> <span class="string">'&#123;if ($2&gt;=0)print $2 &#125;'</span> &gt; tcp_stream_number.txt</span><br><span class="line">		<span class="keyword">while</span> <span class="built_in">read</span> tcpnumber</span><br><span class="line">			<span class="keyword">do</span></span><br><span class="line">				stream=`tshark -r <span class="variable">$line</span> -Y <span class="string">"tcp.stream eq <span class="variable">$(($tcpnumber)</span>) "</span> -w<span class="variable">$dir</span>/<span class="variable">$tcpnumber</span>.pcap`</span><br><span class="line">				<span class="keyword">if</span> [ ! <span class="variable">$stream</span> ]</span><br><span class="line">				<span class="keyword">then</span></span><br><span class="line">					<span class="built_in">echo</span> <span class="string">"IS NULL"</span></span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">					<span class="built_in">echo</span> <span class="variable">$stream</span></span><br><span class="line">				<span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">done</span> &lt;tcp_stream_number.txt</span><br><span class="line"></span><br><span class="line"><span class="keyword">done</span> &lt; pcapfilename.txt</span><br></pre></td></tr></table></figure>
-<h3 id="语法解读"><a href="#语法解读" class="headerlink" title="语法解读"></a>语法解读</h3><ol>
-<li>找到所有pcap文件并将文件路径保存到pcapfilename.txt文件中</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find ./rawpcap -name <span class="string">'*.pcap'</span> &gt; pcapfilename.txt</span><br></pre></td></tr></table></figure>
-<ul>
-<li>find命令后接两个参数，第一个参数<code>./rawpcap</code>表示查找的路径，-name指定按照给定的名称格式查找，使用正则表达式匹配所有pcap结尾的文件</li>
-<li>通过重定向符<code>&gt;</code>将find 的结果输出到pacpfilename.txt中</li>
-</ul>
-<ol>
-<li>逐行读取文本文件<code>pcpafilename.txt</code></li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="built_in">read</span> line</span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">		...</span><br><span class="line">		...</span><br><span class="line">		...</span><br><span class="line"><span class="keyword">done</span> &lt; pcapfilename.txt</span><br></pre></td></tr></table></figure>
-<ul>
-<li>上面这种结构是shell脚本中逐行读取文本文件的标准格式</li>
-<li>line是读取文本文件中每一行的值的变量，后面对line进行操作</li>
-<li>done &lt;后面的文件名是要读取的文件名</li>
-</ul>
-<ol>
-<li>Linux三剑客之一awk的简单使用方法</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$(line)</span>"</span> | awk -F <span class="string">'/'</span> <span class="string">'&#123;print $3&#125;'</span> | awk -F <span class="string">'.'</span> <span class="string">'&#123;print $1&#125;'</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>利用管道符将echo的输出结果向后传递，之后类似</li>
-<li>awk命令的 -F 参数指定分隔符</li>
-<li>后面第二个参数的用法<code>&#39;{字符串1 字符串2}&#39;</code>其中字符串1 指定命令，上面用的是print表示输出，第二个字符串是<code>$2</code>表示输出分割之后的第二部分（从1开始数）</li>
-</ul>
-<ol>
-<li>将某一行命令的运行结果传送给某个变量</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filedir=$(<span class="built_in">echo</span> <span class="string">"<span class="variable">$(line)</span>"</span> | awk -F <span class="string">'/'</span> <span class="string">'&#123;print $3&#125;'</span> | awk -F <span class="string">'.'</span> <span class="string">'&#123;print $1&#125;'</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>使用<code>$()</code>格式，括号中的内容是要运行的命令</li>
-</ul>
-<ol>
-<li>shell脚本中两个字符串的连接</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir=<span class="string">"./streampcap/"</span><span class="variable">$&#123;filedir&#125;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>如上所示，直接将两个字符串放一起，不要空格就行</li>
-</ul>
-<ol>
-<li>tshark的使用</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tshark -r <span class="variable">$line</span> -T fields -e tcp.stream | sort -n | uniq -c | awk -F <span class="string">' '</span> <span class="string">'&#123;if ($2&gt;=0)print $2 &#125;'</span> &gt; tcp_stream_number.txt</span><br></pre></td></tr></table></figure>
-<ul>
-<li>-r 参数指定输入文件</li>
-<li>-e 指定输出字段</li>
-<li>sort -n排序</li>
-<li>uniq -c去重</li>
-</ul>
-<ol>
-<li>if判定语句格式</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ 逻辑表达式 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">	...</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	...</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
-<h2 id="脚本解读"><a href="#脚本解读" class="headerlink" title="脚本解读"></a>脚本解读</h2><ol>
-<li>第3行找到<code>./rawpcap</code>文件夹中所有的pcap文件，并将文件所在路径名存放在pcapfilename.txt中</li>
-<li>第4-24行的大循环逐行遍历文件pcapfilename.txt，将每一行的内容读取到变量line中</li>
-<li>第6-10行通过awk工具找到路径中需要的部分路径名（除了文件名之外的路径名），保存在变量中，并相应穿件对应的文件夹用于存放批流之后的流文件</li>
-<li>第11行通过tshark遍历line变量所指向的pcap文件，提取出所有的flow号，保存在tcp_stream_number.txt中</li>
-<li>第12-22行的小循环遍历每一个flow号，将其保存在tcpnumber变量中</li>
-<li>第14行用tshark进行批流处理，从line指向的文件中提取出所有flow号为tcpnumber的所有数据包保存为名称为tcpnumber的pcap文件</li>
-</ol>
-
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/18/tshark/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1399,12 +1011,15 @@
 
       
           <h3 id="安装并导入"><a href="#安装并导入" class="headerlink" title="安装并导入"></a>安装并导入</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install scapy</span><br><span class="line">from scapy.all import *</span><br></pre></td></tr></table></figure>
-<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-075049.jpg" width="800"></div>
-
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="读取pcap文件"><a href="#读取pcap文件" class="headerlink" title="读取pcap文件"></a>读取pcap文件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">packets = rdpcap(<span class="string">'../../IoT/pcaps/16-09-23.pcap'</span>)</span><br></pre></td></tr></table></figure>
-<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-080244.jpg" width="800"></div>
-
-
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/17/scapy/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1533,81 +1148,15 @@
 
       
           <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>物联网被誉为社会的下一个发展浪潮，智能家居、企业和城市装备着大量的物联网设备，然而这些智能环境的控制者并没有充分意识到这些物联网设备的价值，更不用说能否让这些设备抵御网络攻击了。在这片论文中，我们通过使用在网络级获得的流量特性开发用于物联网设备的强大的（robust）框架来应对（address）这个挑战。我们的工作主要分为四个部分。首先，我们搭建了一个拥有28个不同IoT设备的的智能环境，这些IoT设备包括监控摄像头、灯、插座、传感器以及健康监控传感器，我们从这些基础环境中收集并整合长达6个月的网络流量，这些流量的一个子集将会被公开用于开源社区研究；第二，我们使用统计属性对底层网络流量特性提供了一些见解，这些统计属性包括活动周期、端口号、信号模式和加密模式;第三，我们开发了一个基于分类算法的多级机器学习模型（multi-stage machine）并且演示（demonstrate ）它在区分具体的IoT设备的能力，基于他们的网络活动准确率超过99%；最后我们讨论了成本、速度之间的权衡（trade-offs）和应用于真实网络的表现。我们的研究推动了智能环境管理者监控他的IoT设备的表现、功能和网络安全性的方式，而不需要任何特殊设备和协议。</p>
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>联网设备的数量正在急剧膨胀（balloon）,迎来（ushering）物联网的时代。物联网（IoT）指的是数以亿计的低功耗设备与设备之间或与远端的服务器之间在互联网上自主（autonomously）的通信。IoT设备包括每天都在使用的物品，例如台灯、照相机、传感器、门锁、温控器（thermostats）、电源开源和家用电器，这些出货量已经达到了接近200亿在2020年。无数的IoT设备期待找到它们未来在家庭、企业、校园、城市中的方式，创造（engender）有利于我们社会和生活的智能环境。</p>
-<p>IoT设备的数量增长的很快，然而带来了一个重要的问题。智能环境的管理者发现很难去确定哪些设备连接了他们的网络，更加难以探知（ascertain）每个设备是否工作正常，这是一个组织管理这些资产的主要任务，往往需要几个不同的部门合作。举例来说，在一个地区委员会（council）来说，灯管传感器可能由基础设施团队安装、污水和垃圾传感器可能被卫生部门（sanitation department）安装、求生摄像头可能被地区机房管理，协调各部门以获取IoT设备的信息不仅耗时繁重而且错误率高，使得在任何时候用弄清楚哪些IoT设备正在运行成为不可能。及时获得IoT设备的可见性对于管理者来说至关重要。那些负责确保设备的网络安全任务的人员需要提供必要的服务质量、并在出现问题的时候迅速隔离.思科最近的安全报告一直在强调（emphasize）可见性的重要性，特别是最近出现的两件事显得尤为突出。2017年7月组成赌场的鱼缸传感器和2017年2月从自己的自动售货机攻击大学校园网。这两个例子中，网络分段都有可能阻止攻击，更好的可见性可以快速隔离，以限制网络攻击对企业网络的破坏</p>
-<p>可以预期，可以通过其MAC地址和DHCP协商来识别设备。然而，这将面临几个挑战：首先IoT设备制造商通常使用第三方提供的NIC（网卡），因此，MAC地址的组织唯一标识符（OUI）前缀可能无法传达有关IoT设备的任何信息；其次，恶意设备可能会欺骗MAC地址;许多物联网设备不在其DHCP请求中设置主机名选项；事实上，我们发现我们研究的大约一半的物联网设备没有显示它们的主机名，如表1所示;</p>
-<p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-023850.jpg" width="800"></div><br>即使物联网设备暴露其主机名，它也可能并不总是有意义的（例如表1中的Withings婴儿监视器的WBP-EE4C）；最后，用户可以更改这些主机名（例如HP打印机可以被赋予任意主机名）。由于这些原因，基于DHCP并不是一个很好的解决方案用于正确识别大规模的设备。</p>
-<p>这篇论文中，我们通过开发一个强大的框架来解决上述问题，<strong><em>该框架除了使用网络流量特征导出的统计属性的高精度的一类非物联网设备外，还对每个物联网设备进行分类</em></strong>，从定性上讲，大多数物联网设备都会偶尔发送短时间的数据。定量的来说，我们在[6]中的初步工作是首次尝试研究IoT设备在一次流量爆发期间发送多少流量以及它们在活动之间闲置多长时间。我们还评估了它们执行了多少信号量（例如域名查询使用DNS，时间同步使用NTP）与他们产生的数据流量进行比较。本文通过对包含28种不同物联网设备的试验台在更长时间（6个月）内捕获的跟踪数据采用更全面（comprehensive）的属性集，对我们之前的工作进行了重大扩展。</p>
-<p>毫无疑问，了解物联网流量的性质变得越来越重要，<strong><em>这样做有助于包含不必要的多播/广播流量，从而减少它们对其他应用程序的影响</em></strong>，它还使智能城市和企业的运营商能够根据环境，健康或安全应用所需的可靠性，损失和延迟来确定其网络的适当性能水平。然而，表征物联网流量的最令人信服的理由是检测和减轻网络安全攻击。众所周知，物联网设备的性质和设计易于渗透，关于物联网设备如何被破坏并用于发动大规模攻击的新故事正在出现.物联网设备的巨大异构性促使研究人员提出网络级安全机制，分析流量模式以识别攻击,这些方法的成功依赖于对“正常”物联网流量配置文件的良好理解。</p>
-<p>我们在这项工作中的主要重点是建立一个基于各种网络流量特性的机器学习框架，以识别和分类网络上物联网设备的默认（即基线）行为,未来可能会使用这样的框架来检测物联网设备的异常行为（可能是由于网络攻击）,这种异常检测方案超出了本文的范围。本文基于网络流量特征填补了与物联网设备分类相关的文献中的重要空白。我们的贡献是：</p>
-<ol>
-<li>我们使用28个IoT设备搭建了一个实验室，以实现智能环境。这些设备包括相机，灯，插头，运动传感器，电器和健康监视器。我们从这种环境中收集和综合数据，为期6个月。我们的数据子集可供研究社区使用。</li>
-<li>我们确定关键的统计属性，如活动周期，端口号，信令模式和密码套件，并使用它们来深入了解基础网络流量特征</li>
-<li>我们开发了一种基于多阶段机器学习的分类算法，并证明了它能够根据网络行为识别具有超过99％精度的特定物联网设备</li>
-<li>我们通过检查分类器的成本，速度和准确性之间的权衡来实时评估分类框架的部署。</li>
-</ol>
-<p>本文的其余部分安排如下：§2描述了相关的先前工作。我们在§3中介绍了IoT设置和数据跟踪，并在§4中描述了各种IoT设备的流量属性。在§5中，我们提出了基于机器学习的多阶段设备分类方法并评估其性能，然后在§6中讨论了所提出的系统的实时操作。该论文在§7中得出结论。</p>
-<h2 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h2><p>有大量的工作表征一般的互联网流量。这些先前的工作主要集中在应用程序检测（例如Web浏览，游戏，邮件，Skype VoIP，点对点等）。然而，专注于表征物联网流量（也称为机器对机器或M2M流量）的研究仍处于起步阶段。</p>
-<p><strong>实证痕迹分析</strong>:[20]中的工作是第一次深入研究M2M流量性质的大规模研究之一。需要了解M2M流量是否对蜂窝网络的设计和管理提出了新的挑战.该工作使用跨越一级蜂窝网络运营商一周的流量跟踪，并将M2M流量与传统智能手机流量从多个不同角度进行比较 - 时间变化，移动性，网络性能等。该研究通知网络运营商在管理网络时要认识到这些因素</p>
-<p>在[21]中，作者指出单个M2M设备产生的流量可能很小，但数百或数千个M2M设备产生的总流量将是巨大的,这些观察结果在某种程度上得到了[22]，[23]的证实，其中指出，远程患者监测应用预计每天产生约0.35 MB，智能电表每天产生约0.07 MB。</p>
-<p><strong>聚合流量模型</strong>:在[24]中提出了耦合马尔可夫调制泊松过程框架来捕获单个机器类型通信的行为以及数万个M2M设备的集体行为。CMMPP框架的复杂性随着M2M设备的数量呈线性增长，使其有效地大规模合成M2M流量,在[25]中，作者表明可以将M2M设备的（流量）状态分为三个通用类别，即定期更新，事件驱动和有效负载交换，以及一些使用这些类型的建模策略。通过车队管理中的用例示出了模型配件的图示，该车辆管理包括由运输公司运行的1000辆卡车.该拟合基于来自2G / 3G网络的测量的M2M流量,在[26]中构建了一个简单的模型，用于估算无线传感器网络中连接的家庭中产生的M2M流量。由于传感器的行为非常特定于应用，因此该工作识别可归因于任何传感器设备的某些常见通信模式.使用这些属性，提出了四个广义方程来估计由传感器网络启用的连接公寓/家庭产生的流量。</p>
-<p><strong>使用机器学习</strong>：在文献中已经提出了各种基于机器学习的分析方法来对交通应用进行分类或识别典型计算机网络的恶意软件/僵尸网络。[27]中的工作使用深度学习来分类流，例如HTTP，SMTP，Telnet，QUIC，Office365和YouTube，通过考虑六个特征，即源/目的端口号，有效载荷量，TCP窗口大小，到达间隔时间和从流的前20个包中提取的流量方向。[28]中开展的工作表明，僵尸网络具有可识别的流量模式，可以通过考虑连续流量之间的平均时间，流量持续时间，入站/出站流量以及流量开始时间内的傅里叶变换等特征进行分类。通过将这些流级特征与包级别属性（包括包大小，有效载荷的字节分布，包的到达间隔时间和TLS握手元数据）相结合，在[29]和[30]中增强了对网络上恶意活动的检测（即密码套件代码）。此外，作者发布了一个名为Joy [31]的基于libpcap的开源工具，用于从网络流量的被动捕获中提取这些功能</p>
-<p>在物联网的背景下，[32]使用机器学习来对来自网络上的授权设备的单个TCP流进行分类。它使用了300多个属性（数据包级和流级），但最有影响力的是数据包生存时间（TTL）的最小值，中值和平均值，发送和接收的总字节数，包的总数重置（RST）标志，以及服务器的Alexa排名</p>
-<p>虽然上述所有工作都做出了重要贡献，但他们并未在智能环境（如家庭，城市，校园或企业）中对物联网设备进行细粒度表征和分类。此外，还没有开发出能够根据网络流量特征进行物联网设备分类的统计模型，最重要的是，先前的工作不会公开任何数据集供研究社区使用和构建。我们的工作克服了这些缺点。</p>
-<h2 id="物联网流量收集和整合"><a href="#物联网流量收集和整合" class="headerlink" title="物联网流量收集和整合"></a>物联网流量收集和整合</h2><p>在本节中，我们将介绍用于收集和合成来自各种物联网设备的流量的智能环境基础架构</p>
-<h3 id="实验试验台"><a href="#实验试验台" class="headerlink" title="实验试验台"></a>实验试验台</h3><p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-031005.jpg" width="800"></div><br>图1描述了“智能环境”的真实体系结构，它通过其（有线/无线）网络基础设施为各种物联网和非物联网设备提供服务，并允许它们通过网关与互联网服务器通信。使用OpenWrt固件版本Chaos Calmer（15.05.1，r48532）刷新的TP-Link接入点充当公共互联网的网关。我们还在网关上安装了额外的OpenWrt软件包，即用于捕获流量的tcpdump，用于编写脚本的bash（4.3.39-1），用于在网关上安装外部USB存储的块安装包，kmod-usb-core和kmod-usb-storage（3.18.23-1），用于将流量跟踪数据存储在USB存储器上。</p>
-<p>在我们的实验室设置中，TP-Link接入点的WAN接口通过大学网络连接到公共Internet，而IoT设备分别连接到LAN和WLAN接口。我们的智能环境共有28个独特的物联网设备，代表不同的类别以及几个非物联网设备，在这里，物联网是指特定用途的互联网连接设备（例如摄像机和烟雾传感器），而通用设备（例如电话和笔记本电脑）属于非物联网类别。</p>
-<p>物联网设备包括摄像头（Nest Dropcam，Sam-sung SmartCam，Netatmo Welcome，Belkin摄像头，TP-Link日夜云摄像头，Withings智能婴儿监视器，金丝雀摄像头，八月门铃，铃铛门铃），开关和触发器（iHome） ，TP-Link智能插头，Belkin Wemo运动传感器，Belkin Wemo Switch），集线器（Smart Things，Amazon Echo），空气质量传感器（NEST Protect烟雾报警器，Netatmo气象站，Awair空气质量监测器），电子设备（Triby扬声器， PIXSTAR Photoframe，惠普打印机，Hello芭比娃娃，谷歌Chromecast），医疗设备（带智能秤，Withings Aura智能睡眠传感器，Blipcare血压计）和灯泡（Phips Hue和LiFX智能灯泡）。一些非物联网设备也连接到测试平台，如笔记本电脑，手机和Android平板电脑。平板电脑用于配置各个设备制造商推荐的物联网设备</p>
-<h3 id="跟踪数据"><a href="#跟踪数据" class="headerlink" title="跟踪数据"></a>跟踪数据</h3><p>使用在OpenWrt上运行的tcpdump工具收集LAN端的所有流量。在流量跟踪中，物理设备与已知MAC地址（由于处于同一LAN中）或IP地址（即无NAT）之间进行一对一映射非常重要。捕获LAN上的流量允许我们使用MAC地址作为设备的标识符，以将其流量与包括网络中的许多其他设备的流量混合隔离。我们开发了一个脚本来自动化数据收集和存储过程。生成的跟踪作为pcap文件存储在连接到网关的1 TB存储的外部USB硬盘驱动器上，此设置允许连续几个月记录流量</p>
-<p>我们从2016年10月1日至2017年4月13日开始在智能环境中记录网络流量为期26周。原始跟踪数据包含数据包标头和有效负载信息，数据收集和存储过程每天在当地时间午夜开始，使用OpenWrt上的Cron作业。我们在OpenWrt上编写了一个监控脚本，以确保数据收集/存储顺利进行。该脚本以5秒的间隔检查网关上运行的进程。如果日志记录过程未运行，则脚本会立即重新启动它，从而将任何数据丢失事件限制为仅5秒。为了使跟踪数据公开可用，我们在大学数据中心的虚拟机（VM）上设置了Apache服务器，并编写了一个脚本，用于定期将存储在硬盘驱动器上的前一天的跟踪数据传输到VM上。</p>
-<p>两周的跟踪数据可以从<a href="http://iotanalytics.unsw.edu.au/下载。每日日志的大小在61" target="_blank" rel="noopener">http://iotanalytics.unsw.edu.au/下载。每日日志的大小在61</a> MB到2 GB之间变化，平均为365 MB</p>
-<h2 id="IoT流量特征"><a href="#IoT流量特征" class="headerlink" title="IoT流量特征"></a>IoT流量特征</h2><p>我们现在使用对26个物联网设备的流量进行无源数据包级分析，在26周内进行观察，我们研究了广泛的物联网流量特性，包括活动模式（例如活动/睡眠期间的音量/时间分布）和信令（例如，请求的域名，使用的服务器端端口号和TLS握手交换）</p>
-<p><strong>Iot流量构成</strong>：</p>
-<ul>
-<li>由设备自主产生的流量 - 例如不受人为干预影响的DNS，NTP等</li>
-<li>由于用户与设备交互而产生的流量 - 例如Belkin Wemo传感器响应移动检测，Amazon Echo响应用户发出的语音命令，LiFX灯泡根据用户要求改变颜色和强度，Netatmo Welcome相机检测到占用者并指示LiFX灯泡打开并具体显示颜色，等等。</li>
-</ul>
-<p>我们的数据集很好地捕获了来自代表生活智能环境的实验室的这两种类型的物联网流量（即覆盖人类在环境中存在或不存在的时期）。</p>
-<p>为了提供有关物联网流量特征的见解，我们在图2中显示了Amazon Echo和LiFX灯泡在24小时内看到的网络流量的桑葚图，选择这些设备仅用于说明目的，每个图描绘了由相应设备生成的流级信息。流量包括：</p>
-<ul>
-<li>单播或多播/广播</li>
-<li>发往本地主机（LAN）或Internet服务器（WAN</li>
-<li>绑定到协议（TCP，UDP，ICMP或IGMP）和端口号。</li>
-</ul>
-<p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-055154.jpg" width="800"></div><br>图2提供了描绘两个设备所展示的潜在流量标志的视觉辅助，例如，Amazon Echo和LiFX灯泡都使用DNS（端口号53）和NTP（端口号123）。虽然Amazon Echo使用HTTP（端口号80），HTTPS（端口号443）和ICMP（端口号0），但LiFX灯泡不使用任何这些应用程序，此外，每个设备似乎与WAN服务器上的唯一端口号通信;用于Amazon Echo的TCP 33434和用于LiFX灯泡的UDP 56700，如图2（a）和2（b）中的顶部流程所示。最后，我们观察到Amazon Echo访问了许多域名，包括softwareupdates.amazon.com，device-metrics-su.amazon.com，example.org，pindorama.amazon.com和pool.ntp.org。然而，LiFX灯泡仅与两个域通信，即v2.broker.lifx.co和pool.ntp.org。</p>
-<h3 id="IoT活动和卷模式（暂时先这么翻译）"><a href="#IoT活动和卷模式（暂时先这么翻译）" class="headerlink" title="IoT活动和卷模式（暂时先这么翻译）"></a>IoT活动和卷模式（暂时先这么翻译）</h3><p>我们从IoT设备的活动模式开始，这些模式由其流量属性定义，我们在每个流级别定义四个关键属性，以根据其网络活动来表征物联网设备：</p>
-<ul>
-<li><strong>流量</strong>：即下载和上传字节的总和</li>
-<li><strong>流持续时间</strong>：即流中第一个和最后一个数据包之间的时间</li>
-<li><strong>平均流量</strong>：即流量除以流量持续时间</li>
-<li><strong>设备休眠时间</strong>：（即物联网设备没有活动流的时间间隔）</li>
-</ul>
-<p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-060240.jpg" width="800"></div><br>我们使用在26周内收集的跟踪数据，在图3中绘制了一组选定的IoT设备的上述四个属性的概率分布，从图3a中可以看出每个物联网设备倾向于每个流交换少量数据。对于LiFX灯泡的情况（用红色条表示），26％的流量在[130,140]字节之间传输，20％在[120,130]字节之间传输，Belkin运动传感器的流量（由绿色条表示）略高;超过35％的流量在[2800,3800]字节之间传输。对于Amazon Echo（由蓝条表示），超过95％的流量传输少于1000个字节。虽然我们仅为少数设备提供流量直方图，但我们的大多数物联网设备都呈现出类似的可预测模式。</p>
-<p>流动持续时间也出现类似的模式。参考图3（b），我们注意到Amazon Echo的流量持续时间为53秒，流量持续时间超过40％，而LiFX灯泡和Belkin运动传感器的持续时间为60秒分别为50％和21％。对于平均流速属性，图3（c）显示平均速率相当小，以每秒位数为单位，如定性预期。定量地，该图显示LiFX灯泡的平均流速为每秒18位，接近60％的时间。近30％的Belkin流的比特率在59到60比特/秒的范围内，而近40％的Amazon Echo流的比特率在70到71比特每秒的范围内。</p>
-<p>最后，就设备的睡眠时间而言，图3（d）显示Belkin运动传感器和LiFX灯泡表现出明显的睡眠模式，持续时间为1秒和60秒，概率分别为73％和48％。然而，对于Amazon Echo，观察到具有小概率的多个睡眠时间。这是因为Amazon Echo使其TCP连接保持活动状态，并且只有在断开Internet连接时才会进入休眠状态。我们的测试台中的其他设备也表现得像Echo，并且似乎没有占主导地位的睡眠模式。</p>
-<h3 id="IoT信令模式"><a href="#IoT信令模式" class="headerlink" title="IoT信令模式"></a>IoT信令模式</h3><p>我们现在关注应用层协议，使用端口号推断，物联网设备主要用于在LAN本地和/或外部与公共互联网上的服务器进行通信.</p>
-<h4 id="服务端口号"><a href="#服务端口号" class="headerlink" title="服务端口号"></a>服务端口号</h4><p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-062418.jpg" width="800"></div><br>图4显示了从各种IoT设备发起的所有流的服务器端端口号的文字云。对于每个设备，如果更频繁地使用端口，则在相应的字云中以更大的字体大小显示它。子标题（即{}内的数字）报告每个设备的唯一服务器端口数。可以看出，IoT设备各自与少数服务器端口唯一通信，而非IoT设备使用更广泛的服务（即图4（h）中显示了2382个独特端口，其中许多非常罕见） 。我们观察到非标准端口33434,56700,8883和25050分别在源自Amazon Echo，LiFX灯泡，Awair空气质量监测器和Netatmo气象站的流量中突出显示，如图4的顶行所示。此外，我们注意到来自同一制造商的设备共享某些端口，例如，端口号8443和3478在Belkin的运动传感器，电源开关和相机之间是常见的，如图4（e）-4（g）所示。我们也注意到，众所周知的标准端口号（如53（DNS），123（NTP），0（ICMP）和1900（SSDP））被许多物联网设备以及具有各种频率的非物联网使用，如图所示在图4中。此外，许多物联网设备也使用服务器端端口号443（TLS / SSL）。</p>
-<h4 id="DNS查询"><a href="#DNS查询" class="headerlink" title="DNS查询"></a>DNS查询</h4><p>DNS是几乎所有联网设备使用的常见应用程序。由于物联网设备是为特定目的而定制设计的，因此它们访问与其供应商特定的端点服务器相对应的有限数量的域，我们在图5中绘制了由几个IoT设备以及非IoT访问的域名的词云</p>
-<p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-063141.jpg" width="800"></div><br>可以看出，IoT设备可以通过它们与之通信的域名进行相当区分，例如，如图5（a）-5（c）所示，Amazon Echo经常请求诸如example.com，example.net和example.org之类的域。hp.com和hpeprint.com的子域在HP打印机的DNS查询中可见。但是，我们也看到一些着名的域名在不同的设备之间共享。例如，belkin.com和d3gjecg2uu2faq.cloudfront.net通常被Belkin设备（即摄像机，运动传感器和电源开关）使用，如图5（d）-5（f）所示。或者pool.ntp.org在Google Dropcam，Awair空气质量监测器和LiFX灯泡产生的交通流量方面非常突出，如图5（b）-5（h）所示，再次考虑图5（i）中的非IoT，我们看到大约12000个访问过的唯一域，与IoT设备相比，其中只有少数域被重复访问。</p>
-<p>我们还发现IoT设备在使用DNS协议的频率方面存在差异，我们从流量跟踪中观察到物联网设备在其运行的不同阶段生成DNS查询;例如，仅在启动阶段（例如Google Dropcamp）或与用户（例如Hello Barbie）交互时或定期（例如Amazon Echo）如图6所示，某些IoT设备在其DNS查询的频率中表现出特征签名。</p>
-<p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-064238.jpg" width="800"></div><br>LiFX灯泡和Amazon Echo非常频繁地发送DNS查询（即每5分钟），但像Belkin运动传感器这样的设备每30分钟只请求一次域名。</p>
-<h4 id="NTP查询"><a href="#NTP查询" class="headerlink" title="NTP查询"></a>NTP查询</h4><p>如前所述，NTP是物联网设备使用的另一种流行协议，因为精确和可验证的时序对于物联网操作至关重要。许多物联网设备倾向于以周期性方式使用NTP协议（UDP端口123），以便将它们的时间与公共可用的NTP服务器同步。例如，Awair空气质量监测器，LiFX灯泡和Google Dropcam从pool.ntp.org获取时间服务器的IP地址。我们还发现时间同步在我们的测试台中反复出现，并且许多物联网设备在使用NTP时表现出可识别的模式。例如，Belkin电源开关，LiFX灯泡和SmartThings集线器分别每隔60,300和600秒发送NTP请求，如图7的直方图所示。</p>
-<p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-064828.jpg" width="800"></div></p>
-<h4 id="密码套件"><a href="#密码套件" class="headerlink" title="密码套件"></a>密码套件</h4><p>许多物联网设备使用TLS / SSL协议（端口号443）与Internet上 各自的服务器进行通信，为了启动TLS连接并与服务器协商安全算法，设备通过发送“客户端Hello”数据包开始握手，该数据包具有可以支持的“密码套件”列表，按其优先顺序排列。例如，图8（a）和8（b）描绘了Amazon Echo向两个不同的Amazon服务器提供的密码套件。每个密码套件（即4位代码）可以采用380个可能值中的一个，并表示密钥交换，批量加密和消息认证码（MAC）的算法</p>
-<p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-065458.jpg" width="800"></div><br>例如，由Amazon服务器协商的密码002f分别使用RSA，AES 128 CBC和SHA协议进行密钥交换，批量加密和消息认证。</p>
-<p>在我们的设置中，我们发现28个IoT设备中有17个，包括Amazon Echo，August Doorbell Cam，Awair空气质量监视器，Belkin相机，Canary相机，Drop-cam，Google Chromecast，Hello Barbie，HP ENVY打印机,iHome，Netatmo欢迎相机，飞利浦Hue灯泡，皮克斯相框，Ring Doorbell，Trilby，Withings Aura智能睡眠传感器和Withings Scale，使用TLS / SSL进行通信.我们发现，当将SSL传送到不同的服务器时，Amazon Echo总共使用五个不同的密码套件字符串，Triby扬声器使用两个字符串，而Pixtar相框仅使用一个字符串进行所有SSL通信。</p>
-<p>我们将图9中这三个设备的唯一密码套件字符串绘制为离散信号：x轴是出现在提供的套件中的4位密码的顺序，y轴是各个密码的索引（即来自{1,2，…，380}的值。</p>
-<p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-065922.jpg" width="800"></div><br>可以看出，密码套件信号的集合为每个IoT设备发出了唯一的签名。在特殊情况下，我们发现Pixtar photoframe与8个门铃使用的18个套件中的一个共享其单个密码套件 - 我们将在§5.2中看到，仅依靠密码套件属性将无法有效地对Pixtar相框流量进行分类..</p>
-<p>然而，有许多设备很少交换密码套件，而是希望长时间保持其TLS连接存活。例如，Google Dropcam在启动时建立与其自身服务器的TLS连接，并且只要它具有网络连接就维持此连接，而Amazon Echo和Pixstar照相框每小时分别启动平均1和2个TLS连接。</p>
-<p><strong>总结</strong>：在本节中，我们根据物联网设备的基础网络流量特征确定了8个关键属性。它们是流量，流量持续时间，平均流量，设备休眠时间，服务器端口号，DNS查询，NTP查询和密码套件。虽然可以通过仅考虑一个或两个流量属性（例如域名，端口号或密码套件列表）来唯一地识别某些设备（例如，Amazon Echo或LiFX灯泡），但这些设备都存在挑战。例如，在流量中很少观察到诸如密码套件列表之类的强属性（例如，每天仅一次）。作为另一示例，来自相同供应商的不同类型的设备访问类似的域并使用相同的端口号来访问云服务器。捕获诸如这些属性的出现次数（例如，访问域的次数或使用该端口的流的数量）等方面，结合其他属性，极大地提高了区分来自同一制造商的设备的预测能力。在下一节中，我们将使用这些属性的组合开发基于多阶段机器学习的算法，以帮助高精度地对物联网设备进行分类。</p>
-<h2 id="基于分类模型的机器学习"><a href="#基于分类模型的机器学习" class="headerlink" title="基于分类模型的机器学习"></a>基于分类模型的机器学习</h2><p>为了从我们的跟踪数据合成属性，我们首先使用Joy工具将原始pcap文件转换为每小时流量,然后，对于给定的IoT设备，我们计算上一节中针对每小时实例定义的流量活动和信令属性。从跨越26周的跟踪中获得的每个设备的实例数取决于诸如设备在线的持续时间或设备如何生成流量（自主或交互式）等因素,例如，Blipcare BP监视器只有13个小时实例，因为它仅在用户使用设备时才生成流量。另一方面，我们为Google Dropcam收集了4177个实例</p>
-<h3 id="多级设备分类架构"><a href="#多级设备分类架构" class="headerlink" title="多级设备分类架构"></a>多级设备分类架构</h3><p>我们注意到我们的三个属性，即“域名集”，“远程端口号集”和“密码套件集”是名义上的（即不被视为数值）和多值（例如，{“ 53“：3，”123“：1，”443“：2}表示一组远程端口号，其中三个出现端口号53，两次出现端口123，一次出现端口号443）。因此，我们为IoT分类器采用了两阶段分层架构，如图10所示。</p>
-<p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-073520.jpg" width="800"></div><br>除了这些独特的单词之外，我们将非IoT设备的所有相应单词聚合为“其他” - 每个Stage-0矩阵中称为“其他”的列表示在IoT流量中未看到的单词。该矩阵的每个单元格是给定实例中这种唯一单词的出现次数。如图10所示，阶段0的每个分类器产生两个输出，即暂定类和置信水平，其与其他单值定量属性（即流量，持续时间，速率，睡眠时间，DNS，NTP）一起（）间隔）被送入Stage-1分类器，产生最终输出（即设备识别具有置信水平）。</p>
-<h4 id="第0级-字袋分类器"><a href="#第0级-字袋分类器" class="headerlink" title="第0级-字袋分类器"></a>第0级-字袋分类器</h4><p>我们使用朴素贝叶斯多分类器来分析我们机器的第0阶段中的每个单词包。已经表明[35]，当处理大量独特单词时，该分类器在文本分类中表现良好。在训练阶段，分类器采用单词的分布，例如个人独特的域名，并使用以下方法计算给定课程的每个单词的概率：</p>
-<p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-082106.jpg" width="500"></div><br>其中wj是训练数据集中的唯一单词（例如，端口号56700）; ci是类别标签（例如LiFX灯泡）; D是所有实例的数量。$n_l,c_i,w_j^{train}$是类标签为ci的每个实例中的wj出现次数，N是唯一字的总数（例如，我们的数据集中有N = 421个唯一端口号，在测试阶段，分类器需要为所有可能的类计算以下概率：</p>
-<p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-082825.jpg" width="400"></div><br>其中$W^{test}$表示${w_1:n_1^{test},w_2:n_2^{test},…,w_N:n_N^{test}}$；而$n_j^{test}$是wj在一个测试实例中的出现次数,$Pr(c_i^{train})$整个训练数据集中类ci的存在概率,（即ci训练实例的数量除以所有训练实例的总数）分类器最终选择给出一组给定单词及其出现的（2）中最大概率的类。请注意，如果训练实例在各个类之间公平分布，那么Naive Bayes Multinomial分类器就能很好地运行[35]。</p>
-<h4 id="第1级-分类器"><a href="#第1级-分类器" class="headerlink" title="第1级-分类器"></a>第1级-分类器</h4><p>我们有一个阶段1分类器，它可以获取所有定量属性以及每个阶段0分类器的输出对。由于阶段1属性不是线性可分的，并且阶段0分类器的输出是标称值，因此我们使用基于随机森林的阶段1分类器。选择随机森林的另一个原因是与其他决策树分类器相比，对过度拟合的高容忍度。</p>
-
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/12/18tmc/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1735,23 +1284,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="ubuntu16-04配置vsftp服务器"><a href="#ubuntu16-04配置vsftp服务器" class="headerlink" title="ubuntu16.04配置vsftp服务器"></a>ubuntu16.04配置vsftp服务器</h1><h2 id="安装vsftpd"><a href="#安装vsftpd" class="headerlink" title="安装vsftpd"></a>安装vsftpd</h2><ul>
-<li><p>安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install vsftpd</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置 /etc/vsftp.conf</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 允许匿名用户和本地用户登录，本地用户即/etc/passwd中的用户</span></span><br><span class="line">anonymous_enable=YES</span><br><span class="line">local_enable=YES</span><br><span class="line"></span><br><span class="line"><span class="comment"># 禁止全局写命令</span></span><br><span class="line">write_enable=YES</span><br><span class="line"></span><br><span class="line"><span class="comment"># 禁止匿名用户上传和创建文件夹</span></span><br><span class="line">anon_upload_enable=NO</span><br><span class="line">anon_mkdir_write_enable=NO</span><br><span class="line"></span><br><span class="line"><span class="comment"># 只允许userlist的用户登录</span></span><br><span class="line">userlist_enable=YES</span><br><span class="line">userlist_deny=NO</span><br><span class="line">userlist_file=/etc/vsftpd.user_list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意：使用了vsftpd.user_list后，要在其中加入anonymous才能使用匿名用户登录，如以下内容，表示只有匿名用户和名为ftp的用户，以及本地用户ubuntu可以登录</span></span><br><span class="line">anonymous</span><br><span class="line">ftp</span><br><span class="line">ubuntu</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建/etc/vsftpd.user_list文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ubuntu</span><br><span class="line">root</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><ul>
-<li><p>启动、重启、关闭</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/vsftpd start</span><br><span class="line">sudo /etc/init.d/vsftpd stop</span><br><span class="line">sudo /etc/init.d/vsftpd restart</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
+          <h1 id="ubuntu16-04配置vsftp服务器"><a href="#ubuntu16-04配置vsftp服务器" class="headerlink" title="ubuntu16.04配置vsftp服务器"></a>ubuntu16.04配置vsftp服务器</h1>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/05/05/vsftp/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -2017,68 +1559,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Linux-Mac-OS下安装oh-my-zsh并配置主题和插件"><a href="#Linux-Mac-OS下安装oh-my-zsh并配置主题和插件" class="headerlink" title="Linux/Mac OS下安装oh my zsh并配置主题和插件"></a>Linux/Mac OS下安装oh my zsh并配置主题和插件</h1><h2 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh my zsh"></a>安装oh my zsh</h2><ol>
-<li><p>安装git 、zsh</p>
-<ul>
-<li>Linux(Ubuntu16.04)</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install zsh git</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Mac OS</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#先自行百度安装homebrew</span></span><br><span class="line">brew install git</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol>
-<li><p>安装oh my zsh(两种系统命令相同)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改主题：vim ～/.zshrc</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#找到对应行改为</span></span><br><span class="line">ZSH_THEME=<span class="string">"agnoster"</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>source ~/.zshrc</li>
-</ul>
-</li>
-</ol>
-<h2 id="配置插件"><a href="#配置插件" class="headerlink" title="配置插件"></a>配置插件</h2><ol>
-<li><p>wd </p>
-<ul>
-<li>它的作用就是能够快速的切换到常用的目录。 ​            </li>
-<li>我们用命令行时经常会遇到这样一种情况， 我们常用的目录就那么几个，而这些目录有时候会再很深的层级中。 使用 cd 命令在这些深层级目录中切换就比较耗费时间了。 ​            </li>
-<li>例如 Nginx的wwwroot目录/usr/share/nginx/html  ,我们进入这个目录，输入wd add html   #这个html这个名称是可以随便取的. 下次再进入这个目录就可以直接输入 wd thml</li>
-<li>wd用法：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Usage: wd [command] [point]</span><br><span class="line"></span><br><span class="line">Commands:</span><br><span class="line">    add &lt;point&gt;     Adds the current working directory to your warp points</span><br><span class="line">    add             Adds the current working directory to your warp points with current directory&apos;s name</span><br><span class="line">    add! &lt;point&gt;    Overwrites existing warp point</span><br><span class="line">    add!            Overwrites existing warp point with current directory&apos;s name</span><br><span class="line">    rm &lt;point&gt;      Removes the given warp point</span><br><span class="line">    rm              Removes the given warp point with current directory&apos;s name</span><br><span class="line">    show &lt;point&gt;    Print path to given warp point</span><br><span class="line">    show            Print warp points to current directory</span><br><span class="line">    list            Print all stored warp points</span><br><span class="line">    ls  &lt;point&gt;     Show files from given warp point (ls)</span><br><span class="line">    path &lt;point&gt;    Show the path to given warp point (pwd)</span><br><span class="line">    clean!          Remove points warping to nonexistent directories</span><br><span class="line"></span><br><span class="line">    -v | --version  Print version</span><br><span class="line">    -d | --debug    Exit after execution with exit codes (for testing)</span><br><span class="line">    -c | --config   Specify config file (default ~/.warprc)</span><br><span class="line">    -q | --quiet    Suppress all output</span><br><span class="line"></span><br><span class="line">    help            Show this extremely helpful text</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>sudo</p>
-<ul>
-<li>连按两次Esc添加或去掉sudo</li>
-</ul>
-</li>
-<li><p>zsh-syntax-highlighting ​    #高亮可用命令</p>
-<ol>
-<li><p>Linux</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Mac OS</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install zsh-syntax-highlighting</span><br><span class="line"><span class="built_in">source</span> /usr/<span class="built_in">local</span>/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-<li><p>zsh-autosuggestions ​    #记录上一条命令，并自动建议</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://github.com/zsh-users/zsh-autosuggestions <span class="variable">$ZSH_CUSTOM</span>/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装</p>
-</li>
-</ol>
-<ul>
-<li>在～/.zshrc下配置</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Add wisely, as too many plugins slow down shell startup.</span></span><br><span class="line">plugins=(</span><br><span class="line">  git</span><br><span class="line">  zsh-autosuggestions</span><br><span class="line">  zsh-syntax-highlighting</span><br><span class="line">  wd</span><br><span class="line">  sudo</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>最后source ~/.zshrc</li>
-</ul>
-<iframe src="//player.bilibili.com/player.html?aid=88553526&cid=151270125&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+          <h1 id="Linux-Mac-OS下安装oh-my-zsh并配置主题和插件"><a href="#Linux-Mac-OS下安装oh-my-zsh并配置主题和插件" class="headerlink" title="Linux/Mac OS下安装oh my zsh并配置主题和插件"></a>Linux/Mac OS下安装oh my zsh并配置主题和插件</h1>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/28/zsh/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>

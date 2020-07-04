@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="最近由于需要在Linux中处理大量的网路数据，没有可视化的wireshark可用，转而时候命令行版本的tshark，但是用于在命令行中运行，当数据量巨大的时候操作繁杂，所以写了一个小脚本自动化运行，记录一下自己从零开始学shell编程的过程  脚本功能 统计每个pcap文件中的tcp流号 将每个pcap文件中的所有数据包按照同一个flow分开，每一个flow保存为一个pcap文件，即批流 由于批">
+  <meta name="description" content="最近由于需要在Linux中处理大量的网路数据，没有可视化的wireshark可用，转而时候命令行版本的tshark，但是用于在命令行中运行，当数据量巨大的时候操作繁杂，所以写了一个小脚本自动化运行，记录一下自己从零开始学shell编程的过程">
 <meta name="keywords" content="Linux,shell">
 <meta property="og:type" content="article">
 <meta property="og:title" content="shell编程（一）">
 <meta property="og:url" content="http://yoursite.com/2019/09/18/tshark/index.html">
 <meta property="og:site_name" content="SunPages">
-<meta property="og:description" content="最近由于需要在Linux中处理大量的网路数据，没有可视化的wireshark可用，转而时候命令行版本的tshark，但是用于在命令行中运行，当数据量巨大的时候操作繁杂，所以写了一个小脚本自动化运行，记录一下自己从零开始学shell编程的过程  脚本功能 统计每个pcap文件中的tcp流号 将每个pcap文件中的所有数据包按照同一个flow分开，每一个flow保存为一个pcap文件，即批流 由于批">
+<meta property="og:description" content="最近由于需要在Linux中处理大量的网路数据，没有可视化的wireshark可用，转而时候命令行版本的tshark，但是用于在命令行中运行，当数据量巨大的时候操作繁杂，所以写了一个小脚本自动化运行，记录一下自己从零开始学shell编程的过程">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-09-18T13:37:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shell编程（一）">
-<meta name="twitter:description" content="最近由于需要在Linux中处理大量的网路数据，没有可视化的wireshark可用，转而时候命令行版本的tshark，但是用于在命令行中运行，当数据量巨大的时候操作繁杂，所以写了一个小脚本自动化运行，记录一下自己从零开始学shell编程的过程  脚本功能 统计每个pcap文件中的tcp流号 将每个pcap文件中的所有数据包按照同一个flow分开，每一个flow保存为一个pcap文件，即批流 由于批">
+<meta name="twitter:description" content="最近由于需要在Linux中处理大量的网路数据，没有可视化的wireshark可用，转而时候命令行版本的tshark，但是用于在命令行中运行，当数据量巨大的时候操作繁杂，所以写了一个小脚本自动化运行，记录一下自己从零开始学shell编程的过程">
   <link rel="canonical" href="http://yoursite.com/2019/09/18/tshark/">
 
 
@@ -339,7 +339,7 @@
       
         <blockquote>
 <p>最近由于需要在Linux中处理大量的网路数据，没有可视化的wireshark可用，转而时候命令行版本的tshark，但是用于在命令行中运行，当数据量巨大的时候操作繁杂，所以写了一个小脚本自动化运行，记录一下自己从零开始学shell编程的过程</p>
-</blockquote>
+</blockquote><a id="more"></a>
 <h2 id="脚本功能"><a href="#脚本功能" class="headerlink" title="脚本功能"></a>脚本功能</h2><ol>
 <li>统计每个pcap文件中的tcp流号</li>
 <li>将每个pcap文件中的所有数据包按照同一个flow分开，每一个flow保存为一个pcap文件，即批流</li>

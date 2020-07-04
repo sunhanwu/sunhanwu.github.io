@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="vim  新手入门教程一: 增删改查TEST​    对于任何一个编辑器来说，对文本所做的操作无非就是增删改查这四种操作，但是由于vim里面的命令众多，学习成本较高，这样就劝退了很多新手，本篇博客将从增删改查四个操作来介绍一下如何入门vim。 一、添加操作​        vim有两种模式，一种是normal模式（命令模式），一种是insert模式（插入模式）。只有在命令模式下，所有的下面介绍的所">
+  <meta name="description" content="vim  新手入门教程一: 增删改查​    对于任何一个编辑器来说，对文本所做的操作无非就是增删改查这四种操作，但是由于vim里面的命令众多，学习成本较高，这样就劝退了很多新手，本篇博客将从增删改查四个操作来介绍一下如何入门vim。">
 <meta name="keywords" content="Linux,vim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vim 新手入门教程之增删改查">
 <meta property="og:url" content="http://yoursite.com/2020/02/13/vim-learn1/index.html">
 <meta property="og:site_name" content="SunPages">
-<meta property="og:description" content="vim  新手入门教程一: 增删改查TEST​    对于任何一个编辑器来说，对文本所做的操作无非就是增删改查这四种操作，但是由于vim里面的命令众多，学习成本较高，这样就劝退了很多新手，本篇博客将从增删改查四个操作来介绍一下如何入门vim。 一、添加操作​        vim有两种模式，一种是normal模式（命令模式），一种是insert模式（插入模式）。只有在命令模式下，所有的下面介绍的所">
+<meta property="og:description" content="vim  新手入门教程一: 增删改查​    对于任何一个编辑器来说，对文本所做的操作无非就是增删改查这四种操作，但是由于vim里面的命令众多，学习成本较高，这样就劝退了很多新手，本篇博客将从增删改查四个操作来介绍一下如何入门vim。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-07-04T10:09:14.008Z">
+<meta property="og:updated_time" content="2020-07-04T12:55:33.412Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim 新手入门教程之增删改查">
-<meta name="twitter:description" content="vim  新手入门教程一: 增删改查TEST​    对于任何一个编辑器来说，对文本所做的操作无非就是增删改查这四种操作，但是由于vim里面的命令众多，学习成本较高，这样就劝退了很多新手，本篇博客将从增删改查四个操作来介绍一下如何入门vim。 一、添加操作​        vim有两种模式，一种是normal模式（命令模式），一种是insert模式（插入模式）。只有在命令模式下，所有的下面介绍的所">
+<meta name="twitter:description" content="vim  新手入门教程一: 增删改查​    对于任何一个编辑器来说，对文本所做的操作无非就是增删改查这四种操作，但是由于vim里面的命令众多，学习成本较高，这样就劝退了很多新手，本篇博客将从增删改查四个操作来介绍一下如何入门vim。">
   <link rel="canonical" href="http://yoursite.com/2020/02/13/vim-learn1/">
 
 
@@ -281,7 +281,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-04 18:09:14" itemprop="dateModified" datetime="2020-07-04T18:09:14+08:00">2020-07-04</time>
+                <time title="修改时间：2020-07-04 20:55:33" itemprop="dateModified" datetime="2020-07-04T20:55:33+08:00">2020-07-04</time>
               </span>
             
           
@@ -345,7 +345,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="vim-新手入门教程一-增删改查TEST"><a href="#vim-新手入门教程一-增删改查TEST" class="headerlink" title="vim  新手入门教程一: 增删改查TEST"></a>vim  新手入门教程一: 增删改查TEST</h1><p>​    对于任何一个编辑器来说，对文本所做的操作无非就是增删改查这四种操作，但是由于vim里面的命令众多，学习成本较高，这样就劝退了很多新手，本篇博客将从增删改查四个操作来介绍一下如何入门vim。</p>
+        <h1 id="vim-新手入门教程一-增删改查"><a href="#vim-新手入门教程一-增删改查" class="headerlink" title="vim  新手入门教程一: 增删改查"></a>vim  新手入门教程一: 增删改查</h1><p>​    对于任何一个编辑器来说，对文本所做的操作无非就是增删改查这四种操作，但是由于vim里面的命令众多，学习成本较高，这样就劝退了很多新手，本篇博客将从增删改查四个操作来介绍一下如何入门vim。</p><a id="more"></a>
 <h2 id="一、添加操作"><a href="#一、添加操作" class="headerlink" title="一、添加操作"></a>一、添加操作</h2><p>​        vim有两种模式，一种是normal模式（命令模式），一种是insert模式（插入模式）。只有在命令模式下，所有的下面介绍的所有命令才会起作用，而插入模式下，键盘敲入的每个字符都会写入文本中。辨别vim是命令模式还是插入模式的方法很简单，插入模式的时候vim的底部有insert的字样，而什么都没有的时候表示处于命令模式。</p>
 <p>​        当我们插入字符的时候，就需要从命令模式转为插入模式，在vim中从命令模式转为插入模式有三个命令，他们分别的作用如下表所示，区分大小写的话共有六种方式。</p>
 <div class="table-container">
@@ -636,7 +636,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vim-新手入门教程一-增删改查TEST"><span class="nav-number">1.</span> <span class="nav-text">vim  新手入门教程一: 增删改查TEST</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、添加操作"><span class="nav-number">1.1.</span> <span class="nav-text">一、添加操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、删除操作"><span class="nav-number">1.2.</span> <span class="nav-text">二、删除操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、修改操作"><span class="nav-number">1.3.</span> <span class="nav-text">三、修改操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、查找操作"><span class="nav-number">1.4.</span> <span class="nav-text">四、查找操作</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vim-新手入门教程一-增删改查"><span class="nav-number">1.</span> <span class="nav-text">vim  新手入门教程一: 增删改查</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、添加操作"><span class="nav-number">1.1.</span> <span class="nav-text">一、添加操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、删除操作"><span class="nav-number">1.2.</span> <span class="nav-text">二、删除操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、修改操作"><span class="nav-number">1.3.</span> <span class="nav-text">三、修改操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、查找操作"><span class="nav-number">1.4.</span> <span class="nav-text">四、查找操作</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
