@@ -55,13 +55,13 @@
   };
 </script>
 
-  <meta name="description" content="最近阅读完论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》，在复现的过程中出现了很多问题，现对于自己的复现过程和一下思考进行一下记录">
+  <meta name="description" content="最近阅读完论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》，在复现的过程中出现了很多问题，现对于自己的复现过程和一下思考进行一下记录  一、批流由于论文中机器学习算法使用的特征值都是在flow意义上的统计信息，而不是单纯的packet的信息，例如流的大小，流的持续时间、流">
 <meta name="keywords" content="IoT,机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="论文复现实验思路-数据预处理（一）">
 <meta property="og:url" content="http://yoursite.com/2019/09/19/18tmc2/index.html">
 <meta property="og:site_name" content="SunPages">
-<meta property="og:description" content="最近阅读完论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》，在复现的过程中出现了很多问题，现对于自己的复现过程和一下思考进行一下记录">
+<meta property="og:description" content="最近阅读完论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》，在复现的过程中出现了很多问题，现对于自己的复现过程和一下思考进行一下记录  一、批流由于论文中机器学习算法使用的特征值都是在flow意义上的统计信息，而不是单纯的packet的信息，例如流的大小，流的持续时间、流">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-19-110159.jpg">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-19-110556.jpg">
@@ -69,7 +69,7 @@
 <meta property="og:updated_time" content="2019-09-19T13:02:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文复现实验思路-数据预处理（一）">
-<meta name="twitter:description" content="最近阅读完论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》，在复现的过程中出现了很多问题，现对于自己的复现过程和一下思考进行一下记录">
+<meta name="twitter:description" content="最近阅读完论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》，在复现的过程中出现了很多问题，现对于自己的复现过程和一下思考进行一下记录  一、批流由于论文中机器学习算法使用的特征值都是在flow意义上的统计信息，而不是单纯的packet的信息，例如流的大小，流的持续时间、流">
 <meta name="twitter:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-19-110159.jpg">
   <link rel="canonical" href="http://yoursite.com/2019/09/19/18tmc2/">
 
@@ -343,7 +343,7 @@
       
         <blockquote>
 <p>最近阅读完论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》，在复现的过程中出现了很多问题，现对于自己的复现过程和一下思考进行一下记录</p>
-</blockquote><a id="more"></a>
+</blockquote>
 <h2 id="一、批流"><a href="#一、批流" class="headerlink" title="一、批流"></a>一、批流</h2><p>由于论文中机器学习算法使用的特征值都是在flow意义上的统计信息，而不是单纯的packet的信息，例如流的大小，流的持续时间、流的平均速率等，所以必须要将杂乱无章的数据包按照一个一个flow分开，然后对于每个flow进行统计，计算这个flow的统计信息。</p>
 <h3 id="1-1-flow的理解"><a href="#1-1-flow的理解" class="headerlink" title="1.1 flow的理解"></a>1.1 flow的理解</h3><p>这里想 补充说一下flow的意义，关于这个概念我查了一些 资料，目前感觉最准确的说法就是五元组（源ip、源端口、目的ip、目的端口、传输层协议类型 ）一致的数据包是属于一个flow。我理解的flow即流的 含义就是两个主机一段时间之内的完整通信流程（可能不准确），在wireshark上进行了相关实验，得到了 一定的验证。</p>
 <blockquote>

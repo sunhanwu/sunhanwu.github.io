@@ -343,16 +343,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Linux-Mac-OS-下七牛云同步工具qshell的配置与使用"><a href="#Linux-Mac-OS-下七牛云同步工具qshell的配置与使用" class="headerlink" title="Linux/Mac OS 下七牛云同步工具qshell的配置与使用"></a>Linux/Mac OS 下七牛云同步工具qshell的配置与使用</h1>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/04/24/qshell/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
+          <h1 id="Linux-Mac-OS-下七牛云同步工具qshell的配置与使用"><a href="#Linux-Mac-OS-下七牛云同步工具qshell的配置与使用" class="headerlink" title="Linux/Mac OS 下七牛云同步工具qshell的配置与使用"></a>Linux/Mac OS 下七牛云同步工具qshell的配置与使用</h1><p>@TOC</p>
+<h2 id="下载与安装"><a href="#下载与安装" class="headerlink" title="下载与安装"></a>下载与安装</h2><ul>
+<li>在官方下载页面下载即可，<a href="https://developer.qiniu.com/kodo/tools/1302/qshell" target="_blank" rel="noopener">qshell</a></li>
+<li>下载后解压，并将系统所对应版本重命名为qshell</li>
+</ul>
+<p><img src="http://pdt3s257u.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20180821191839.png" alt></p>
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><ul>
+<li><p>编辑～/.zshrc 或者～/.bashrc文件将qshell路径添加到环境变量中，我的路径为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/home/sun/文档/tools/qiniu</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使配置文件生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="登录账户"><a href="#登录账户" class="headerlink" title="登录账户"></a>登录账户</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qshell account ak sk</span><br></pre></td></tr></table></figure>
+<p>马赛克位置分别填写个人的ak 和sk</p>
+<p><img src="http://pdt3s257u.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20180821192733.png" alt></p>
+<h2 id="qupload的使用"><a href="#qupload的使用" class="headerlink" title="qupload的使用"></a>qupload的使用</h2><ol>
+<li><p>配置文件qupload.json,每个参数的具体作用请参考<a href="https://github.com/qiniu/qshell/blob/master/docs/qupload.md" target="_blank" rel="noopener">官方文档</a></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="attr">"src_dir"</span>            :   <span class="string">"/home/sun/图片"</span>,</span><br><span class="line">   <span class="attr">"bucket"</span>             :   <span class="string">"ydm-ng"</span>,</span><br><span class="line">   <span class="attr">"up_host"</span>            :   <span class="string">"http://upload-z1.qiniu.com"</span>,</span><br><span class="line">   <span class="attr">"ignore_dir"</span>         :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"overwrite"</span>          :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"check_exists"</span>       :   <span class="literal">true</span>,</span><br><span class="line">   <span class="attr">"check_hash"</span>         :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"check_size"</span>         :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"rescan_local"</span>       :   <span class="literal">true</span>,</span><br><span class="line">   <span class="attr">"log_file"</span>           :   <span class="string">"upload.log"</span>,</span><br><span class="line">   <span class="attr">"log_level"</span>          :   <span class="string">"info"</span>,</span><br><span class="line">   <span class="attr">"log_rotate"</span>         :   <span class="number">1</span>,</span><br><span class="line">   <span class="attr">"log_stdout"</span>         :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"file_type"</span>          :   <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行命令为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qshell qupload [&lt;ThreadCount&gt;] &lt;LocalUploadConfig&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第一个为可选参数，一般选10，第二个为配置文件路径</li>
+</ul>
+</li>
+<li><p>一般为了节省操作时间，在zshrc配置别名</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> qupload=<span class="string">"qshell qupload 10 /Users/sun/Documents/tools/qshell/qupload.json"</span></span><br></pre></td></tr></table></figure>
+<p>在生效source ~/.zsh即可</p>
+<p><img src="http://pdt3s257u.bkt.clouddn.com/%3CKey%20Prefix%3E2018-08-21/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20180821194833.png" alt></p>
+</li>
+</ol>
+
         
       
     </div>
@@ -480,16 +504,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Linux服务器配置jupyter-notebook实现远程访问"><a href="#Linux服务器配置jupyter-notebook实现远程访问" class="headerlink" title="Linux服务器配置jupyter-notebook实现远程访问"></a>Linux服务器配置jupyter-notebook实现远程访问</h1>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/04/21/jupyter-notebook/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
+          <h1 id="Linux服务器配置jupyter-notebook实现远程访问"><a href="#Linux服务器配置jupyter-notebook实现远程访问" class="headerlink" title="Linux服务器配置jupyter-notebook实现远程访问"></a>Linux服务器配置jupyter-notebook实现远程访问</h1><h2 id="下载anaconda"><a href="#下载anaconda" class="headerlink" title="下载anaconda"></a>下载anaconda</h2><p>在<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/" target="_blank" rel="noopener">清华镜像</a>上下载anaconda对应版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-5.2.0-Linux-x86_64.sh</span><br><span class="line"></span><br><span class="line">sudo chmod +x Anaconda*</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注意安装过程中配置环境变量并且是环境变量生效</p>
+</blockquote>
+<h2 id="生成配置文件"><a href="#生成配置文件" class="headerlink" title="生成配置文件"></a>生成配置文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook --generate-config</span><br></pre></td></tr></table></figure>
+<h2 id="生成秘钥"><a href="#生成秘钥" class="headerlink" title="生成秘钥"></a>生成秘钥</h2><blockquote>
+<p>进入ipython<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>  In  [<span class="number">1</span>]:  <span class="keyword">from</span> notebook.auth <span class="keyword">import</span> passwd</span><br><span class="line"><span class="number">2.</span>  In  [<span class="number">2</span>]: passwd()</span><br><span class="line"><span class="number">3.</span>  Enter password:</span><br><span class="line"><span class="number">4.</span>  Verify password:</span><br><span class="line"><span class="number">5.</span>  Out[<span class="number">2</span>]:  <span class="string">'sha1:ce23d945972f:34769685a7ccd3d08c84a18c63968a41f1140274'</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>复制秘钥，后面要用<br><img src="http://pdt3s257u.bkt.clouddn.com/Snip20180822_4.png" alt></p>
+<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><ul>
+<li>vim ~/.jupyter/jupyter_notebook_config.py<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.  c.NotebookApp.ip=<span class="string">'服务器IP'</span></span><br><span class="line">2.  c.NotebookApp.password = u<span class="string">'sha:ce...刚才复制的那个秘钥'</span></span><br><span class="line">3.  c.NotebookApp.open_browser =  False</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="后台启动jupyter-notebook"><a href="#后台启动jupyter-notebook" class="headerlink" title="后台启动jupyter-notebook"></a>后台启动jupyter-notebook</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">```bash</span><br><span class="line">nohup jupyter notebook &gt; jupyter.log &amp;</span><br></pre></td></tr></table></figure>
+<h2 id="后台启动jupyter-lab"><a href="#后台启动jupyter-lab" class="headerlink" title="后台启动jupyter-lab"></a>后台启动jupyter-lab</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup jupyter-lab &gt;&gt; ./jupyter-notebook/jupyter-lab.log &amp;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>后台运行并且生成配置文件</p>
+</blockquote>
+<p><img src="http://pdt3s257u.bkt.clouddn.com/20180822/Snip20180822_7.png" alt></p>
+
         
       
     </div>
@@ -620,15 +654,16 @@
           <h1 id="Linux下用dd命令制作U盘启动盘"><a href="#Linux下用dd命令制作U盘启动盘" class="headerlink" title="Linux下用dd命令制作U盘启动盘"></a>Linux下用dd命令制作U盘启动盘</h1><blockquote>
 <p>在manjaro系统下测试</p>
 </blockquote>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/04/17/dd/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
+<ol>
+<li><p>查询U盘对应文件sudo fdisk -l</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Disk /dev/nvme0n1：238.5 GiB，256060514304 字节，500118192 个扇区</span><br><span class="line">单元：扇区 / 1 * 512 = 512 字节</span><br><span class="line">扇区大小(逻辑/物理)：512 字节 / 512 字节</span><br><span class="line">I/O 大小(最小/最佳)：512 字节 / 512 字节</span><br><span class="line">磁盘标签类型：gpt</span><br><span class="line">磁盘标识符：09CDCE5C-F487-42C9-83BF-B41ACD262434</span><br><span class="line"></span><br><span class="line">设备                起点      末尾      扇区   大小 类型</span><br><span class="line">/dev/nvme0n1p1      4097    618497    614401   300M EFI 系统</span><br><span class="line">/dev/nvme0n1p2    618498 481648510 481030013 229.4G Linux 文件系统</span><br><span class="line">/dev/nvme0n1p3 481648511 500103449  18454939   8.8G Linux swap</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Disk /dev/sda：28.7 GiB，30752000000 字节，60062500 个扇区</span><br><span class="line">单元：扇区 / 1 * 512 = 512 字节</span><br><span class="line">扇区大小(逻辑/物理)：512 字节 / 512 字节</span><br><span class="line">I/O 大小(最小/最佳)：512 字节 / 512 字节</span><br><span class="line">磁盘标签类型：dos</span><br><span class="line">磁盘标识符：0xcad4ebea</span><br><span class="line"></span><br><span class="line">设备       启动 起点     末尾     扇区  大小 Id 类型</span><br><span class="line">/dev/sda4  *     256 60062499 60062244 28.7G  c W95 FAT32 (LBA)</span><br></pre></td></tr></table></figure>
+<p>发现U盘对应的是/dev/sda4</p>
+</li>
+<li><p>使用dd命令写入iso文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dd <span class="keyword">if</span>=/home/sun/manjaro.iso of=/dev/sda4 bs=4M</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
         
       
     </div>
@@ -756,16 +791,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="CoolMusic的使用方法"><a href="#CoolMusic的使用方法" class="headerlink" title="CoolMusic的使用方法"></a>CoolMusic的使用方法</h1><h2 id="MusicDownloader"><a href="#MusicDownloader" class="headerlink" title="MusicDownloader"></a>MusicDownloader</h2>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/04/14/CoolMusic/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
+          <h1 id="CoolMusic的使用方法"><a href="#CoolMusic的使用方法" class="headerlink" title="CoolMusic的使用方法"></a>CoolMusic的使用方法</h1><h2 id="MusicDownloader"><a href="#MusicDownloader" class="headerlink" title="MusicDownloader"></a>MusicDownloader</h2><p>MusicDownloader 是基于python的一个音乐下载项目。</p>
+<p><a href="https://github.com/Michel-liu/MusicDownloader" target="_blank" rel="noopener">项目地址:https://github.com/Michel-liu/MusicDownloader</a><br>其主要功能有：</p>
+<ul>
+<li>批量下载网易云音乐歌单</li>
+<li>通过关键字搜索，搜索并下载特定的音乐</li>
+</ul>
+<h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><ol>
+<li><p>登陆自己的<a href="https://music.163.com/#/my/" target="_blank" rel="noopener">网易云音乐账号</a>。</p>
+<p><img src="https://ws3.sinaimg.cn/large/0069RVTdly1futywo3kzqj30fc09ewfh.jpg" alt></p>
+<p><img src="https://ws4.sinaimg.cn/large/0069RVTdly1futyxrnrr9j30y60jy43c.jpg" alt></p>
+</li>
+<li><p>在当前界面进入开发者工具，进入<strong>网络</strong>选项卡，并重新加载界面。</p>
+<p><img src="https://ws3.sinaimg.cn/large/0069RVTdly1futyyml8r8j319g0pdwoz.jpg" alt></p>
+</li>
+<li><p>使用搜索工具，随意搜索你歌单中的一个关键字，定位到一个名字以<code>detail?csrf_token</code>开头的文件。</p>
+<p><img src="https://ws4.sinaimg.cn/large/0069RVTdly1futz036p8rj319g0pdn7l.jpg" alt></p>
+</li>
+<li><p>选中该文件，在右侧<code>Headers</code>选项卡中拉到页末，找到<code>Form Data</code>，将其中的<code>params</code>与<code>encSecKey</code>复制到我们项目的<code>config.py</code>中。</p>
+<p><img src="https://ws2.sinaimg.cn/large/0069RVTdly1futz1jc6lkj319g0pddtr.jpg" alt></p>
+<p><img src="https://ws2.sinaimg.cn/large/0069RVTdly1futz2mh0fij31400mtgqb.jpg" alt="修改config.py文件"></p>
+</li>
+<li><p>将<code>config.py</code>中的<code>FileSaveDir</code>改为你自己在本地想要保存的路径。</p>
+</li>
+<li><p>运行<code>main.py</code>文件即可。</p>
+<p><img src="https://ws3.sinaimg.cn/large/0069RVTdly1futz40oesxj30m505ijtd.jpg" alt></p>
+</li>
+</ol>
+
         
       
     </div>
@@ -893,16 +946,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="ubuntu-16-04配置shadowsocks-proxychains4-实现终端代理"><a href="#ubuntu-16-04配置shadowsocks-proxychains4-实现终端代理" class="headerlink" title="ubuntu 16.04配置shadowsocks+proxychains4 实现终端代理"></a>ubuntu 16.04配置shadowsocks+proxychains4 实现终端代理</h1>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/04/11/CLI_ss/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
+          <h1 id="ubuntu-16-04配置shadowsocks-proxychains4-实现终端代理"><a href="#ubuntu-16-04配置shadowsocks-proxychains4-实现终端代理" class="headerlink" title="ubuntu 16.04配置shadowsocks+proxychains4 实现终端代理"></a>ubuntu 16.04配置shadowsocks+proxychains4 实现终端代理</h1><h2 id="安装Python-pip"><a href="#安装Python-pip" class="headerlink" title="安装Python-pip"></a>安装Python-pip</h2><ul>
+<li><p>ubuntu16.04默认安装Python2.7，所以不需要安装python，安装python的包管理工具就行了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-pip</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装shadowsocks</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install shadowsocks</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置本地vim /home/ubuntu/shadowsocks.json</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "server":"11.22.33.44",# 你服务端的IP</span><br><span class="line">    "server_port":50003, # 你服务端的端口</span><br><span class="line">    "local_port":1080, #本地端口，一般默认1080</span><br><span class="line">    "password":"123456", #ss服务端设置的密码</span><br><span class="line">    "timeout":600, #超时设置 和服务端一样</span><br><span class="line">    "method":"aes-256-cfb" #加密方法 和服务端一样</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建服务启动脚本shadowsocks.sh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sslocal -c /home/ubuntu/shadowsocks.json</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可能会报错</p>
+</li>
+</ul>
+
         
       
     </div>
@@ -1030,16 +1090,215 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="2-Switching-Hub"><a href="#2-Switching-Hub" class="headerlink" title="2 Switching Hub"></a>2 Switching Hub</h1><p>[TOC]</p><h2 id="2-1-Switching-Hub"><a href="#2-1-Switching-Hub" class="headerlink" title="2.1 Switching Hub"></a>2.1 Switching Hub</h2>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/04/06/2/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
+          <h1 id="2-Switching-Hub"><a href="#2-Switching-Hub" class="headerlink" title="2 Switching Hub"></a>2 Switching Hub</h1><p>[TOC]</p>
+<h2 id="2-1-Switching-Hub"><a href="#2-1-Switching-Hub" class="headerlink" title="2.1 Switching Hub"></a>2.1 Switching Hub</h2><p>交换集线器有很多种不同的功能，在这我们看看拥有以下功能的集线器：</p>
+<ul>
+<li>能够学习集线器端口连接主机的MAC地址并将其保存在MAC地址表中</li>
+<li>当收到MAC地址已知的报文时，将其转发到对应端口</li>
+<li>当收到地址未知的报文的时候，进行泛洪</li>
+</ul>
+<p>让我们用ryu来实现这种功能的交换机</p>
+<h2 id="2-2-openflow交换集线器"><a href="#2-2-openflow交换集线器" class="headerlink" title="2.2 openflow交换集线器"></a>2.2 openflow交换集线器</h2><p>openflow交换机可以实现下列功能通过接受控制器的指令(例如ryu控制器)</p>
+<ul>
+<li>改写接受数据包的地址或者从特定端口转发数据包</li>
+<li>转发数据包到控制器(packet-In)</li>
+<li>控制器从指定端口转发数据包(Packet-Out)</li>
+</ul>
+<p>可以实现组合了这些功能的交换集线器。<br>首先，您需要使用Packet-In功能来学习MAC地址。控制器可以使用Packet-In函数从交换机接收数据包。交换机分析收到的数据包，以了解主机的MAC地址和有关连接端口的信息。<br>学习之后，交换机传输接收的数据包。交换机调查数据包的目的MAC地址是否属于已知主机。根据调查结果，交换机执行以下处理。</p>
+<ul>
+<li>如果主机已经是已知主机…使用Packet-Out功能从连接的端口转发数据包。</li>
+<li>如果主机是未知主机…使用Packet-Out功能执行泛洪</li>
+</ul>
+<p>以下使用附图以逐步的方式说明上述操作：</p>
+<ol>
+<li><p>初始状态</p>
+<p>初始状态下流表为空，假设主机A连接端口1，主机B连接端口4，主机C连接端口3</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-10-133501.jpg" width="600"></div>
+</li>
+<li><p>主机A-&gt; 主机B</p>
+<p>当数据包从主机A发送到主机B的时候，一个Packet-In消息将会被发送到控制器并且主机A的MAC地址将会被端口1学习。但是由于主机B的端口还不知道，因此数据包被泛洪到除了端口1以外的所有端口并且被主机B和主机C接受。</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-10-133821.jpg" width="600"></div>
+
+<ul>
+<li><p>Packet-In：</p>
+<p>入端口:1</p>
+<p>目的主机：B</p>
+<p>源主机：A</p>
+</li>
+<li><p>Packet-Out：</p>
+<p>动作：输出：泛洪</p>
+</li>
+</ul>
+</li>
+<li><p>主机B-&gt;主机A</p>
+<p>当主机B回应主机A的数据包返回的时候，由于已经有一个流表项被加入到流表中所以数据包将被转发到端口1，所以主机C将不会收到B发送的数据包</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-10-134423.jpg" width="600"></div>
+
+<ul>
+<li><p>Packet-In:</p>
+<p>入端口：4</p>
+<p>目的主机：主机A</p>
+<p>源主机：主机B</p>
+</li>
+<li><p>Packet-Out:</p>
+<p>动作：输出：端口1</p>
+</li>
+</ul>
+</li>
+<li><p>主机A-&gt;主机B</p>
+<p>当主机A再一次向主机B发送数据包的时候，由于前面主机B回应数据包的时候，端口4已经学习到主机B的MAC地址，所以这一次数据包将会直接向端口4发送</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-10-134853.jpg" width="600"></div>
+
+<ul>
+<li><p>Packet-In</p>
+<p>入端口：1</p>
+<p>目的主机：主机B</p>
+<p>源主机：主机A</p>
+</li>
+<li><p>Packet-Out：</p>
+<p>动作：输出：端口4</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>下面我们来看看交换集线器的ryu源码实现</p>
+<h2 id="2-3-使用Ryu实现交换集线器"><a href="#2-3-使用Ryu实现交换集线器" class="headerlink" title="2.3 使用Ryu实现交换集线器"></a>2.3 使用Ryu实现交换集线器</h2><p>源码在ryu/app/example_switch_13.py</p>
+<p>除了上述之外，还有simple_switch.py（OpenFlow 1.0）和simple_switch_12.py（OpenFlow 1.2），具体取决于OpenFlow的版本，但我们看一下支持OpenFlow 1.3的实现</p>
+<p>源代码很短，因此我们在下面显示了完整的源代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Copyright (C) 2016 Nippon Telegraph and Telephone Corporation.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Licensed under the Apache License, Version 2.0 (the "License");</span></span><br><span class="line"><span class="comment"># you may not use this file except in compliance with the License.</span></span><br><span class="line"><span class="comment"># You may obtain a copy of the License at</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#    http://www.apache.org/licenses/LICENSE-2.0</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Unless required by applicable law or agreed to in writing, software</span></span><br><span class="line"><span class="comment"># distributed under the License is distributed on an "AS IS" BASIS,</span></span><br><span class="line"><span class="comment"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or</span></span><br><span class="line"><span class="comment"># implied.</span></span><br><span class="line"><span class="comment"># See the License for the specific language governing permissions and</span></span><br><span class="line"><span class="comment"># limitations under the License.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> ryu.base <span class="keyword">import</span> app_manager</span><br><span class="line"><span class="keyword">from</span> ryu.controller <span class="keyword">import</span> ofp_event</span><br><span class="line"><span class="keyword">from</span> ryu.controller.handler <span class="keyword">import</span> CONFIG_DISPATCHER, MAIN_DISPATCHER</span><br><span class="line"><span class="keyword">from</span> ryu.controller.handler <span class="keyword">import</span> set_ev_cls</span><br><span class="line"><span class="keyword">from</span> ryu.ofproto <span class="keyword">import</span> ofproto_v1_3</span><br><span class="line"><span class="keyword">from</span> ryu.lib.packet <span class="keyword">import</span> packet</span><br><span class="line"><span class="keyword">from</span> ryu.lib.packet <span class="keyword">import</span> ethernet</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleSwitch13</span><span class="params">(app_manager.RyuApp)</span>:</span></span><br><span class="line">    OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, *args, **kwargs)</span>:</span></span><br><span class="line">        super(ExampleSwitch13, self).__init__(*args, **kwargs)</span><br><span class="line">        <span class="comment"># initialize mac address table.</span></span><br><span class="line">        self.mac_to_port = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">    @set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">switch_features_handler</span><span class="params">(self, ev)</span>:</span></span><br><span class="line">        datapath = ev.msg.datapath</span><br><span class="line">        ofproto = datapath.ofproto</span><br><span class="line">        parser = datapath.ofproto_parser</span><br><span class="line"></span><br><span class="line">        <span class="comment"># install the table-miss flow entry.</span></span><br><span class="line">        match = parser.OFPMatch()</span><br><span class="line">        actions = [parser.OFPActionOutput(ofproto.OFPP_CONTROLLER,</span><br><span class="line">                                          ofproto.OFPCML_NO_BUFFER)]</span><br><span class="line">        self.add_flow(datapath, <span class="number">0</span>, match, actions)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_flow</span><span class="params">(self, datapath, priority, match, actions)</span>:</span></span><br><span class="line">        ofproto = datapath.ofproto</span><br><span class="line">        parser = datapath.ofproto_parser</span><br><span class="line"></span><br><span class="line">        <span class="comment"># construct flow_mod message and send it.</span></span><br><span class="line">        inst = [parser.OFPInstructionActions(ofproto.OFPIT_APPLY_ACTIONS,</span><br><span class="line">                                             actions)]</span><br><span class="line">        mod = parser.OFPFlowMod(datapath=datapath, priority=priority,</span><br><span class="line">                                match=match, instructions=inst)</span><br><span class="line">        datapath.send_msg(mod)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @set_ev_cls(ofp_event.EventOFPPacketIn, MAIN_DISPATCHER)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_packet_in_handler</span><span class="params">(self, ev)</span>:</span></span><br><span class="line">        msg = ev.msg</span><br><span class="line">        datapath = msg.datapath</span><br><span class="line">        ofproto = datapath.ofproto</span><br><span class="line">        parser = datapath.ofproto_parser</span><br><span class="line"></span><br><span class="line">        <span class="comment"># get Datapath ID to identify OpenFlow switches.</span></span><br><span class="line">        dpid = datapath.id</span><br><span class="line">        self.mac_to_port.setdefault(dpid, &#123;&#125;)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># analyse the received packets using the packet library.</span></span><br><span class="line">        pkt = packet.Packet(msg.data)</span><br><span class="line">        eth_pkt = pkt.get_protocol(ethernet.ethernet)</span><br><span class="line">        dst = eth_pkt.dst</span><br><span class="line">        src = eth_pkt.src</span><br><span class="line"></span><br><span class="line">        <span class="comment"># get the received port number from packet_in message.</span></span><br><span class="line">        in_port = msg.match[<span class="string">'in_port'</span>]</span><br><span class="line"></span><br><span class="line">        self.logger.info(<span class="string">"packet in %s %s %s %s"</span>, dpid, src, dst, in_port)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># learn a mac address to avoid FLOOD next time.</span></span><br><span class="line">        self.mac_to_port[dpid][src] = in_port</span><br><span class="line"></span><br><span class="line">        <span class="comment"># if the destination mac address is already learned,</span></span><br><span class="line">        <span class="comment"># decide which port to output the packet, otherwise FLOOD.</span></span><br><span class="line">        <span class="keyword">if</span> dst <span class="keyword">in</span> self.mac_to_port[dpid]:</span><br><span class="line">            out_port = self.mac_to_port[dpid][dst]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            out_port = ofproto.OFPP_FLOOD</span><br><span class="line"></span><br><span class="line">        <span class="comment"># construct action list.</span></span><br><span class="line">        actions = [parser.OFPActionOutput(out_port)]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># install a flow to avoid packet_in next time.</span></span><br><span class="line">        <span class="keyword">if</span> out_port != ofproto.OFPP_FLOOD:</span><br><span class="line">            match = parser.OFPMatch(in_port=in_port, eth_dst=dst)</span><br><span class="line">            self.add_flow(datapath, <span class="number">1</span>, match, actions)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># construct packet_out message and send it.</span></span><br><span class="line">        out = parser.OFPPacketOut(datapath=datapath,</span><br><span class="line">                                  buffer_id=ofproto.OFP_NO_BUFFER,</span><br><span class="line">                                  in_port=in_port, actions=actions,</span><br><span class="line">                                  data=msg.data)</span><br><span class="line">        datapath.send_msg(out)</span><br></pre></td></tr></table></figure>
+<p>让我们来看看各自实现的内容。</p>
+<h3 id="2-3-1-类定义和初始化"><a href="#2-3-1-类定义和初始化" class="headerlink" title="2.3.1 类定义和初始化"></a>2.3.1 类定义和初始化</h3><p>为了实现一个ryu应用， ryu.base.app_manager.RyuApp被引用，此外，要使用OpenFlow 1.3，OpenFlow 1.3版本是为OFP_VERSIONS指定的。此外，定义了MAC地址表mac_to_port.</p>
+<p>在OpenFlow协议中，已经定义了一些过程，例如Open-Flow交换机和控制器之间通信所需的握手。但是，由于Ryu的框架负责处理这些程序，因此在ryu app中不需要了解这些。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleSwitch13</span><span class="params">(app_manager.RyuApp)</span>:</span></span><br><span class="line">    OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, *args, **kwargs)</span>:</span></span><br><span class="line">        super(ExampleSwitch13, self).__init__(*args, **kwargs)</span><br><span class="line">        <span class="comment"># initialize mac address table.</span></span><br><span class="line">        self.mac_to_port = &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-2-事件处理函数"><a href="#2-3-2-事件处理函数" class="headerlink" title="2.3.2 事件处理函数"></a>2.3.2 事件处理函数</h3><p>对于Ryu，当接收到OpenFlow消息时，生成对应于该消息的事件。 Ryu应用程序实现了与希望接收的消息相对应的事件处理程序。事件处理程序定义了一个具有参数的事件对象的函数，并使用ryu.controller.handler.set_ev_cls装饰器来装饰。</p>
+<p>set_ev_cls指定支持接收消息的事件类以及参数的OpenFlow交换机的状态。事件类名称为ryu.controller.ofp_event.EventOFP + <openflow消息名称>。例如，在Packet-In消息的情况下，它变为EventOFPPacketIn。有关详细信息，请参阅Ryu的标题为API Reference的文档。对于状态，请指定以下之一或列表。</openflow消息名称></p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-11-053905.jpg" width="800"></div>
+
+<ol>
+<li><p>添加缺失流表项</p>
+<p>在与OpenFlow交换机完成握手之后，将缺失流表项添加到交换机流表中以准备接收Packet-In消息。具体地，在接收到交换机特征（特征回复）消息时，添加表缺失流条目。</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">switch_features_handler</span><span class="params">(self, ev)</span>:</span></span><br><span class="line">        datapath = ev.msg.datapath</span><br><span class="line">        ofproto = datapath.ofproto</span><br><span class="line">        parser = datapath.ofproto_parser</span><br></pre></td></tr></table></figure>
+<p>在ev.msg中，存储与该事件对应的OpenFlow消息类的实例。在本例中，它是ryu.ofproto.ofproto_v1_3_parser.OFPSwitchFeatures。在msg.datapath中，存储与发出此消息的OpenFlow交换机对应的ryu.controller.controller.Datapath类的实例。Datapath类执行重要的处理，例如与OpenFlow交换机的实际通信以及与接收的消息相对应的事件的发布。<br>Ryu应用程序使用的datapath主要属性如下：</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-11-054538.jpg" width="800"></div>
+
+<p>Ryu应用程序中使用的Datapath类的主要方法如下：</p>
+<p><code>send_msg（msg）</code></p>
+<p>发送OpenFlow消息。 msg是与发送OpenFlow消息对应的ryu.ofproto.ofproto_parser.MsgBase的子类。<br>交换集线器并不特别使用收到的交换机功能消息本身。它被作为事件处理以获得添加表缺失流条目的定时。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">switch_features_handler</span><span class="params">(self, ev)</span>:</span></span><br><span class="line">        <span class="comment"># install the table-miss flow entry.</span></span><br><span class="line">        match = parser.OFPMatch()</span><br><span class="line">        actions = [parser.OFPActionOutput(ofproto.OFPP_CONTROLLER,</span><br><span class="line">                                          ofproto.OFPCML_NO_BUFFER)]</span><br><span class="line">        self.add_flow(datapath, <span class="number">0</span>, match, actions)</span><br></pre></td></tr></table></figure>
+<p>Table-miss流条目具有最低（0）优先级，并且该条目匹配所有分组。在该条目的指令中，通过指定输出到控制器端口的输出动作，如果接收的数据包与任何正常流条目都不匹配，则发出Packet-In。生成空匹配以匹配所有数据包。匹配在OFPMatch类中表示。<br>接下来，生成OUTPUT操作类（OFPActionOutput）的实例以传输到控制器端口。控制器被指定为输出目的地，OFPCML_NO_BUFFER被指定为max_len，以便将所有数据包发送到控制器。<br>最后，为优先级指定0（最低），并执行add_flow（）方法以发送Flow Mod消息。 add_flow（）方法的内容将在后面的部分中介绍。</p>
+<ol>
+<li><p>Packet-In 消息</p>
+<p>创建Packet-In事件处理程序的处理程序，以接受具有未知目标的已接收数据包</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@set_ev_cls(ofp_event.EventOFPPacketIn, MAIN_DISPATCHER)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_packet_in_handler</span><span class="params">(self, ev)</span>:</span></span><br><span class="line">        msg = ev.msg</span><br><span class="line">        datapath = msg.datapath</span><br><span class="line">        ofproto = datapath.ofproto</span><br><span class="line">        parser = datapath.ofproto_parser</span><br></pre></td></tr></table></figure>
+<p>常用的OFPPacketIn类属性如下所示：</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-11-061623.jpg" width="800"></div>
+
+<ol>
+<li>更新MAC地址表</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_packet_in_handler</span><span class="params">(self, ev)</span>:</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment"># get the received port number from packet_in message.</span></span><br><span class="line">        in_port = msg.match[<span class="string">'in_port'</span>]</span><br><span class="line"></span><br><span class="line">        self.logger.info(<span class="string">"packet in %s %s %s %s"</span>, dpid, src, dst, in_port)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># learn a mac address to avoid FLOOD next time.</span></span><br><span class="line">        self.mac_to_port[dpid][src] = in_port</span><br></pre></td></tr></table></figure>
+<p>$\qquad$从OFPPacketIn匹配中获取接收端口（in_port）。目标MAC地址和发送方MAC地址使用Ryu的数据包库从接收到的数据包的以太网报头中获取。基于获取的发送方MAC地址和接收的端口号，更新MAC地址表。<br>$\qquad$为了支持与多个OpenFlow交换机的连接，MAC地址表被设计为针对每个OpenFlow交换机进行管理。datapath ID用于标识OpenFlow交换机。</p>
+<ol>
+<li><p>判断转发目的端口</p>
+<p>当MAC地址表中存在目的MAC地址时，使用相应的端口号。如果未找到，则生成OUTPUT操作类的实例，该实例指定输出端口的泛洪（OFPP_FLOOD）</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_packet_in_handler</span><span class="params">(self, ev)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># if the destination mac address is already learned,</span></span><br><span class="line">        <span class="comment"># decide which port to output the packet, otherwise FLOOD.</span></span><br><span class="line">        <span class="keyword">if</span> dst <span class="keyword">in</span> self.mac_to_port[dpid]:</span><br><span class="line">            out_port = self.mac_to_port[dpid][dst]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            out_port = ofproto.OFPP_FLOOD</span><br><span class="line"></span><br><span class="line">        <span class="comment"># construct action list.</span></span><br><span class="line">        actions = [parser.OFPActionOutput(out_port)]</span><br><span class="line">        <span class="comment"># install a flow to avoid packet_in next time.</span></span><br><span class="line">        <span class="keyword">if</span> out_port != ofproto.OFPP_FLOOD:</span><br><span class="line">            match = parser.OFPMatch(in_port=in_port, eth_dst=dst)</span><br><span class="line">            self.add_flow(datapath, <span class="number">1</span>, match, actions)</span><br></pre></td></tr></table></figure>
+<p>$\qquad$如果找到目标MAC地址，则会在OpenFlow交换机的流表中添加一个条目。与添加Table-miss流条目一样，指定匹配和操作，并执行add_flow（）以添加流条目。</p>
+<p>$\qquad$与Table-miss流条目不同，此次设置匹配条件。这次实现了交换集线器，指定了接收端口（in_port）和目标MAC地址（eth_dst）。例如，由端口1接收的寻址到主机B的分组是目标。<br>$\qquad$对于此次的流条目，优先级指定为1,值越大，优先级越高，因此，此处添加的流条目将在Table-miss流条目之前进行评估。<br>$\qquad$根据包含上述操作的摘要，将以下条目添加到流表中。将端口1接收到的主机B（目标MAC地址为B）的数据包传输到端口4。</p>
+<blockquote>
+<p>对于OpenFlow，在选项中规定了一个名为NORMAL的逻辑输出端口，当为输出端口指定NORMAL时，交换机的L2 / L3功能用于处理数据包。这意味着，通过指示将所有数据包输出到NORMAL端口，可以使交换机作为交换集线器运行。但是，我们使用OpenFlow实现每个处理</p>
+</blockquote>
+<ol>
+<li>添加流表项</li>
+</ol>
+<p>Packet-In处理程序的处理尚未完成，但这里将介绍添加流表项的方法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_flow</span><span class="params">(self, datapath, priority, match, actions)</span>:</span></span><br><span class="line">        ofproto = datapath.ofproto</span><br><span class="line">        parser = datapath.ofproto_parser</span><br><span class="line"></span><br><span class="line">        <span class="comment"># construct flow_mod message and send it.</span></span><br><span class="line">        inst = [parser.OFPInstructionActions(ofproto.OFPIT_APPLY_ACTIONS,</span><br><span class="line">                                             actions)]</span><br></pre></td></tr></table></figure>
+<p>对于流表项，设置指示目标数据包条件的匹配，以及指示对数据包的操作，条目优先级和有效时间的指令。在交换集线器实现中，Apply Actions用于设置指令，以便立即使用指定的操作。<br>最后，通过发出Flow Mod消息向流表添加条目</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_flow</span><span class="params">(self, datapath, priority, match, actions)</span>:</span></span><br><span class="line">        mod = parser.OFPFlowMod(datapath=datapath, priority=priority,</span><br><span class="line">                                match=match, instructions=inst)</span><br><span class="line">        datapath.send_msg(mod)</span><br></pre></td></tr></table></figure>
+<p>与Flow Mod消息对应的类是OFPFlowMod类。生成OFPFlowMod类的实例，并使用Datapath.send_msg（）方法将消息发送到OpenFlow交换机。OFPFlowMod类的构造函数有很多参数。其中许多通常可以是默认值。括号内是默认值。</p>
+<ul>
+<li><p>datapath</p>
+<p>这是支持流表操作的OpenFlow交换机的Datapath类实例。通常，指定从传递给处理程序的事件中获取的那个，例如Packet-In消息。</p>
+</li>
+<li><p>cookie(0)</p>
+<p>控制器指定的可选值，可在更新或删除条目时用作过滤条件。这不用于数据包处理。</p>
+</li>
+<li><p>cookie_mask(0)</p>
+<p>更新或删除条目时，如果指定了0以外的值，则使用条目的cookie值将其用作操作目标条目的过滤器</p>
+</li>
+<li><p>table_id</p>
+<p>指定操作目标流表的表ID</p>
+</li>
+<li><p>command (ofproto_v1_3.OFPFC_ADD)、</p>
+<p>指定要执行的操作。</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-11-064100.jpg" width="600"></div>
+</li>
+<li><p>idle_timeout(0)</p>
+<p>指定此条目的有效期，以秒为单位。如果未引用该条目并且idle_timeout指定的时间过去，则删除该条目。引用该条目时，将重置已用时间。<br>删除条目后，会向控制器发送Flow Removed消息。</p>
+</li>
+<li><p>hard_timeout (0)</p>
+<p>指定此条目的有效期，以秒为单位。与idle_timeout不同，使用hard_timeout，即使引用了条目，也不会重置已用时间。也就是说，无论条目的引用如何，都在指定的时间过去时删除该条目。<br>与idle_timeout一样，当删除条目时，将发送Flow Removed消息。</p>
+</li>
+<li><p>priority(0)</p>
+<p>指定此条目的优先级顺序。值越大，优先级越高。</p>
+</li>
+<li><p>buffer_id (ofproto_v1_3.OFP_NO_BUFFER)</p>
+<p>指定OpenFlow交换机上缓冲的数据包的缓冲区ID。在分组输入消息中通知缓冲区ID，并且当指定的处理与发送两个消息时相同，即，为输出端口和流模式消息指定了OFPP_TABLE的分组输出消息。当命令为OFPFC_DELETE或OFPFC_DELETE_STRICT时，将忽略此项。<br>如果未指定缓冲区ID，请设置OFP_NO_BUFFER</p>
+</li>
+<li><p>out_port</p>
+<p>如果命令为OFPFC_DELETE或OFPFC_DELETE_STRICT，则输出端口将过滤目标条目。如果命令为OFPFC_ADD，OFPFC_MODIFY或OFPFC_MODIFY_STRICT，则忽略该命令。<br>要禁用输出端口的过滤，请指定OFPP_ANY。</p>
+</li>
+<li><p>out_group(0)</p>
+<p>与out_port一样，按输出组过滤。要禁用，请指定OFPG_ANY。</p>
+</li>
+<li><p>flag(0)</p>
+<p>您可以指定以下标志组合</p>
+</li>
+</ul>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-11-064628.jpg" width="800"></div>
+
+<ul>
+<li><p>match(None)</p>
+<p>具体的match</p>
+</li>
+<li><p>instructions ([])</p>
+<p>指定指令列表</p>
+</li>
+</ul>
+<ol>
+<li><p>数据包转移</p>
+<p>现在我们返回Packet-In处理程序并解释最终处理。无论是否从MAC地址表中找到目的地MAC地址，最后都发出分组输出消息并传送接收的分组。</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_packet_in_handler</span><span class="params">(self, ev)</span>:</span></span><br><span class="line">        out = parser.OFPPacketOut(datapath=datapath,</span><br><span class="line">                                  buffer_id=ofproto.OFP_NO_BUFFER,</span><br><span class="line">                                  in_port=in_port, actions=actions,</span><br><span class="line">                                  data=msg.data)</span><br><span class="line">        datapath.send_msg(out)</span><br></pre></td></tr></table></figure>
+<p>与Packet-Out消息对应的类是OFPPacketOut类。 OFPPacketOut的构造函数的参数如下：</p>
+<ul>
+<li><p>datapath</p>
+<p>指定OpenFlow交换机对应的Datapath类的实例</p>
+</li>
+<li><p>buffer_id</p>
+<p>指定OpenFlow上缓冲的数据包的缓冲区ID。如果未缓冲，则指定OFP_NO_BUFFER。</p>
+</li>
+<li><p>in_port</p>
+<p>指定接收数据包的端口。如果不是收到的数据包，则指定OFPP_CONTROLLER</p>
+</li>
+<li><p>actions</p>
+<p>指定操作列表。</p>
+</li>
+<li><p>data</p>
+<p>指定数据包的二进制数据。当为buffer_id指定OFP_NO_BUFFER时使用此方法。使用OpenFlow交换机的缓冲区时，省略</p>
+</li>
+</ul>
+<p>$\qquad$在交换集线器实现中，已经为buffer_id指定了Packet-In消息的buffer_id。如果已禁用Packet-In消息的buffer-id，则为发送数据包的数据指定收到的Packet-In数据包。</p>
+<h2 id="2-4-ryu应用执行"><a href="#2-4-ryu应用执行" class="headerlink" title="2.4 ryu应用执行"></a>2.4 ryu应用执行</h2><p>因为xterm是从Mininet启动的，所以使用mn命令启动Mininet环境。要构建的环境具有简单的结构，具有三个主机和一个交换机。<br>mn命令参数如下：</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-11-070404.jpg" width="600"></div>
+
+
         
       
     </div>
@@ -1171,15 +1430,337 @@
 <center>孙汉武    16281047    16281047</center>
 
 </blockquote>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/04/05/lab4/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
+<p><a href="https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab4" target="_blank" rel="noopener">实验源码链接:https://github.com/sunhanwu/16281047_OperatingSystemExperiment/tree/master/lab4</a></p>
+<h2 id="一-概要设计"><a href="#一-概要设计" class="headerlink" title="一 概要设计"></a>一 概要设计</h2><blockquote>
+<p>实验源码请参考test.h</p>
+</blockquote>
+<h3 id="1-1-模块说明"><a href="#1-1-模块说明" class="headerlink" title="1.1 模块说明"></a>1.1 模块说明</h3><p>$\qquad$本实验共包含测试模块在内一共有7个模块，其中五个模块是算法模块，分别实现最佳置换算法、先入先出算法、最久未使用算法、改进的Clock算法、PBA页面缓冲算法和主模块。详细的细节如下：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">模块</th>
+<th style="text-align:center">文件</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">测试模块</td>
+<td style="text-align:center">test.h</td>
+<td style="text-align:center">包含页面帧结构体的定义、随机访问序列的生成等测试函数</td>
+</tr>
+<tr>
+<td style="text-align:center">最佳置换算法模块</td>
+<td style="text-align:center">Optimal.h</td>
+<td style="text-align:center">包含最佳置换算法函数</td>
+</tr>
+<tr>
+<td style="text-align:center">先入先出算法模块</td>
+<td style="text-align:center">FIFO.h</td>
+<td style="text-align:center">包含先入先出算法函数</td>
+</tr>
+<tr>
+<td style="text-align:center">最久未使用算法模块</td>
+<td style="text-align:center">LRU.h</td>
+<td style="text-align:center">包含最久未使用算法函数</td>
+</tr>
+<tr>
+<td style="text-align:center">改进Clock算法模块</td>
+<td style="text-align:center">Clock.h</td>
+<td style="text-align:center">包含改进的Clock算法函数</td>
+</tr>
+<tr>
+<td style="text-align:center">PBA页面缓冲算法模块</td>
+<td style="text-align:center">PBA.h</td>
+<td style="text-align:center">包含页面缓冲算法函数</td>
+</tr>
+<tr>
+<td style="text-align:center">主模块</td>
+<td style="text-align:center">main.cpp</td>
+<td style="text-align:center">主函数</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="1-2-接口说明"><a href="#1-2-接口说明" class="headerlink" title="1.2 接口说明"></a>1.2 接口说明</h3><p>$\qquad$1.1 中所说的的各个模块中，测试模块是一个最基本的模块，它包含最基本的页面帧结构体的定义和随机访问序列生成函数等基本数据结构和函数。而六个算法模块都会引用测试模块中的数据结构和随机访问序列生成函数。而在主函数中进行对各个算法模块的调用。下面图示了各个模块之间的关系：</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-123542.jpg" width="600"></div>
+
+<h3 id="1-3-数据结构说明"><a href="#1-3-数据结构说明" class="headerlink" title="1.3 数据结构说明"></a>1.3 数据结构说明</h3><p>$\qquad$在本实验定一个很重要的表示页面帧的结构体，其成员变量及其作用如下图所示：</p>
+<ol>
+<li>WorkItem(表示帧结构体)</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">WorkItem</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> seq;</span><br><span class="line">    <span class="keyword">int</span> priority;</span><br><span class="line">    <span class="keyword">char</span> Used;</span><br><span class="line">    <span class="keyword">char</span> Modified;</span><br><span class="line">&#125;WorkItem;</span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">变量名</th>
+<th style="text-align:center">作用</th>
+<th style="text-align:center">变量名</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">seq</td>
+<td style="text-align:center">访问的序列号</td>
+<td style="text-align:center">priority</td>
+<td style="text-align:center">优先级</td>
+</tr>
+<tr>
+<td style="text-align:center">Used</td>
+<td style="text-align:center">Clock中的使用位</td>
+<td style="text-align:center">Modified</td>
+<td style="text-align:center">Clock中的修改位</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol>
+<li>MemSchedule(表示内存分配调度结构体)</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">MemSchedule</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    WorkItem* WorkSpace=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">int</span> *VisitSeq=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">int</span> N=<span class="number">64</span>;</span><br><span class="line">    <span class="keyword">int</span> p=<span class="number">0</span>;</span><br><span class="line">    <span class="comment">//工作集大小</span></span><br><span class="line">    <span class="keyword">int</span> e=<span class="number">5</span>;</span><br><span class="line">    <span class="keyword">int</span> m=<span class="number">1</span>;</span><br><span class="line">    <span class="comment">//定义访问序列长度o</span></span><br><span class="line">    <span class="keyword">int</span> length;</span><br><span class="line">    <span class="comment">//当前已使用物理块数</span></span><br><span class="line">    <span class="keyword">int</span> work_len=<span class="number">0</span>;</span><br><span class="line">    <span class="comment">//发生替换的物理块号</span></span><br><span class="line">    <span class="keyword">int</span> change=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">float</span> t,r;</span><br><span class="line"><span class="comment">//   队列长度</span></span><br><span class="line">    <span class="keyword">int</span> queue_free_len = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> queue_modified_len = <span class="number">0</span>;</span><br><span class="line">    WorkItem <span class="built_in">free</span>[<span class="number">2</span>];</span><br><span class="line">    WorkItem Modified[<span class="number">2</span>];</span><br><span class="line">&#125;MemSchedule;</span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">变量名</th>
+<th style="text-align:center">作用</th>
+<th style="text-align:center">变量名</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">WorkSpace</td>
+<td style="text-align:center">工作区间结构体数组</td>
+<td style="text-align:center">VisitSeq</td>
+<td style="text-align:center">访问序列数组</td>
+</tr>
+<tr>
+<td style="text-align:center">N</td>
+<td style="text-align:center">虚拟内存大小</td>
+<td style="text-align:center">p</td>
+<td style="text-align:center">工作集起始位置</td>
+</tr>
+<tr>
+<td style="text-align:center">e</td>
+<td style="text-align:center">工作区间大小</td>
+<td style="text-align:center">m</td>
+<td style="text-align:center">工作区间移动效率</td>
+</tr>
+<tr>
+<td style="text-align:center">length</td>
+<td style="text-align:center">访问序列长度</td>
+<td style="text-align:center">work_len</td>
+<td style="text-align:center">工作集中使用长度</td>
+</tr>
+<tr>
+<td style="text-align:center">chang</td>
+<td style="text-align:center">上一次发生替换的物理块号</td>
+<td style="text-align:center">t,r</td>
+<td style="text-align:center">随机访问序列算法参数</td>
+</tr>
+<tr>
+<td style="text-align:center">queue_free_len</td>
+<td style="text-align:center">PBA中的空闲队列长度</td>
+<td style="text-align:center">queue_modifie_len</td>
+<td style="text-align:center">PBA中修改队列长度</td>
+</tr>
+<tr>
+<td style="text-align:center">free</td>
+<td style="text-align:center">PBA中的空闲队列</td>
+<td style="text-align:center">Modified</td>
+<td style="text-align:center">PBA中的修改队列</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="1-4-随机访问序列生成算法"><a href="#1-4-随机访问序列生成算法" class="headerlink" title="1.4 随机访问序列生成算法"></a>1.4 随机访问序列生成算法</h3><p>$\qquad$实验中需要使用到随机访问序列，所以生成一个好的随机访问序列能很好的测试出各个算法的性能。下面是本实验中的随机算法访问序列生成算法的源码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">MemSchedule <span class="title">GeneVisitSeq</span><span class="params">(<span class="keyword">int</span> l)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    MemSchedule schedule1;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"是否设定调度算法参数(Y/N):"</span>);</span><br><span class="line">    <span class="keyword">char</span> flag;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%c"</span>,&amp;flag);</span><br><span class="line">    <span class="keyword">if</span> (flag==<span class="string">'Y'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        schedule1=SetMemSchedule(schedule1);</span><br><span class="line">    &#125;</span><br><span class="line">	schedule1.t=rand()%<span class="number">1000</span>/<span class="number">1000.0</span>;</span><br><span class="line">    schedule1.VisitSeq=(<span class="keyword">int</span> *)<span class="built_in">malloc</span>(l*<span class="keyword">sizeof</span>(schedule1.m));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"生成随机内存访问序列：\n"</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;l;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;schedule1.m;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            schedule1.VisitSeq[i*schedule1.m+j] = rand()%schedule1.e+schedule1.p;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>,schedule1.VisitSeq[i*schedule1.m+j]);</span><br><span class="line">        &#125;</span><br><span class="line">        schedule1.r=rand()%<span class="number">1000</span>/<span class="number">1000.0</span>;</span><br><span class="line">        <span class="keyword">if</span>(schedule1.r&lt;schedule1.t)</span><br><span class="line">        &#123;</span><br><span class="line">            schedule1.p=(schedule1.p+<span class="number">1</span>)%schedule1.N;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    schedule1.length=l*schedule1.m;</span><br><span class="line">    schedule1.WorkSpace = (WorkItem *)<span class="built_in">malloc</span>(schedule1.e *<span class="keyword">sizeof</span>(WorkItem));</span><br><span class="line">    <span class="keyword">return</span> schedule1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面是其流程图：</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-125913.jpg" width="500"></div>
+
+<p>其描述为：</p>
+<ul>
+<li>首先生成算法需要的N p e m t等基本参数</li>
+<li>生成m个范围在p到p+e之间的随机数加入到序列中</li>
+<li>生成随机小数r</li>
+<li>比较t和r，如果t比r小；则取一个新的p值；否则p=p+1 mod N</li>
+<li>如果需要继续加长访问序列，则返回第二部继续执行；否则结束</li>
+</ul>
+<h3 id="1-5-算法通用流程"><a href="#1-5-算法通用流程" class="headerlink" title="1.5 算法通用流程"></a>1.5 算法通用流程</h3><p>$\qquad$各个页面置换算法中，大部分流程是一致的，只是在选择要替换的页面的时候选择的算法不一样，下面是这些算法的通用流程，而每个算法选择替换页号的时候将在后面仔细解释。</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-131355.jpg" width="600"></div>
+
+<p>其描述为：</p>
+<ul>
+<li>在访问序列中取出下一个要访问的页号，序列为空的话结束。</li>
+<li>查看分配的内存内存块中是否还有剩余空间，有的话进行第三步；没有进行第四步</li>
+<li>查看要访问的页号在以装入内存中是否存在，存在的话直接去下一个要访问的页号，从第一步开始执行；不存在则将新的物理块装入内存</li>
+<li>查看要访问的页号在以装入内存中是否存在，存在的话直接去下一个要访问的页号，从第二部开始执行；不存在则利用算法找到要替换的内存块号，并将其替换，返回第一步</li>
+</ul>
+<h2 id="二-最佳置换算法"><a href="#二-最佳置换算法" class="headerlink" title="二 最佳置换算法"></a>二 最佳置换算法</h2><blockquote>
+<p>实验源码请参照github中Optimal.h</p>
+</blockquote>
+<ol>
+<li>算法描述</li>
+</ol>
+<p>$\qquad$最佳置换算法是一个理想的算法，其选择淘汰的页面是以后用不使用的，或者在将来最长时间用不使用的页面。采用最佳置换算法通常可以保证最低的缺页率。</p>
+<ol>
+<li><p>算法模拟</p>
+<p> | 访问页面 | 4    | 4    | 3    | 5    | 6    | 3    | 6    | 7    | 9    | 7    | 10   | 9    | 11   | 12   |<br> | ———— | —— | —— | —— | —— | —— | —— | —— | —— | —— | —— | —— | —— | —— | —— |<br> | 内存块1  | 4    | 4    | 4    | 4    | 4    | 4    | 4    | 4    | 9    | 9    | 9    | 9    | 9    | 9    |<br> | 内存块2  |      |      | 3    | 3    | 3    | 3    | 3    | 3    | 3    | 3    | 10   | 10   | 11   | 11   |<br> | 内存块3  |      |      |      | 5    | 5    | 5    | 5    | 5    | 5    | 5    | 5    | 5    | 5    | 12   |<br> | 内存块4  |      |      |      |      | 6    | 6    | 6    | 6    | 6    | 6    | 6    | 6    | 6    | 6    |<br> | 内存块5  |      |      |      |      |      |      |      | 7    | 7    | 7    | 7    | 7    | 7    | 7    |</p>
+<p> 上面是算法执行过程中页面的替换过程</p>
+</li>
+<li><p>算法实现</p>
+<p> $\qquad$在概要设计中给出了各个算法的通用算法流程，但是各个算法在选择替换的内存块号的时候是不一致的。下面的是最佳置换算法中的实现。</p>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (flag == <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//min表示最小优先级的那个内存块号</span></span><br><span class="line">    <span class="keyword">int</span> min_pri=<span class="number">0xffffff</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> m=<span class="number">0</span>;m&lt;s1.work_len;m++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> n = SearchVisitSqe(s1.VisitSeq,i<span class="number">-1</span>,s1.WorkSpace[m].seq,<span class="number">0</span>,s1.length-s1.work_len+m);</span><br><span class="line">        s1.WorkSpace[m].priority = n;</span><br><span class="line">        <span class="keyword">if</span> (n &lt; min_pri)</span><br><span class="line">        &#123;</span><br><span class="line">            s1.change = m;</span><br><span class="line">            min_pri = n;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//表示发生替换变化的块号s1.change</span></span><br><span class="line">    s1.WorkSpace[s1.change].seq = pointer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> $\qquad$在这个代码片段中可以看到，通过<code>SearchVisitSeq</code>函数找到当前内存块中的页号下一次在访问序列中出现的距离，并将该距离最为优先级的值更新给每个内存块。最后判断哪个优先级小，说明那个物理块将来出现的时间越长，将替换它。</p>
+</li>
+<li><p>在主函数中调用最佳置换算法函数，会得到如下结果：</p>
+</li>
+</ol>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-132453.jpg" width="600"></div>
+
+<blockquote>
+<p>带有@符号的表示这是新替换的页面，带有@的一行说明发生了缺页</p>
+</blockquote>
+<ol>
+<li>算法性能评价</li>
+</ol>
+<p>$\qquad$程序设计中给出了两个评价算法性能的指标，分别是缺页率，下面将会给出在不同的虚拟内存和工作集的情况下两个指标的变化情况。</p>
+<p>$\qquad$由于时间开销在算法中无法模拟，只能通过了理论的分析得到。下面只给出缺页率与工作集大小和虚拟内训大小之间的关系。</p>
+<p>​    工作集大小与缺页率之间的关系：</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-134926.jpg" width="400"></div>
+
+<p>$\qquad$对应的曲线为：</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-135121.jpg" width="400"></div> 
+
+<p>$\qquad$对于这个曲线做出的解释如下：</p>
+<ul>
+<li>当工作集比较小的时候，频繁的发生缺页导致缺页率高</li>
+<li>当工作集增大时，由于内存块数增多，减少页面的发生，缺页率减少。</li>
+<li>当工作集再继续增大的时候，前面物理块空闲的时候页面装入也算做缺页，所以缺页率再次上升</li>
+<li>当工作集大小达到一定程度的时候，缺页率会一直减小</li>
+</ul>
+<p>当工作集不变的时候，更改虚拟内存的时候分析缺页率的变化：</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-143913.jpg" width="400"></div>
+
+<p>其对应的曲线图为：</p>
+<div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-141851.jpg" width="400"></div>
+
+<h2 id="三-先入先出置换算法"><a href="#三-先入先出置换算法" class="headerlink" title="三  先入先出置换算法"></a>三  先入先出置换算法</h2><blockquote>
+<p>实验源码请参考github中的FIFO.h</p>
+</blockquote>
+<ol>
+<li><p>算法描述</p>
+<p> 是最简单的页面置换算法。这种算法的基本思想是：当需要淘汰一个页面时，总是选择驻留主存时间最长的页面进行淘汰，即先进入主存的页面先淘汰。其理由是：最早调入主存的页面不再被使用的可能性最大。 </p>
+</li>
+<li><p>算法模拟</p>
+<p> | 访问页面 | 4    | 4    | 3    | 5    | 6    | 3    | 6    | 7    | 9    | 7    | 10   | 9    | 11   | 12   |<br> | ———— | —— | —— | —— | —— | —— | —— | —— | —— | —— | —— | —— | —— | —— | —— |<br> | 内存块1  | 4    | 4    | 4    | 4    | 4    | 4    | 4    | 4    | 9    | 9    | 9    | 9    | 9    | 9    |<br> | 内存块2  |      |      | 3    | 3    | 3    | 3    | 3    | 3    | 3    | 3    | 3    | 3    | 11   | 11   |<br> | 内存块3  |      |      |      | 5    | 5    | 5    | 5    | 5    | 5    | 5    | 10   | 10   | 10   | 10   |<br> | 内存块4  |      |      |      |      | 6    | 6    | 6    | 6    | 6    | 6    | 6    | 6    | 6    | 12   |<br> | 内存块5  |      |      |      |      |      |      |      | 7    | 7    | 7    | 7    | 7    | 7    | 7    |</p>
+</li>
+<li><p>算法实现</p>
+<p> 在概要设计中给出了各个算法的通用算法流程，但是各个算法在选择替换的内存块号的时候是不一致的。下面的是先入先出置换算法中的实现。</p>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (flag == <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//min表示最小优先级的那个内存块号</span></span><br><span class="line">    <span class="keyword">int</span> min_pri=<span class="number">0xffffff</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> m=<span class="number">0</span>;m&lt;s1.work_len;m++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//和其他算法的区别只有优先级排序计算的方式不同</span></span><br><span class="line">        <span class="keyword">int</span> n = s1.WorkSpace[m].priority;</span><br><span class="line">        <span class="keyword">if</span> (n &lt; min_pri)</span><br><span class="line">        &#123;</span><br><span class="line">            s1.change = m;</span><br><span class="line">            min_pri = n;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//表示发生替换变化的块号s1.change</span></span><br><span class="line">    s1.WorkSpace[s1.change].seq = pointer;</span><br><span class="line">    <span class="comment">//设置新换入的页面优先级为work_len</span></span><br><span class="line">    s1.WorkSpace[s1.change].priority = s1.e;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> $\qquad$在先入先出置换算法中每次新置换一个内存块将其优先级设置为工作区大小，之后每次运行一次，工作区中的所有内存块的优先级都减一，替换的时候找到优先级最小的替换就行了。</p>
+</li>
+<li><p>运行结果</p>
+ <div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-142312.jpg" width="600"></div>
+
+</li>
+</ol>
+<h2 id="四-最久未使用置换算法"><a href="#四-最久未使用置换算法" class="headerlink" title="四 最久未使用置换算法"></a>四 最久未使用置换算法</h2><blockquote>
+<p>实验源码请参考github中的LRU.h文件</p>
+</blockquote>
+<ol>
+<li><p>算法描述</p>
+<p> 这种算法的基本思想是：利用局部性原理，根据一个作业在执行过程中过去的页面访问历史来推测未来的行为。它认为过去一段时间里不曾被访问过的页面，在最近的将来可能也不会再被访问。所以，这种算法的实质是：当需要淘汰一个页面时，总是选择在最近一段时间内最久不用的页面予以淘汰。</p>
+</li>
+<li><p>算法模拟</p>
+<p> | 访问页面 | 4    | 4    | 3    | 5    | 6    | 3    | 6    | 7    | 9    | 7    | 10   | 9    | 11   | 12   |<br> | ———— | —— | —— | —— | —— | —— | —— | —— | —— | —— | —— | —— | —— | —— | —— |<br> | 内存块1  | 4    | 4    | 4    | 4    | 5    | 4    | 4    | 4    | 9    | 9    | 9    | 9    | 9    | 9    |<br> | 内存块2  |      |      | 3    | 3    | 3    | 3    | 3    | 3    | 3    | 3    | 3    | 3    | 11   | 11   |<br> | 内存块3  |      |      |      | 5    | 5    | 5    | 5    | 5    | 5    | 5    | 10   | 10   | 10   | 10   |<br> | 内存块4  |      |      |      |      | 6    | 6    | 6    | 6    | 6    | 6    | 6    | 6    | 6    | 12   |<br> | 内存块5  |      |      |      |      |      |      |      | 7    | 7    | 7    | 7    | 7    | 7    | 7    |</p>
+</li>
+<li><p>算法实现</p>
+<p> 在概要设计中给出了各个算法的通用算法流程，但是各个算法在选择替换的内存块号的时候是不一致的。下面的是最久未使用置换算法中的实现。</p>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (flag == <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//min表示最小优先级的那个内存块号</span></span><br><span class="line">    <span class="keyword">int</span> min_pri=<span class="number">-10000</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> m=<span class="number">0</span>;m&lt;s1.work_len;m++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> n = SearchVisitSqe(s1.VisitSeq,i,s1.WorkSpace[m].seq,<span class="number">1</span>,i);</span><br><span class="line">        s1.WorkSpace[m].priority = n;</span><br><span class="line">        <span class="keyword">if</span> (n &gt; min_pri)</span><br><span class="line">        &#123;</span><br><span class="line">            s1.change = m;</span><br><span class="line">            min_pri = n;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//表示发生替换变化的块号s1.change</span></span><br><span class="line">    s1.WorkSpace[s1.change].seq = pointer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> $\qquad$在LRU算法中，使用函数<code>SearchVisitSeq</code>向访问序列中已经访问过的序列反向查找与当前页号相同的页号的距离，并将其最为优先级赋值给内存块，每次替换前更新所有的内存块的优先级；替换的时候找到优先级最大的进行替换。</p>
+</li>
+<li><p>运行结果</p>
+ <div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-144704.jpg" width="600"></div>
+
+</li>
+</ol>
+<h2 id="五-改进的Clock置换算法"><a href="#五-改进的Clock置换算法" class="headerlink" title="五 改进的Clock置换算法"></a>五 改进的Clock置换算法</h2><ol>
+<li><p>算法描述</p>
+<p> $\qquad$LRU算法的性能接近于OPT,但是实现起来比较困难，且开销大；FIFO算法实现简单，但性能差。所以操作系统的设计者尝试了很多算法，试图用比较小的开销接近LRU的性能，这类算法都是CLOCK算法的变体。</p>
+<p> $\qquad$简单的CLOCK算法是给每一帧关联一个附加位，称为使用位。当某一页首次装入主存时，该帧的使用位设置为1;当该页随后再被访问到时，它的使用位也被置为1。对于页替换算法，用于替换的候选帧集合看做一个循环缓冲区，并且有一个指针与之相关联。当某一页被替换时，该指针被设置成指向缓冲区中的下一帧。当需要替换一页时，操作系统扫描缓冲区，以查找使用位被置为0的一帧。每当遇到一个使用位为1的帧时，操作系统就将该位重新置为0；如果在这个过程开始时，缓冲区中所有帧的使用位均为0，则选择遇到的第一个帧替换；如果所有帧的使用位均为1,则指针在缓冲区中完整地循环一周，把所有使用位都置为0，并且停留在最初的位置上，替换该帧中的页。由于该算法循环地检查各页面的情况，故称为CLOCK算法，又称为最近未用(Not Recently Used, NRU)算法。</p>
+<p> $\qquad$CLOCK算法的性能比较接近LRU，而通过增加使用的位数目，可以使得CLOCK算法更加高效。在使用位的基础上再增加一个修改位，则得到改进型的CLOCK置换算法。这样，每一帧都处于以下四种情况之一：</p>
+<ul>
+<li><p>最近未被访问，也未被修改(u=0, m=0)</p>
+</li>
+<li><p>最近被访问，但未被修改(u=1, m=0)</p>
+</li>
+<li><p>最近未被访问，但被修改(u=0, m=1)</p>
+</li>
+<li><p>最近被访问，被修改(u=1, m=1)</p>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>算法执行如下操作步骤：
+
++ 从指针的当前位置开始，扫描帧缓冲区。在这次扫描过程中，对使用位不做任何修改。选择遇到的第一个帧(u=0, m=0)用于替换。
+
++ 如果第1)步失败，则重新扫描，查找(u=0, m=1)的帧。选择遇到的第一个这样的帧用于替换。在这个扫描过程中，对每个跳过的帧，把它的使用位设置成0。
+
++ 如果第2)步失败，指针将回到它的最初位置，并且集合中所有帧的使用位均为0。重复第1步，并且如果有必要，重复第2步。这样将可以找到供替换的帧。
+</code></pre><ol>
+<li><p>算法模拟</p>
+<p> | 访问页面 | 4    | 4    | 3    | 5    | 6    | 3    | 6    | 7    | 9    | 7    | 10   | 9    | 11   | 12   |<br> | ———— | —— | —— | —— | —— | —— | —— | —— | —— | —— | —— | —— | —— | —— | —— |<br> | 内存块1  | 4    | 4    | 4    | 4    | 4    | 4    | 4    | 4    | 4    | 4    | 10   | 10   | 10   | 12   |<br> | 内存块2  |      |      | 3    | 3    | 3    | 3    | 3    | 3    | 3    | 3    | 3    | 3    | 11   | 11   |<br> | 内存块3  |      |      |      | 5    | 5    | 5    | 5    | 5    | 9    | 9    | 9    | 9    | 9    | 9    |<br> | 内存块4  |      |      |      |      | 6    | 6    | 6    | 6    | 6    | 6    | 6    | 6    | 6    | 6    |<br> | 内存块5  |      |      |      |      |      |      |      | 7    | 7    | 7    | 7    | 7    | 7    | 7    |</p>
+</li>
+<li><p>算法实现</p>
+<p> 改进的Clock算法比前几个算法来讲比较复杂，下面是其核心的实现过程，</p>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (flag == <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//表示内存块中没有出现过</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> t=<span class="number">0</span>;t&lt;<span class="number">2</span>;t++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> m=<span class="number">0</span>;m&lt;s1.work_len;m++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (s1.WorkSpace[m].Used ==<span class="string">'N'</span> &amp;&amp; s1.WorkSpace[m].Modified ==<span class="string">'N'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                s1.change =m;</span><br><span class="line">                flag =<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (flag == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> m=<span class="number">0</span>;m&lt;s1.work_len;m++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(s1.WorkSpace[m].Used ==<span class="string">'N'</span> &amp;&amp; s1.WorkSpace[m].Modified ==<span class="string">'Y'</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    s1.change = m;</span><br><span class="line">                    flag = <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                s1.WorkSpace[m].Used = <span class="string">'N'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag!=<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    s1.WorkSpace[s1.change].seq = pointer;</span><br><span class="line">    s1.WorkSpace[s1.change].Used = <span class="string">'Y'</span>;</span><br><span class="line">    s1.WorkSpace[s1.change].Modified = <span class="string">'N'</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 通过下面的流程图来解释该算法在选择替换物理块的时候的流程。</p>
+ <div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-154625.jpg" width="600"></div>
+
+<p> 算法描述：</p>
+<ul>
+<li>首先查找有没有(0，0)类型的页面，有的话替换该页面，没有的话进行第二步</li>
+<li>查找有没有(0，1)类型的页面，有的话替换该页面，没有的话进行第三步</li>
+<li>如果第一步第二步都没有找到的话就将所有页面的使用位都置为0然后重复第一步</li>
+</ul>
+</li>
+<li><p>运行结果</p>
+ <div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-145440.jpg" width="600"></div>
+
+</li>
+</ol>
+<blockquote>
+<p>运行结果中的的第一个’Y/N’表示使用位,第二个’Y/N’表示修改位，@表示是新置换的页面</p>
+</blockquote>
+<h2 id="六-页面缓冲算法PBA"><a href="#六-页面缓冲算法PBA" class="headerlink" title="六 页面缓冲算法PBA"></a>六 页面缓冲算法PBA</h2><blockquote>
+<p>实验源码请参考github中的PBA.h</p>
+</blockquote>
+<ol>
+<li><p>算法描述</p>
+<p> $\qquad$严格意义上说PBA算法是一种页面缓冲算法，意义在于提高算法性能，减少从磁盘读取物理块到内存中的时间，提高算法的效率。而真正的页面置换算法采用的是前面所述的几种页面置换算法。本实验中采用的是FIFO置换算法。</p>
+<p> $\qquad$在PBA算法中使用了两个队列，分别是使用空闲页面队列和修改页面队列。采用可变分配和基于先进先出的局部置换策略，并规定被淘汰页先不做物理移动，而是依据是否修改分别挂到空闲页面链表或已修改页面链表的末尾</p>
+<p> $\qquad$空闲页面链表同时用于物理块分配。当已修改页面链表达到一定长度如Z个页面时，一起将所有已修改页面写回磁盘，故可显著减少磁盘I/O操作次数</p>
+</li>
+<li><p>算法模拟</p>
+ <div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-160411.jpg" width="600"></div>
+</li>
+<li><p>算法实现</p>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (flag == <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//min表示最小优先级的那个内存块号</span></span><br><span class="line">    <span class="keyword">int</span> min_pri=<span class="number">0xffffff</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> m=<span class="number">0</span>;m&lt;s1.work_len;m++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//和其他算法的区别只有优先级排序计算的方式不同</span></span><br><span class="line">        <span class="keyword">int</span> n = s1.WorkSpace[m].priority;</span><br><span class="line">        <span class="keyword">if</span> (n &lt; min_pri)</span><br><span class="line">        &#123;</span><br><span class="line">            s1.change = m;</span><br><span class="line">            min_pri = n;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//表示发生替换变化的块号s1.change</span></span><br><span class="line">    s1.WorkSpace[s1.change].seq = pointer;</span><br><span class="line">    <span class="comment">//设置新换入的页面优先级为work_len</span></span><br><span class="line">    s1.WorkSpace[s1.change].priority = s1.e;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> $\qquad$PBA 算法在页面置换的时候算法实现和FIFO一致。这里不再赘述</p>
+</li>
+<li><p>运行结果</p>
+ <div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-160610.jpg" width="600"></div>
+
+
+</li>
+</ol>
+
         
       
     </div>
@@ -1554,16 +2135,348 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="操作系统Pintos-实验一-Thread-全解"><a href="#操作系统Pintos-实验一-Thread-全解" class="headerlink" title="操作系统Pintos 实验一 Thread 全解"></a>操作系统Pintos 实验一 Thread 全解</h1>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/04/02/thread/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
+          <h1 id="操作系统Pintos-实验一-Thread-全解"><a href="#操作系统Pintos-实验一-Thread-全解" class="headerlink" title="操作系统Pintos 实验一 Thread 全解"></a>操作系统Pintos 实验一 Thread 全解</h1><p>孙汉武    2019.04.02</p>
+<hr>
+<h3 id="内容简介"><a href="#内容简介" class="headerlink" title="内容简介"></a>内容简介</h3><p>操作系统课程的必修内容是实现斯坦福大学开发的pintos操作系统。通过对pintos的开发与运行，实现对操作系统各个部分的理解与深入。</p>
+<p>本实验一律采用Ubuntu 16.04 Server版作为运行环境。</p>
+<p>本教程旨在记录使用pintos实验一的全过程，涉及到安装、调试、开发等等方面，将持续进行更新，希望大家多多支持。</p>
+<h3 id="组员"><a href="#组员" class="headerlink" title="组员"></a>组员</h3><ul>
+<li>刘    欢    16281044    计科1601</li>
+<li>孙汉武    16281047    安全1601</li>
+<li>杨涵晨    16281052    计科1601</li>
+<li>王晗炜    16281049    计科1601</li>
+<li>邢飞龙    16281050    计科1601</li>
+<li>谭天云    16281048    计科1601</li>
+</ul>
+<h3 id="Pintos的安装与简介"><a href="#Pintos的安装与简介" class="headerlink" title="Pintos的安装与简介"></a>Pintos的安装与简介</h3><blockquote>
+<p>安装准备：git，bochs，git和bochs的详细安装教程请自行google。</p>
+<p><code>sudo apt-get install git</code></p>
+<p>提醒bochs使用<code>make</code>命令前，请使用 <code>./configure --enable-gdb-stub --with-nogui</code>命令安装命令行版的bochs工具。</p>
+</blockquote>
+<p>pintos的源代码下载安装：</p>
+<ol>
+<li><p>pintos源码下载：<code>git clone http://cs140.stanford.edu/pintos.git</code></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1g1o30dzekbj30ov01tmxj.jpg" alt></p>
+</li>
+<li><p>当前目录将出现<code>pintos</code>文件夹</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1g1o31g08wej30f6013q33.jpg" alt></p>
+</li>
+<li><p>源码下载完毕后，目录结构(<code>pintos/src</code>)如下图所示</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1g1o33qub3ej30cg0avwfd.jpg" alt></p>
+</li>
+</ol>
+<blockquote>
+<p>文件夹功能说明：</p>
+<ol>
+<li>threads:为基核准备的源代码，在实验一中我们会进行修改。</li>
+<li>userprog:为装载用户程序的源代码，在实验二我们会进行修改。</li>
+<li>vm:基本上空的目录，在实验三我们实现虚拟内存。</li>
+<li>filesys:基本文件系统的源代码，从实验二开始使用，实验四开始修改。</li>
+<li>devices:键盘、定时器、硬盘等等IO设备的接口源代码，在实验一中我们会修改定时器。其他情况我们不会进行修改。</li>
+<li>lib:标准C库的子集实现。这个目录中的代码被编译到内核中，并且从实验二开始，用户程序也会在其下运行。在内核代码和用户程序中，我们可以使用<code>#include&lt;...&gt;</code>的方式引用这个目录中的<code>header</code>文件。我们基本上不用修改本目录中的源代码。</li>
+<li>lib/kernal:这个目录中的代码仅被内核使用。还包含在内核代码中可以自由使用的一些数据类型的实现：位图、双向链表和哈希表。在内核代码中，我们可以使用<code>#include&lt;...&gt;</code>的方式引用这个目录中的<code>header</code>文件。</li>
+<li>lib/user:这个目录中的代码仅被用户程序使用。在用户程序中，我们可以使用<code>#include&lt;...&gt;</code>的方式引用这个目录中的<code>header</code>文件。</li>
+<li>test:每个项目的测试。如果它可以帮助您测试提交用例，可以自行修改。</li>
+<li>examples:从实验二开始使用的示例用户程序。</li>
+<li>misc &amp; utils:如果尝试在自己的计算机上运行Pintos才会用到这些文件。<strong>请在当前用户目录下的<code>.zshrc</code>或<code>.bashrc</code>文件中添加<code>utils</code>文件夹的环境变量。</strong></li>
+</ol>
+</blockquote>
+<ol>
+<li><p>编译Pintos，进入到threads目录，使用<code>make</code>命令</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1g1o4r82f27j30jr01at95.jpg" alt></p>
+<p>此时目录中将会出现一个<code>build</code>文件夹，里面包含了<code>Makefile</code>和一些子目录，随后在其中构建内核。在此我们分析一下<code>build</code>文件夹中的内容。</p>
+</li>
+</ol>
+<blockquote>
+<p><code>build</code>文件夹内容分析：</p>
+<ol>
+<li>Makefile：pintos/src/Makefile.build的复制。它描述了如何构建内核。</li>
+<li>kernel.o:整个内核的对象文件。这是将各个单独内核源文件编译目标文件链接到单个目标文件的结果。</li>
+<li>kernel.bin:内核的内存映像，即加载到内存中运行Pintos内核的二进制文件。是被剥离调试信息的kernel.o，这节省了大量空间，使得内核不会被内核加载器512KB容量所限制。</li>
+<li>loader.bin:内核加载器的内存映像，使用汇编语言编写的小块代码，用于将内核从磁盘读出内存并启动它。它刚好是512字节长度，大小被PC BIOS所固定。</li>
+<li>构建的文件夹中同样包含子文件夹，子文件夹中的内容由<code>.o</code>与<code>.d</code>文件组成，分别对应编译器生成的目标文件与依赖项文件。依赖项告诉make在更改其他源文件或头文件时，需要重新编译哪些源文件。</li>
+</ol>
+</blockquote>
+<ol>
+<li><p>运行pintos，使用命令<code>pintos -v -- run alarm-multiple</code>测试pintos样例</p>
+<blockquote>
+<p>参数详解：</p>
+<p>​    -v 关闭VGA显示</p>
+<p>​    -- 参数引导头</p>
+<p>​    run 调用运行命令</p>
+<p>​    alarm-multiple 内置测试样例    </p>
+</blockquote>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1oh5hjlvyj30ra08pdkj.jpg" alt></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1g1oh8fev3tj30tc07zgqn.jpg" alt></p>
+<p>中途无报错即为安装成功。最后使用<code>Control + c</code>退出程序。</p>
+<blockquote>
+<p>特别提醒，安装过程中非常容易出现各种各样的库缺失的报错现象，请大家按照报错提示，自行google处理。我遇到的问题是一个叫做<code>warning: can&#39;t find squish-pty, so terminal input will fail</code>的问题。解决方案是在<code>pintos/src/utils</code>目录中执行<code>make</code>命令后，使用<code>sudo ln squish-pty /usr/local/bin/</code>解决。</p>
+</blockquote>
+<p>在安装成功pintos系统并通过基本的测试用例后，我们可以开始正式的实验了，接下来我将通过分模块的方式，依次记录各个实验的详细的步骤。如果你在安装过程中遇到了问题，并无法通过google解决，欢迎在文章下方留言，我会尽快回复。</p>
+</li>
+</ol>
+<h3 id="Mission-1-ALARM-CLOCK"><a href="#Mission-1-ALARM-CLOCK" class="headerlink" title="Mission 1    ALARM CLOCK"></a>Mission 1    ALARM CLOCK</h3><h4 id="实验说明"><a href="#实验说明" class="headerlink" title="实验说明"></a>实验说明</h4><p>重新实现<code>timer_sleep()</code>，在<code>devices / timer.c</code>中定义。虽然当前代码提供了一个工作实现，但是它的实现方式我们称为“忙等待”，即它在循环中检查当前时间是否已经过去<code>ticks</code>个时钟，并循环调用<code>thread_yield()</code>直到循环结束。<strong>重新实现它以避免繁忙的等待。</strong></p>
+<p>暂停执行调用<code>timer_sleep()</code>的线程，暂停<code>ticks</code>个时钟。除非系统处于空闲状态，线程不需要在<code>ticks</code>个刻度之后唤醒，而将它放在就绪队列中。 <code>timer_sleep()</code>对于实时操作的线程很有用，例如每秒闪烁一次光标。<code>timer_sleep()</code>的参数以<strong>计时器刻度</strong>表示，而不是以毫秒或任何其他单位表示。每秒有<code>TIMER_FREQ</code>计时器刻度，其中<code>TIMER_FREQ</code>是在<code>devices / timer.h</code>中定义的宏。默认值为100，不建议更改此值，因为任何更改都可能导致许多测试失败。</p>
+<p>在<code>timer.c</code>中，还存在<code>timer_msleep()</code>、<code>timer_usleep()</code>、<code>timer_nsleep()</code>函数，用于实现睡眠特定的毫秒、微秒和纳秒，但是它们会在必要时候调用<code>timer_sleep()</code>我们无需修改它们。</p>
+<h4 id="实验过程"><a href="#实验过程" class="headerlink" title="实验过程"></a>实验过程</h4><p>首先阅读源代码的<code>timer_sleep()</code>函数的实现原理：</p>
+<p><img src="https://i.loli.net/2019/05/06/5ccff5e403e02.png" alt></p>
+<p>当前执行进程调用<code>timer_sleep(ticks)</code>时，函数通过判断循环条件<strong>当前时间是否已经大于或等于了ticks个计数器刻度</strong>，如果条件不满足，则会调用<code>thread_yield()</code>函数，将当前进程直接加入到<strong>就绪队列</strong>，并调用进程切换的相关函数将CPU让给在就绪队列中的进程(如果就绪队列中有的话)。</p>
+<p>可以发现，调用<code>timer_sleep()</code>的进程，在<strong>CPU就绪队列</strong>及<strong>CPU运行队列</strong>间来回切换，即尽管没有到<code>ticks</code>个计数器刻度，但CPU仍会通过激活改进程，以通过循环的方式来判断是否进程还需要再次执行<code>thread_yield()</code>，这个过程中，浪费了进程反复切换之间需要的CPU时间。</p>
+<p>深入思考这个问题产生的原因，是尽管进程阻塞要求时间未到，但在该进程<strong>未被重新调度完成前</strong>，操作系统本身不知道到底进程被阻塞了多少计数器刻度。而解决这个问题的合理方式，我们也自然可以想到，在操作系统中描述进程的是<code>struct thread</code>，只要我们在这个<strong>进程PCB中记录了当前阻塞的时间和总共要被阻塞的时间或还要被阻塞多长时间</strong>，我们就可以在不切换进程前确认进程是否应该被加入就绪队列。</p>
+<p>修改后的<code>timer_sleep()</code>函数如下：</p>
+<p> <img src="https://i.loli.net/2019/05/06/5cd0050ba748e.png" alt></p>
+<p>我们在函数中，将要sleep的时间<code>ticks</code>传入到进程PCB中的<code>ticks_blocked</code>用于记录当前PCB指示的进程还需要阻塞多长时间。通过<code>thread_block()</code>函数，设置进程的阻塞状态，并调用进程切换。</p>
+<p>既然引入了<code>ticks_block</code>这个变量，我们需要在结构体<code>struct thread</code>中加入对其的声明，并在进程创建函数<code>thread_creade()</code>加入对<code>ticks_block</code>赋初值0的操作。随后我们要做的就是在每个时钟中断时检查，哪些进程使block状态并且休眠时间还有剩余。值得注意的是，这里必须要求<strong>同时满足两个条件</strong>，因为操作系统中存在进程因为等待锁而阻塞的状态，这些进程并非因为主动调用<code>timer_sleep()</code>函数而阻塞。</p>
+<p>所以接下来的工作就变成了，在系统时钟中断处理函数中加入进程检查函数，对因为<code>timer_sleep()</code>而阻塞的进程，执行阻塞时间自减或加入CPU就绪队列操作。首先寻找CPU时钟中断处理函数，在<code>timer.c</code>文件中：</p>
+<p><img src="https://i.loli.net/2019/05/06/5cd026bf4116d.png" alt></p>
+<p>首先，通过<code>pit_configure_channel (0, 2, TIMER_FREQ)</code>函数，向8254定时器设置了每秒执行<code>TIMER_FREQ</code>计时器刻度次的周期定时，使用的通道是<strong>0通道</strong>，计数方式是<strong>mode2</strong>即周期性脉冲。根据硬件编程，实现了计数器0向8259A芯片0号管脚发送中断请求的操作。由于CPU将0-15号中断向量占用，所以通过<code>pic_init()</code>函数，将中断0-15传送到32-47，具体的代码及注释如下。它在Boot引导完毕前执行完毕。</p>
+<p><img src="https://i.loli.net/2019/05/06/5cd02e312ffee.png" alt></p>
+<p>随后，通过<code>intr_register_ext (0x20, timer_interrupt, &quot;8254 Timer&quot;)</code>函数，我们向32中断向量注册了<code>timer_interrupt()</code>函数，这个函数就是每秒执行<code>TIMER_FREQ</code>次的时钟中断处理函数。即我们需要在这个函数中实现我们之前设计的逻辑。原函数如下图所示：</p>
+<p><img src="https://i.loli.net/2019/05/06/5cd0301bba810.png" alt></p>
+<p>实现的功能一是CPU时钟计数自加。二是用户进程时间片用完后，当出现外部中断时，中断服务程序处理完毕后，阻塞进程执行(调用<code>thread_yield()</code>函数)。详细代码在<code>interrupt.c</code>的<code>intr_handler()</code>函数中。</p>
+<p><img src="https://i.loli.net/2019/05/06/5cd035cd83202.png" alt></p>
+<p>我们在时钟中断处理函数中，加入一行即可，实现对每个进程都调用<code>blocked_thread_check</code>函数：</p>
+<p><img src="https://i.loli.net/2019/05/06/5cd0360f80917.png" alt></p>
+<p>最后再实现<code>blocked_thread_check</code>函数，实现具体对传入进程的上述逻辑功能。</p>
+<p><img src="https://i.loli.net/2019/05/06/5cd0370e3ca35.png" alt></p>
+<p>当当前待检进程为阻塞状态并且阻塞时间剩余大于0个计时器刻度时执行，剩余刻度自减。若减为0，调用<code>thread_unblock</code>函数将当前进程加入到就绪队列。</p>
+<h4 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h4><p>我们到<code>/src/thread</code>目录下执行<code>make check</code>，可以进行测试。</p>
+<p>至此，MISSION_1    ALARM CLOCK编写完毕，执行测试有如下结果：</p>
+<p><img src="https://i.loli.net/2019/05/06/5cd03a9de326b.png" alt></p>
+<h3 id="Mission-2-PRIORITY-SCHEDULING"><a href="#Mission-2-PRIORITY-SCHEDULING" class="headerlink" title="Mission 2    PRIORITY SCHEDULING"></a>Mission 2    PRIORITY SCHEDULING</h3><h4 id="实验说明及过程"><a href="#实验说明及过程" class="headerlink" title="实验说明及过程"></a>实验说明及过程</h4><p>本实验主要涉及的是进程的优先级调度问题，这里我们先找到线程结构的定义<code>struct thread</code>:</p>
+<p><img src="https://anjinggufa.oss-cn-beijing.aliyuncs.com/20190508214307.png" alt></p>
+<p>我们可以看到这里已经定义了线程优先级的数据成员：<code>priority</code>，这是进行优先级调度的基础，那么我们现在可以思考如何实现这一机制。</p>
+<p>pintos中给出的调度函数<code>schedule()</code>中使用了<code>next_thread_to_run()</code>函数获取下一个需要调度执行的进程，当就绪队列中还存在进程则返回队列的首元素，而这个队列是怎么维护的呢？我们通过查找<code>thread.c</code>源程序中的与<code>ready_list</code>相关的函数我们可以发现有以下三个函数来向队列中添加成员：</p>
+<ul>
+<li><code>init_thread()</code></li>
+<li><code>thread_unblock()</code></li>
+<li><code>thread_yield()</code></li>
+</ul>
+<p>它们都调用了函数<code>list_push_back</code>来增加队列中的成员，在<code>list.c</code>中我们可以找到此函数的具体实现：直接在队列的队尾插入。</p>
+<p><img src="https://anjinggufa.oss-cn-beijing.aliyuncs.com/20190508214443.png" alt></p>
+<p>如此一番调研之后我们就完全搞清楚了pintos的原始调度机制：<strong>先来先服务</strong>。这与我们所需要的优先级调度还存在较大差别，而在此基础上我们其实不难想出改进的方法：原始的线程结构体中已经给出了整数类型的优先级大小成员，我们只要能够通过比较各个线程的优先级大小维护一个优先级<strong>从大到小的优先级队列</strong>就能完成此种调度。</p>
+<p>至此我们又有了两种思路：</p>
+<ul>
+<li>每次调度之前对就绪队列根据优先级大小进行一次排序</li>
+<li>每次插入成员之时按照优先级大小进行插入</li>
+</ul>
+<p>很容易看出这两种方式都能达到目的，但后一种方式的效率要远远高于第一种方式。因此我们便开始着手实现第二种方式，而当我们继续浏览<code>list.c</code>文件时可以发现其中已经存在<code>list_sort</code>和<code>list_insert_ordered</code>函数，其功能分别为将列表排序和按序插入列表，我们在此自然选择使用其后一个插入函数，根据其传入的参数可知我们只需要重新实现一个比较函数（<code>list_less_func *less</code>）就可调用此函数完成优先级队列的维护。</p>
+<p><img src="https://anjinggufa.oss-cn-beijing.aliyuncs.com/20190508220621.png" alt></p>
+<p>下面给出优先级比较函数，根据传入的成员优先级大小返回一个布尔值。</p>
+<p><img src="https://anjinggufa.oss-cn-beijing.aliyuncs.com/20190508220817.png" alt></p>
+<p>至此我们初步完成了优先级队列的维护，这也是实现优先级调度的第一步。</p>
+<p>继续阅读pintos官方文档种的优先级调度要求，我们可以看见如下一段话：</p>
+<blockquote>
+<p>Implement priority scheduling in Pintos. When a thread is added to the ready list that has a higher priority than the currently running thread, the current thread should immediately yield the processor to the new thread. Similarly, when threads are waiting for a lock, semaphore, or condition variable, the highest priority waiting thread should be awakened first. A thread may raise or lower its own priority at any time, but lowering its priority such that it no longer has the highest priority must cause it to immediately yield the CPU.</p>
+</blockquote>
+<p>这段话中提到当就绪队列中存在一个优先级比当前线程优先级更高的线程时，系统要立刻进行调度，先执行优先级较高的线程，当优先级较高的线程存在的时候，优先级较低的线程一定会放弃CPU。</p>
+<p>根据此要求结合我们阅读过的<code>thread.c</code>中的源代码，我们可以发现系统当前并不会对优先级大小的变化做到<strong>即时敏感</strong>：当有新的线程创建或者已有的线程优先级发生改变时系统并不会马上进行分析并调度，其中当创建新线程时它只会维护就绪队列，而队列中或当前线程优先级发生变化之时并不会有其它操作随之产生。</p>
+<p>针对这一问题我们其实很快就能想出解决的方案：当任何与线程优先级改变相关的操作发生时，进行一个判断分析，若操作之后产生的新优先级高于当前线程的优先级，调用<code>thread_yield</code>函数进行线程调度并维护优先级队列，实现线程的<strong>抢占式调度</strong>。</p>
+<p>根据此思路我们从源码中找出与优先级变化相关的函数，经过查找分析我们可以看到只有以下两个函数符合条件：</p>
+<p><img src="https://anjinggufa.oss-cn-beijing.aliyuncs.com/20190508214629.png" alt></p>
+<p><img src="https://anjinggufa.oss-cn-beijing.aliyuncs.com/20190508214916.png" alt></p>
+<p>其中<code>init_thread</code>是初始化线程的函数，这属于我们分析的第一种情况：有新的线程产生，此时因为在函数的最后已经有对就绪队列维护的操作，因此我们只需判断其优先级大小是否高于当前线程，若高于则用<code>thread_yield</code>函数使当前线程放弃CPU。(因为函数在初始化时的状态为阻塞，需要在<code>thread_create</code>中调用unblock函数将其置于Ready状态，在这之后我们才能对其进行调度，因此此调度模块补充在<code>thread_create</code>函数中)</p>
+<p>而<code>thread_set_priority</code>函数的作用使改变当前线程的优先级，而当优先级发生改变时影响就绪队列的情况十分常见，此时我们只需直接调用<code>thread_yield</code>函数便可完成对就绪队列的维护和线程的优先级调度。</p>
+<p>下面给出修改之后这两个函数的代码：</p>
+<p><img src="https://anjinggufa.oss-cn-beijing.aliyuncs.com/20190508215018.png" alt></p>
+<p><img src="https://anjinggufa.oss-cn-beijing.aliyuncs.com/20190508215126.png" alt></p>
+<p>完成了抢占式调度的涉及，我们接着分析pintos官方文档中的<strong>mission 2</strong>的任务指示，主要在2.2.3节中。</p>
+<p>分析之后它主要提出了三个问题，我们先来看看这几个问题</p>
+<blockquote>
+<p>When threads are waiting for a lock, semaphore, or condition variable, the highest priority waiting thread should be awakened first. A thread may raise or lower its own priority at any time, but lowering its priority such that it no longer has the highest priority must cause it to immediately yield the CPU.</p>
+</blockquote>
+<p> 总结来说就是，<strong>在有锁或者信号量的时候，我们如何安排进程优先级？</strong></p>
+<p>在目前的pintos中 ，锁的申请机制较为简单，只涉及信号量的PV操作并设置锁的拥有线程，这里先给出<code>lock_acquire</code>的源码：</p>
+<p><img src="https://emrick.oss-cn-beijing.aliyuncs.com/img/20190508222049.png" alt></p>
+<p>对于其他申请该锁的线程，并未在相关线程中记录，只是在信号量中维持了一个等待队列。</p>
+<p><img src="https://emrick.oss-cn-beijing.aliyuncs.com/img/20190508222906.png" alt></p>
+<p>我们可以进一步探究这个队列的维护机制，查找与成员waiters相关的函数，我们可以发现只在信号量的PV操作中会对其进行操作，实现的机制和就绪队列一致：先来先服务。这无疑也不符合优先级调度的要求，我们需要在之后的实验中进行改进。</p>
+<p>我们接着阅读官方给出的实验指导书：</p>
+<blockquote>
+<p>One issue with priority scheduling is “priority inversion”. Consider high, medium, and low priority threads H, M, and L, respectively. If H needs to wait for L (for instance, for a lock held by L), and M is on the ready list, then H will never get the CPU because the low priority thread will not get any CPU time. A partial fix for this problem is for H to “donate” its priority to L while L is holding the lock, then recall the donation once L releases (and thus H acquires) the lock.</p>
+</blockquote>
+<p>这里涉及到的问题就是线程优先级的捐赠，我们通过以下案例分析对其进行说明：</p>
+<ol>
+<li>刚开始有一个进程P_low 占用了CPU，并且申请了一个lock锁。这时有一个 P_med 进程进入了就绪队列，优先级比较高的进程, 根据<code>thread_yield ()</code>，P_low会让出cpu给P_med</li>
+</ol>
+<p><img src="https://jackyanghc-picture.oss-cn-beijing.aliyuncs.com/20190507200607.png" alt></p>
+<ol>
+<li><p>P_med 占用cpu，P_low放入等待队列ready_list,其还保存着对应的lock占用</p>
+<p><img src="https://jackyanghc-picture.oss-cn-beijing.aliyuncs.com/20190507200450.png" alt></p>
+</li>
+<li><p>此时P_high就绪，根据优先级调度其开始对CPU占用，P_med和P_low按序回到就绪队列中</p>
+<p><img src="https://jackyanghc-picture.oss-cn-beijing.aliyuncs.com/20190507201630.png" alt></p>
+</li>
+</ol>
+<ol>
+<li>那么，现在就会造成死锁。死锁存在于<code>P_low-&gt;S_1-&gt;P_high</code>之间。</li>
+</ol>
+<p>至此我们可以得出结论：直接按照优先级调度的方式切换线程可能会造成死锁，结合就绪队列的调度机制会继续导致优先级处于二者之间的所有线程也被锁住。</p>
+<p>死锁无疑造成操作系统的崩溃，因此必须给出一个解决的方案来破解。略经思考我们发现最高效的解决方案就是先运行其中一个线程，但这个操作也不能违背线程调度的优先级和锁机制。根据以上要求我们开始引入优先级捐赠机制。</p>
+<p><img src="https://jackyanghc-picture.oss-cn-beijing.aliyuncs.com/20190508082122.png" alt></p>
+<p>根据实验指导书，优先级捐赠的机制如下：当发现高优先级的任务因为低优先级任务占用资源而阻塞时，就将低优先级任务的优先级提升到等待它所占有的资源的最高优先级任务的优先级。而当被捐赠线程释放该锁之后其优先级需要恢复至原始的优先级。</p>
+<p>继续阅读余下的指导书。</p>
+<blockquote>
+<p>You will need to account for all different situations in which priority donation is required. Be sure to handle multiple donations, in which multiple priorities are donated to a single thread. You must also handle nested donation: if H is waiting on a lock that M holds and M is waiting on a lock that L holds, then both M and L should be boosted to H’s priority.</p>
+</blockquote>
+<p>这简短的一段话又给我们抛出了两个在优先级捐赠中会出现的问题：</p>
+<ul>
+<li>如何实现多个线程对单个线程的优先级捐赠</li>
+<li>如何实现多个线程之间的递归优先级捐赠</li>
+</ul>
+<p>第一点的情况较为容易理解，我们在这里使用一个简单的案例介绍递归捐赠：</p>
+<p>P_Low正在占用锁Lock1,P_Med正在占用锁Lock2，P_Med正在申请Lock1，此时便会进行优先级的捐赠，P_Low的优先级变为Med，此时P_High开始申请Lock2,P_Med的优先级则会变为High，通过递归捐赠，P_Low的优先级也会变为High。</p>
+<p><img src="https://emrick.oss-cn-beijing.aliyuncs.com/img/20190509002540.png" alt></p>
+<p>以上两点其实并不属于当前调度过程中存在的问题，需要我们在实现优先级捐赠时注意。</p>
+<p>经过上面的问题分析，和对应的源代码分析，我们对这个任务余下的待实现需求做一个总结：</p>
+<ul>
+<li>优先级队列<ul>
+<li>维持一个ready_list 优先级排队队列</li>
+<li>将condition的waiters队列实现为优先级队列。</li>
+<li>将信号量的等待队列实现为优先级队列。</li>
+</ul>
+</li>
+<li>单锁实现<ul>
+<li>当发现高优先级的任务因为低优先级任务占用资源而阻塞时，就将低优先级任务的优先级提升到等待它所占有的资源的最高优先级任务的优先级。</li>
+<li>释放锁的时候若优先级改变则可以发生抢占。</li>
+</ul>
+</li>
+<li>多锁实现<ul>
+<li>如果一个线程被多个线程捐赠， 维持当前优先级为捐赠优先级中的最大值（acquire和release之时）</li>
+<li>lock 锁被释放的时候， 高进程应该收回优先级捐赠，并且停止unblock状态。</li>
+<li>在对一个线程进行优先级设置的时候， 如果这个线程处于被捐赠状态， 则对base_priority进行设置， 然后如果设置的优先级大于当前优先级， 则改变当前优先级， 否则在捐赠状态取消的时候恢复base_priority。</li>
+<li>在释放锁对一个锁优先级有改变的时候应考虑其余被捐赠优先级和当前优先级。</li>
+</ul>
+</li>
+<li>捐赠时间<ul>
+<li>线程处于ready_list中等待时</li>
+<li>线程处于sleep状态，也就是block状态时，也可以改变优先级</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://jackyanghc-picture.oss-cn-beijing.aliyuncs.com/20190508083127.png" alt></p>
+<p>基于以上需求，我们开始对pintos中的源码进行修改。</p>
+<p>在上文的分析中我们就可以得知：若存在优先级的捐赠则必然会存在释放锁后被被捐赠线程的优先级恢复，因此单单在<code>thread</code>结构体中使用一个成员<code>priority</code>是无法完成的，我们需要一个额外的成员来储存线程在被捐赠之前的优先级，也就是<code>base_priority</code>。经过以上的实验我们也可发现原始<code>thread</code>结构体中并未设计与锁相关的成员变量（原l始的锁和信号量队列与优先级无关，和就绪队列一样属于先来先服务，不需要在结构体中添加这些），因此我们还需要在线程的结构体中添加两个成员变量：locks和lock_waiting，分别代表线程已经拥有的锁和正在申请的锁，前者为一个队列，后者只需设置为锁类型（lock）的变量，下面给修改后的<code>thread</code>结构体：</p>
+<p><img src="https://anjinggufa.oss-cn-beijing.aliyuncs.com/20190508215225.png" alt></p>
+<p>既然线程结构体中缺乏与锁相关的成员，自然锁结构体中也缺乏与线程相关的成员，我们找到<code>lock</code>的源码可以发现其中只存在两个成员：<code>holder</code>和<code>semaphore</code>，即拥有者和信号量，这对于实现优先级调度和优先级捐赠来说肯定是不够的，我们需要继续增加两个成员变量：<code>elem</code>和<code>max_priority</code>。这两个成员代表的意义也很好理解：前者是当前线程在信号量队列中位置（在原始的队列中，当前线程一定位于队列的首部），后者则是表示该锁的信号量队列中线程的最高优先级（用于优先级的捐赠），下面也给出修改过后的<code>lock</code>结构体代码：</p>
+<p><img src="https://anjinggufa.oss-cn-beijing.aliyuncs.com/20190508215255.png" alt></p>
+<p>有了这些修改过后的结构体我们就可以开始实现与锁相关的优先级调度程序。</p>
+<p>因为前面涉及到了结构体的修改，那么我们势必要对其初始化函数进行修改，所以我们先对<code>lock_init</code>和<code>init_thread</code>进行修改，完成以上几项的初始化：</p>
+<p><img src="https://emrick.oss-cn-beijing.aliyuncs.com/img/20190508234751.png" alt></p>
+<p><img src="https://anjinggufa.oss-cn-beijing.aliyuncs.com/20190508215344.png" alt></p>
+<p>接下来我们不妨分析以下涉及锁的线程调度过程，根据之前阅读的代码，可以用以下流程图来梳理我们需要实现的过程：</p>
+<p><img src="https://anjinggufa.oss-cn-beijing.aliyuncs.com/优先级调度.png" alt></p>
+<p>根据流程图，我们首先着眼于<code>lock_acquire</code>函数，在锁的申请时我们首先考虑的就是锁是否已经被线程占用，若锁未被占用则直接将此线程占用该锁，对信号量进行P操作，而当该锁存在线程占用时，我们就需要将该锁的最大优先级和此线程的优先级进行比较，若此线程的优先级高则要进行优先级的捐赠，随后在被插入信号量的等待队列中。</p>
+<p>所以我们这里需要先实现一个优先级捐赠函数<code>thread_donate_priority</code>，它的功能其实只有两个：</p>
+<ul>
+<li>改变线程当前的优先级</li>
+<li>若该线程处于就绪队列中需要对就绪队列重排</li>
+</ul>
+<p>第一个任务很容易使我们想到之前实现抢占式调度时修改过的<code>thread_set_priority</code>函数，但仔细分析后我们可以发现此函数的逻辑并不适用与此：当前线程的优先级大小不仅和其本身的优先级相关，还与捐赠线程的优先级大小相关，之前修改的函数的本意其实是修改当前运行线程（这就意味着线程的状态一定为RUNNING，因此修改过后我们可以根据调整的优先级大小直接判断其是否调用<code>thread_yield</code>）的<code>base_priority</code>而非<code>priority</code>，且在原来的设置中，并不能指定任意线程进行修改。因此我们需要再次编写一个函数对任意线程的当前优先级进行更新，不过再次之前我们无疑要再次对<code>thread_set_priority</code>函数进行修改，设置<code>base_priority</code>并判断是是否满足重新调度的条件（<strong>没有锁约束或当前优先级发生改变</strong>），下面给出修改后的代码：</p>
+<p><img src="https://anjinggufa.oss-cn-beijing.aliyuncs.com/20190508215446.png" alt></p>
+<p>之后我们定义一个<code>thread_update_priority</code>函数来更新线程的当前优先级（我们目前只认为线程的当前优先级只会在捐赠优先级的条件下发生改变），此函数的功能也较为简单：将线程的<code>base_priority</code>和其所有锁的最大优先级进行比较，将当前优先级设置为其中的最大值。如此实现的优先级捐赠适用于<strong>多个线程对单个线程的优先级</strong>捐赠，而这里我们唯一的难点就是如何获取其所有锁的最大优先级的最大值，但稍加分析我们也能依照之前的方法简单实现：将locks（线程的锁队列）维护成一个优先级有序队列再取出第一个成员的优先级即可，维护的方法和就绪队列稍有不同，使用了前文提到的<code>list_sort</code>方式（此队列优先级改变的情况较为复杂，用插入的方式容易出现问题），下面一并给出排序函数和优先级更新函数的代码：</p>
+<p><img src="https://anjinggufa.oss-cn-beijing.aliyuncs.com/20190508215531.png" alt></p>
+<p>拥有锁的线程不一定是当前正在占用CPU的线程，因此我们还需考虑一种情况：此线程正处于优先队列之中，完成了更新之后我们必须重新对就绪队列进行维护。至此我们的捐赠函数的逻辑就完全设计完成 了，下面给出其完整代码：</p>
+<p><img src="https://anjinggufa.oss-cn-beijing.aliyuncs.com/20190508215631.png" alt></p>
+<p>至此我们退回<code>lock_acquire</code>函数，这里我们还需注意的是优先级的捐赠是一个递归的问题，我们需要将其关联的每一层锁的拥有线程调整为不比此线程低的优先级，这里我们会用一个while结构加以实现。解决了优先级捐赠的问题，我们可以开始进行信号量的P操作，这也不用太多赘述，我们只需再原有基础上将信号量的队列也维护成优先级有序队列，实现方式和就绪队列一致。</p>
+<p><img src="https://anjinggufa.oss-cn-beijing.aliyuncs.com/20190508215657.png" alt></p>
+<p>获取锁的最后一步就是将此线程变为锁的拥有者，但这一过程也并能沿用当前的方式，因为这会涉及到锁的最大优先级的改变：当一个线程拥有一个锁时，其优先级一定为此锁的最大优先级（包括优先级捐赠的情况）。接着我们还需要把该锁插入至线程的锁队列中，并修改锁的holder成员为当前线程。基于以上逻辑编写了函数<code>thread_hold_the_lock</code>。至此<code>lock_acquire</code>的编写随之完成，以下为两个函数的源码：</p>
+<p><img src="https://anjinggufa.oss-cn-beijing.aliyuncs.com/20190508215742.png" alt></p>
+<p><img src="https://anjinggufa.oss-cn-beijing.aliyuncs.com/20190508215830.png" alt></p>
+<p>这里我们完成了获取锁的全部逻辑，接着只要补全释放锁的逻辑即可。相较于<code>lock_acquire</code>，<code>lock_release</code>的逻辑显得更简单一些，这里我们只需做三件事：</p>
+<ul>
+<li>将对应锁从线程的锁队列中清除（线程脱离锁）</li>
+<li>将锁设置为不被任何线程占用（锁脱离线程）</li>
+<li>进行信号量的V操作</li>
+</ul>
+<p>这三步都较为简单，第一步这里编写了一个<code>`thread_remove_lock</code>函数来实现，主要功能也很容易想到：将该所从其锁队列中移除，更新线程的优先级（若处于被捐赠的状态，还回此锁捐赠的优先级），实现代码如下：</p>
+<p><img src="https://anjinggufa.oss-cn-beijing.aliyuncs.com/20190508215916.png" alt></p>
+<p>第二步就更为简单，只需将lock的holder成员设置为NULL即可。</p>
+<p>对于第三步，我们则要对原始的<code>sema_up</code>函数进行修改，其与<code>sema_down</code>函数的唯一不同点在于在对信号量序列中的最高优先级线程进行了unblock操作并改变信号量值之后需要马上使用<code>thread_yield</code>函数来保证抢占式调度。下面给出<code>sema_up</code>和<code>lock_release</code>函数的源代码：</p>
+<p><img src="https://anjinggufa.oss-cn-beijing.aliyuncs.com/20190508215955.png" alt></p>
+<p><img src="https://anjinggufa.oss-cn-beijing.aliyuncs.com/20190508220027.png" alt></p>
+<p>以上就完成了mission2的全部代码编写，下面可以开始对其进行测试：</p>
+<h4 id="实验结果-1"><a href="#实验结果-1" class="headerlink" title="实验结果"></a>实验结果</h4><p>我们到<code>/src/thread</code>目录下执行<code>make check</code>，可以进行测试。</p>
+<p>至此，MISSION_2    PRIOTITY SCHEDULING编写完毕，执行测试有如下结果：</p>
+<p><img src="https://emrick.oss-cn-beijing.aliyuncs.com/img/20190508235853.png" alt></p>
+<h3 id="Mission-3-ADVANCED-SCHEDULER"><a href="#Mission-3-ADVANCED-SCHEDULER" class="headerlink" title="Mission 3    ADVANCED SCHEDULER"></a>Mission 3    ADVANCED SCHEDULER</h3><h4 id="实验说明-1"><a href="#实验说明-1" class="headerlink" title="实验说明"></a>实验说明</h4><p>实现类似于BSD调度程序的多级反馈队列调度程序，以减少在系统上运行作业的平均响应时间。</p>
+<p>与优先级调度调度程序一样，高级调度程序同样基于进程的优先级来调度进程。但是高级调度程序<strong>不会</strong>执行优先级捐赠。必须编写必要的代码，以允许在Pintos启动时选择调度算法策略。 默认情况下，优先级调度程序必须处于活动状态，但必须能够使用<code>-mlfqs</code>内核选项选择4.4BSD调度程序。 在<code>main()</code>函数中<code>parse_options()</code>解析选项时，传递此选项会将<code>threads / thread.h</code>中声明的<code>thread_mlfqs</code>设置为<code>true</code>。</p>
+<p>启用4.4BSD调度程序后，线程不再直接控制自己的优先级。 应忽略<code>thread_create()</code>的优先级参数，以及对<code>thread_set_priority()</code>的任何调用，并且<code>thread_get_priority()</code>应返回调度程序设置的线程的当前优先级。 高级调度程序不会在以后的任何项目中使用。</p>
+<blockquote>
+<p><strong>非常重要</strong>：可以在附录B中找到关于BSD调度程序的详细说明，这是我们编程的唯一指导基础。</p>
+</blockquote>
+<h4 id="实验指导"><a href="#实验指导" class="headerlink" title="实验指导"></a>实验指导</h4><p>通用调度程序的目标是平衡线程的不同调度需求。 执行<strong>大量I / O的线程</strong>需要快速响应时间以保持输入和输出设备忙，但需要很少的CPU时间。 另一方面，<strong>绑定计算的线程</strong>需要花费大量CPU时间来完成其工作，但不需要快速响应时间。 <strong>其他线程</strong>介于两者之间，I / O周期被计算周期打断，因此需求随时间变化。 精心设计的调度程序通常可以同时满足具有所有这些要求的线程。</p>
+<p>对于项目1，必须实现附录B中描述的调度程序。 调度程序类似于[McKusick]中描述的调度程序，它是多级反馈队列调度程序的一个示例。 这种类型的调度程序维护几个可立即运行的线程队列，其中每个队列包含具有不同优先级的线程。 在任何给定时间，调度程序从最高优先级的非空队列中选择一个线程。 如果最高优先级队列包含多个线程，则它们以“循环”顺序运行。 </p>
+<p>调度程序的多个方面需要在一定数量的计时器滴答之后更新数据。 在每种情况下，这些更新应该在任何普通内核线程有机会运行之前发生，这样内核线程就不可能看到新增的<code>timer_ticks()</code>值而是旧的调度程序数据值。 4.4BSD调度程序<strong>不包括优先捐赠</strong>。</p>
+<h5 id="Niceness"><a href="#Niceness" class="headerlink" title="Niceness"></a>Niceness</h5><p>线程优先级由调度程序使用下面给出的公式动态确定。 但是，每个线程还有一个整数<code>nice</code>值，用于确定线程对其他线程的“好”程度。<code>nice</code>值为0不会影响线程优先级。 <code>nice</code>值从1至20，会降低线程的优先级，并导致它放弃一些原本会收到的CPU时间。 另一种情况，<code>nice</code>值从-20到-1，往往会从其他线程中抢占CPU时间。 </p>
+<p>初始线程<code>nice</code>值为0。 其他线程初始值从其父线程继承<code>nice</code>值。 必须实现下面描述的功能，供测试程序使用。 在<code>threads / thread.c</code>中为它们提供了框架定义。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回当前进程的nice值</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">thread_get_nice</span> <span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置当前进程的nice值为new_nice，并重新计算进程的优先级，若正在运行的进程不再是最高优先级，则阻塞</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">thread_set_nice</span> <span class="params">(<span class="keyword">int</span> new_nice)</span></span>;</span><br></pre></td></tr></table></figure>
+<h5 id="计算-Priority"><a href="#计算-Priority" class="headerlink" title="计算 Priority"></a>计算 Priority</h5><p>我们的调度程序有64个优先级，因此有64个就绪队列，编号为0（PRI_MIN）到63（PRI_MAX）。 较低的数字对应较低的优先级。因此优先级0是最低优先级，优先级63是最高优先级。 线程优先级最初在线程初始化时计算。 对于每个线程，<strong>每四个时钟周期也会重新计算一次</strong>。 在任何一种情况下，都由公式确定</p>
+<script type="math/tex; mode=display">
+priority=PRI\_MAX-(recent\_cpu/4)-(nice*2)</script><p><code>recent_cpu</code>是线程最近使用的CPU时间的估计值（见下文），而且公式中的<code>nice</code>值为当前进程的<code>nice</code>值。 结果应向下舍入到最接近的整数（截断）。 <code>recent_cpu</code>和<code>nice</code>的系数<code>1/4</code>和<code>2</code>，分别被发现在实践中很好地工作但缺乏更深的含义。 计算得到的优先级始终为位于PRI_MIN到PRI_MAX的有效范围内。 </p>
+<p>此公式为线程重新计算优先级提供了依据。 这是防止饥饿的关键：最近没有收到任何CPU时间的线程的<code>recent_cpu</code>值为0，除非有一个很高的<code>nice</code>值，否则它会很快就会收到CPU运行时间。</p>
+<h5 id="计算-recent-cpu"><a href="#计算-recent-cpu" class="headerlink" title="计算 recent_cpu"></a>计算 recent_cpu</h5><p>我们希望<code>recent_cpu</code>可以表征每个进程“最近”收到多少CPU运行时间。此外，作为一种改进，最新收到的CPU时间应该比其之前的CPU时间权重更大。 一种方法是使用n个元素的数组来跟踪在最后n秒的每一个中接收的CPU时间。 然而，这种方法每线程需要<code>O(n)</code>空间，并且每次计算新加权平均值需要<code>O(n)</code>时间。</p>
+<p>相反，我们使用指数加权移动平均线，它采用这种一般形式：</p>
+<script type="math/tex; mode=display">
+x(0)=f(0),\\x(t)=ax(t-1)+(1-a)f(t),\\a=k/(k+1)</script><p>其中<code>x(t)</code>是整数时间t≥0的移动平均值，<code>f(t)</code>是被平均的函数，k &gt; 0控制衰减速率。我们可以通过以下几个步骤迭代公式：</p>
+<script type="math/tex; mode=display">
+x(1)=f(1),\\x(2)=af(1)+f(2),\\.\\.\\.\\x(5)=a^4f(1)+a^3f(2)+a^2f(3)+af(2)+f(5)</script><p><code>f(t)</code>的值在时间 t 的权重为1，在时间 t + 1 的权重为 a，在时间 t + 2 的权重为 2，等等。我们还可以将<code>x(t)</code>与 k 相关联：<code>f(t)</code>在时间 t + k 具有大约 1 / e 的权重，在时间 t + 2k 具有大约1 / e<sup>2</sup> 等等。从相反方向，<code>f(t)</code>在时间 t + log<sub>a</sub> w 衰减到 <code>f(t)*w</code>。</p>
+<p>在创建的第一个线程中，<code>recent_cpu</code>的初始值为0，或者在其他新线程中为其父进程值。 每次发生定时器中断时，除非空闲线程正在运行，否则<code>recent_cpu</code>仅对正在运行的线程递增1。 此外，每秒一次，使用以下公式为每个线程（无论是运行，准备还是阻塞）重新计算<code>recent_cpu</code>的值：</p>
+<script type="math/tex; mode=display">
+recent\_cpu=(2*load\_avg)/(2*load\_avg+1)*recent\_cpu+nice，</script><p>其中<code>load avg</code>是准备运行的线程数的移动平均值（见下文）。 如果<code>load avg</code>为 1 ，表示单个线程正在竞争CPU，那么<code>recent_cpu</code>的当前值在log<sub>2 / 3</sub> 0.1 ≈ 6秒内衰减到原值的 0.1。 如果<code>load_avg</code>为2，则衰减到原值的 0.1需要 log<sub>3 / 4</sub> 0.1 ≈ 8秒。 结果是<code>recent_cpu</code>估计了线程“最近”收到的CPU时间量，<strong>衰减率与竞争CPU的线程数成反比</strong>。</p>
+<p>某些测试所做的假设要求在系统计数器每达到一秒完全重新计算<code>recent_cpu</code>，即条件<code>timer_ticks () % TIMER_FREQ == 0</code>成立。</p>
+<p>对于具有负<code>nice</code>值的线程，<code>recent_cpu</code>的值可能为负。 不要将负的<code>recent_cpu</code>设置为0。</p>
+<p>需要考虑此公式中的计算顺序。先计算<code>recent_cpu</code>的系数，然后再做乘法，否则可能会产生溢出。</p>
+<p>必须实现在<code>threads/thread.c</code>中的<code>thread_get_recent_cpu()</code>函数。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回当前线程recent_cpu值的100倍，四舍五入到最接近的整数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">thread_get_recent_cpu</span> <span class="params">(<span class="keyword">void</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+<h5 id="计算-load-avg"><a href="#计算-load-avg" class="headerlink" title="计算 load_avg"></a>计算 load_avg</h5><p>最后，<code>load_avg</code>（通常称为系统负载平均值）估计在过去一分钟内，在准备队列中的平均线程数。 像<code>recent_cpu</code>一样，它也是指数加权移动平均。 与<code>priority</code>和<code>recent_cpu</code>不同，<code>load_avg</code>是系统范围的，而不是特定于线程的。 在系统启动时，它被初始化为0。此后每秒一次，根据以下公式更新：</p>
+<script type="math/tex; mode=display">
+load\_avg=(59/60)*load\_avg+(1/60)*ready\_threads，</script><p><code>ready_thread</code>是在更新时运行或准s备运行的线程数（不包括空闲线程）。</p>
+<p>有些测试假设当计时器达到1秒倍数时，即当<code>timer_ticks()%TIMER_FREQ == 0</code>时，必须要重新更新<code>load_avg</code>，而不是在其它时间。必须实现位于<code>threads/thread.c</code>中的函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回当前系统 load_avg 的100倍，四舍五入到最接近的整数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">thread_get_load_avg</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><p>以下公式总结了实现高级调度程序所需的计算。 它们不是调度程序要求的完整描述。 </p>
+<p>每个线程在-20和20之间具有<code>nice</code>值。 每个线程也有一个优先级，介于0(<code>PRI_MIN</code>)到63(<code>PRI_MAX</code>)之间，每四个滴答使用以下公式重新计算：</p>
+<script type="math/tex; mode=display">
+priority=PRI\_MAX-(recent\_cpu/4)-(nice*2).</script><p><code>recent_cpu</code>测量一个线程“最近”收到的CPU时间量。在每个CPU时钟中，正在运行的线程的<code>recent_cpu</code>增加1。每秒一次，每个线程的<code>rencent_cpu</code>以这种方式更新：</p>
+<script type="math/tex; mode=display">
+recent\_cpu=(2*load\_avg)/(2*load\_avg+1)*recent\_cpu+nice.</script><p><code>load_avg</code>估计在过去一分钟内准备运行的平均线程数。 它在启动时初始化为0，并按每秒重新计算一次，如下所示：</p>
+<script type="math/tex; mode=display">
+load\_avg=(59/60)*load\_avg+(1/60)*ready\_threads.</script><p><code>ready_threads</code>是在更新时运行或准备运行的线程数（不包括空闲线程）。</p>
+<h4 id="定点小数及其计算"><a href="#定点小数及其计算" class="headerlink" title="定点小数及其计算"></a>定点小数及其计算</h4><p>在上面的公式中，<code>priority</code>、<code>nice</code>和<code>ready_thread</code>是整数，但是<code>recent_cpu</code>和<code>load_avg</code>是实数。 但是，Pintos不支持内核中的浮点运算，因为它会使内核变得复杂和变慢。 出于同样的原因，真正的内核通常具有相同的限制。 这意味着必须使用整数模拟实数的计算。 本节介绍基础知识。</p>
+<p>其基本思想是将整数的最右边的几位视为表示分数。例如，我们可以将带符号的32位整数的最低14位指定为小数位，这样整数x代表实数 x/2<sup>14</sup> 。这个叫做 17.14 定点数，最大能够表示 (2<sup>31</sup>-1)/2<sup>14</sup> ，近似 131071.999 。</p>
+<p>假设我们使用 p.q 的定点数格式，并且设 f=2<sup>q</sup> 。根据上面的定义，我们可以通过乘以 f 将整数或实数转换为 p.q 格式。例如，基于17.14 格式的定点数转换 59/60 ，(59/60)2<sup>14</sup> = 16110。将定点数转换为整数则除以 f 。</p>
+<blockquote>
+<p>C中的“/”运算符向零舍入，也就是说，它将正数向下舍入，向负数向上舍入。要舍入到最近，将 f / 2 先与正数相加再除，或者先在负数中减去 f / 2 再除。</p>
+</blockquote>
+<p>下表总结了如何在C中实现定点算术运算。在表中，x和y是定点数，n是整数，定点数是带符号的p.q格式，其中p + q = 31，和f是1 &lt;&lt; q：</p>
+<p><img src="https://emrick.oss-cn-beijing.aliyuncs.com/img/20190508203900.png" alt></p>
+<h4 id="实验过程-1"><a href="#实验过程-1" class="headerlink" title="实验过程"></a>实验过程</h4><p>根据实验说明，我们可以知道<code>bool</code>变量<code>thread_mlfqs</code>指示是否启用高级调度程序，并且高级调度程序不应包含优先级捐赠的内容，所以，在Mission_2中实现的优先级捐赠代码，需要使用<code>if</code>判断以保证在使用高级调度程序时，不启用优先级捐赠。随后，我们可以根据实验指导中的详细说明一步步完成本次实验。</p>
+<p>首先，根据上述给定点数的计算方法，编写定点数的计算方法，实现 16.15 格式定点数计算方法。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Basic definitions of fixed point. */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> <span class="keyword">fixed_t</span>;</span><br><span class="line"><span class="comment">/* 16 LSB used for fractional part. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FP_SHIFT_AMOUNT 16</span></span><br><span class="line"><span class="comment">/* Convert a value to fixed-point value. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FP_CONST(A) ((fixed_t)(A &lt;&lt; FP_SHIFT_AMOUNT))</span></span><br><span class="line"><span class="comment">/* Add two fixed-point value. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FP_ADD(A,B) (A + B)</span></span><br><span class="line"><span class="comment">/* Add a fixed-point value A and an int value B. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FP_ADD_MIX(A,B) (A + (B &lt;&lt; FP_SHIFT_AMOUNT))</span></span><br><span class="line"><span class="comment">/* Substract two fixed-point value. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FP_SUB(A,B) (A - B)</span></span><br><span class="line"><span class="comment">/* Substract an int value B from a fixed-point value A */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FP_SUB_MIX(A,B) (A - (B &lt;&lt; FP_SHIFT_AMOUNT))</span></span><br><span class="line"><span class="comment">/* Multiply a fixed-point value A by an int value B. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FP_MULT_MIX(A,B) (A * B)</span></span><br><span class="line"><span class="comment">/* Divide a fixed-point value A by an int value B. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FP_DIV_MIX(A,B) (A / B)</span></span><br><span class="line"><span class="comment">/* Multiply two fixed-point value. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FP_MULT(A,B) ((fixed_t)(((int64_t) A) * B &gt;&gt; FP_SHIFT_AMOUNT))</span></span><br><span class="line"><span class="comment">/* Divide two fixed-point value. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FP_DIV(A,B) ((fixed_t)((((int64_t) A) &lt;&lt; FP_SHIFT_AMOUNT) / B))</span></span><br><span class="line"><span class="comment">/* Get integer part of a fixed-point value. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FP_INT_PART(A) (A &gt;&gt; FP_SHIFT_AMOUNT)</span></span><br><span class="line"><span class="comment">/* Get rounded integer of a fixed-point value. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FP_ROUND(A) (A &gt;= 0 ? ((A + (1 <span class="meta-string">&lt;&lt; (FP_SHIFT_AMOUNT - 1))) &gt;&gt; FP_SHIFT_AMOUNT) \</span></span></span><br><span class="line">        : ((A - (<span class="number">1</span> &lt;&lt; (FP_SHIFT_AMOUNT - <span class="number">1</span>))) &gt;&gt; FP_SHIFT_AMOUNT))</span><br></pre></td></tr></table></figure>
+<p>由于本实验涉及到的公式均与时钟中断有关，所以，我们将上述的公式迭代计算的相关代码，写入我们在Mission_1中详细介绍过的<code>timer_interrupt()</code>时钟中断处理函数中。其原函数为：</p>
+<p><img src="https://emrick.oss-cn-beijing.aliyuncs.com/img/20190508205418.png" alt></p>
+<p>之前已经接介绍过，本实验在<code>thread_mlfqs</code>变量为<code>true</code>的情况下进行。所以，我们需要通过<code>if</code>对此条件进行判断，以免影响其他实验的正常运行。</p>
+<p>包括，每个时钟中断都更新的<code>recent_cpu</code>、每一秒更新的<code>load_avg</code>、每四个时钟更新一次的<code>priority</code>，如下图所示。接下来，我们分别介绍这些函数。</p>
+<p><img src="https://emrick.oss-cn-beijing.aliyuncs.com/img/20190508205709.png" alt></p>
+<p>首先是<code>thread_mlfqs_increase_recent_cpu_by_one(void)</code>，若当前进程不是空闲进程则当前进程加1，注意<strong>定点数加法</strong>。</p>
+<p><img src="https://emrick.oss-cn-beijing.aliyuncs.com/img/20190508210037.png" alt></p>
+<p>接下来是<code>thread_mlfqs_update_load_avg_and_recent_cpu(void)</code>函数，首先根据就绪队列的大小计算<code>load_avg</code>的值，随后根据<code>load_avg</code>的值，更新所有进程的<code>recent_cpu</code>值及<code>priority</code>值。</p>
+<p><img src="https://emrick.oss-cn-beijing.aliyuncs.com/img/20190508210351.png" alt></p>
+<p>最后，通过<code>thread_mlfqs_update_priority (struct thread *t)</code>函数，更新当前进程的<code>priority</code>值，注意，一定要保证每个线程的<strong>优先级介于0(<code>PRI_MIN</code>)到63(<code>PRI_MAX</code>)之间</strong>。</p>
+<p><img src="https://emrick.oss-cn-beijing.aliyuncs.com/img/20190508210806.png" alt></p>
+<p>最后到了收尾工作，我们要在<code>struct thread</code>结构体中加入<code>nice</code>和<code>recent_cpu</code>这两个变量，其完整的定义如下：</p>
+<p><img src="https://emrick.oss-cn-beijing.aliyuncs.com/img/20190508211421.png" alt></p>
+<p>并在<code>init_thread()</code>线程初始化时，将<code>nice</code>与<code>recent_cpu</code>置零。注意<code>recent_cpu</code>是<strong>定点数0</strong>。我们需要在<code>thread.c</code>中定义全局变量<code>load_avg</code>，注意是<strong>定点数类型</strong>。在<code>thread_start()</code>函数中初始化为0。</p>
+<p>根据上述指导内容，在<code>thread.c</code>中将需要我们实现的函数全部写入。</p>
+<p><img src="https://emrick.oss-cn-beijing.aliyuncs.com/img/20190508212239.png" alt></p>
+<h4 id="实验结果-2"><a href="#实验结果-2" class="headerlink" title="实验结果"></a>实验结果</h4><p>我们到<code>/src/thread</code>目录下执行<code>make check</code>，可以进行测试。</p>
+<p>至此，MISSION_3    ADVANCED SCHEDULER编写完毕，执行测试有如下结果：</p>
+<p><img src="https://emrick.oss-cn-beijing.aliyuncs.com/img/20190508213515.png" alt></p>
+<h3 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h3><p>撰写本文的目的在于记录小组pintos实验一过程，</p>
+<p><a href="https://courses.cs.vt.edu/cs4284/spring2013/pintos/doc/pintos.pdf" target="_blank" rel="noopener">斯坦福官方实验指导书</a>，</p>
+<p><a href="https://www.cnblogs.com/laiy/p/pintos_project1_thread.html" target="_blank" rel="noopener">Pintos-斯坦福大学操作系统Project详解</a></p>
+<p>在此特别感谢以上作者。</p>
+
         
       
     </div>
