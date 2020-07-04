@@ -76,7 +76,7 @@
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-073520.jpg">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-082106.jpg">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-082825.jpg">
-<meta property="og:updated_time" content="2019-09-18T01:00:57.340Z">
+<meta property="og:updated_time" content="2020-05-13T10:19:27.749Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》的翻译">
 <meta name="twitter:description" content="摘要物联网被誉为社会的下一个发展浪潮，智能家居、企业和城市装备着大量的物联网设备，然而这些智能环境的控制者并没有充分意识到这些物联网设备的价值，更不用说能否让这些设备抵御网络攻击了。在这片论文中，我们通过使用在网络级获得的流量特性开发用于物联网设备的强大的（robust）框架来应对（address）这个挑战。我们的工作主要分为四个部分。首先，我们搭建了一个拥有28个不同IoT设备的的智能环境，这些">
@@ -295,7 +295,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-18 09:00:57" itemprop="dateModified" datetime="2019-09-18T09:00:57+08:00">2019-09-18</time>
+                <time title="修改时间：2020-05-13 18:19:27" itemprop="dateModified" datetime="2020-05-13T18:19:27+08:00">2020-05-13</time>
               </span>
             
           
@@ -420,7 +420,7 @@
 <p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-064238.jpg" width="800"></div><br>LiFX灯泡和Amazon Echo非常频繁地发送DNS查询（即每5分钟），但像Belkin运动传感器这样的设备每30分钟只请求一次域名。</p>
 <h4 id="NTP查询"><a href="#NTP查询" class="headerlink" title="NTP查询"></a>NTP查询</h4><p>如前所述，NTP是物联网设备使用的另一种流行协议，因为精确和可验证的时序对于物联网操作至关重要。许多物联网设备倾向于以周期性方式使用NTP协议（UDP端口123），以便将它们的时间与公共可用的NTP服务器同步。例如，Awair空气质量监测器，LiFX灯泡和Google Dropcam从pool.ntp.org获取时间服务器的IP地址。我们还发现时间同步在我们的测试台中反复出现，并且许多物联网设备在使用NTP时表现出可识别的模式。例如，Belkin电源开关，LiFX灯泡和SmartThings集线器分别每隔60,300和600秒发送NTP请求，如图7的直方图所示。</p>
 <p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-064828.jpg" width="800"></div></p>
-<h4 id="密码套件"><a href="#密码套件" class="headerlink" title="密码套件"></a>密码套件</h4><p>许多物联网设备使用TLS / SSL协议（端口号443）与Internet上各自的服务器进行通信，为了启动TLS连接并与服务器协商安全算法，设备通过发送“客户端Hello”数据包开始握手，该数据包具有可以支持的“密码套件”列表，按其优先顺序排列。例如，图8（a）和8（b）描绘了Amazon Echo向两个不同的Amazon服务器提供的密码套件。每个密码套件（即4位代码）可以采用380个可能值中的一个，并表示密钥交换，批量加密和消息认证码（MAC）的算法</p>
+<h4 id="密码套件"><a href="#密码套件" class="headerlink" title="密码套件"></a>密码套件</h4><p>许多物联网设备使用TLS / SSL协议（端口号443）与Internet上 各自的服务器进行通信，为了启动TLS连接并与服务器协商安全算法，设备通过发送“客户端Hello”数据包开始握手，该数据包具有可以支持的“密码套件”列表，按其优先顺序排列。例如，图8（a）和8（b）描绘了Amazon Echo向两个不同的Amazon服务器提供的密码套件。每个密码套件（即4位代码）可以采用380个可能值中的一个，并表示密钥交换，批量加密和消息认证码（MAC）的算法</p>
 <p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-065458.jpg" width="800"></div><br>例如，由Amazon服务器协商的密码002f分别使用RSA，AES 128 CBC和SHA协议进行密钥交换，批量加密和消息认证。</p>
 <p>在我们的设置中，我们发现28个IoT设备中有17个，包括Amazon Echo，August Doorbell Cam，Awair空气质量监视器，Belkin相机，Canary相机，Drop-cam，Google Chromecast，Hello Barbie，HP ENVY打印机,iHome，Netatmo欢迎相机，飞利浦Hue灯泡，皮克斯相框，Ring Doorbell，Trilby，Withings Aura智能睡眠传感器和Withings Scale，使用TLS / SSL进行通信.我们发现，当将SSL传送到不同的服务器时，Amazon Echo总共使用五个不同的密码套件字符串，Triby扬声器使用两个字符串，而Pixtar相框仅使用一个字符串进行所有SSL通信。</p>
 <p>我们将图9中这三个设备的唯一密码套件字符串绘制为离散信号：x轴是出现在提供的套件中的4位密码的顺序，y轴是各个密码的索引（即来自{1,2，…，380}的值。</p>
