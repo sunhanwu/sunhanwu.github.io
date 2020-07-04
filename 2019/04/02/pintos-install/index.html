@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="在QEMU虚拟机中安装pintos 下载pintos源码 1git clone http://cs140.stanford.edu/pintos.git  编译安装 123cd ~/pintos/src/threadsmake../utils/pintos --qemu -- run alarm-multiple  修改utils/pintos 脚本 1my (@cmd) = (&apos;/usr/loc">
+  <meta name="description" content="在QEMU虚拟机中安装pintos 下载pintos源码 git clone http://cs140.stanford.edu/pintos.git   编译安装 cd ~/pintos/src/threads make ../utils/pintos --qemu -- run alarm-multiple   修改utils/pintos 脚本  my (@cmd) = (&amp;#39;/usr">
 <meta name="keywords" content="操作系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pintos操作系统安装">
 <meta property="og:url" content="http://yoursite.com/2019/04/02/pintos-install/index.html">
 <meta property="og:site_name" content="SunPages">
-<meta property="og:description" content="在QEMU虚拟机中安装pintos 下载pintos源码 1git clone http://cs140.stanford.edu/pintos.git  编译安装 123cd ~/pintos/src/threadsmake../utils/pintos --qemu -- run alarm-multiple  修改utils/pintos 脚本 1my (@cmd) = (&apos;/usr/loc">
+<meta property="og:description" content="在QEMU虚拟机中安装pintos 下载pintos源码 git clone http://cs140.stanford.edu/pintos.git   编译安装 cd ~/pintos/src/threads make ../utils/pintos --qemu -- run alarm-multiple   修改utils/pintos 脚本  my (@cmd) = (&amp;#39;/usr">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-174153.jpg">
 <meta property="og:updated_time" content="2019-09-12T09:35:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pintos操作系统安装">
-<meta name="twitter:description" content="在QEMU虚拟机中安装pintos 下载pintos源码 1git clone http://cs140.stanford.edu/pintos.git  编译安装 123cd ~/pintos/src/threadsmake../utils/pintos --qemu -- run alarm-multiple  修改utils/pintos 脚本 1my (@cmd) = (&apos;/usr/loc">
+<meta name="twitter:description" content="在QEMU虚拟机中安装pintos 下载pintos源码 git clone http://cs140.stanford.edu/pintos.git   编译安装 cd ~/pintos/src/threads make ../utils/pintos --qemu -- run alarm-multiple   修改utils/pintos 脚本  my (@cmd) = (&amp;#39;/usr">
 <meta name="twitter:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-174153.jpg">
   <link rel="canonical" href="http://yoursite.com/2019/04/02/pintos-install/">
 
@@ -217,9 +217,37 @@
     <a href="/photo/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br>Photos</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
   </ul>
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input" id="search-input"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+  
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
@@ -311,7 +339,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>276</span>
+              <span>280</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -336,13 +364,18 @@
       
         <h1 id="在QEMU虚拟机中安装pintos"><a href="#在QEMU虚拟机中安装pintos" class="headerlink" title="在QEMU虚拟机中安装pintos"></a>在QEMU虚拟机中安装pintos</h1><ol>
 <li><p>下载pintos源码</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone http://cs140.stanford.edu/pintos.git</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-shell">git clone http://cs140.stanford.edu/pintos.git
+</code></pre>
 </li>
 <li><p>编译安装</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/pintos/src/threads</span><br><span class="line">make</span><br><span class="line">../utils/pintos --qemu -- run alarm-multiple</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-shell">cd ~/pintos/src/threads
+make
+../utils/pintos --qemu -- run alarm-multiple
+</code></pre>
 </li>
 <li><p>修改utils/pintos 脚本</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">my (@cmd) = ('/usr/local/src/qemu/bin/qemu');</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-shell"> my (@cmd) = (&#39;/usr/local/src/qemu/bin/qemu&#39;);
+</code></pre>
 <p>将pintos脚本中第622行修改成如上图所示，引号中的内容是qemu可执行程序的绝对路径。</p>
 </li>
 <li><p>出现下面的截图说明正确安装好了</p>
@@ -571,14 +604,14 @@
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">149k</span>
+    <span title="站点总字数">150k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">2:15</span>
+    <span title="站点阅读时长">2:17</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
   <span class="post-meta-divider">|</span>
@@ -621,6 +654,11 @@
 
 
 
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.css">
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js"></script><script src="/js/algolia-search.js?v=7.4.0"></script>
 
 
 

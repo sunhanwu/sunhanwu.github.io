@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -55,13 +55,13 @@
   };
 </script>
 
-  <meta name="description" content="gitbook使用本地修改 在本地利用 yu writer进行编辑之后使用git上传到github123git add &amp;lt;修改的文件名&amp;gt;git commit -m &quot;修改的简述&quot;git push -u github master">
+  <meta name="description" content="gitbook使用本地修改 在本地利用 yu writer进行编辑之后使用git上传到github git add &amp;lt;修改的文件名&amp;gt; git commit -m &amp;quot;修改的简述&amp;quot; git push -u github master">
 <meta name="keywords" content="Linux,极客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在github部署gitbook教程">
 <meta property="og:url" content="http://yoursite.com/2019/03/01/gitbook/index.html">
 <meta property="og:site_name" content="SunPages">
-<meta property="og:description" content="gitbook使用本地修改 在本地利用 yu writer进行编辑之后使用git上传到github123git add &amp;lt;修改的文件名&amp;gt;git commit -m &quot;修改的简述&quot;git push -u github master">
+<meta property="og:description" content="gitbook使用本地修改 在本地利用 yu writer进行编辑之后使用git上传到github git add &amp;lt;修改的文件名&amp;gt; git commit -m &amp;quot;修改的简述&amp;quot; git push -u github master">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://pdt3s257u.bkt.clouddn.com/Snip20180822_8.png">
 <meta property="og:image" content="http://pdt3s257u.bkt.clouddn.com/Snip20180822_9.png">
@@ -69,7 +69,7 @@
 <meta property="og:updated_time" content="2019-09-12T09:35:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在github部署gitbook教程">
-<meta name="twitter:description" content="gitbook使用本地修改 在本地利用 yu writer进行编辑之后使用git上传到github123git add &amp;lt;修改的文件名&amp;gt;git commit -m &quot;修改的简述&quot;git push -u github master">
+<meta name="twitter:description" content="gitbook使用本地修改 在本地利用 yu writer进行编辑之后使用git上传到github git add &amp;lt;修改的文件名&amp;gt; git commit -m &amp;quot;修改的简述&amp;quot; git push -u github master">
 <meta name="twitter:image" content="http://pdt3s257u.bkt.clouddn.com/Snip20180822_8.png">
   <link rel="canonical" href="http://yoursite.com/2019/03/01/gitbook/">
 
@@ -219,9 +219,37 @@
     <a href="/photo/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br>Photos</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
   </ul>
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input" id="search-input"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+  
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
@@ -326,7 +354,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>229</span>
+              <span>231</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -350,12 +378,21 @@
 
       
         <h1 id="gitbook使用"><a href="#gitbook使用" class="headerlink" title="gitbook使用"></a>gitbook使用</h1><h2 id="本地修改"><a href="#本地修改" class="headerlink" title="本地修改"></a>本地修改</h2><blockquote>
-<p>在本地利用 yu writer进行编辑之后使用git上传到github<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add &lt;修改的文件名&gt;</span><br><span class="line">git commit -m <span class="string">"修改的简述"</span></span><br><span class="line">git push -u github master</span><br></pre></td></tr></table></figure></p>
+<p>在本地利用 yu writer进行编辑之后使用git上传到github</p>
+<pre><code class="lang-bash">git add &lt;修改的文件名&gt;
+git commit -m &quot;修改的简述&quot;
+git push -u github master
+</code></pre>
 </blockquote><a id="more"></a>
 <p><img src="http://pdt3s257u.bkt.clouddn.com/Snip20180822_8.png" alt></p>
-<h2 id="服务器从github同步数据"><a href="#服务器从github同步数据" class="headerlink" title="服务器从github同步数据"></a>服务器从github同步数据</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull github master</span><br></pre></td></tr></table></figure>
+<h2 id="服务器从github同步数据"><a href="#服务器从github同步数据" class="headerlink" title="服务器从github同步数据"></a>服务器从github同步数据</h2><pre><code class="lang-bash">git pull github master
+</code></pre>
 <p><img src="http://pdt3s257u.bkt.clouddn.com/Snip20180822_9.png" alt></p>
-<h2 id="重启gitbook服务"><a href="#重启gitbook服务" class="headerlink" title="重启gitbook服务"></a>重启gitbook服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:4000</span><br><span class="line"><span class="comment"># 找到pid之后杀死进程</span></span><br><span class="line"><span class="built_in">kill</span> -9 pid</span><br><span class="line">setsid gitbook serve .</span><br></pre></td></tr></table></figure>
+<h2 id="重启gitbook服务"><a href="#重启gitbook服务" class="headerlink" title="重启gitbook服务"></a>重启gitbook服务</h2><pre><code class="lang-bash">lsof -i:4000
+# 找到pid之后杀死进程
+kill -9 pid
+setsid gitbook serve .
+</code></pre>
 <p><img src="http://pdt3s257u.bkt.clouddn.com/20180822/Snip20180822_10.png" alt></p>
 
     </div>
@@ -581,14 +618,14 @@
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">149k</span>
+    <span title="站点总字数">150k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">2:15</span>
+    <span title="站点阅读时长">2:17</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
   <span class="post-meta-divider">|</span>
@@ -631,6 +668,11 @@
 
 
 
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.css">
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js"></script><script src="/js/algolia-search.js?v=7.4.0"></script>
 
 
 

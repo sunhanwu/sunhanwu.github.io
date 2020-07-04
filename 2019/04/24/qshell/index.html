@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -219,9 +219,37 @@
     <a href="/photo/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br>Photos</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
   </ul>
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input" id="search-input"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+  
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
@@ -326,7 +354,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>1k</span>
+              <span>1.2k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -357,27 +385,48 @@
 <p><img src="http://pdt3s257u.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20180821191839.png" alt></p>
 <h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><ul>
 <li><p>编辑～/.zshrc 或者～/.bashrc文件将qshell路径添加到环境变量中，我的路径为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/home/sun/文档/tools/qiniu</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-bash">export PATH=$PATH:/home/sun/文档/tools/qiniu
+</code></pre>
 </li>
 <li><p>使配置文件生效</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-bash">source ~/.zshrc
+</code></pre>
 </li>
 </ul>
-<h2 id="登录账户"><a href="#登录账户" class="headerlink" title="登录账户"></a>登录账户</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qshell account ak sk</span><br></pre></td></tr></table></figure>
+<h2 id="登录账户"><a href="#登录账户" class="headerlink" title="登录账户"></a>登录账户</h2><pre><code class="lang-bash">qshell account ak sk
+</code></pre>
 <p>马赛克位置分别填写个人的ak 和sk</p>
 <p><img src="http://pdt3s257u.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20180821192733.png" alt></p>
 <h2 id="qupload的使用"><a href="#qupload的使用" class="headerlink" title="qupload的使用"></a>qupload的使用</h2><ol>
 <li><p>配置文件qupload.json,每个参数的具体作用请参考<a href="https://github.com/qiniu/qshell/blob/master/docs/qupload.md" target="_blank" rel="noopener">官方文档</a></p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="attr">"src_dir"</span>            :   <span class="string">"/home/sun/图片"</span>,</span><br><span class="line">   <span class="attr">"bucket"</span>             :   <span class="string">"ydm-ng"</span>,</span><br><span class="line">   <span class="attr">"up_host"</span>            :   <span class="string">"http://upload-z1.qiniu.com"</span>,</span><br><span class="line">   <span class="attr">"ignore_dir"</span>         :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"overwrite"</span>          :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"check_exists"</span>       :   <span class="literal">true</span>,</span><br><span class="line">   <span class="attr">"check_hash"</span>         :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"check_size"</span>         :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"rescan_local"</span>       :   <span class="literal">true</span>,</span><br><span class="line">   <span class="attr">"log_file"</span>           :   <span class="string">"upload.log"</span>,</span><br><span class="line">   <span class="attr">"log_level"</span>          :   <span class="string">"info"</span>,</span><br><span class="line">   <span class="attr">"log_rotate"</span>         :   <span class="number">1</span>,</span><br><span class="line">   <span class="attr">"log_stdout"</span>         :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"file_type"</span>          :   <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-json">{
+   &quot;src_dir&quot;            :   &quot;/home/sun/图片&quot;,
+   &quot;bucket&quot;             :   &quot;ydm-ng&quot;,
+   &quot;up_host&quot;            :   &quot;http://upload-z1.qiniu.com&quot;,
+   &quot;ignore_dir&quot;         :   false,
+   &quot;overwrite&quot;          :   false,
+   &quot;check_exists&quot;       :   true,
+   &quot;check_hash&quot;         :   false,
+   &quot;check_size&quot;         :   false,
+   &quot;rescan_local&quot;       :   true,
+   &quot;log_file&quot;           :   &quot;upload.log&quot;,
+   &quot;log_level&quot;          :   &quot;info&quot;,
+   &quot;log_rotate&quot;         :   1,
+   &quot;log_stdout&quot;         :   false,
+   &quot;file_type&quot;          :   0
+}
+</code></pre>
 </li>
 <li><p>执行命令为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qshell qupload [&lt;ThreadCount&gt;] &lt;LocalUploadConfig&gt;</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-bash">qshell qupload [&lt;ThreadCount&gt;] &lt;LocalUploadConfig&gt;
+</code></pre>
 <ul>
 <li>第一个为可选参数，一般选10，第二个为配置文件路径</li>
 </ul>
 </li>
 <li><p>一般为了节省操作时间，在zshrc配置别名</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> qupload=<span class="string">"qshell qupload 10 /Users/sun/Documents/tools/qshell/qupload.json"</span></span><br></pre></td></tr></table></figure>
+<pre><code class="lang-bash">  alias qupload=&quot;qshell qupload 10 /Users/sun/Documents/tools/qshell/qupload.json&quot;
+</code></pre>
 <p>在生效source ~/.zsh即可</p>
 <p><img src="http://pdt3s257u.bkt.clouddn.com/%3CKey%20Prefix%3E2018-08-21/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20180821194833.png" alt></p>
 </li>
@@ -606,14 +655,14 @@
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">149k</span>
+    <span title="站点总字数">150k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">2:15</span>
+    <span title="站点阅读时长">2:17</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
   <span class="post-meta-divider">|</span>
@@ -656,6 +705,11 @@
 
 
 
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.css">
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js"></script><script src="/js/algolia-search.js?v=7.4.0"></script>
 
 
 

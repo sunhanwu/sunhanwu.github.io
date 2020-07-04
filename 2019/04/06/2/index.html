@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -226,9 +226,37 @@
     <a href="/photo/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br>Photos</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
   </ul>
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input" id="search-input"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+  
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
@@ -431,11 +459,120 @@
 <h2 id="2-3-使用Ryu实现交换集线器"><a href="#2-3-使用Ryu实现交换集线器" class="headerlink" title="2.3 使用Ryu实现交换集线器"></a>2.3 使用Ryu实现交换集线器</h2><p>源码在ryu/app/example_switch_13.py</p>
 <p>除了上述之外，还有simple_switch.py（OpenFlow 1.0）和simple_switch_12.py（OpenFlow 1.2），具体取决于OpenFlow的版本，但我们看一下支持OpenFlow 1.3的实现</p>
 <p>源代码很短，因此我们在下面显示了完整的源代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Copyright (C) 2016 Nippon Telegraph and Telephone Corporation.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Licensed under the Apache License, Version 2.0 (the "License");</span></span><br><span class="line"><span class="comment"># you may not use this file except in compliance with the License.</span></span><br><span class="line"><span class="comment"># You may obtain a copy of the License at</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#    http://www.apache.org/licenses/LICENSE-2.0</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Unless required by applicable law or agreed to in writing, software</span></span><br><span class="line"><span class="comment"># distributed under the License is distributed on an "AS IS" BASIS,</span></span><br><span class="line"><span class="comment"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or</span></span><br><span class="line"><span class="comment"># implied.</span></span><br><span class="line"><span class="comment"># See the License for the specific language governing permissions and</span></span><br><span class="line"><span class="comment"># limitations under the License.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> ryu.base <span class="keyword">import</span> app_manager</span><br><span class="line"><span class="keyword">from</span> ryu.controller <span class="keyword">import</span> ofp_event</span><br><span class="line"><span class="keyword">from</span> ryu.controller.handler <span class="keyword">import</span> CONFIG_DISPATCHER, MAIN_DISPATCHER</span><br><span class="line"><span class="keyword">from</span> ryu.controller.handler <span class="keyword">import</span> set_ev_cls</span><br><span class="line"><span class="keyword">from</span> ryu.ofproto <span class="keyword">import</span> ofproto_v1_3</span><br><span class="line"><span class="keyword">from</span> ryu.lib.packet <span class="keyword">import</span> packet</span><br><span class="line"><span class="keyword">from</span> ryu.lib.packet <span class="keyword">import</span> ethernet</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleSwitch13</span><span class="params">(app_manager.RyuApp)</span>:</span></span><br><span class="line">    OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, *args, **kwargs)</span>:</span></span><br><span class="line">        super(ExampleSwitch13, self).__init__(*args, **kwargs)</span><br><span class="line">        <span class="comment"># initialize mac address table.</span></span><br><span class="line">        self.mac_to_port = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">    @set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">switch_features_handler</span><span class="params">(self, ev)</span>:</span></span><br><span class="line">        datapath = ev.msg.datapath</span><br><span class="line">        ofproto = datapath.ofproto</span><br><span class="line">        parser = datapath.ofproto_parser</span><br><span class="line"></span><br><span class="line">        <span class="comment"># install the table-miss flow entry.</span></span><br><span class="line">        match = parser.OFPMatch()</span><br><span class="line">        actions = [parser.OFPActionOutput(ofproto.OFPP_CONTROLLER,</span><br><span class="line">                                          ofproto.OFPCML_NO_BUFFER)]</span><br><span class="line">        self.add_flow(datapath, <span class="number">0</span>, match, actions)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_flow</span><span class="params">(self, datapath, priority, match, actions)</span>:</span></span><br><span class="line">        ofproto = datapath.ofproto</span><br><span class="line">        parser = datapath.ofproto_parser</span><br><span class="line"></span><br><span class="line">        <span class="comment"># construct flow_mod message and send it.</span></span><br><span class="line">        inst = [parser.OFPInstructionActions(ofproto.OFPIT_APPLY_ACTIONS,</span><br><span class="line">                                             actions)]</span><br><span class="line">        mod = parser.OFPFlowMod(datapath=datapath, priority=priority,</span><br><span class="line">                                match=match, instructions=inst)</span><br><span class="line">        datapath.send_msg(mod)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @set_ev_cls(ofp_event.EventOFPPacketIn, MAIN_DISPATCHER)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_packet_in_handler</span><span class="params">(self, ev)</span>:</span></span><br><span class="line">        msg = ev.msg</span><br><span class="line">        datapath = msg.datapath</span><br><span class="line">        ofproto = datapath.ofproto</span><br><span class="line">        parser = datapath.ofproto_parser</span><br><span class="line"></span><br><span class="line">        <span class="comment"># get Datapath ID to identify OpenFlow switches.</span></span><br><span class="line">        dpid = datapath.id</span><br><span class="line">        self.mac_to_port.setdefault(dpid, &#123;&#125;)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># analyse the received packets using the packet library.</span></span><br><span class="line">        pkt = packet.Packet(msg.data)</span><br><span class="line">        eth_pkt = pkt.get_protocol(ethernet.ethernet)</span><br><span class="line">        dst = eth_pkt.dst</span><br><span class="line">        src = eth_pkt.src</span><br><span class="line"></span><br><span class="line">        <span class="comment"># get the received port number from packet_in message.</span></span><br><span class="line">        in_port = msg.match[<span class="string">'in_port'</span>]</span><br><span class="line"></span><br><span class="line">        self.logger.info(<span class="string">"packet in %s %s %s %s"</span>, dpid, src, dst, in_port)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># learn a mac address to avoid FLOOD next time.</span></span><br><span class="line">        self.mac_to_port[dpid][src] = in_port</span><br><span class="line"></span><br><span class="line">        <span class="comment"># if the destination mac address is already learned,</span></span><br><span class="line">        <span class="comment"># decide which port to output the packet, otherwise FLOOD.</span></span><br><span class="line">        <span class="keyword">if</span> dst <span class="keyword">in</span> self.mac_to_port[dpid]:</span><br><span class="line">            out_port = self.mac_to_port[dpid][dst]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            out_port = ofproto.OFPP_FLOOD</span><br><span class="line"></span><br><span class="line">        <span class="comment"># construct action list.</span></span><br><span class="line">        actions = [parser.OFPActionOutput(out_port)]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># install a flow to avoid packet_in next time.</span></span><br><span class="line">        <span class="keyword">if</span> out_port != ofproto.OFPP_FLOOD:</span><br><span class="line">            match = parser.OFPMatch(in_port=in_port, eth_dst=dst)</span><br><span class="line">            self.add_flow(datapath, <span class="number">1</span>, match, actions)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># construct packet_out message and send it.</span></span><br><span class="line">        out = parser.OFPPacketOut(datapath=datapath,</span><br><span class="line">                                  buffer_id=ofproto.OFP_NO_BUFFER,</span><br><span class="line">                                  in_port=in_port, actions=actions,</span><br><span class="line">                                  data=msg.data)</span><br><span class="line">        datapath.send_msg(out)</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python"># Copyright (C) 2016 Nippon Telegraph and Telephone Corporation.
+#
+# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+# implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+from ryu.base import app_manager
+from ryu.controller import ofp_event
+from ryu.controller.handler import CONFIG_DISPATCHER, MAIN_DISPATCHER
+from ryu.controller.handler import set_ev_cls
+from ryu.ofproto import ofproto_v1_3
+from ryu.lib.packet import packet
+from ryu.lib.packet import ethernet
+
+
+class ExampleSwitch13(app_manager.RyuApp):
+    OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]
+
+    def __init__(self, *args, **kwargs):
+        super(ExampleSwitch13, self).__init__(*args, **kwargs)
+        # initialize mac address table.
+        self.mac_to_port = {}
+
+    @set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)
+    def switch_features_handler(self, ev):
+        datapath = ev.msg.datapath
+        ofproto = datapath.ofproto
+        parser = datapath.ofproto_parser
+
+        # install the table-miss flow entry.
+        match = parser.OFPMatch()
+        actions = [parser.OFPActionOutput(ofproto.OFPP_CONTROLLER,
+                                          ofproto.OFPCML_NO_BUFFER)]
+        self.add_flow(datapath, 0, match, actions)
+
+    def add_flow(self, datapath, priority, match, actions):
+        ofproto = datapath.ofproto
+        parser = datapath.ofproto_parser
+
+        # construct flow_mod message and send it.
+        inst = [parser.OFPInstructionActions(ofproto.OFPIT_APPLY_ACTIONS,
+                                             actions)]
+        mod = parser.OFPFlowMod(datapath=datapath, priority=priority,
+                                match=match, instructions=inst)
+        datapath.send_msg(mod)
+
+    @set_ev_cls(ofp_event.EventOFPPacketIn, MAIN_DISPATCHER)
+    def _packet_in_handler(self, ev):
+        msg = ev.msg
+        datapath = msg.datapath
+        ofproto = datapath.ofproto
+        parser = datapath.ofproto_parser
+
+        # get Datapath ID to identify OpenFlow switches.
+        dpid = datapath.id
+        self.mac_to_port.setdefault(dpid, {})
+
+        # analyse the received packets using the packet library.
+        pkt = packet.Packet(msg.data)
+        eth_pkt = pkt.get_protocol(ethernet.ethernet)
+        dst = eth_pkt.dst
+        src = eth_pkt.src
+
+        # get the received port number from packet_in message.
+        in_port = msg.match[&#39;in_port&#39;]
+
+        self.logger.info(&quot;packet in %s %s %s %s&quot;, dpid, src, dst, in_port)
+
+        # learn a mac address to avoid FLOOD next time.
+        self.mac_to_port[dpid][src] = in_port
+
+        # if the destination mac address is already learned,
+        # decide which port to output the packet, otherwise FLOOD.
+        if dst in self.mac_to_port[dpid]:
+            out_port = self.mac_to_port[dpid][dst]
+        else:
+            out_port = ofproto.OFPP_FLOOD
+
+        # construct action list.
+        actions = [parser.OFPActionOutput(out_port)]
+
+        # install a flow to avoid packet_in next time.
+        if out_port != ofproto.OFPP_FLOOD:
+            match = parser.OFPMatch(in_port=in_port, eth_dst=dst)
+            self.add_flow(datapath, 1, match, actions)
+
+        # construct packet_out message and send it.
+        out = parser.OFPPacketOut(datapath=datapath,
+                                  buffer_id=ofproto.OFP_NO_BUFFER,
+                                  in_port=in_port, actions=actions,
+                                  data=msg.data)
+        datapath.send_msg(out)
+</code></pre>
 <p>让我们来看看各自实现的内容。</p>
 <h3 id="2-3-1-类定义和初始化"><a href="#2-3-1-类定义和初始化" class="headerlink" title="2.3.1 类定义和初始化"></a>2.3.1 类定义和初始化</h3><p>为了实现一个ryu应用， ryu.base.app_manager.RyuApp被引用，此外，要使用OpenFlow 1.3，OpenFlow 1.3版本是为OFP_VERSIONS指定的。此外，定义了MAC地址表mac_to_port.</p>
 <p>在OpenFlow协议中，已经定义了一些过程，例如Open-Flow交换机和控制器之间通信所需的握手。但是，由于Ryu的框架负责处理这些程序，因此在ryu app中不需要了解这些。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleSwitch13</span><span class="params">(app_manager.RyuApp)</span>:</span></span><br><span class="line">    OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, *args, **kwargs)</span>:</span></span><br><span class="line">        super(ExampleSwitch13, self).__init__(*args, **kwargs)</span><br><span class="line">        <span class="comment"># initialize mac address table.</span></span><br><span class="line">        self.mac_to_port = &#123;&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">
+class ExampleSwitch13(app_manager.RyuApp):
+    OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]
+
+    def __init__(self, *args, **kwargs):
+        super(ExampleSwitch13, self).__init__(*args, **kwargs)
+        # initialize mac address table.
+        self.mac_to_port = {}
+</code></pre>
 <h3 id="2-3-2-事件处理函数"><a href="#2-3-2-事件处理函数" class="headerlink" title="2.3.2 事件处理函数"></a>2.3.2 事件处理函数</h3><p>对于Ryu，当接收到OpenFlow消息时，生成对应于该消息的事件。 Ryu应用程序实现了与希望接收的消息相对应的事件处理程序。事件处理程序定义了一个具有参数的事件对象的函数，并使用ryu.controller.handler.set_ev_cls装饰器来装饰。</p>
 <p>set_ev_cls指定支持接收消息的事件类以及参数的OpenFlow交换机的状态。事件类名称为ryu.controller.ofp_event.EventOFP + <openflow消息名称>。例如，在Packet-In消息的情况下，它变为EventOFPPacketIn。有关详细信息，请参阅Ryu的标题为API Reference的文档。对于状态，请指定以下之一或列表。</openflow消息名称></p>
 <div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-11-053905.jpg" width="800"></div>
@@ -445,35 +582,77 @@
 <p>在与OpenFlow交换机完成握手之后，将缺失流表项添加到交换机流表中以准备接收Packet-In消息。具体地，在接收到交换机特征（特征回复）消息时，添加表缺失流条目。</p>
 </li>
 </ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">switch_features_handler</span><span class="params">(self, ev)</span>:</span></span><br><span class="line">        datapath = ev.msg.datapath</span><br><span class="line">        ofproto = datapath.ofproto</span><br><span class="line">        parser = datapath.ofproto_parser</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">@set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)
+    def switch_features_handler(self, ev):
+        datapath = ev.msg.datapath
+        ofproto = datapath.ofproto
+        parser = datapath.ofproto_parser
+</code></pre>
 <p>在ev.msg中，存储与该事件对应的OpenFlow消息类的实例。在本例中，它是ryu.ofproto.ofproto_v1_3_parser.OFPSwitchFeatures。在msg.datapath中，存储与发出此消息的OpenFlow交换机对应的ryu.controller.controller.Datapath类的实例。Datapath类执行重要的处理，例如与OpenFlow交换机的实际通信以及与接收的消息相对应的事件的发布。<br>Ryu应用程序使用的datapath主要属性如下：</p>
 <div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-11-054538.jpg" width="800"></div>
 
 <p>Ryu应用程序中使用的Datapath类的主要方法如下：</p>
 <p><code>send_msg（msg）</code></p>
 <p>发送OpenFlow消息。 msg是与发送OpenFlow消息对应的ryu.ofproto.ofproto_parser.MsgBase的子类。<br>交换集线器并不特别使用收到的交换机功能消息本身。它被作为事件处理以获得添加表缺失流条目的定时。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">switch_features_handler</span><span class="params">(self, ev)</span>:</span></span><br><span class="line">        <span class="comment"># install the table-miss flow entry.</span></span><br><span class="line">        match = parser.OFPMatch()</span><br><span class="line">        actions = [parser.OFPActionOutput(ofproto.OFPP_CONTROLLER,</span><br><span class="line">                                          ofproto.OFPCML_NO_BUFFER)]</span><br><span class="line">        self.add_flow(datapath, <span class="number">0</span>, match, actions)</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">def switch_features_handler(self, ev):
+        # install the table-miss flow entry.
+        match = parser.OFPMatch()
+        actions = [parser.OFPActionOutput(ofproto.OFPP_CONTROLLER,
+                                          ofproto.OFPCML_NO_BUFFER)]
+        self.add_flow(datapath, 0, match, actions)
+</code></pre>
 <p>Table-miss流条目具有最低（0）优先级，并且该条目匹配所有分组。在该条目的指令中，通过指定输出到控制器端口的输出动作，如果接收的数据包与任何正常流条目都不匹配，则发出Packet-In。生成空匹配以匹配所有数据包。匹配在OFPMatch类中表示。<br>接下来，生成OUTPUT操作类（OFPActionOutput）的实例以传输到控制器端口。控制器被指定为输出目的地，OFPCML_NO_BUFFER被指定为max_len，以便将所有数据包发送到控制器。<br>最后，为优先级指定0（最低），并执行add_flow（）方法以发送Flow Mod消息。 add_flow（）方法的内容将在后面的部分中介绍。</p>
 <ol>
 <li><p>Packet-In 消息</p>
 <p>创建Packet-In事件处理程序的处理程序，以接受具有未知目标的已接收数据包</p>
 </li>
 </ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@set_ev_cls(ofp_event.EventOFPPacketIn, MAIN_DISPATCHER)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_packet_in_handler</span><span class="params">(self, ev)</span>:</span></span><br><span class="line">        msg = ev.msg</span><br><span class="line">        datapath = msg.datapath</span><br><span class="line">        ofproto = datapath.ofproto</span><br><span class="line">        parser = datapath.ofproto_parser</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">@set_ev_cls(ofp_event.EventOFPPacketIn, MAIN_DISPATCHER)
+    def _packet_in_handler(self, ev):
+        msg = ev.msg
+        datapath = msg.datapath
+        ofproto = datapath.ofproto
+        parser = datapath.ofproto_parser
+</code></pre>
 <p>常用的OFPPacketIn类属性如下所示：</p>
 <div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-11-061623.jpg" width="800"></div>
 
 <ol>
 <li>更新MAC地址表</li>
 </ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_packet_in_handler</span><span class="params">(self, ev)</span>:</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment"># get the received port number from packet_in message.</span></span><br><span class="line">        in_port = msg.match[<span class="string">'in_port'</span>]</span><br><span class="line"></span><br><span class="line">        self.logger.info(<span class="string">"packet in %s %s %s %s"</span>, dpid, src, dst, in_port)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># learn a mac address to avoid FLOOD next time.</span></span><br><span class="line">        self.mac_to_port[dpid][src] = in_port</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">def _packet_in_handler(self, ev):
+
+
+        # get the received port number from packet_in message.
+        in_port = msg.match[&#39;in_port&#39;]
+
+        self.logger.info(&quot;packet in %s %s %s %s&quot;, dpid, src, dst, in_port)
+
+        # learn a mac address to avoid FLOOD next time.
+        self.mac_to_port[dpid][src] = in_port
+</code></pre>
 <p>$\qquad$从OFPPacketIn匹配中获取接收端口（in_port）。目标MAC地址和发送方MAC地址使用Ryu的数据包库从接收到的数据包的以太网报头中获取。基于获取的发送方MAC地址和接收的端口号，更新MAC地址表。<br>$\qquad$为了支持与多个OpenFlow交换机的连接，MAC地址表被设计为针对每个OpenFlow交换机进行管理。datapath ID用于标识OpenFlow交换机。</p>
 <ol>
 <li><p>判断转发目的端口</p>
 <p>当MAC地址表中存在目的MAC地址时，使用相应的端口号。如果未找到，则生成OUTPUT操作类的实例，该实例指定输出端口的泛洪（OFPP_FLOOD）</p>
 </li>
 </ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_packet_in_handler</span><span class="params">(self, ev)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># if the destination mac address is already learned,</span></span><br><span class="line">        <span class="comment"># decide which port to output the packet, otherwise FLOOD.</span></span><br><span class="line">        <span class="keyword">if</span> dst <span class="keyword">in</span> self.mac_to_port[dpid]:</span><br><span class="line">            out_port = self.mac_to_port[dpid][dst]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            out_port = ofproto.OFPP_FLOOD</span><br><span class="line"></span><br><span class="line">        <span class="comment"># construct action list.</span></span><br><span class="line">        actions = [parser.OFPActionOutput(out_port)]</span><br><span class="line">        <span class="comment"># install a flow to avoid packet_in next time.</span></span><br><span class="line">        <span class="keyword">if</span> out_port != ofproto.OFPP_FLOOD:</span><br><span class="line">            match = parser.OFPMatch(in_port=in_port, eth_dst=dst)</span><br><span class="line">            self.add_flow(datapath, <span class="number">1</span>, match, actions)</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">def _packet_in_handler(self, ev):
+
+        # if the destination mac address is already learned,
+        # decide which port to output the packet, otherwise FLOOD.
+        if dst in self.mac_to_port[dpid]:
+            out_port = self.mac_to_port[dpid][dst]
+        else:
+            out_port = ofproto.OFPP_FLOOD
+
+        # construct action list.
+        actions = [parser.OFPActionOutput(out_port)]
+        # install a flow to avoid packet_in next time.
+        if out_port != ofproto.OFPP_FLOOD:
+            match = parser.OFPMatch(in_port=in_port, eth_dst=dst)
+            self.add_flow(datapath, 1, match, actions)
+</code></pre>
 <p>$\qquad$如果找到目标MAC地址，则会在OpenFlow交换机的流表中添加一个条目。与添加Table-miss流条目一样，指定匹配和操作，并执行add_flow（）以添加流条目。</p>
 <p>$\qquad$与Table-miss流条目不同，此次设置匹配条件。这次实现了交换集线器，指定了接收端口（in_port）和目标MAC地址（eth_dst）。例如，由端口1接收的寻址到主机B的分组是目标。<br>$\qquad$对于此次的流条目，优先级指定为1,值越大，优先级越高，因此，此处添加的流条目将在Table-miss流条目之前进行评估。<br>$\qquad$根据包含上述操作的摘要，将以下条目添加到流表中。将端口1接收到的主机B（目标MAC地址为B）的数据包传输到端口4。</p>
 <blockquote>
@@ -483,9 +662,20 @@
 <li>添加流表项</li>
 </ol>
 <p>Packet-In处理程序的处理尚未完成，但这里将介绍添加流表项的方法。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_flow</span><span class="params">(self, datapath, priority, match, actions)</span>:</span></span><br><span class="line">        ofproto = datapath.ofproto</span><br><span class="line">        parser = datapath.ofproto_parser</span><br><span class="line"></span><br><span class="line">        <span class="comment"># construct flow_mod message and send it.</span></span><br><span class="line">        inst = [parser.OFPInstructionActions(ofproto.OFPIT_APPLY_ACTIONS,</span><br><span class="line">                                             actions)]</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">def add_flow(self, datapath, priority, match, actions):
+        ofproto = datapath.ofproto
+        parser = datapath.ofproto_parser
+
+        # construct flow_mod message and send it.
+        inst = [parser.OFPInstructionActions(ofproto.OFPIT_APPLY_ACTIONS,
+                                             actions)]
+</code></pre>
 <p>对于流表项，设置指示目标数据包条件的匹配，以及指示对数据包的操作，条目优先级和有效时间的指令。在交换集线器实现中，Apply Actions用于设置指令，以便立即使用指定的操作。<br>最后，通过发出Flow Mod消息向流表添加条目</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_flow</span><span class="params">(self, datapath, priority, match, actions)</span>:</span></span><br><span class="line">        mod = parser.OFPFlowMod(datapath=datapath, priority=priority,</span><br><span class="line">                                match=match, instructions=inst)</span><br><span class="line">        datapath.send_msg(mod)</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">def add_flow(self, datapath, priority, match, actions):
+        mod = parser.OFPFlowMod(datapath=datapath, priority=priority,
+                                match=match, instructions=inst)
+        datapath.send_msg(mod)
+</code></pre>
 <p>与Flow Mod消息对应的类是OFPFlowMod类。生成OFPFlowMod类的实例，并使用Datapath.send_msg（）方法将消息发送到OpenFlow交换机。OFPFlowMod类的构造函数有很多参数。其中许多通常可以是默认值。括号内是默认值。</p>
 <ul>
 <li><p>datapath</p>
@@ -541,7 +731,13 @@
 <p>现在我们返回Packet-In处理程序并解释最终处理。无论是否从MAC地址表中找到目的地MAC地址，最后都发出分组输出消息并传送接收的分组。</p>
 </li>
 </ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_packet_in_handler</span><span class="params">(self, ev)</span>:</span></span><br><span class="line">        out = parser.OFPPacketOut(datapath=datapath,</span><br><span class="line">                                  buffer_id=ofproto.OFP_NO_BUFFER,</span><br><span class="line">                                  in_port=in_port, actions=actions,</span><br><span class="line">                                  data=msg.data)</span><br><span class="line">        datapath.send_msg(out)</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">def _packet_in_handler(self, ev):
+        out = parser.OFPPacketOut(datapath=datapath,
+                                  buffer_id=ofproto.OFP_NO_BUFFER,
+                                  in_port=in_port, actions=actions,
+                                  data=msg.data)
+        datapath.send_msg(out)
+</code></pre>
 <p>与Packet-Out消息对应的类是OFPPacketOut类。 OFPPacketOut的构造函数的参数如下：</p>
 <ul>
 <li><p>datapath</p>
@@ -786,14 +982,14 @@
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">149k</span>
+    <span title="站点总字数">150k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">2:15</span>
+    <span title="站点阅读时长">2:17</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
   <span class="post-meta-divider">|</span>
@@ -836,6 +1032,11 @@
 
 
 
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.css">
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js"></script><script src="/js/algolia-search.js?v=7.4.0"></script>
 
 
 

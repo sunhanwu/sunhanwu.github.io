@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -234,9 +234,37 @@
     <a href="/photo/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br>Photos</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
   </ul>
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input" id="search-input"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+  
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
@@ -373,7 +401,16 @@
 <ul>
 <li>源代码<code>getpid_c.c</code>：</li>
 </ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">pid_t</span> pid;</span><br><span class="line">	pid = getpid();</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,pid);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-c">#include&lt;stdio.h&gt;
+#include&lt;unistd.h&gt;
+int main()
+{
+    pid_t pid;
+    pid = getpid();
+    printf(&quot;%d\n&quot;,pid);
+    return 0;
+}
+</code></pre>
 <ul>
 <li>编译源代码，得到可执行文件getpid_c</li>
 <li>执行可执行文件，得到程序的pid</li>
@@ -395,7 +432,21 @@
 <ul>
 <li>源代码<code>getpid_asm.c</code>：</li>
 </ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;  </span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">            <span class="keyword">pid_t</span> pid;  </span><br><span class="line">        <span class="function"><span class="keyword">asm</span> <span class="title">volatile</span> <span class="params">(  </span></span></span><br><span class="line"><span class="function"><span class="params">             <span class="string">"movl $0x14,%%eax\n\t"</span>  </span></span></span><br><span class="line"><span class="function"><span class="params">             <span class="string">"int $0x80\n\t"</span>  </span></span></span><br><span class="line"><span class="function"><span class="params">             <span class="string">"movl %%eax,%0\n\t"</span>  </span></span></span><br><span class="line"><span class="function"><span class="params">             :<span class="string">"=m"</span>(pid)  </span></span></span><br><span class="line"><span class="function"><span class="params">        )</span></span>;  </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" current PID is : %u\n"</span>,pid);  </span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-c">#include &lt;stdio.h&gt;  
+#include &lt;unistd.h&gt;  
+int main()  
+{  
+            pid_t pid;  
+        asm volatile (  
+             &quot;movl $0x14,%%eax\n\t&quot;  
+             &quot;int $0x80\n\t&quot;  
+             &quot;movl %%eax,%0\n\t&quot;  
+             :&quot;=m&quot;(pid)  
+        );  
+        printf(&quot; current PID is : %u\n&quot;,pid);  
+        return 0;
+}
+</code></pre>
 <ul>
 <li>编译源码，得到可执行文件getpid_asm</li>
 <li>执行可执行文件，得到程序的pid</li>
@@ -411,7 +462,13 @@
 <ul>
 <li>源代码<code>print_c.c</code>:</li>
 </ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Hello World!\n"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-c">#include&lt;stdio.h&gt;
+int main()
+{
+    printf(&quot;Hello World!\n&quot;);
+    return 0;
+}
+</code></pre>
 <ul>
 <li>编译源码，得到可执行文件print_c</li>
 <li>执行文件，屏幕打印Hello World</li>
@@ -424,7 +481,21 @@
 <ul>
 <li>源代码<code>print_asm.asm</code>:</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">section data</span><br><span class="line">msg db &quot;Hello World&quot;,0xA</span><br><span class="line">len equ $-msg</span><br><span class="line">section .text</span><br><span class="line">	global _start</span><br><span class="line">_start:</span><br><span class="line">	mov eax,4</span><br><span class="line">	mov ebx,1</span><br><span class="line">	mov ecx,msg</span><br><span class="line">	mov edx,len</span><br><span class="line">	int 0x80</span><br><span class="line">	mov eax,1</span><br><span class="line">	xor ebx,ebx</span><br><span class="line">	int 0x80</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-asm">section data
+msg db &quot;Hello World&quot;,0xA
+len equ $-msg
+section .text
+    global _start
+_start:
+    mov eax,4
+    mov ebx,1
+    mov ecx,msg
+    mov edx,len
+    int 0x80
+    mov eax,1
+    xor ebx,ebx
+    int 0x80
+</code></pre>
 <ul>
 <li>汇编源码，得到对象文件print_asm.o</li>
 <li>链接得到可执行文件print_asm</li>
@@ -439,12 +510,36 @@
 <ul>
 <li>这个文件中以宏定义的形式定义了四种系统调用的方式，分别是不传递参数、传递一个参数、传递两个参数、传递三个参数</li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> syscall0(NUMBER) ...</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> syscall1(NUMBER, ARG0) ...</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> syscall2(NUMBER, ARG0, ARG1) ...</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> syscall3(NUMBER, ARG0, ARG1, ARG2) ...</span></span><br></pre></td></tr></table></figure>
+<pre><code class="lang-c++">#define syscall0(NUMBER) ...
+#define syscall1(NUMBER, ARG0) ...
+#define syscall2(NUMBER, ARG0, ARG1) ...
+#define syscall3(NUMBER, ARG0, ARG1, ARG2) ...
+</code></pre>
 <p>四个系统调用方式的中断向量号均为0x30.</p>
 <ul>
 <li>定义了20种系统调用函数</li>
 </ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">halt</span> <span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exit</span> <span class="params">(<span class="keyword">int</span> status)</span></span></span><br><span class="line"><span class="function">pid_t <span class="title">exec</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *file)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">wait</span> <span class="params">(<span class="keyword">pid_t</span> pid)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">create</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *file, <span class="keyword">unsigned</span> initial_size)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">remove</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *file)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">open</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *file)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">filesize</span> <span class="params">(<span class="keyword">int</span> fd)</span> </span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span> <span class="params">(<span class="keyword">int</span> fd, <span class="keyword">void</span> *buffer, <span class="keyword">unsigned</span> size)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">write</span> <span class="params">(<span class="keyword">int</span> fd, <span class="keyword">const</span> <span class="keyword">void</span> *buffer, <span class="keyword">unsigned</span> size)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">seek</span> <span class="params">(<span class="keyword">int</span> fd, <span class="keyword">unsigned</span> position)</span> </span>;</span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">tell</span> <span class="params">(<span class="keyword">int</span> fd)</span> </span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">close</span> <span class="params">(<span class="keyword">int</span> fd)</span></span>;</span><br><span class="line"><span class="keyword">mapid_t</span> mmap (<span class="keyword">int</span> fd, <span class="keyword">void</span> *addr);</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">munmap</span> <span class="params">(<span class="keyword">mapid_t</span> mapid)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">chdir</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *dir)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">mkdir</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *dir)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">readdir</span> <span class="params">(<span class="keyword">int</span> fd, <span class="keyword">char</span> name[READDIR_MAX_LEN + <span class="number">1</span>])</span> </span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isdir</span> <span class="params">(<span class="keyword">int</span> fd)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">inumber</span> <span class="params">(<span class="keyword">int</span> fd)</span></span>;</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-c">void halt (void);
+void exit (int status)
+pid_t exec (const char *file);
+int wait (pid_t pid);
+bool create (const char *file, unsigned initial_size);
+bool remove (const char *file);
+int open (const char *file);
+int filesize (int fd) ;
+int read (int fd, void *buffer, unsigned size);
+int write (int fd, const void *buffer, unsigned size);
+void seek (int fd, unsigned position) ;
+unsigned tell (int fd) ;
+void close (int fd);
+mapid_t mmap (int fd, void *addr);
+void munmap (mapid_t mapid);
+bool chdir (const char *dir);
+bool mkdir (const char *dir);
+bool readdir (int fd, char name[READDIR_MAX_LEN + 1]) ;
+bool isdir (int fd);
+int inumber (int fd);
+</code></pre>
 <p>上面的系统调用在下面的头文件中都有对应的系统调用号</p>
 </li>
 <li><p><code>/src/lib/syscallnr.h</code></p>
@@ -466,13 +561,35 @@
 </ol>
 <h2 id="Task-2-并发实验"><a href="#Task-2-并发实验" class="headerlink" title="Task 2 并发实验"></a>Task 2 并发实验</h2><h3 id="2-1-实验步骤"><a href="#2-1-实验步骤" class="headerlink" title="2.1 实验步骤"></a>2.1 实验步骤</h3><ol>
 <li><p>编写<code>cpu.c</code>程序，代码如下：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sys/time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (argc!=<span class="number">2</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>,<span class="string">"usage:cpu&lt;string&gt;\n"</span>);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">char</span> *str=argv[<span class="number">1</span>];</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		sleep(<span class="number">1</span>);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%s\n"</span>,str);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-c">#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+#include&lt;sys/time.h&gt;
+#include&lt;assert.h&gt;
+#include&lt;unistd.h&gt;
+int main(int argc,char *argv[])
+{
+    if (argc!=2)
+    {
+        fprintf(stderr,&quot;usage:cpu&lt;string&gt;\n&quot;);
+        exit(1);
+    }
+    char *str=argv[1];
+    while(1)
+    {
+        sleep(1);
+        printf(&quot;%s\n&quot;,str);
+    }
+    return 0;
+}
+</code></pre>
 </li>
 <li><p>编译源码cpu.c，得到可执行文件cpu</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc cpu.c -o cpu</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-shell">gcc cpu.c -o cpu
+</code></pre>
 </li>
 <li><p>执行cpu程序</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./cpu A &amp; ; ./cpu B &amp; ; ./cpu C &amp; ; ./cpu D</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-shell">./cpu A &amp; ; ./cpu B &amp; ; ./cpu C &amp; ; ./cpu D
+</code></pre>
 <p><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171801.jpg" width="600"></p>
 </li>
 <li><p>程序功能解释：</p>
@@ -486,10 +603,29 @@
 </ul>
 <h2 id="Task-3-内存分配实验"><a href="#Task-3-内存分配实验" class="headerlink" title="Task 3 内存分配实验"></a>Task 3 内存分配实验</h2><h3 id="3-1-实验步骤"><a href="#3-1-实验步骤" class="headerlink" title="3.1 实验步骤"></a>3.1 实验步骤</h3><ol>
 <li><p>编写<code>mem.c</code>程序，代码如下：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> *p = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">	assert(p!=<span class="literal">NULL</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"(%d) address pointed to by p: %p\n"</span>,getpid(),p);</span><br><span class="line">	*p=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		sleep(<span class="number">1</span>);</span><br><span class="line">		*p=*p+<span class="number">1</span>;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"(%d) p: %d\n"</span>,getpid(),*p);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-c">#include&lt;unistd.h&gt;
+#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+#include&lt;assert.h&gt;
+int main(int argc,char *argv[])
+{
+    int *p = malloc(sizeof(int));
+    assert(p!=NULL);
+    printf(&quot;(%d) address pointed to by p: %p\n&quot;,getpid(),p);
+    *p=0;
+    while(1)
+    {
+        sleep(1);
+        *p=*p+1;
+        printf(&quot;(%d) p: %d\n&quot;,getpid(),*p);
+    }
+    return 0;
+}
+</code></pre>
 </li>
 <li><p>编译源码<code>mem.c</code>，得到可执行程序<code>mem</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc mem.c -o mem</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-shell">gcc mem.c -o mem
+</code></pre>
 </li>
 <li><p>执行mem程序</p>
 <ul>
@@ -535,10 +671,42 @@
 </ol>
 <h2 id="Task-4-共享问题"><a href="#Task-4-共享问题" class="headerlink" title="Task 4 共享问题"></a>Task 4 共享问题</h2><h3 id="4-1-实验步骤"><a href="#4-1-实验步骤" class="headerlink" title="4.1 实验步骤"></a>4.1 实验步骤</h3><ol>
 <li><p>编写程序<code>thread.c</code>,源码如下：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="keyword">volatile</span> <span class="keyword">int</span> counter=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> loops;</span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">worker</span><span class="params">(<span class="keyword">void</span> *arg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;loops;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		counter++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(argc!=<span class="number">2</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>,<span class="string">"usage: thread &lt;value&gt;\n"</span>);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	loops=atoi(argv[<span class="number">1</span>]);</span><br><span class="line">	<span class="keyword">pthread_t</span> p1,p2;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Initial value: %d\n"</span>,counter);</span><br><span class="line">	pthread_create(&amp;p1,<span class="literal">NULL</span>,worker,<span class="literal">NULL</span>);</span><br><span class="line">	pthread_create(&amp;p2,<span class="literal">NULL</span>,worker,<span class="literal">NULL</span>);</span><br><span class="line">	pthread_join(p1,<span class="literal">NULL</span>);</span><br><span class="line">	pthread_join(p2,<span class="literal">NULL</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Final value: %d\n"</span>,counter);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-c">#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+#include&lt;pthread.h&gt;
+volatile int counter=0;
+int loops;
+void *worker(void *arg)
+{
+    int i;
+    for(i=0;i&lt;loops;i++)
+    {
+        counter++;
+    }
+    return NULL;
+}
+int main(int argc,char *argv[])
+{
+    if(argc!=2)
+    {
+        fprintf(stderr,&quot;usage: thread &lt;value&gt;\n&quot;);
+        exit(1);
+    }
+    loops=atoi(argv[1]);
+    pthread_t p1,p2;
+    printf(&quot;Initial value: %d\n&quot;,counter);
+    pthread_create(&amp;p1,NULL,worker,NULL);
+    pthread_create(&amp;p2,NULL,worker,NULL);
+    pthread_join(p1,NULL);
+    pthread_join(p2,NULL);
+    printf(&quot;Final value: %d\n&quot;,counter);
+    return 0;
+}
+</code></pre>
 </li>
 <li><p>编译源码<code>thread.c</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o thread -lpthread thread.c</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-shell">gcc -o thread -lpthread thread.c
+</code></pre>
 </li>
 <li><p>执行thread程序</p>
 <ul>
@@ -814,14 +982,14 @@
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">149k</span>
+    <span title="站点总字数">150k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">2:15</span>
+    <span title="站点阅读时长">2:17</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
   <span class="post-meta-divider">|</span>
@@ -864,6 +1032,11 @@
 
 
 
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.css">
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js"></script><script src="/js/algolia-search.js?v=7.4.0"></script>
 
 
 

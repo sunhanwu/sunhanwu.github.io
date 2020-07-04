@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -217,9 +217,37 @@
     <a href="/photo/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br>Photos</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
   </ul>
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input" id="search-input"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+  
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
@@ -324,7 +352,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>4.3k</span>
+              <span>4.9k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -352,12 +380,122 @@
 </blockquote>
 <p>对于任何一个Linux玩家来说，vim都不可避免，其许多看似反人类的设计，其实背后都有原因。虽然前期的学习曲线比较高，但是一旦使用熟练之后，其开发和编辑的效率完全能和各种现代的编辑器媲美甚至更胜一筹，并且由于其打开速度快，线上开发方便等优点而深受程序员喜爱，下面就结合我自己的vim配置介绍一下。</p>
 <h2 id="一、安装插件管理器-vim-plug"><a href="#一、安装插件管理器-vim-plug" class="headerlink" title="一、安装插件管理器:vim-plug"></a>一、安装插件管理器:vim-plug</h2><p>vim-plug是一款优秀的插件管理器，其安装十分简单,命令如下:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fLo ~/.vim/<span class="built_in">autoload</span>/plug.vim --create-dirs \</span><br><span class="line">    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-bash">curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+</code></pre>
 <h2 id="二、安装插件"><a href="#二、安装插件" class="headerlink" title="二、安装插件"></a>二、安装插件</h2><p>在home目录下的.vimrc文件中添加如下配置：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line">set nocompatible              <span class="string">" be iMproved, required</span></span><br><span class="line"><span class="string">filetype off                  "</span> required</span><br><span class="line">set backspace=<span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="string">" 插件管理</span></span><br><span class="line"><span class="string">set rtp+=~/.vim/bundle/Vundle.vim</span></span><br><span class="line"><span class="string">call plug#begin()</span></span><br><span class="line"><span class="string">"</span> Plug <span class="string">'VundleVim/Vundle.vim'</span></span><br><span class="line">Plug <span class="string">'python-mode/python-mode'</span>, &#123; <span class="string">'branch'</span>: <span class="string">'develop'</span> &#125;</span><br><span class="line"><span class="string">" Plug 'davidhalter/jedi-vim'</span></span><br><span class="line"><span class="string">Plug 'tpope/vim-surround'</span></span><br><span class="line"><span class="string">Plug 'majutsushi/tagbar'</span></span><br><span class="line"><span class="string">"</span> Plug <span class="string">'w0rp/ale'</span></span><br><span class="line">Plug <span class="string">'mhinz/vim-startify'</span></span><br><span class="line">Plug <span class="string">'ervandew/supertab'</span></span><br><span class="line">Plug <span class="string">'python-mode/python-mode'</span></span><br><span class="line">Plug <span class="string">'scrooloose/nerdcommenter'</span></span><br><span class="line">Plug <span class="string">'kien/ctrlp.vim'</span></span><br><span class="line">Plug <span class="string">'scrooloose/nerdtree'</span></span><br><span class="line">Plug <span class="string">'vim-scripts/taglist.vim'</span></span><br><span class="line">Plug <span class="string">'vim-scripts/The-NERD-Commenter'</span></span><br><span class="line"><span class="string">" Plug 'junegunn/vim-easy-align'</span></span><br><span class="line"><span class="string">Plug 'easymotion/vim-easymotion'</span></span><br><span class="line"><span class="string">Plug 'vim-scripts/winmanager'</span></span><br><span class="line"><span class="string">Plug 'tomasr/molokai'</span></span><br><span class="line"><span class="string">Plug 'vim-airline/vim-airline'</span></span><br><span class="line"><span class="string">Plug 'vim-airline/vim-airline-themes'</span></span><br><span class="line"><span class="string">Plug 'Yggdroot/indentLine'</span></span><br><span class="line"><span class="string">Plug 'Xuyuanp/nerdtree-git-plugin'</span></span><br><span class="line"><span class="string">Plug 'sbdchd/neoformat'</span></span><br><span class="line"><span class="string">"</span> Plug <span class="string">'Chiel92/vim-autoformat'</span></span><br><span class="line"><span class="string">" Plug 'lyokha/vim-xkbswitch'</span></span><br><span class="line"><span class="string">call plug#end()            "</span> required</span><br><span class="line">filetype plugin indent on    <span class="string">" required</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span>基础配置</span><br><span class="line">let mapleader=<span class="string">','</span></span><br><span class="line">let g:indentLine_enabled = <span class="number">1</span></span><br><span class="line">color desert <span class="string">"颜色设置</span></span><br><span class="line"><span class="string">syntax on "</span>语法高亮</span><br><span class="line">set number <span class="string">"自动显示行号</span></span><br><span class="line"><span class="string">set cursorline "</span>突出显示当前行</span><br><span class="line">set ts=<span class="number">4</span> <span class="string">"设置tab长度为4</span></span><br><span class="line"><span class="string">set shiftwidth=4 "</span>设定 &lt;&lt; 和 &gt;&gt; 命令移动时的宽度为 <span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="string">"解决中文编码乱码</span></span><br><span class="line"><span class="string">let &amp;termencoding=&amp;encoding</span></span><br><span class="line"><span class="string">set fileencodings=utf-8,gbk</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">	</span></span><br><span class="line"><span class="string">let g:NERDSpaceDelims=1     "</span> 注释后面自动加空格<span class="string">"</span></span><br><span class="line"><span class="string">set clipboard=unnamed</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span> python-mode 配置</span><br><span class="line">let g:pymode_python = <span class="string">'python3'</span> <span class="string">"设置pyhton3模式</span></span><br><span class="line"><span class="string">let g:pymode_trim_withespaces = 1 "</span> 保存是删除多于空格</span><br><span class="line">let g:pymode_doc = <span class="number">0</span> <span class="string">"</span></span><br><span class="line"><span class="string">"</span> let g:pymode_doc_bind  = <span class="string">'K'</span>  <span class="string">"</span></span><br><span class="line"><span class="string">"</span> let g:pymode_rope_completion = <span class="number">1</span></span><br><span class="line"><span class="string">" let g:pymode_rope_complete_on_dot = 1</span></span><br><span class="line"><span class="string">"</span> let g:pymode_rope_completion_bind = <span class="string">'&lt;C-Tab&gt;'</span></span><br><span class="line"><span class="string">" let g:pymode_indent = 1 时候用pep8风格的缩进</span></span><br><span class="line"><span class="string">let g:pymode_folding = 1</span></span><br><span class="line"><span class="string">let g:pymode_run_bind = '&lt;leader&gt;r'</span></span><br><span class="line"><span class="string">"</span> let g:pymode_motion = <span class="number">1</span></span><br><span class="line">let g:pymode_rope_goto_definition_bind = <span class="string">"&lt;C-]&gt;"</span></span><br><span class="line">let g:pymode_options_max_line_length = <span class="number">140</span></span><br><span class="line"><span class="string">" let g:pymode_lint_on_write = 1</span></span><br><span class="line"><span class="string">"</span> let g:pymode_lint_checkers = [<span class="string">'pyflakes'</span>,<span class="string">'pep8'</span>]</span><br><span class="line">let g:pymode_rope_completion = <span class="number">1</span></span><br><span class="line">let g:pymode_rope_complete_on_dot = <span class="number">1</span></span><br><span class="line">let g:pymode_rope_completion_bind = <span class="string">'&lt;C-Tab&gt;'</span></span><br><span class="line"><span class="string">" let g:pymode_lint_error_symbol = 'EE'</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span> nerdtree配置</span><br><span class="line">nmap ,v :NERDTreeFind&lt;cr&gt;</span><br><span class="line">nmap ,g :NERDTreeToggle&lt;cr&gt;</span><br><span class="line">let NERDTreeShowHidden=<span class="number">1</span></span><br><span class="line">let NERDTreeIgnore = [</span><br><span class="line">            \ <span class="string">'\.git$'</span>, <span class="string">'\.hg$'</span>, <span class="string">'\.svn$'</span>, <span class="string">'\.stversions$'</span>, <span class="string">'\.pyc$'</span>, <span class="string">'\.pyo$'</span>, <span class="string">'\.svn$'</span>, <span class="string">'\.swp$'</span>,</span><br><span class="line">            \ <span class="string">'\.DS_Store$'</span>, <span class="string">'\.sass-cache$'</span>, <span class="string">'__pycache__$'</span>, <span class="string">'\.egg-info$'</span>, <span class="string">'\.ropeproject$'</span>,</span><br><span class="line">            \ ]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">nnoremap &lt;leader&gt;t : TagbarToggle&lt;CR&gt;</span><br><span class="line"><span class="string">" ale 配置</span></span><br><span class="line"><span class="string">let g:ale_sign_error = '✗'</span></span><br><span class="line"><span class="string">let g:ale_linters = &#123;'python': []&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span>easy-align配置</span><br><span class="line"><span class="string">" xmap ga &lt;Plug&gt;(EasyAlign)</span></span><br><span class="line"><span class="string">"</span> nmap ga &lt;Plug&gt;(EasyAlign)</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">set nocompatible              &quot; be iMproved, required
+filetype off                  &quot; required
+set backspace=2
+
+&quot; 插件管理
+set rtp+=~/.vim/bundle/Vundle.vim
+call plug#begin()
+&quot; Plug &#39;VundleVim/Vundle.vim&#39;
+Plug &#39;python-mode/python-mode&#39;, { &#39;branch&#39;: &#39;develop&#39; }
+&quot; Plug &#39;davidhalter/jedi-vim&#39;
+Plug &#39;tpope/vim-surround&#39;
+Plug &#39;majutsushi/tagbar&#39;
+&quot; Plug &#39;w0rp/ale&#39;
+Plug &#39;mhinz/vim-startify&#39;
+Plug &#39;ervandew/supertab&#39;
+Plug &#39;python-mode/python-mode&#39;
+Plug &#39;scrooloose/nerdcommenter&#39;
+Plug &#39;kien/ctrlp.vim&#39;
+Plug &#39;scrooloose/nerdtree&#39;
+Plug &#39;vim-scripts/taglist.vim&#39;
+Plug &#39;vim-scripts/The-NERD-Commenter&#39;
+&quot; Plug &#39;junegunn/vim-easy-align&#39;
+Plug &#39;easymotion/vim-easymotion&#39;
+Plug &#39;vim-scripts/winmanager&#39;
+Plug &#39;tomasr/molokai&#39;
+Plug &#39;vim-airline/vim-airline&#39;
+Plug &#39;vim-airline/vim-airline-themes&#39;
+Plug &#39;Yggdroot/indentLine&#39;
+Plug &#39;Xuyuanp/nerdtree-git-plugin&#39;
+Plug &#39;sbdchd/neoformat&#39;
+&quot; Plug &#39;Chiel92/vim-autoformat&#39;
+&quot; Plug &#39;lyokha/vim-xkbswitch&#39;
+call plug#end()            &quot; required
+filetype plugin indent on    &quot; required
+
+&quot;基础配置
+let mapleader=&#39;,&#39;
+let g:indentLine_enabled = 1
+color desert &quot;颜色设置
+syntax on &quot;语法高亮
+set number &quot;自动显示行号
+set cursorline &quot;突出显示当前行
+set ts=4 &quot;设置tab长度为4
+set shiftwidth=4 &quot;设定 &lt;&lt; 和 &gt;&gt; 命令移动时的宽度为 4
+
+&quot;解决中文编码乱码
+let &amp;termencoding=&amp;encoding
+set fileencodings=utf-8,gbk
+
+
+let g:NERDSpaceDelims=1     &quot; 注释后面自动加空格&quot;
+set clipboard=unnamed
+
+&quot; python-mode 配置
+let g:pymode_python = &#39;python3&#39; &quot;设置pyhton3模式
+let g:pymode_trim_withespaces = 1 &quot; 保存是删除多于空格
+let g:pymode_doc = 0 &quot;
+&quot; let g:pymode_doc_bind  = &#39;K&#39;  &quot;
+&quot; let g:pymode_rope_completion = 1
+&quot; let g:pymode_rope_complete_on_dot = 1
+&quot; let g:pymode_rope_completion_bind = &#39;&lt;C-Tab&gt;&#39;
+&quot; let g:pymode_indent = 1 时候用pep8风格的缩进
+let g:pymode_folding = 1
+let g:pymode_run_bind = &#39;&lt;leader&gt;r&#39;
+&quot; let g:pymode_motion = 1
+let g:pymode_rope_goto_definition_bind = &quot;&lt;C-]&gt;&quot;
+let g:pymode_options_max_line_length = 140
+&quot; let g:pymode_lint_on_write = 1
+&quot; let g:pymode_lint_checkers = [&#39;pyflakes&#39;,&#39;pep8&#39;]
+let g:pymode_rope_completion = 1
+let g:pymode_rope_complete_on_dot = 1
+let g:pymode_rope_completion_bind = &#39;&lt;C-Tab&gt;&#39;
+&quot; let g:pymode_lint_error_symbol = &#39;EE&#39;
+
+&quot; nerdtree配置
+nmap ,v :NERDTreeFind&lt;cr&gt;
+nmap ,g :NERDTreeToggle&lt;cr&gt;
+let NERDTreeShowHidden=1
+let NERDTreeIgnore = [
+            \ &#39;\.git$&#39;, &#39;\.hg$&#39;, &#39;\.svn$&#39;, &#39;\.stversions$&#39;, &#39;\.pyc$&#39;, &#39;\.pyo$&#39;, &#39;\.svn$&#39;, &#39;\.swp$&#39;,
+            \ &#39;\.DS_Store$&#39;, &#39;\.sass-cache$&#39;, &#39;__pycache__$&#39;, &#39;\.egg-info$&#39;, &#39;\.ropeproject$&#39;,
+            \ ]
+
+
+nnoremap &lt;leader&gt;t : TagbarToggle&lt;CR&gt;
+&quot; ale 配置
+let g:ale_sign_error = &#39;✗&#39;
+let g:ale_linters = {&#39;python&#39;: []}
+
+&quot;easy-align配置
+&quot; xmap ga &lt;Plug&gt;(EasyAlign)
+&quot; nmap ga &lt;Plug&gt;(EasyAlign)
+</code></pre>
 <p>之后在vim中运行<code>:PlugInstalll</code>即可</p>
 <p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-27-081607.jpg" width="400"></div></p>
-<h2 id="三、插件介绍与配置"><a href="#三、插件介绍与配置" class="headerlink" title="三、插件介绍与配置"></a>三、插件介绍与配置</h2><h3 id="3-1-pyhton开发神器：python-mode"><a href="#3-1-pyhton开发神器：python-mode" class="headerlink" title="3.1 pyhton开发神器：python-mode"></a>3.1 pyhton开发神器：python-mode</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">" python-mode 配置</span></span><br><span class="line"><span class="string"> let g:pymode_python = 'python3' "</span>设置pyhton3模式</span><br><span class="line"> let g:pymode_trim_withespaces = <span class="number">1</span> <span class="string">" 保存是删除多于空格</span></span><br><span class="line"><span class="string"> "</span> let g:pymode_doc = <span class="number">0</span> <span class="string">"</span></span><br><span class="line"><span class="string"> "</span> let g:pymode_doc_bind  = <span class="string">'K'</span>  <span class="string">"</span></span><br><span class="line"><span class="string">let g:pymode_rope_completion = 1</span></span><br><span class="line"><span class="string">let g:pymode_rope_complete_on_dot = 0</span></span><br><span class="line"><span class="string">let g:pymode_rope_completion_bind = '&lt;C-Tab&gt;'</span></span><br><span class="line"><span class="string">"</span> <span class="string">" let g:pymode_indent = 1 时候用pep8风格的缩进</span></span><br><span class="line"><span class="string">"</span> <span class="string">" let g:pymode_motion = 1</span></span><br><span class="line"><span class="string"> let g:pymode_lint = 1</span></span><br><span class="line"><span class="string"> let g:pymode_rope_goto_definition_bind = "</span>&lt;C-]&gt;<span class="string">"</span></span><br><span class="line"><span class="string"> let g:pymode_options_max_line_length = 120</span></span><br><span class="line"><span class="string">"</span> <span class="string">" let g:pymode_lint_on_write = 0</span></span><br><span class="line"><span class="string"> let g:pymode_lint_checkers = ['pyflakes','pep8']</span></span><br><span class="line"><span class="string"> let g:pymode_folding = 1</span></span><br></pre></td></tr></table></figure>
+<h2 id="三、插件介绍与配置"><a href="#三、插件介绍与配置" class="headerlink" title="三、插件介绍与配置"></a>三、插件介绍与配置</h2><h3 id="3-1-pyhton开发神器：python-mode"><a href="#3-1-pyhton开发神器：python-mode" class="headerlink" title="3.1 pyhton开发神器：python-mode"></a>3.1 pyhton开发神器：python-mode</h3><pre><code class="lang-python">&quot; python-mode 配置
+ let g:pymode_python = &#39;python3&#39; &quot;设置pyhton3模式
+ let g:pymode_trim_withespaces = 1 &quot; 保存是删除多于空格
+ &quot; let g:pymode_doc = 0 &quot;
+ &quot; let g:pymode_doc_bind  = &#39;K&#39;  &quot;
+let g:pymode_rope_completion = 1
+let g:pymode_rope_complete_on_dot = 0
+let g:pymode_rope_completion_bind = &#39;&lt;C-Tab&gt;&#39;
+&quot; &quot; let g:pymode_indent = 1 时候用pep8风格的缩进
+&quot; &quot; let g:pymode_motion = 1
+ let g:pymode_lint = 1
+ let g:pymode_rope_goto_definition_bind = &quot;&lt;C-]&gt;&quot;
+ let g:pymode_options_max_line_length = 120
+&quot; &quot; let g:pymode_lint_on_write = 0
+ let g:pymode_lint_checkers = [&#39;pyflakes&#39;,&#39;pep8&#39;]
+ let g:pymode_folding = 1
+</code></pre>
 <p>上面的配置是python-mode中的一些配置，包括补全，缩进，折叠</p>
 <p>折叠相关快捷键：</p>
 <div class="table-container">
@@ -388,7 +526,15 @@
 </tbody>
 </table>
 </div>
-<h3 id="3-2-文件管理插件：Nerd-tree"><a href="#3-2-文件管理插件：Nerd-tree" class="headerlink" title="3.2 文件管理插件：Nerd-tree"></a>3.2 文件管理插件：Nerd-tree</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="string">" nerdtree配置</span></span><br><span class="line"><span class="string"> nmap ,v :NERDTreeFind&lt;cr&gt;</span></span><br><span class="line"><span class="string"> nmap ,g :NERDTreeToggle&lt;cr&gt;</span></span><br><span class="line"><span class="string"> let NERDTreeShowHidden=1</span></span><br><span class="line"><span class="string">let NERDTreeIgnore = [</span></span><br><span class="line"><span class="string">            \ '\.git$', '\.hg$', '\.svn$', '\.stversions$', '\.pyc$', '\.pyo$', '\.svn$', '\.swp$',</span></span><br><span class="line"><span class="string">            \ '\.DS_Store$', '\.sass-cache$', '__pycache__$', '\.egg-info$', '\.ropeproject$',</span></span><br><span class="line"><span class="string">            \ ]</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-2-文件管理插件：Nerd-tree"><a href="#3-2-文件管理插件：Nerd-tree" class="headerlink" title="3.2 文件管理插件：Nerd-tree"></a>3.2 文件管理插件：Nerd-tree</h3><pre><code class="lang-python"> &quot; nerdtree配置
+ nmap ,v :NERDTreeFind&lt;cr&gt;
+ nmap ,g :NERDTreeToggle&lt;cr&gt;
+ let NERDTreeShowHidden=1
+let NERDTreeIgnore = [
+            \ &#39;\.git$&#39;, &#39;\.hg$&#39;, &#39;\.svn$&#39;, &#39;\.stversions$&#39;, &#39;\.pyc$&#39;, &#39;\.pyo$&#39;, &#39;\.svn$&#39;, &#39;\.swp$&#39;,
+            \ &#39;\.DS_Store$&#39;, &#39;\.sass-cache$&#39;, &#39;__pycache__$&#39;, &#39;\.egg-info$&#39;, &#39;\.ropeproject$&#39;,
+            \ ]
+</code></pre>
 
     </div>
 
@@ -613,14 +759,14 @@
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">149k</span>
+    <span title="站点总字数">150k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">2:15</span>
+    <span title="站点阅读时长">2:17</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
   <span class="post-meta-divider">|</span>
@@ -663,6 +809,11 @@
 
 
 
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.css">
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js"></script><script src="/js/algolia-search.js?v=7.4.0"></script>
 
 
 
