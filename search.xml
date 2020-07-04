@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Pandas玩转数据透视表]]></title>
     <url>%2F2020%2F07%2F04%2F2020-07-04-Pandas%E7%8E%A9%E8%BD%AC%E6%95%B0%E6%8D%AE%E9%80%8F%E8%A7%86%E8%A1%A8%2F</url>
-    <content type="text"><![CDATA[Pandas 玩转数据透视表 本文以kaggle比赛Predict Future Sales为中的数据为例介绍pandas中数据透视表的使用。 透视表本来是]]></content>
+    <content type="text"><![CDATA[Pandas 玩转数据透视表 本文以kaggle比赛Predict Future Sales为中的数据为例介绍pandas中数据透视表的使用。 透视表本来是一种对数据进行动态排布和分类汇总的表。大多数人可能在使用Excel的过程中听说过这个概念。相对于Excel中可视化的操作，Pandas提供的是一个与Excel功能类似的制作透视表的API，只不过将可视化的操作换成了Python程序操作。 数据介绍本次使用到的数据集是kaggle比赛Predict Future Sales中提供的数据集。主要要处理的是其中名为sales_trains.csv的训练数据，该数据记录了一些俄罗斯一些商铺在2013年到2015年间的销售数据，原始的训练数据如下图所示： import pandas as pd sale_data = pd.read_csv(&#39;../data/sales_train.csv&#39;) sales_data.head() 其中有6个字段，分别是： date: 货物销售日期 date_block_num: 连续的月份编号，第一个月为0，最后一个月为33 shop_id: 商店编号 item_id: 货物编号 item_price: 货物价格 item_cnt_day: 货物销售量 可以看到原始的数据集中销售数据是凌乱的。对题目分析后需要将同一个商店的同一种货物在每个月份（0到33之间）的销售总量给统计出来。这个时候使用Pandas提供的透视表API就显得极为简单。 pivot_table函数介绍Pandas给出的文档如下所示： pivot_table函数中最关键的四个函数分别是：index, values, columns, aggfunc这里主要介绍其中最重要的四个参数的用法，其他参数可以使用python内置函数help直接查看该函数的说明文档。 index参数index参数必须指定，用于设定将原始的DataFrame中某一列或者某些列作为透视表的index，类似数据库sql语句中的group by后面接的字段。index需要传入一个列表，列表中的每个元素必须是原始的DataFrame中的列名。 sale_data_index = sale_data.pivot_table(index=[&#39;shop_id&#39;]) sale_data_index.head() 可以看到，当使用shop_id作为索引group by之后，原始零散的销售数据现在按照商铺编号聚集在一起，和group by不同的是，同一个shop_id的数据不是简单的聚集在一起显示，而是所有shop_id相同的数据给合并。和并的规则就是同一个index，也就是shop_id所确定的所有数据的同一字段(例如date_block_num, item_cnt_day, item_id, item_price)都按照aggfunc给定的函数计算。在aggfunc没有指定函数的时候，默认计算其平均值。所以上图中第一行看到的item_price为563.4就是所有shop_id的销售数据的item_price的平均值。 index参数也可以给定多个值，使用多个字段作为透视表的index，透视表按照index中字段出现的先手顺序分级进行group by sale_data_indexs = sale_data.pivot_table(index=[&#39;shop_id&#39;, &#39;item_id&#39;]) sale_data_indexs.head() 如上图所示，当index有多个值的时候，透视表会进行分级聚集。首先第一季是shop_id为0的销售数据，第二级是item_id为30的销售数据，由于item_id为最后一级，最细的粒度为item_id，每一行表示同一个shop_id下同一个item_id的所有数据的各个字段的平均值。 values参数在介绍index参数的时候可以看到，当对item_cnt_day（销量）和item_price（售价）求平均值是有意义的，但是对日期求均值就没有意义了，所以可以通过values参数指定透视表中保留那些字段的值。 sale_data_value = sale_data.pivot_table(index = [&#39;shop_id&#39;, &#39;item_id&#39;],values = [&#39;item_price&#39;,&#39;item_cnt_day&#39;]) sale_data_value.head() 不同于index参数的是，index参数必须指定，而values参数可以缺省，缺省时values默认会保留所有字段。 aggfunc参数上述所有例子中，当数据按照某个index聚集之后，同一个index的数据会按照aggfunc指定的函数进行计算，aggfunc同样也是一个非必须参数，当没有指定参数的时候默认计算平均值。而本题目中明显需要计算同一个shop_id和同一个item_id的销售量的综合，所以需要使用求和函数。 sale_data_agg = sale_data.pivot_table(index = [&#39;shop_id&#39;, &#39;item_id&#39;],\ values = [&#39;item_price&#39;,&#39;item_cnt_day&#39;],aggfunc=[np.sum,np.mean]) sale_data_agg.head() 需要注意的是aggfunc使用字符串传入python内置函数名，也可以直接传入函数对象，并且可以使用列表传入多个函数，如下所示： sale_data_agg = sale_data.pivot_table(index = [&#39;shop_id&#39;, &#39;item_id&#39;],\ values = [&#39;item_price&#39;,&#39;item_cnt_day&#39;],aggfunc=[np.sum,np.mean]) sale_data_agg.head() columns参数columns参数可以说是最不好理解的一个参数。如果我现在的需求是统计每个shop_id和item_id确定的销售数据中，每个月份的销售量。可能很多人会在index参数中再加一个date_block_num,如下所示： sale_data_columns = sale_data.pivot_table(index = [&#39;shop_id&#39;, &#39;item_id&#39;,&#39;date_block_num&#39;],\ values = [&#39;item_cnt_day&#39;],aggfunc=[np.sum]) sale_data_columns.head() 虽然也能达到相同的效果，但是对于有些商品在有些月份没有销售数据的时候，透视表中就不会出现对应的数据，并且竖向排列显得十分不直观。这时候就可以使用columns参数。指定某个字段，按照类似index的方式进行聚集，只是聚集的结果不是作为行标index，而是作为列标。 sale_data_columns = sale_data.pivot_table(index = [&#39;shop_id&#39;, &#39;item_id&#39;],values = [&#39;item_cnt_day&#39;],\ aggfunc=[np.sum],columns=[&#39;date_block_num&#39;]) sale_data_columns.head() 这样同一个ship_id和item_id的所有数据就按照月份聚集好了。只是由于很多月份没有销售数据，导致透视表中出现了很多NaN,所以需要用最后一个参数去除这些NaN。 最后使用fill_value参数指定使用某个值填充NaN sale_data_columns = sale_data.pivot_table(index = [&#39;shop_id&#39;, &#39;item_id&#39;],values = [&#39;item_cnt_day&#39;],\ aggfunc=[np.sum],columns=[&#39;date_block_num&#39;],fill_value=0) sale_data_columns.head() 至此，你已经可以愉快的使用pivot_table函数制作各种各样的数据透视表了。原来可能要写几十行的代码才能达到这种效果，现在只要一行代码就可以完成。]]></content>
       <categories>
         <category>Python</category>
       </categories>
@@ -57,8 +57,8 @@
         <category>学习科研</category>
       </categories>
       <tags>
-        <tag>IoT</tag>
         <tag>机器学习</tag>
+        <tag>IoT</tag>
       </tags>
   </entry>
   <entry>
@@ -81,8 +81,8 @@
         <category>学习科研</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>网络流量</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -93,8 +93,8 @@
         <category>学习科研</category>
       </categories>
       <tags>
-        <tag>IoT</tag>
         <tag>机器学习</tag>
+        <tag>IoT</tag>
         <tag>网络流量</tag>
       </tags>
   </entry>
