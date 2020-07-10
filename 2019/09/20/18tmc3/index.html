@@ -6,7 +6,7 @@
 
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 3.9.0">
@@ -113,12 +113,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <div class="container use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -352,7 +352,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>3k</span>
+              <span>2.9k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -378,93 +378,17 @@
         <blockquote>
 <p>继续数据预处理工作，在缓慢的批流工作进行了将近三天之后，完成了三个原始数据样本（不到2G）的数据的批流，进行完批流得到的是一个flow一个pcap文件，接下来需要做的工作就是通过python的Scapy库逐个读取flow，统计所需的统计属性 </p>
 </blockquote><a id="more"></a>
-<pre><code class="lang-python">import numpy as np
-import pandas as pd
-from scapy.all import *
-import os
-from config import *
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> scapy.all <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> config <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>上面是导入的库</p>
 </blockquote>
-<h2 id="一、获取所有的flow路径"><a href="#一、获取所有的flow路径" class="headerlink" title="一、获取所有的flow路径"></a>一、获取所有的flow路径</h2><pre><code class="lang-python">def GetPathList(data_path):
-    &#39;&#39;&#39;
-    获取流文件的路径信息
-    &#39;&#39;&#39;
-    try:
-        flow_path_list = [data_root_path + x for x in os.listdir(data_root_path)]
-        flow_path_list = sorted(flow_path_list,key= lambda x: int(x.split(&#39;/&#39;)[-1].split(&#39;.&#39;)[-2]))
-        return flow_path_list
-    except:
-        print(&quot;GetPathList Error!&quot;)
-        return []
-</code></pre>
+<h2 id="一、获取所有的flow路径"><a href="#一、获取所有的flow路径" class="headerlink" title="一、获取所有的flow路径"></a>一、获取所有的flow路径</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">GetPathList</span><span class="params">(data_path)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    获取流文件的路径信息</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        flow_path_list = [data_root_path + x <span class="keyword">for</span> x <span class="keyword">in</span> os.listdir(data_root_path)]</span><br><span class="line">        flow_path_list = sorted(flow_path_list,key= <span class="keyword">lambda</span> x: int(x.split(<span class="string">'/'</span>)[<span class="number">-1</span>].split(<span class="string">'.'</span>)[<span class="number">-2</span>]))</span><br><span class="line">        <span class="keyword">return</span> flow_path_list</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">"GetPathList Error!"</span>)</span><br><span class="line">        <span class="keyword">return</span> []</span><br></pre></td></tr></table></figure>
 <p>这个函数没有什么太多好讲的，只是有两点技巧说一下：</p>
 <ul>
 <li>列表生成表达式：在第6行使用列表生成表达式的形式生成列表，[含x表达式  for  x in  列表]</li>
 <li>lambda表达式 ：在 排序等函数中，可以 通过lambda表达式指定排序的关键字，即通过元素的那一部分进行排序</li>
 </ul>
-<h2 id="二、加载flow并得到统计数据"><a href="#二、加载flow并得到统计数据" class="headerlink" title="二、加载flow并得到统计数据"></a>二、加载flow并得到统计数据</h2><pre><code class="lang-python">def LoadOnePcap(flow_path):
-    &#39;&#39;&#39;
-    加载一个flow的pcap文件，计算需要的统计数据
-    &#39;&#39;&#39;
-    packets = rdpcap(flow_path)
-    Volume = 0 # 数据总量
-    Duration = 0 # 持续时间
-    for packet in packets:
-        Volume += len(packets)
-    StartTime = packets[0].time #开始时间
-    EndTime = packets[-1].time #结束时间
-    Duration = EndTime - StartTime
-    if Duration &gt; 0:
-        Rate = Volume / Duration
-    else:
-        Rate = 0
-    # sleep time通过连续的两个flow之间的时间计算，不在这个函数中计算
-
-    # DNS 变量用于存储dns查询,DNS_FLAG 表示是否含有DNS
-    DNSQuery = &#39;&#39;
-    DNS_FLAG = False
-    NTPQuery = &#39;&#39;
-    NTP_FLAG = False
-    # 下面的这个循环遍历整个flow查找是否含有DNS查询
-    for packet in packets:
-        if packet.haslayer(&#39;DNS&#39;):
-            DNS_FLAG = True
-        if packet.haslayer(&#39;NTP&#39;):
-            NTP_FLAG = True
-    ## 获取DNS查询的域名
-    if DNS_FLAG:
-        DNSQuery = bytes.decode(packets[0][&#39;DNS&#39;].qd.qname)
-    if NTP_FLAG:
-        NTPQuery = packets[0][&#39;UDP&#39;].id
-
-    # 下面几行处理得到远程端口号
-    TCP_FLAG = packets[0].haslayer(&#39;TCP&#39;)
-    UDP_FLAG = packets[0].haslayer(&#39;UDP&#39;)
-    if TCP_FLAG:
-        TransPro = &#39;TCP&#39;
-    elif UDP_FLAG:
-        TransPro = &#39;UDP&#39;
-    RemotePort = packets[0][TransPro].dport
-    # 下面一行得到mac地址
-    Mac = packets[0][&#39;Ethernet&#39;].src
-    flow_features = {
-        &#39;Volume&#39;: Volume,
-        &#39;StartTime&#39;:StartTime,
-        &#39;EndTime&#39;:EndTime,
-        &#39;Duration&#39;:Duration,
-        &#39;Rate&#39;:Rate,
-        &#39;DNSQuery&#39;:DNSQuery,
-        &#39;NTPQuery&#39;:NTPQuery,
-        &#39;RemotePort&#39;:RemotePort,
-        &#39;TransPro&#39;:TransPro,
-        &#39;Mac&#39;:Mac
-    }
-    print(&#39;%s文件夹中,第%s个flow分析完毕！&#39;%(flow_path.split(&#39;/&#39;)[-2],flow_path.split(&#39;/&#39;)[-1].split(&#39;.&#39;)[-2]))
-    print(flow_features)
-    return flow_features
-</code></pre>
+<h2 id="二、加载flow并得到统计数据"><a href="#二、加载flow并得到统计数据" class="headerlink" title="二、加载flow并得到统计数据"></a>二、加载flow并得到统计数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">LoadOnePcap</span><span class="params">(flow_path)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    加载一个flow的pcap文件，计算需要的统计数据</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    packets = rdpcap(flow_path)</span><br><span class="line">    Volume = <span class="number">0</span> <span class="comment"># 数据总量</span></span><br><span class="line">    Duration = <span class="number">0</span> <span class="comment"># 持续时间</span></span><br><span class="line">    <span class="keyword">for</span> packet <span class="keyword">in</span> packets:</span><br><span class="line">        Volume += len(packets)</span><br><span class="line">    StartTime = packets[<span class="number">0</span>].time <span class="comment">#开始时间</span></span><br><span class="line">    EndTime = packets[<span class="number">-1</span>].time <span class="comment">#结束时间</span></span><br><span class="line">    Duration = EndTime - StartTime</span><br><span class="line">    <span class="keyword">if</span> Duration &gt; <span class="number">0</span>:</span><br><span class="line">        Rate = Volume / Duration</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        Rate = <span class="number">0</span></span><br><span class="line">    <span class="comment"># sleep time通过连续的两个flow之间的时间计算，不在这个函数中计算</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># DNS 变量用于存储dns查询,DNS_FLAG 表示是否含有DNS</span></span><br><span class="line">    DNSQuery = <span class="string">''</span></span><br><span class="line">    DNS_FLAG = <span class="literal">False</span></span><br><span class="line">    NTPQuery = <span class="string">''</span></span><br><span class="line">    NTP_FLAG = <span class="literal">False</span></span><br><span class="line">    <span class="comment"># 下面的这个循环遍历整个flow查找是否含有DNS查询</span></span><br><span class="line">    <span class="keyword">for</span> packet <span class="keyword">in</span> packets:</span><br><span class="line">        <span class="keyword">if</span> packet.haslayer(<span class="string">'DNS'</span>):</span><br><span class="line">            DNS_FLAG = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> packet.haslayer(<span class="string">'NTP'</span>):</span><br><span class="line">            NTP_FLAG = <span class="literal">True</span></span><br><span class="line">    <span class="comment">## 获取DNS查询的域名</span></span><br><span class="line">    <span class="keyword">if</span> DNS_FLAG:</span><br><span class="line">        DNSQuery = bytes.decode(packets[<span class="number">0</span>][<span class="string">'DNS'</span>].qd.qname)</span><br><span class="line">    <span class="keyword">if</span> NTP_FLAG:</span><br><span class="line">        NTPQuery = packets[<span class="number">0</span>][<span class="string">'UDP'</span>].id</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 下面几行处理得到远程端口号</span></span><br><span class="line">    TCP_FLAG = packets[<span class="number">0</span>].haslayer(<span class="string">'TCP'</span>)</span><br><span class="line">    UDP_FLAG = packets[<span class="number">0</span>].haslayer(<span class="string">'UDP'</span>)</span><br><span class="line">    <span class="keyword">if</span> TCP_FLAG:</span><br><span class="line">        TransPro = <span class="string">'TCP'</span></span><br><span class="line">    <span class="keyword">elif</span> UDP_FLAG:</span><br><span class="line">        TransPro = <span class="string">'UDP'</span></span><br><span class="line">    RemotePort = packets[<span class="number">0</span>][TransPro].dport</span><br><span class="line">    <span class="comment"># 下面一行得到mac地址</span></span><br><span class="line">    Mac = packets[<span class="number">0</span>][<span class="string">'Ethernet'</span>].src</span><br><span class="line">    flow_features = &#123;</span><br><span class="line">        <span class="string">'Volume'</span>: Volume,</span><br><span class="line">        <span class="string">'StartTime'</span>:StartTime,</span><br><span class="line">        <span class="string">'EndTime'</span>:EndTime,</span><br><span class="line">        <span class="string">'Duration'</span>:Duration,</span><br><span class="line">        <span class="string">'Rate'</span>:Rate,</span><br><span class="line">        <span class="string">'DNSQuery'</span>:DNSQuery,</span><br><span class="line">        <span class="string">'NTPQuery'</span>:NTPQuery,</span><br><span class="line">        <span class="string">'RemotePort'</span>:RemotePort,</span><br><span class="line">        <span class="string">'TransPro'</span>:TransPro,</span><br><span class="line">        <span class="string">'Mac'</span>:Mac</span><br><span class="line">    &#125;</span><br><span class="line">    print(<span class="string">'%s文件夹中,第%s个flow分析完毕！'</span>%(flow_path.split(<span class="string">'/'</span>)[<span class="number">-2</span>],flow_path.split(<span class="string">'/'</span>)[<span class="number">-1</span>].split(<span class="string">'.'</span>)[<span class="number">-2</span>]))</span><br><span class="line">    print(flow_features)</span><br><span class="line">    <span class="keyword">return</span> flow_features</span><br></pre></td></tr></table></figure>
 <p>通过上面的代码可以分析出，其实逻辑很简单，从每个flow中提取出10个值，有的直接值特征值，有一些是为了以后计算特征值而提取的中间值，每个值的含义如下：</p>
 <div class="table-container">
 <table>
@@ -658,7 +582,7 @@ from config import *
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">博客</span>
         </a>
       </div>
@@ -671,7 +595,7 @@ from config import *
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -684,7 +608,7 @@ from config import *
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -760,14 +684,14 @@ from config import *
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">154k</span>
+    <span title="站点总字数">158k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">2:20</span>
+    <span title="站点阅读时长">2:24</span>
 </div>
   <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.0</div>
 
@@ -868,7 +792,24 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     path: location.pathname
   });
 }, window.Valine);
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
 </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 </body>
 </html>

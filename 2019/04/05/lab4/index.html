@@ -6,7 +6,7 @@
 
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 3.9.0">
@@ -128,12 +128,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <div class="container use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -367,7 +367,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>11k</span>
+              <span>12k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -377,7 +377,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>10 分钟</span>
+              <span>11 分钟</span>
             </span>
           
 
@@ -454,14 +454,7 @@
 <ol>
 <li>WorkItem(表示帧结构体)</li>
 </ol>
-<pre><code class="lang-c++">typedef struct WorkItem
-{
-    int seq;
-    int priority;
-    char Used;
-    char Modified;
-}WorkItem;
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">WorkItem</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> seq;</span><br><span class="line">    <span class="keyword">int</span> priority;</span><br><span class="line">    <span class="keyword">char</span> Used;</span><br><span class="line">    <span class="keyword">char</span> Modified;</span><br><span class="line">&#125;WorkItem;</span><br></pre></td></tr></table></figure>
 <div class="table-container">
 <table>
 <thead>
@@ -491,29 +484,7 @@
 <ol>
 <li>MemSchedule(表示内存分配调度结构体)</li>
 </ol>
-<pre><code class="lang-c++">typedef struct MemSchedule
-{
-    WorkItem* WorkSpace=NULL;
-    int *VisitSeq=NULL;
-    int N=64;
-    int p=0;
-    //工作集大小
-    int e=5;
-    int m=1;
-    //定义访问序列长度o
-    int length;
-    //当前已使用物理块数
-    int work_len=0;
-    //发生替换的物理块号
-    int change=0;
-    float t,r;
-//   队列长度
-    int queue_free_len = 0;
-    int queue_modified_len = 0;
-    WorkItem free[2];
-    WorkItem Modified[2];
-}MemSchedule;
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">MemSchedule</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    WorkItem* WorkSpace=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">int</span> *VisitSeq=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">int</span> N=<span class="number">64</span>;</span><br><span class="line">    <span class="keyword">int</span> p=<span class="number">0</span>;</span><br><span class="line">    <span class="comment">//工作集大小</span></span><br><span class="line">    <span class="keyword">int</span> e=<span class="number">5</span>;</span><br><span class="line">    <span class="keyword">int</span> m=<span class="number">1</span>;</span><br><span class="line">    <span class="comment">//定义访问序列长度o</span></span><br><span class="line">    <span class="keyword">int</span> length;</span><br><span class="line">    <span class="comment">//当前已使用物理块数</span></span><br><span class="line">    <span class="keyword">int</span> work_len=<span class="number">0</span>;</span><br><span class="line">    <span class="comment">//发生替换的物理块号</span></span><br><span class="line">    <span class="keyword">int</span> change=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">float</span> t,r;</span><br><span class="line"><span class="comment">//   队列长度</span></span><br><span class="line">    <span class="keyword">int</span> queue_free_len = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> queue_modified_len = <span class="number">0</span>;</span><br><span class="line">    WorkItem <span class="built_in">free</span>[<span class="number">2</span>];</span><br><span class="line">    WorkItem Modified[<span class="number">2</span>];</span><br><span class="line">&#125;MemSchedule;</span><br></pre></td></tr></table></figure>
 <div class="table-container">
 <table>
 <thead>
@@ -571,38 +542,7 @@
 </table>
 </div>
 <h3 id="1-4-随机访问序列生成算法"><a href="#1-4-随机访问序列生成算法" class="headerlink" title="1.4 随机访问序列生成算法"></a>1.4 随机访问序列生成算法</h3><p>$\qquad$实验中需要使用到随机访问序列，所以生成一个好的随机访问序列能很好的测试出各个算法的性能。下面是本实验中的随机算法访问序列生成算法的源码</p>
-<pre><code class="lang-c++">MemSchedule GeneVisitSeq(int l)
-{
-    MemSchedule schedule1;
-    printf(&quot;是否设定调度算法参数(Y/N):&quot;);
-    char flag;
-    scanf(&quot;%c&quot;,&amp;flag);
-    if (flag==&#39;Y&#39;)
-    {
-        schedule1=SetMemSchedule(schedule1);
-    }
-    schedule1.t=rand()%1000/1000.0;
-    schedule1.VisitSeq=(int *)malloc(l*sizeof(schedule1.m));
-    printf(&quot;生成随机内存访问序列：\n&quot;);
-    for (int i=0;i&lt;l;i++)
-    {
-        for (int j=0;j&lt;schedule1.m;j++)
-        {
-            schedule1.VisitSeq[i*schedule1.m+j] = rand()%schedule1.e+schedule1.p;
-            printf(&quot;%d &quot;,schedule1.VisitSeq[i*schedule1.m+j]);
-        }
-        schedule1.r=rand()%1000/1000.0;
-        if(schedule1.r&lt;schedule1.t)
-        {
-            schedule1.p=(schedule1.p+1)%schedule1.N;
-        }
-    }
-    printf(&quot;\n&quot;);
-    schedule1.length=l*schedule1.m;
-    schedule1.WorkSpace = (WorkItem *)malloc(schedule1.e *sizeof(WorkItem));
-    return schedule1;
-}
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">MemSchedule <span class="title">GeneVisitSeq</span><span class="params">(<span class="keyword">int</span> l)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    MemSchedule schedule1;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"是否设定调度算法参数(Y/N):"</span>);</span><br><span class="line">    <span class="keyword">char</span> flag;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%c"</span>,&amp;flag);</span><br><span class="line">    <span class="keyword">if</span> (flag==<span class="string">'Y'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        schedule1=SetMemSchedule(schedule1);</span><br><span class="line">    &#125;</span><br><span class="line">	schedule1.t=rand()%<span class="number">1000</span>/<span class="number">1000.0</span>;</span><br><span class="line">    schedule1.VisitSeq=(<span class="keyword">int</span> *)<span class="built_in">malloc</span>(l*<span class="keyword">sizeof</span>(schedule1.m));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"生成随机内存访问序列：\n"</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;l;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;schedule1.m;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            schedule1.VisitSeq[i*schedule1.m+j] = rand()%schedule1.e+schedule1.p;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>,schedule1.VisitSeq[i*schedule1.m+j]);</span><br><span class="line">        &#125;</span><br><span class="line">        schedule1.r=rand()%<span class="number">1000</span>/<span class="number">1000.0</span>;</span><br><span class="line">        <span class="keyword">if</span>(schedule1.r&lt;schedule1.t)</span><br><span class="line">        &#123;</span><br><span class="line">            schedule1.p=(schedule1.p+<span class="number">1</span>)%schedule1.N;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    schedule1.length=l*schedule1.m;</span><br><span class="line">    schedule1.WorkSpace = (WorkItem *)<span class="built_in">malloc</span>(schedule1.e *<span class="keyword">sizeof</span>(WorkItem));</span><br><span class="line">    <span class="keyword">return</span> schedule1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>下面是其流程图：</p>
 <div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-125913.jpg" width="500"></div>
 
@@ -638,24 +578,7 @@
 </li>
 <li><p>算法实现</p>
 <p> $\qquad$在概要设计中给出了各个算法的通用算法流程，但是各个算法在选择替换的内存块号的时候是不一致的。下面的是最佳置换算法中的实现。</p>
-<pre><code class="lang-c++"> if (flag == 0)
- {
-     //min表示最小优先级的那个内存块号
-     int min_pri=0xffffff;
-     for ( int m=0;m&lt;s1.work_len;m++)
-     {
-         int n = SearchVisitSqe(s1.VisitSeq,i-1,s1.WorkSpace[m].seq,0,s1.length-s1.work_len+m);
-         s1.WorkSpace[m].priority = n;
-         if (n &lt; min_pri)
-         {
-             s1.change = m;
-             min_pri = n;
-         }
-     }
-     //表示发生替换变化的块号s1.change
-     s1.WorkSpace[s1.change].seq = pointer;
- }
-</code></pre>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (flag == <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//min表示最小优先级的那个内存块号</span></span><br><span class="line">    <span class="keyword">int</span> min_pri=<span class="number">0xffffff</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> m=<span class="number">0</span>;m&lt;s1.work_len;m++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> n = SearchVisitSqe(s1.VisitSeq,i<span class="number">-1</span>,s1.WorkSpace[m].seq,<span class="number">0</span>,s1.length-s1.work_len+m);</span><br><span class="line">        s1.WorkSpace[m].priority = n;</span><br><span class="line">        <span class="keyword">if</span> (n &lt; min_pri)</span><br><span class="line">        &#123;</span><br><span class="line">            s1.change = m;</span><br><span class="line">            min_pri = n;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//表示发生替换变化的块号s1.change</span></span><br><span class="line">    s1.WorkSpace[s1.change].seq = pointer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p> $\qquad$在这个代码片段中可以看到，通过<code>SearchVisitSeq</code>函数找到当前内存块中的页号下一次在访问序列中出现的距离，并将该距离最为优先级的值更新给每个内存块。最后判断哪个优先级小，说明那个物理块将来出现的时间越长，将替换它。</p>
 </li>
 <li><p>在主函数中调用最佳置换算法函数，会得到如下结果：</p>
@@ -702,26 +625,7 @@
 </li>
 <li><p>算法实现</p>
 <p> 在概要设计中给出了各个算法的通用算法流程，但是各个算法在选择替换的内存块号的时候是不一致的。下面的是先入先出置换算法中的实现。</p>
-<pre><code class="lang-c++"> if (flag == 0)
- {
-     //min表示最小优先级的那个内存块号
-     int min_pri=0xffffff;
-     for ( int m=0;m&lt;s1.work_len;m++)
-     {
-         //和其他算法的区别只有优先级排序计算的方式不同
-         int n = s1.WorkSpace[m].priority;
-         if (n &lt; min_pri)
-         {
-             s1.change = m;
-             min_pri = n;
-         }
-     }
-     //表示发生替换变化的块号s1.change
-     s1.WorkSpace[s1.change].seq = pointer;
-     //设置新换入的页面优先级为work_len
-     s1.WorkSpace[s1.change].priority = s1.e;
- }
-</code></pre>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (flag == <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//min表示最小优先级的那个内存块号</span></span><br><span class="line">    <span class="keyword">int</span> min_pri=<span class="number">0xffffff</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> m=<span class="number">0</span>;m&lt;s1.work_len;m++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//和其他算法的区别只有优先级排序计算的方式不同</span></span><br><span class="line">        <span class="keyword">int</span> n = s1.WorkSpace[m].priority;</span><br><span class="line">        <span class="keyword">if</span> (n &lt; min_pri)</span><br><span class="line">        &#123;</span><br><span class="line">            s1.change = m;</span><br><span class="line">            min_pri = n;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//表示发生替换变化的块号s1.change</span></span><br><span class="line">    s1.WorkSpace[s1.change].seq = pointer;</span><br><span class="line">    <span class="comment">//设置新换入的页面优先级为work_len</span></span><br><span class="line">    s1.WorkSpace[s1.change].priority = s1.e;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p> $\qquad$在先入先出置换算法中每次新置换一个内存块将其优先级设置为工作区大小，之后每次运行一次，工作区中的所有内存块的优先级都减一，替换的时候找到优先级最小的替换就行了。</p>
 </li>
 <li><p>运行结果</p>
@@ -741,24 +645,7 @@
 </li>
 <li><p>算法实现</p>
 <p> 在概要设计中给出了各个算法的通用算法流程，但是各个算法在选择替换的内存块号的时候是不一致的。下面的是最久未使用置换算法中的实现。</p>
-<pre><code class="lang-c++"> if (flag == 0)
- {
-     //min表示最小优先级的那个内存块号
-     int min_pri=-10000;
-     for ( int m=0;m&lt;s1.work_len;m++)
-     {
-         int n = SearchVisitSqe(s1.VisitSeq,i,s1.WorkSpace[m].seq,1,i);
-         s1.WorkSpace[m].priority = n;
-         if (n &gt; min_pri)
-         {
-             s1.change = m;
-             min_pri = n;
-         }
-     }
-     //表示发生替换变化的块号s1.change
-     s1.WorkSpace[s1.change].seq = pointer;
- }
-</code></pre>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (flag == <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//min表示最小优先级的那个内存块号</span></span><br><span class="line">    <span class="keyword">int</span> min_pri=<span class="number">-10000</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> m=<span class="number">0</span>;m&lt;s1.work_len;m++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> n = SearchVisitSqe(s1.VisitSeq,i,s1.WorkSpace[m].seq,<span class="number">1</span>,i);</span><br><span class="line">        s1.WorkSpace[m].priority = n;</span><br><span class="line">        <span class="keyword">if</span> (n &gt; min_pri)</span><br><span class="line">        &#123;</span><br><span class="line">            s1.change = m;</span><br><span class="line">            min_pri = n;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//表示发生替换变化的块号s1.change</span></span><br><span class="line">    s1.WorkSpace[s1.change].seq = pointer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p> $\qquad$在LRU算法中，使用函数<code>SearchVisitSeq</code>向访问序列中已经访问过的序列反向查找与当前页号相同的页号的距离，并将其最为优先级赋值给内存块，每次替换前更新所有的内存块的优先级；替换的时候找到优先级最大的进行替换。</p>
 </li>
 <li><p>运行结果</p>
@@ -796,44 +683,7 @@
 </li>
 <li><p>算法实现</p>
 <p> 改进的Clock算法比前几个算法来讲比较复杂，下面是其核心的实现过程，</p>
-<pre><code class="lang-c++"> if (flag == 0)
- {
-     //表示内存块中没有出现过
-     for(int t=0;t&lt;2;t++)
-     {
-         int flag = 0;
-         for (int m=0;m&lt;s1.work_len;m++)
-         {
-             if (s1.WorkSpace[m].Used ==&#39;N&#39; &amp;&amp; s1.WorkSpace[m].Modified ==&#39;N&#39;)
-             {
-                 s1.change =m;
-                 flag =1;
-                 break;
-             }
-         }
-         if (flag == 0)
-         {
-             for (int m=0;m&lt;s1.work_len;m++)
-             {
-                 if(s1.WorkSpace[m].Used ==&#39;N&#39; &amp;&amp; s1.WorkSpace[m].Modified ==&#39;Y&#39;)
-                 {
-                     s1.change = m;
-                     flag = 1;
-                     break;
-                 }
-                 s1.WorkSpace[m].Used = &#39;N&#39;;
-             }
-         }
-         if(flag!=0)
-             break;
-
-     }
-     s1.WorkSpace[s1.change].seq = pointer;
-     s1.WorkSpace[s1.change].Used = &#39;Y&#39;;
-     s1.WorkSpace[s1.change].Modified = &#39;N&#39;;
-
- }
-</code></pre>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (flag == <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//表示内存块中没有出现过</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> t=<span class="number">0</span>;t&lt;<span class="number">2</span>;t++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> m=<span class="number">0</span>;m&lt;s1.work_len;m++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (s1.WorkSpace[m].Used ==<span class="string">'N'</span> &amp;&amp; s1.WorkSpace[m].Modified ==<span class="string">'N'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                s1.change =m;</span><br><span class="line">                flag =<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (flag == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> m=<span class="number">0</span>;m&lt;s1.work_len;m++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(s1.WorkSpace[m].Used ==<span class="string">'N'</span> &amp;&amp; s1.WorkSpace[m].Modified ==<span class="string">'Y'</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    s1.change = m;</span><br><span class="line">                    flag = <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                s1.WorkSpace[m].Used = <span class="string">'N'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag!=<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    s1.WorkSpace[s1.change].seq = pointer;</span><br><span class="line">    s1.WorkSpace[s1.change].Used = <span class="string">'Y'</span>;</span><br><span class="line">    s1.WorkSpace[s1.change].Modified = <span class="string">'N'</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p> 通过下面的流程图来解释该算法在选择替换物理块的时候的流程。</p>
  <div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-154625.jpg" width="600"></div>
 
@@ -865,26 +715,7 @@
  <div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-05-27-160411.jpg" width="600"></div>
 </li>
 <li><p>算法实现</p>
-<pre><code class="lang-C++"> if (flag == 0)
- {
-     //min表示最小优先级的那个内存块号
-     int min_pri=0xffffff;
-     for ( int m=0;m&lt;s1.work_len;m++)
-     {
-         //和其他算法的区别只有优先级排序计算的方式不同
-         int n = s1.WorkSpace[m].priority;
-         if (n &lt; min_pri)
-         {
-             s1.change = m;
-             min_pri = n;
-         }
-     }
-     //表示发生替换变化的块号s1.change
-     s1.WorkSpace[s1.change].seq = pointer;
-     //设置新换入的页面优先级为work_len
-     s1.WorkSpace[s1.change].priority = s1.e;
- }
-</code></pre>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (flag == <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//min表示最小优先级的那个内存块号</span></span><br><span class="line">    <span class="keyword">int</span> min_pri=<span class="number">0xffffff</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> m=<span class="number">0</span>;m&lt;s1.work_len;m++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//和其他算法的区别只有优先级排序计算的方式不同</span></span><br><span class="line">        <span class="keyword">int</span> n = s1.WorkSpace[m].priority;</span><br><span class="line">        <span class="keyword">if</span> (n &lt; min_pri)</span><br><span class="line">        &#123;</span><br><span class="line">            s1.change = m;</span><br><span class="line">            min_pri = n;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//表示发生替换变化的块号s1.change</span></span><br><span class="line">    s1.WorkSpace[s1.change].seq = pointer;</span><br><span class="line">    <span class="comment">//设置新换入的页面优先级为work_len</span></span><br><span class="line">    s1.WorkSpace[s1.change].priority = s1.e;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p> $\qquad$PBA 算法在页面置换的时候算法实现和FIFO一致。这里不再赘述</p>
 </li>
 <li><p>运行结果</p>
@@ -935,8 +766,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/04/02/qemu/" rel="next" title="qemu虚拟机的安装">
-                  <i class="fa fa-chevron-left"></i> qemu虚拟机的安装
+                <a href="/2019/04/02/pintos-install/" rel="next" title="pintos操作系统安装">
+                  <i class="fa fa-chevron-left"></i> pintos操作系统安装
                 </a>
               
             </div>
@@ -1017,7 +848,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">博客</span>
         </a>
       </div>
@@ -1030,7 +861,7 @@
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -1043,7 +874,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -1119,14 +950,14 @@
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">154k</span>
+    <span title="站点总字数">158k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">2:20</span>
+    <span title="站点阅读时长">2:24</span>
 </div>
   <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.0</div>
 
@@ -1227,7 +1058,24 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     path: location.pathname
   });
 }, window.Valine);
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
 </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 </body>
 </html>

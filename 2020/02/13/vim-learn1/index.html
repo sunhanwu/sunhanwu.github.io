@@ -6,7 +6,7 @@
 
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 3.9.0">
@@ -63,7 +63,7 @@
 <meta property="og:site_name" content="SunPages">
 <meta property="og:description" content="vim  新手入门教程一: 增删改查​    对于任何一个编辑器来说，对文本所做的操作无非就是增删改查这四种操作，但是由于vim里面的命令众多，学习成本较高，这样就劝退了很多新手，本篇博客将从增删改查四个操作来介绍一下如何入门vim。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-07-06T13:03:33.640Z">
+<meta property="og:updated_time" content="2020-07-06T13:16:40.793Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim 新手入门教程之增删改查">
 <meta name="twitter:description" content="vim  新手入门教程一: 增删改查​    对于任何一个编辑器来说，对文本所做的操作无非就是增删改查这四种操作，但是由于vim里面的命令众多，学习成本较高，这样就劝退了很多新手，本篇博客将从增删改查四个操作来介绍一下如何入门vim。">
@@ -113,12 +113,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <div class="container use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -311,7 +311,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-06 21:03:33" itemprop="dateModified" datetime="2020-07-06T21:03:33+08:00">2020-07-06</time>
+                <time title="修改时间：2020-07-06 21:16:40" itemprop="dateModified" datetime="2020-07-06T21:16:40+08:00">2020-07-06</time>
               </span>
             
           
@@ -377,7 +377,7 @@
       
         <h1 id="vim-新手入门教程一-增删改查"><a href="#vim-新手入门教程一-增删改查" class="headerlink" title="vim  新手入门教程一: 增删改查"></a>vim  新手入门教程一: 增删改查</h1><p>​    对于任何一个编辑器来说，对文本所做的操作无非就是增删改查这四种操作，但是由于vim里面的命令众多，学习成本较高，这样就劝退了很多新手，本篇博客将从增删改查四个操作来介绍一下如何入门vim。</p><a id="more"></a>
 <h2 id="一、添加操作"><a href="#一、添加操作" class="headerlink" title="一、添加操作"></a>一、添加操作</h2><p>​        vim有两种模式，一种是normal模式（命令模式），一种是insert模式（插入模式）。只有在命令模式下，所有的下面介绍的所有命令才会起作用，而插入模式下，键盘敲入的每个字符都会写入文本中。辨别vim是命令模式还是插入模式的方法很简单，插入模式的时候vim的底部有insert的字样，而什么都没有的时候表示处于命令模式。</p>
-<script type="math/tex; mode=display">\sum_{10}^{100} == 100</script><p>​        当我们插入字符的时候，就需要从命令模式转为插入模式，在vim中从命令模式转为插入模式有三个命令，他们分别的作用如下表所示，区分大小写的话共有六种方式。</p>
+<p>​        当我们插入字符的时候，就需要从命令模式转为插入模式，在vim中从命令模式转为插入模式有三个命令，他们分别的作用如下表所示，区分大小写的话共有六种方式。</p>
 <div class="table-container">
 <table>
 <thead>
@@ -578,8 +578,7 @@
 </ul>
 <h2 id="四、查找操作"><a href="#四、查找操作" class="headerlink" title="四、查找操作"></a>四、查找操作</h2><p>vim中的查找操作的命令是/，在命令模式中输入反斜杠之后可以查找，查找完成之后n表示下一个匹配对象，N跳转到上一个匹配对象。</p>
 <p>​        当然编辑文本的过程中还有一个操作就是所有替换，vim也支持搜索替换。</p>
-<pre><code class="lang-bash">: %查找范围s/查找文本/替换文本/替换标志
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">: %查找范围s/查找文本/替换文本/替换标志</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -706,7 +705,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">博客</span>
         </a>
       </div>
@@ -719,7 +718,7 @@
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -732,7 +731,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -808,14 +807,14 @@
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">154k</span>
+    <span title="站点总字数">158k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">2:20</span>
+    <span title="站点阅读时长">2:24</span>
 </div>
   <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.0</div>
 
@@ -888,6 +887,56 @@
   
 
   
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
 
   
 
@@ -916,7 +965,24 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     path: location.pathname
   });
 }, window.Valine);
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
 </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 </body>
 </html>

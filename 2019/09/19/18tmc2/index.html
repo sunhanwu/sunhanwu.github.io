@@ -6,7 +6,7 @@
 
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 3.9.0">
@@ -117,12 +117,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <div class="container use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -348,7 +348,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>2.8k</span>
+              <span>2.6k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -358,7 +358,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>3 分钟</span>
+              <span>2 分钟</span>
             </span>
           
 
@@ -395,43 +395,17 @@
 
 <p>由于出现了以上的问题，导致后来就没有按照这种方法进行 下去，而是采用tshark的方法</p>
 <h4 id="Tshark处理"><a href="#Tshark处理" class="headerlink" title="Tshark处理"></a>Tshark处理</h4><p>在经过导师的指点之后发现用tshark的处理效率很高。就开始使用tshark处理，tshark是wireshark的命令行版本，拥有wireshark的大部分功能，能用相关的过滤规则直接进行批流，下面是进行批流的脚本</p>
-<pre><code class="lang-bash">#! /bin/bash
-
-find ./rawpcap -name &#39;*.pcap&#39; &gt; pcapfilename.txt
-while read line
-    do
-        echo &quot;$(line)&quot;
-        filedir=$(echo &quot;$(line)&quot; | awk -F &#39;/&#39; &#39;{print $3}&#39; | awk -F &#39;.&#39; &#39;{print $1}&#39;)
-        echo $filedir
-        dir=&quot;./streampcap/&quot;${filedir}
-        mkdir -p $dir
-        tshark -r $line -T fields -e tcp.stream | sort -n | uniq -c | awk -F &#39; &#39; &#39;{if ($2&gt;=0)print $2 }&#39; &gt; tcp_stream_number.txt
-        while read tcpnumber
-            do
-                stream=`tshark -r $line -Y &quot;tcp.stream eq $(($tcpnumber)) &quot; -w$dir/$tcpnumber.pcap`
-                if [ ! $stream ]
-                then
-                    echo &quot;IS NULL&quot;
-                else
-                    echo $stream
-                fi
-
-        done &lt;tcp_stream_number.txt
-
-done &lt; pcapfilename.txt
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line"></span><br><span class="line">find ./rawpcap -name <span class="string">'*.pcap'</span> &gt; pcapfilename.txt</span><br><span class="line"><span class="keyword">while</span> <span class="built_in">read</span> line</span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">"<span class="variable">$(line)</span>"</span></span><br><span class="line">		filedir=$(<span class="built_in">echo</span> <span class="string">"<span class="variable">$(line)</span>"</span> | awk -F <span class="string">'/'</span> <span class="string">'&#123;print $3&#125;'</span> | awk -F <span class="string">'.'</span> <span class="string">'&#123;print $1&#125;'</span>)</span><br><span class="line">		<span class="built_in">echo</span> <span class="variable">$filedir</span></span><br><span class="line">		dir=<span class="string">"./streampcap/"</span><span class="variable">$&#123;filedir&#125;</span></span><br><span class="line">		mkdir -p <span class="variable">$dir</span></span><br><span class="line">		tshark -r <span class="variable">$line</span> -T fields -e tcp.stream | sort -n | uniq -c | awk -F <span class="string">' '</span> <span class="string">'&#123;if ($2&gt;=0)print $2 &#125;'</span> &gt; tcp_stream_number.txt</span><br><span class="line">		<span class="keyword">while</span> <span class="built_in">read</span> tcpnumber</span><br><span class="line">			<span class="keyword">do</span></span><br><span class="line">				stream=`tshark -r <span class="variable">$line</span> -Y <span class="string">"tcp.stream eq <span class="variable">$(($tcpnumber)</span>) "</span> -w<span class="variable">$dir</span>/<span class="variable">$tcpnumber</span>.pcap`</span><br><span class="line">				<span class="keyword">if</span> [ ! <span class="variable">$stream</span> ]</span><br><span class="line">				<span class="keyword">then</span></span><br><span class="line">					<span class="built_in">echo</span> <span class="string">"IS NULL"</span></span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">					<span class="built_in">echo</span> <span class="variable">$stream</span></span><br><span class="line">				<span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">done</span> &lt;tcp_stream_number.txt</span><br><span class="line"></span><br><span class="line"><span class="keyword">done</span> &lt; pcapfilename.txt</span><br></pre></td></tr></table></figure>
 <p>脚本的仔细解释在我的另一篇博客《shell编程一》里面已经详细介绍过，所以不再仔细赘述，这里主要介绍一下其中关于tshark的几个命令</p>
 <ul>
 <li>获取所有的流号</li>
 </ul>
-<pre><code class="lang-bash">tshark -r $line -T fields -e tcp.stream | sort -n | uniq -c | awk -F &#39; &#39; &#39;{if ($2&gt;=0)print $2 }&#39; &gt; tcp_stream_number.txt
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tshark -r <span class="variable">$line</span> -T fields -e tcp.stream | sort -n | uniq -c | awk -F <span class="string">' '</span> <span class="string">'&#123;if ($2&gt;=0)print $2 &#125;'</span> &gt; tcp_stream_number.txt</span><br></pre></td></tr></table></figure>
 <p>tshark的-e 参数打印指定的字段，之后经过排序，去重，分割等操作得到流号保存在txt文件中</p>
 <ul>
 <li>批流，每一个flow保存为对应流号的pcap文件</li>
 </ul>
-<pre><code class="lang-bash">tshark -r $line -Y &quot;tcp.stream eq $(($tcpnumber)) &quot; -w$dir/$tcpnumber.pcap
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tshark -r <span class="variable">$line</span> -Y <span class="string">"tcp.stream eq <span class="variable">$(($tcpnumber)</span>) "</span> -w<span class="variable">$dir</span>/<span class="variable">$tcpnumber</span>.pcap</span><br></pre></td></tr></table></figure>
 <p>这样就将所有的pcap文件中的tcp flow提取出来了，之后在进行udp流的提取就可以了。</p>
 <h2 id="二、目前为止出现的一些问题"><a href="#二、目前为止出现的一些问题" class="headerlink" title="二、目前为止出现的一些问题"></a>二、目前为止出现的一些问题</h2><ul>
 <li><p>原始数据中除了tcp flow和udp flow之外还有一些arp 、icmp、igmp之类的报文信息，这些信息感觉上是没有flow概念的，因为都没有五元组的概念，所以这些报文是不是需要丢弃目前暂时只提取tcp和udp flow</p>
@@ -566,7 +540,7 @@ done &lt; pcapfilename.txt
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">博客</span>
         </a>
       </div>
@@ -579,7 +553,7 @@ done &lt; pcapfilename.txt
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -592,7 +566,7 @@ done &lt; pcapfilename.txt
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -668,14 +642,14 @@ done &lt; pcapfilename.txt
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">154k</span>
+    <span title="站点总字数">158k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">2:20</span>
+    <span title="站点阅读时长">2:24</span>
 </div>
   <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.0</div>
 
@@ -776,7 +750,24 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     path: location.pathname
   });
 }, window.Valine);
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
 </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 </body>
 </html>

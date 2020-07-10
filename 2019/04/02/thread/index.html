@@ -6,7 +6,7 @@
 
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 3.9.0">
@@ -169,12 +169,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <div class="container use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -693,12 +693,7 @@
 <p>调度程序的多个方面需要在一定数量的计时器滴答之后更新数据。 在每种情况下，这些更新应该在任何普通内核线程有机会运行之前发生，这样内核线程就不可能看到新增的<code>timer_ticks()</code>值而是旧的调度程序数据值。 4.4BSD调度程序<strong>不包括优先捐赠</strong>。</p>
 <h5 id="Niceness"><a href="#Niceness" class="headerlink" title="Niceness"></a>Niceness</h5><p>线程优先级由调度程序使用下面给出的公式动态确定。 但是，每个线程还有一个整数<code>nice</code>值，用于确定线程对其他线程的“好”程度。<code>nice</code>值为0不会影响线程优先级。 <code>nice</code>值从1至20，会降低线程的优先级，并导致它放弃一些原本会收到的CPU时间。 另一种情况，<code>nice</code>值从-20到-1，往往会从其他线程中抢占CPU时间。 </p>
 <p>初始线程<code>nice</code>值为0。 其他线程初始值从其父线程继承<code>nice</code>值。 必须实现下面描述的功能，供测试程序使用。 在<code>threads / thread.c</code>中为它们提供了框架定义。</p>
-<pre><code class="lang-c">// 返回当前进程的nice值
-int thread_get_nice (void);
-
-// 设置当前进程的nice值为new_nice，并重新计算进程的优先级，若正在运行的进程不再是最高优先级，则阻塞
-void thread_set_nice (int new_nice);
-</code></pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回当前进程的nice值</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">thread_get_nice</span> <span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置当前进程的nice值为new_nice，并重新计算进程的优先级，若正在运行的进程不再是最高优先级，则阻塞</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">thread_set_nice</span> <span class="params">(<span class="keyword">int</span> new_nice)</span></span>;</span><br></pre></td></tr></table></figure>
 <h5 id="计算-Priority"><a href="#计算-Priority" class="headerlink" title="计算 Priority"></a>计算 Priority</h5><p>我们的调度程序有64个优先级，因此有64个就绪队列，编号为0（PRI_MIN）到63（PRI_MAX）。 较低的数字对应较低的优先级。因此优先级0是最低优先级，优先级63是最高优先级。 线程优先级最初在线程初始化时计算。 对于每个线程，<strong>每四个时钟周期也会重新计算一次</strong>。 在任何一种情况下，都由公式确定</p>
 <script type="math/tex; mode=display">
 priority=PRI\_MAX-(recent\_cpu/4)-(nice*2)</script><p><code>recent_cpu</code>是线程最近使用的CPU时间的估计值（见下文），而且公式中的<code>nice</code>值为当前进程的<code>nice</code>值。 结果应向下舍入到最接近的整数（截断）。 <code>recent_cpu</code>和<code>nice</code>的系数<code>1/4</code>和<code>2</code>，分别被发现在实践中很好地工作但缺乏更深的含义。 计算得到的优先级始终为位于PRI_MIN到PRI_MAX的有效范围内。 </p>
@@ -716,16 +711,12 @@ recent\_cpu=(2*load\_avg)/(2*load\_avg+1)*recent\_cpu+nice，</script><p>其中<
 <p>对于具有负<code>nice</code>值的线程，<code>recent_cpu</code>的值可能为负。 不要将负的<code>recent_cpu</code>设置为0。</p>
 <p>需要考虑此公式中的计算顺序。先计算<code>recent_cpu</code>的系数，然后再做乘法，否则可能会产生溢出。</p>
 <p>必须实现在<code>threads/thread.c</code>中的<code>thread_get_recent_cpu()</code>函数。</p>
-<pre><code class="lang-c">// 返回当前线程recent_cpu值的100倍，四舍五入到最接近的整数
-int thread_get_recent_cpu (void);
-</code></pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回当前线程recent_cpu值的100倍，四舍五入到最接近的整数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">thread_get_recent_cpu</span> <span class="params">(<span class="keyword">void</span>)</span></span>;</span><br></pre></td></tr></table></figure>
 <h5 id="计算-load-avg"><a href="#计算-load-avg" class="headerlink" title="计算 load_avg"></a>计算 load_avg</h5><p>最后，<code>load_avg</code>（通常称为系统负载平均值）估计在过去一分钟内，在准备队列中的平均线程数。 像<code>recent_cpu</code>一样，它也是指数加权移动平均。 与<code>priority</code>和<code>recent_cpu</code>不同，<code>load_avg</code>是系统范围的，而不是特定于线程的。 在系统启动时，它被初始化为0。此后每秒一次，根据以下公式更新：</p>
 <script type="math/tex; mode=display">
 load\_avg=(59/60)*load\_avg+(1/60)*ready\_threads，</script><p><code>ready_thread</code>是在更新时运行或准s备运行的线程数（不包括空闲线程）。</p>
 <p>有些测试假设当计时器达到1秒倍数时，即当<code>timer_ticks()%TIMER_FREQ == 0</code>时，必须要重新更新<code>load_avg</code>，而不是在其它时间。必须实现位于<code>threads/thread.c</code>中的函数：</p>
-<pre><code class="lang-c">// 返回当前系统 load_avg 的100倍，四舍五入到最接近的整数
-int thread_get_load_avg(void);
-</code></pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回当前系统 load_avg 的100倍，四舍五入到最接近的整数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">thread_get_load_avg</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br></pre></td></tr></table></figure>
 <h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><p>以下公式总结了实现高级调度程序所需的计算。 它们不是调度程序要求的完整描述。 </p>
 <p>每个线程在-20和20之间具有<code>nice</code>值。 每个线程也有一个优先级，介于0(<code>PRI_MIN</code>)到63(<code>PRI_MAX</code>)之间，每四个滴答使用以下公式重新计算：</p>
 <script type="math/tex; mode=display">
@@ -744,34 +735,7 @@ load\_avg=(59/60)*load\_avg+(1/60)*ready\_threads.</script><p><code>ready_thread
 <p><img src="https://emrick.oss-cn-beijing.aliyuncs.com/img/20190508203900.png" alt></p>
 <h4 id="实验过程-1"><a href="#实验过程-1" class="headerlink" title="实验过程"></a>实验过程</h4><p>根据实验说明，我们可以知道<code>bool</code>变量<code>thread_mlfqs</code>指示是否启用高级调度程序，并且高级调度程序不应包含优先级捐赠的内容，所以，在Mission_2中实现的优先级捐赠代码，需要使用<code>if</code>判断以保证在使用高级调度程序时，不启用优先级捐赠。随后，我们可以根据实验指导中的详细说明一步步完成本次实验。</p>
 <p>首先，根据上述给定点数的计算方法，编写定点数的计算方法，实现 16.15 格式定点数计算方法。</p>
-<pre><code class="lang-c">/* Basic definitions of fixed point. */
-typedef int fixed_t;
-/* 16 LSB used for fractional part. */
-#define FP_SHIFT_AMOUNT 16
-/* Convert a value to fixed-point value. */
-#define FP_CONST(A) ((fixed_t)(A &lt;&lt; FP_SHIFT_AMOUNT))
-/* Add two fixed-point value. */
-#define FP_ADD(A,B) (A + B)
-/* Add a fixed-point value A and an int value B. */
-#define FP_ADD_MIX(A,B) (A + (B &lt;&lt; FP_SHIFT_AMOUNT))
-/* Substract two fixed-point value. */
-#define FP_SUB(A,B) (A - B)
-/* Substract an int value B from a fixed-point value A */
-#define FP_SUB_MIX(A,B) (A - (B &lt;&lt; FP_SHIFT_AMOUNT))
-/* Multiply a fixed-point value A by an int value B. */
-#define FP_MULT_MIX(A,B) (A * B)
-/* Divide a fixed-point value A by an int value B. */
-#define FP_DIV_MIX(A,B) (A / B)
-/* Multiply two fixed-point value. */
-#define FP_MULT(A,B) ((fixed_t)(((int64_t) A) * B &gt;&gt; FP_SHIFT_AMOUNT))
-/* Divide two fixed-point value. */
-#define FP_DIV(A,B) ((fixed_t)((((int64_t) A) &lt;&lt; FP_SHIFT_AMOUNT) / B))
-/* Get integer part of a fixed-point value. */
-#define FP_INT_PART(A) (A &gt;&gt; FP_SHIFT_AMOUNT)
-/* Get rounded integer of a fixed-point value. */
-#define FP_ROUND(A) (A &gt;= 0 ? ((A + (1 &lt;&lt; (FP_SHIFT_AMOUNT - 1))) &gt;&gt; FP_SHIFT_AMOUNT) \
-        : ((A - (1 &lt;&lt; (FP_SHIFT_AMOUNT - 1))) &gt;&gt; FP_SHIFT_AMOUNT))
-</code></pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Basic definitions of fixed point. */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> <span class="keyword">fixed_t</span>;</span><br><span class="line"><span class="comment">/* 16 LSB used for fractional part. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FP_SHIFT_AMOUNT 16</span></span><br><span class="line"><span class="comment">/* Convert a value to fixed-point value. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FP_CONST(A) ((fixed_t)(A &lt;&lt; FP_SHIFT_AMOUNT))</span></span><br><span class="line"><span class="comment">/* Add two fixed-point value. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FP_ADD(A,B) (A + B)</span></span><br><span class="line"><span class="comment">/* Add a fixed-point value A and an int value B. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FP_ADD_MIX(A,B) (A + (B &lt;&lt; FP_SHIFT_AMOUNT))</span></span><br><span class="line"><span class="comment">/* Substract two fixed-point value. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FP_SUB(A,B) (A - B)</span></span><br><span class="line"><span class="comment">/* Substract an int value B from a fixed-point value A */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FP_SUB_MIX(A,B) (A - (B &lt;&lt; FP_SHIFT_AMOUNT))</span></span><br><span class="line"><span class="comment">/* Multiply a fixed-point value A by an int value B. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FP_MULT_MIX(A,B) (A * B)</span></span><br><span class="line"><span class="comment">/* Divide a fixed-point value A by an int value B. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FP_DIV_MIX(A,B) (A / B)</span></span><br><span class="line"><span class="comment">/* Multiply two fixed-point value. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FP_MULT(A,B) ((fixed_t)(((int64_t) A) * B &gt;&gt; FP_SHIFT_AMOUNT))</span></span><br><span class="line"><span class="comment">/* Divide two fixed-point value. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FP_DIV(A,B) ((fixed_t)((((int64_t) A) &lt;&lt; FP_SHIFT_AMOUNT) / B))</span></span><br><span class="line"><span class="comment">/* Get integer part of a fixed-point value. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FP_INT_PART(A) (A &gt;&gt; FP_SHIFT_AMOUNT)</span></span><br><span class="line"><span class="comment">/* Get rounded integer of a fixed-point value. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FP_ROUND(A) (A &gt;= 0 ? ((A + (1 <span class="meta-string">&lt;&lt; (FP_SHIFT_AMOUNT - 1))) &gt;&gt; FP_SHIFT_AMOUNT) \</span></span></span><br><span class="line">        : ((A - (<span class="number">1</span> &lt;&lt; (FP_SHIFT_AMOUNT - <span class="number">1</span>))) &gt;&gt; FP_SHIFT_AMOUNT))</span><br></pre></td></tr></table></figure>
 <p>由于本实验涉及到的公式均与时钟中断有关，所以，我们将上述的公式迭代计算的相关代码，写入我们在Mission_1中详细介绍过的<code>timer_interrupt()</code>时钟中断处理函数中。其原函数为：</p>
 <p><img src="https://emrick.oss-cn-beijing.aliyuncs.com/img/20190508205418.png" alt></p>
 <p>之前已经接介绍过，本实验在<code>thread_mlfqs</code>变量为<code>true</code>的情况下进行。所以，我们需要通过<code>if</code>对此条件进行判断，以免影响其他实验的正常运行。</p>
@@ -847,8 +811,8 @@ typedef int fixed_t;
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/04/02/pintos-install/" rel="prev" title="pintos操作系统安装">
-                  pintos操作系统安装 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/04/02/qemu/" rel="prev" title="qemu虚拟机的安装">
+                  qemu虚拟机的安装 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -919,7 +883,7 @@ typedef int fixed_t;
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">博客</span>
         </a>
       </div>
@@ -932,7 +896,7 @@ typedef int fixed_t;
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -945,7 +909,7 @@ typedef int fixed_t;
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -1021,14 +985,14 @@ typedef int fixed_t;
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">154k</span>
+    <span title="站点总字数">158k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">2:20</span>
+    <span title="站点阅读时长">2:24</span>
 </div>
   <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.0</div>
 
@@ -1129,7 +1093,24 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     path: location.pathname
   });
 }, window.Valine);
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
 </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 </body>
 </html>
