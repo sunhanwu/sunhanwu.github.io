@@ -6,7 +6,7 @@
 
 <html lang="zh-CN">
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 3.9.0">
@@ -113,12 +113,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</noscript>
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+  <div class="container use-motion">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -375,11 +375,11 @@
 <li>将每个pcap文件中的所有数据包按照同一个flow分开，每一个flow保存为一个pcap文件，即批流</li>
 <li>由于批流之后的小文件特别多，所以注意命名和文件的存放管理</li>
 </ol>
-<h2 id="脚本编写过程"><a href="#脚本编写过程" class="headerlink" title="脚本编写过程"></a>脚本编写过程</h2><h3 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line"></span><br><span class="line">find ./rawpcap -name <span class="string">'*.pcap'</span> &gt; pcapfilename.txt</span><br><span class="line"><span class="keyword">while</span> <span class="built_in">read</span> line</span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">"<span class="variable">$(line)</span>"</span></span><br><span class="line">		filedir=$(<span class="built_in">echo</span> <span class="string">"<span class="variable">$(line)</span>"</span> | awk -F <span class="string">'/'</span> <span class="string">'&#123;print $3&#125;'</span> | awk -F <span class="string">'.'</span> <span class="string">'&#123;print $1&#125;'</span>)</span><br><span class="line">		<span class="built_in">echo</span> <span class="variable">$filedir</span></span><br><span class="line">		dir=<span class="string">"./streampcap/"</span><span class="variable">$&#123;filedir&#125;</span></span><br><span class="line">		mkdir -p <span class="variable">$dir</span></span><br><span class="line">		tshark -r <span class="variable">$line</span> -T fields -e tcp.stream | sort -n | uniq -c | awk -F <span class="string">' '</span> <span class="string">'&#123;if ($2&gt;=0)print $2 &#125;'</span> &gt; tcp_stream_number.txt</span><br><span class="line">		<span class="keyword">while</span> <span class="built_in">read</span> tcpnumber</span><br><span class="line">			<span class="keyword">do</span></span><br><span class="line">				stream=`tshark -r <span class="variable">$line</span> -Y <span class="string">"tcp.stream eq <span class="variable">$(($tcpnumber)</span>) "</span> -w<span class="variable">$dir</span>/<span class="variable">$tcpnumber</span>.pcap`</span><br><span class="line">				<span class="keyword">if</span> [ ! <span class="variable">$stream</span> ]</span><br><span class="line">				<span class="keyword">then</span></span><br><span class="line">					<span class="built_in">echo</span> <span class="string">"IS NULL"</span></span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">					<span class="built_in">echo</span> <span class="variable">$stream</span></span><br><span class="line">				<span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">done</span> &lt;tcp_stream_number.txt</span><br><span class="line"></span><br><span class="line"><span class="keyword">done</span> &lt; pcapfilename.txt</span><br></pre></td></tr></table></figure>
+<h2 id="脚本编写过程"><a href="#脚本编写过程" class="headerlink" title="脚本编写过程"></a>脚本编写过程</h2><h3 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line"></span><br><span class="line">find ./rawpcap -name <span class="string">'*.pcap'</span> &gt; pcapfilename.txt</span><br><span class="line"><span class="keyword">while</span> <span class="built_in">read</span> line</span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">"<span class="variable">$(line)</span>"</span></span><br><span class="line">		filedir=$(<span class="built_in">echo</span> <span class="string">"<span class="variable">$(line)</span>"</span> | awk -F <span class="string">'/'</span> <span class="string">'{print $3}'</span> | awk -F <span class="string">'.'</span> <span class="string">'{print $1}'</span>)</span><br><span class="line">		<span class="built_in">echo</span> <span class="variable">$filedir</span></span><br><span class="line">		dir=<span class="string">"./streampcap/"</span><span class="variable">${filedir}</span></span><br><span class="line">		mkdir -p <span class="variable">$dir</span></span><br><span class="line">		tshark -r <span class="variable">$line</span> -T fields -e tcp.stream | sort -n | uniq -c | awk -F <span class="string">' '</span> <span class="string">'{if ($2&gt;=0)print $2 }'</span> &gt; tcp_stream_number.txt</span><br><span class="line">		<span class="keyword">while</span> <span class="built_in">read</span> tcpnumber</span><br><span class="line">			<span class="keyword">do</span></span><br><span class="line">				stream=`tshark -r <span class="variable">$line</span> -Y <span class="string">"tcp.stream eq <span class="variable">$(($tcpnumber)</span>) "</span> -w<span class="variable">$dir</span>/<span class="variable">$tcpnumber</span>.pcap`</span><br><span class="line">				<span class="keyword">if</span> [ ! <span class="variable">$stream</span> ]</span><br><span class="line">				<span class="keyword">then</span></span><br><span class="line">					<span class="built_in">echo</span> <span class="string">"IS NULL"</span></span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">					<span class="built_in">echo</span> <span class="variable">$stream</span></span><br><span class="line">				<span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">done</span> &lt;tcp_stream_number.txt</span><br><span class="line"></span><br><span class="line"><span class="keyword">done</span> &lt; pcapfilename.txt</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="语法解读"><a href="#语法解读" class="headerlink" title="语法解读"></a>语法解读</h3><ol>
 <li>找到所有pcap文件并将文件路径保存到pcapfilename.txt文件中</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find ./rawpcap -name <span class="string">'*.pcap'</span> &gt; pcapfilename.txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find ./rawpcap -name <span class="string">'*.pcap'</span> &gt; pcapfilename.txt</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li>find命令后接两个参数，第一个参数<code>./rawpcap</code>表示查找的路径，-name指定按照给定的名称格式查找，使用正则表达式匹配所有pcap结尾的文件</li>
 <li>通过重定向符<code>&gt;</code>将find 的结果输出到pacpfilename.txt中</li>
@@ -387,7 +387,7 @@
 <ol>
 <li>逐行读取文本文件<code>pcpafilename.txt</code></li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="built_in">read</span> line</span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">		...</span><br><span class="line">		...</span><br><span class="line">		...</span><br><span class="line"><span class="keyword">done</span> &lt; pcapfilename.txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="built_in">read</span> line</span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">		...</span><br><span class="line">		...</span><br><span class="line">		...</span><br><span class="line"><span class="keyword">done</span> &lt; pcapfilename.txt</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li>上面这种结构是shell脚本中逐行读取文本文件的标准格式</li>
 <li>line是读取文本文件中每一行的值的变量，后面对line进行操作</li>
@@ -396,30 +396,30 @@
 <ol>
 <li>Linux三剑客之一awk的简单使用方法</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$(line)</span>"</span> | awk -F <span class="string">'/'</span> <span class="string">'&#123;print $3&#125;'</span> | awk -F <span class="string">'.'</span> <span class="string">'&#123;print $1&#125;'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$(line)</span>"</span> | awk -F <span class="string">'/'</span> <span class="string">'{print $3}'</span> | awk -F <span class="string">'.'</span> <span class="string">'{print $1}'</span></span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li>利用管道符将echo的输出结果向后传递，之后类似</li>
 <li>awk命令的 -F 参数指定分隔符</li>
-<li>后面第二个参数的用法<code>&#39;{字符串1 字符串2}&#39;</code>其中字符串1 指定命令，上面用的是print表示输出，第二个字符串是<code>$2</code>表示输出分割之后的第二部分（从1开始数）</li>
+<li>后面第二个参数的用法<code>'{字符串1 字符串2}'</code>其中字符串1 指定命令，上面用的是print表示输出，第二个字符串是<code>$2</code>表示输出分割之后的第二部分（从1开始数）</li>
 </ul>
 <ol>
 <li>将某一行命令的运行结果传送给某个变量</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filedir=$(<span class="built_in">echo</span> <span class="string">"<span class="variable">$(line)</span>"</span> | awk -F <span class="string">'/'</span> <span class="string">'&#123;print $3&#125;'</span> | awk -F <span class="string">'.'</span> <span class="string">'&#123;print $1&#125;'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filedir=$(<span class="built_in">echo</span> <span class="string">"<span class="variable">$(line)</span>"</span> | awk -F <span class="string">'/'</span> <span class="string">'{print $3}'</span> | awk -F <span class="string">'.'</span> <span class="string">'{print $1}'</span>)</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li>使用<code>$()</code>格式，括号中的内容是要运行的命令</li>
 </ul>
 <ol>
 <li>shell脚本中两个字符串的连接</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir=<span class="string">"./streampcap/"</span><span class="variable">$&#123;filedir&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir=<span class="string">"./streampcap/"</span><span class="variable">${filedir}</span></span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li>如上所示，直接将两个字符串放一起，不要空格就行</li>
 </ul>
 <ol>
 <li>tshark的使用</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tshark -r <span class="variable">$line</span> -T fields -e tcp.stream | sort -n | uniq -c | awk -F <span class="string">' '</span> <span class="string">'&#123;if ($2&gt;=0)print $2 &#125;'</span> &gt; tcp_stream_number.txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tshark -r <span class="variable">$line</span> -T fields -e tcp.stream | sort -n | uniq -c | awk -F <span class="string">' '</span> <span class="string">'{if ($2&gt;=0)print $2 }'</span> &gt; tcp_stream_number.txt</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li>-r 参数指定输入文件</li>
 <li>-e 指定输出字段</li>
@@ -429,7 +429,7 @@
 <ol>
 <li>if判定语句格式</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ 逻辑表达式 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">	...</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	...</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ 逻辑表达式 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">	...</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	...</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></tbody></table></figure>
 <h2 id="脚本解读"><a href="#脚本解读" class="headerlink" title="脚本解读"></a>脚本解读</h2><ol>
 <li>第3行找到<code>./rawpcap</code>文件夹中所有的pcap文件，并将文件所在路径名存放在pcapfilename.txt中</li>
 <li>第4-24行的大循环逐行遍历文件pcapfilename.txt，将每一行的内容读取到变量line中</li>
@@ -438,7 +438,25 @@
 <li>第12-22行的小循环遍历每一个flow号，将其保存在tcpnumber变量中</li>
 <li>第14行用tshark进行批流处理，从line指向的文件中提取出所有flow号为tcpnumber的所有数据包保存为名称为tcpnumber的pcap文件</li>
 </ol>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
     </div>
 
     
@@ -774,24 +792,7 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     path: location.pathname
   });
 }, window.Valine);
-</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
 </script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
 
 </body>
 </html>

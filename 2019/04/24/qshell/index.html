@@ -6,7 +6,7 @@
 
 <html lang="zh-CN">
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 3.9.0">
@@ -117,12 +117,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</noscript>
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+  <div class="container use-motion">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -387,32 +387,50 @@
 <p><img src="http://pdt3s257u.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20180821191839.png" alt></p>
 <h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><ul>
 <li><p>编辑～/.zshrc 或者～/.bashrc文件将qshell路径添加到环境变量中，我的路径为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/home/sun/文档/tools/qiniu</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/home/sun/文档/tools/qiniu</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p>使配置文件生效</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></tbody></table></figure>
 </li>
 </ul>
-<h2 id="登录账户"><a href="#登录账户" class="headerlink" title="登录账户"></a>登录账户</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qshell account ak sk</span><br></pre></td></tr></table></figure>
+<h2 id="登录账户"><a href="#登录账户" class="headerlink" title="登录账户"></a>登录账户</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qshell account ak sk</span><br></pre></td></tr></tbody></table></figure>
 <p>马赛克位置分别填写个人的ak 和sk</p>
 <p><img src="http://pdt3s257u.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20180821192733.png" alt></p>
 <h2 id="qupload的使用"><a href="#qupload的使用" class="headerlink" title="qupload的使用"></a>qupload的使用</h2><ol>
 <li><p>配置文件qupload.json,每个参数的具体作用请参考<a href="https://github.com/qiniu/qshell/blob/master/docs/qupload.md" target="_blank" rel="noopener">官方文档</a></p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="attr">"src_dir"</span>            :   <span class="string">"/home/sun/图片"</span>,</span><br><span class="line">   <span class="attr">"bucket"</span>             :   <span class="string">"ydm-ng"</span>,</span><br><span class="line">   <span class="attr">"up_host"</span>            :   <span class="string">"http://upload-z1.qiniu.com"</span>,</span><br><span class="line">   <span class="attr">"ignore_dir"</span>         :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"overwrite"</span>          :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"check_exists"</span>       :   <span class="literal">true</span>,</span><br><span class="line">   <span class="attr">"check_hash"</span>         :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"check_size"</span>         :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"rescan_local"</span>       :   <span class="literal">true</span>,</span><br><span class="line">   <span class="attr">"log_file"</span>           :   <span class="string">"upload.log"</span>,</span><br><span class="line">   <span class="attr">"log_level"</span>          :   <span class="string">"info"</span>,</span><br><span class="line">   <span class="attr">"log_rotate"</span>         :   <span class="number">1</span>,</span><br><span class="line">   <span class="attr">"log_stdout"</span>         :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"file_type"</span>          :   <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">   <span class="attr">"src_dir"</span>            :   <span class="string">"/home/sun/图片"</span>,</span><br><span class="line">   <span class="attr">"bucket"</span>             :   <span class="string">"ydm-ng"</span>,</span><br><span class="line">   <span class="attr">"up_host"</span>            :   <span class="string">"http://upload-z1.qiniu.com"</span>,</span><br><span class="line">   <span class="attr">"ignore_dir"</span>         :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"overwrite"</span>          :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"check_exists"</span>       :   <span class="literal">true</span>,</span><br><span class="line">   <span class="attr">"check_hash"</span>         :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"check_size"</span>         :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"rescan_local"</span>       :   <span class="literal">true</span>,</span><br><span class="line">   <span class="attr">"log_file"</span>           :   <span class="string">"upload.log"</span>,</span><br><span class="line">   <span class="attr">"log_level"</span>          :   <span class="string">"info"</span>,</span><br><span class="line">   <span class="attr">"log_rotate"</span>         :   <span class="number">1</span>,</span><br><span class="line">   <span class="attr">"log_stdout"</span>         :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"file_type"</span>          :   <span class="number">0</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p>执行命令为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qshell qupload [&lt;ThreadCount&gt;] &lt;LocalUploadConfig&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qshell qupload [&lt;ThreadCount&gt;] &lt;LocalUploadConfig&gt;</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li>第一个为可选参数，一般选10，第二个为配置文件路径</li>
 </ul>
 </li>
 <li><p>一般为了节省操作时间，在zshrc配置别名</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> qupload=<span class="string">"qshell qupload 10 /Users/sun/Documents/tools/qshell/qupload.json"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> qupload=<span class="string">"qshell qupload 10 /Users/sun/Documents/tools/qshell/qupload.json"</span></span><br></pre></td></tr></tbody></table></figure>
 <p>在生效source ~/.zsh即可</p>
 <p><img src="http://pdt3s257u.bkt.clouddn.com/%3CKey%20Prefix%3E2018-08-21/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20180821194833.png" alt></p>
 </li>
 </ol>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
     </div>
 
     
@@ -748,24 +766,7 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     path: location.pathname
   });
 }, window.Valine);
-</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
 </script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
 
 </body>
 </html>

@@ -6,7 +6,7 @@
 
 <html lang="zh-CN">
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 3.9.0">
@@ -111,12 +111,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</noscript>
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+  <div class="container use-motion">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -375,15 +375,23 @@
       
           <h1 id="Ubuntu16-04服务器搭建ss服务"><a href="#Ubuntu16-04服务器搭建ss服务" class="headerlink" title="Ubuntu16.04服务器搭建ss服务"></a>Ubuntu16.04服务器搭建ss服务</h1><ol>
 <li><p>安装unzip wget</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install unzip wget</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install unzip wget</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p>安装shadowsocks</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/ToyoDAdoubi/doubi/archive/master.zip</span><br><span class="line">unzip master.zip</span><br><span class="line"><span class="built_in">cd</span> ./master</span><br><span class="line">sudo chmod 777 ssr.sh</span><br><span class="line">sudo ./ssr.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/ToyoDAdoubi/doubi/archive/master.zip</span><br><span class="line">unzip master.zip</span><br><span class="line"><span class="built_in">cd</span> ./master</span><br><span class="line">sudo chmod 777 ssr.sh</span><br><span class="line">sudo ./ssr.sh</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p>安装过程一路都有提示，十分简单</p>
 </li>
 </ol>
-
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/05/01/ss/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1601,20 +1609,28 @@
       
           <h1 id="在QEMU虚拟机中安装pintos"><a href="#在QEMU虚拟机中安装pintos" class="headerlink" title="在QEMU虚拟机中安装pintos"></a>在QEMU虚拟机中安装pintos</h1><ol>
 <li><p>下载pintos源码</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone http://cs140.stanford.edu/pintos.git</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone http://cs140.stanford.edu/pintos.git</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p>编译安装</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/pintos/src/threads</span><br><span class="line">make</span><br><span class="line">../utils/pintos --qemu -- run alarm-multiple</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/pintos/src/threads</span><br><span class="line">make</span><br><span class="line">../utils/pintos --qemu -- run alarm-multiple</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p>修改utils/pintos 脚本</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">my (@cmd) = ('/usr/local/src/qemu/bin/qemu');</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">my (@cmd) = ('/usr/local/src/qemu/bin/qemu');</span><br></pre></td></tr></tbody></table></figure>
 <p>将pintos脚本中第622行修改成如上图所示，引号中的内容是qemu可执行程序的绝对路径。</p>
 </li>
 <li><p>出现下面的截图说明正确安装好了</p>
 <p><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-174153.jpg" alt></p>
 </li>
 </ol>
-
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/02/pintos-install/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1917,24 +1933,7 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     path: location.pathname
   });
 }, window.Valine);
-</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
 </script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
 
 </body>
 </html>

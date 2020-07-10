@@ -6,7 +6,7 @@
 
 <html lang="zh-CN">
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 3.9.0">
@@ -56,7 +56,7 @@
 </script>
 
   <meta name="description" content="摘要物联网被誉为社会的下一个发展浪潮，智能家居、企业和城市装备着大量的物联网设备，然而这些智能环境的控制者并没有充分意识到这些物联网设备的价值，更不用说能否让这些设备抵御网络攻击了。在这片论文中，我们通过使用在网络级获得的流量特性开发用于物联网设备的强大的（robust）框架来应对（address）这个挑战。我们的工作主要分为四个部分。首先，我们搭建了一个拥有28个不同IoT设备的的智能环境，这些">
-<meta name="keywords" content="IoT,机器学习,网络流量">
+<meta name="keywords" content="机器学习,IoT,网络流量">
 <meta property="og:type" content="article">
 <meta property="og:title" content="对论文《Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics》的翻译">
 <meta property="og:url" content="http://yoursite.com/2019/09/12/18tmc/index.html">
@@ -127,12 +127,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</noscript>
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+  <div class="container use-motion">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -393,7 +393,7 @@
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>联网设备的数量正在急剧膨胀（balloon）,迎来（ushering）物联网的时代。物联网（IoT）指的是数以亿计的低功耗设备与设备之间或与远端的服务器之间在互联网上自主（autonomously）的通信。IoT设备包括每天都在使用的物品，例如台灯、照相机、传感器、门锁、温控器（thermostats）、电源开源和家用电器，这些出货量已经达到了接近200亿在2020年。无数的IoT设备期待找到它们未来在家庭、企业、校园、城市中的方式，创造（engender）有利于我们社会和生活的智能环境。</p>
 <p>IoT设备的数量增长的很快，然而带来了一个重要的问题。智能环境的管理者发现很难去确定哪些设备连接了他们的网络，更加难以探知（ascertain）每个设备是否工作正常，这是一个组织管理这些资产的主要任务，往往需要几个不同的部门合作。举例来说，在一个地区委员会（council）来说，灯管传感器可能由基础设施团队安装、污水和垃圾传感器可能被卫生部门（sanitation department）安装、求生摄像头可能被地区机房管理，协调各部门以获取IoT设备的信息不仅耗时繁重而且错误率高，使得在任何时候用弄清楚哪些IoT设备正在运行成为不可能。及时获得IoT设备的可见性对于管理者来说至关重要。那些负责确保设备的网络安全任务的人员需要提供必要的服务质量、并在出现问题的时候迅速隔离.思科最近的安全报告一直在强调（emphasize）可见性的重要性，特别是最近出现的两件事显得尤为突出。2017年7月组成赌场的鱼缸传感器和2017年2月从自己的自动售货机攻击大学校园网。这两个例子中，网络分段都有可能阻止攻击，更好的可见性可以快速隔离，以限制网络攻击对企业网络的破坏</p>
 <p>可以预期，可以通过其MAC地址和DHCP协商来识别设备。然而，这将面临几个挑战：首先IoT设备制造商通常使用第三方提供的NIC（网卡），因此，MAC地址的组织唯一标识符（OUI）前缀可能无法传达有关IoT设备的任何信息；其次，恶意设备可能会欺骗MAC地址;许多物联网设备不在其DHCP请求中设置主机名选项；事实上，我们发现我们研究的大约一半的物联网设备没有显示它们的主机名，如表1所示;</p>
-<p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-023850.jpg" width="800"></div><br>即使物联网设备暴露其主机名，它也可能并不总是有意义的（例如表1中的Withings婴儿监视器的WBP-EE4C）；最后，用户可以更改这些主机名（例如HP打印机可以被赋予任意主机名）。由于这些原因，基于DHCP并不是一个很好的解决方案用于正确识别大规模的设备。</p>
+<p></p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-023850.jpg" width="800"></div><br>即使物联网设备暴露其主机名，它也可能并不总是有意义的（例如表1中的Withings婴儿监视器的WBP-EE4C）；最后，用户可以更改这些主机名（例如HP打印机可以被赋予任意主机名）。由于这些原因，基于DHCP并不是一个很好的解决方案用于正确识别大规模的设备。<p></p>
 <p>这篇论文中，我们通过开发一个强大的框架来解决上述问题，<strong><em>该框架除了使用网络流量特征导出的统计属性的高精度的一类非物联网设备外，还对每个物联网设备进行分类</em></strong>，从定性上讲，大多数物联网设备都会偶尔发送短时间的数据。定量的来说，我们在[6]中的初步工作是首次尝试研究IoT设备在一次流量爆发期间发送多少流量以及它们在活动之间闲置多长时间。我们还评估了它们执行了多少信号量（例如域名查询使用DNS，时间同步使用NTP）与他们产生的数据流量进行比较。本文通过对包含28种不同物联网设备的试验台在更长时间（6个月）内捕获的跟踪数据采用更全面（comprehensive）的属性集，对我们之前的工作进行了重大扩展。</p>
 <p>毫无疑问，了解物联网流量的性质变得越来越重要，<strong><em>这样做有助于包含不必要的多播/广播流量，从而减少它们对其他应用程序的影响</em></strong>，它还使智能城市和企业的运营商能够根据环境，健康或安全应用所需的可靠性，损失和延迟来确定其网络的适当性能水平。然而，表征物联网流量的最令人信服的理由是检测和减轻网络安全攻击。众所周知，物联网设备的性质和设计易于渗透，关于物联网设备如何被破坏并用于发动大规模攻击的新故事正在出现.物联网设备的巨大异构性促使研究人员提出网络级安全机制，分析流量模式以识别攻击,这些方法的成功依赖于对“正常”物联网流量配置文件的良好理解。</p>
 <p>我们在这项工作中的主要重点是建立一个基于各种网络流量特性的机器学习框架，以识别和分类网络上物联网设备的默认（即基线）行为,未来可能会使用这样的框架来检测物联网设备的异常行为（可能是由于网络攻击）,这种异常检测方案超出了本文的范围。本文基于网络流量特征填补了与物联网设备分类相关的文献中的重要空白。我们的贡献是：</p>
@@ -412,7 +412,7 @@
 <p>在物联网的背景下，[32]使用机器学习来对来自网络上的授权设备的单个TCP流进行分类。它使用了300多个属性（数据包级和流级），但最有影响力的是数据包生存时间（TTL）的最小值，中值和平均值，发送和接收的总字节数，包的总数重置（RST）标志，以及服务器的Alexa排名</p>
 <p>虽然上述所有工作都做出了重要贡献，但他们并未在智能环境（如家庭，城市，校园或企业）中对物联网设备进行细粒度表征和分类。此外，还没有开发出能够根据网络流量特征进行物联网设备分类的统计模型，最重要的是，先前的工作不会公开任何数据集供研究社区使用和构建。我们的工作克服了这些缺点。</p>
 <h2 id="物联网流量收集和整合"><a href="#物联网流量收集和整合" class="headerlink" title="物联网流量收集和整合"></a>物联网流量收集和整合</h2><p>在本节中，我们将介绍用于收集和合成来自各种物联网设备的流量的智能环境基础架构</p>
-<h3 id="实验试验台"><a href="#实验试验台" class="headerlink" title="实验试验台"></a>实验试验台</h3><p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-031005.jpg" width="800"></div><br>图1描述了“智能环境”的真实体系结构，它通过其（有线/无线）网络基础设施为各种物联网和非物联网设备提供服务，并允许它们通过网关与互联网服务器通信。使用OpenWrt固件版本Chaos Calmer（15.05.1，r48532）刷新的TP-Link接入点充当公共互联网的网关。我们还在网关上安装了额外的OpenWrt软件包，即用于捕获流量的tcpdump，用于编写脚本的bash（4.3.39-1），用于在网关上安装外部USB存储的块安装包，kmod-usb-core和kmod-usb-storage（3.18.23-1），用于将流量跟踪数据存储在USB存储器上。</p>
+<h3 id="实验试验台"><a href="#实验试验台" class="headerlink" title="实验试验台"></a>实验试验台</h3><p></p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-031005.jpg" width="800"></div><br>图1描述了“智能环境”的真实体系结构，它通过其（有线/无线）网络基础设施为各种物联网和非物联网设备提供服务，并允许它们通过网关与互联网服务器通信。使用OpenWrt固件版本Chaos Calmer（15.05.1，r48532）刷新的TP-Link接入点充当公共互联网的网关。我们还在网关上安装了额外的OpenWrt软件包，即用于捕获流量的tcpdump，用于编写脚本的bash（4.3.39-1），用于在网关上安装外部USB存储的块安装包，kmod-usb-core和kmod-usb-storage（3.18.23-1），用于将流量跟踪数据存储在USB存储器上。<p></p>
 <p>在我们的实验室设置中，TP-Link接入点的WAN接口通过大学网络连接到公共Internet，而IoT设备分别连接到LAN和WLAN接口。我们的智能环境共有28个独特的物联网设备，代表不同的类别以及几个非物联网设备，在这里，物联网是指特定用途的互联网连接设备（例如摄像机和烟雾传感器），而通用设备（例如电话和笔记本电脑）属于非物联网类别。</p>
 <p>物联网设备包括摄像头（Nest Dropcam，Sam-sung SmartCam，Netatmo Welcome，Belkin摄像头，TP-Link日夜云摄像头，Withings智能婴儿监视器，金丝雀摄像头，八月门铃，铃铛门铃），开关和触发器（iHome） ，TP-Link智能插头，Belkin Wemo运动传感器，Belkin Wemo Switch），集线器（Smart Things，Amazon Echo），空气质量传感器（NEST Protect烟雾报警器，Netatmo气象站，Awair空气质量监测器），电子设备（Triby扬声器， PIXSTAR Photoframe，惠普打印机，Hello芭比娃娃，谷歌Chromecast），医疗设备（带智能秤，Withings Aura智能睡眠传感器，Blipcare血压计）和灯泡（Phips Hue和LiFX智能灯泡）。一些非物联网设备也连接到测试平台，如笔记本电脑，手机和Android平板电脑。平板电脑用于配置各个设备制造商推荐的物联网设备</p>
 <h3 id="跟踪数据"><a href="#跟踪数据" class="headerlink" title="跟踪数据"></a>跟踪数据</h3><p>使用在OpenWrt上运行的tcpdump工具收集LAN端的所有流量。在流量跟踪中，物理设备与已知MAC地址（由于处于同一LAN中）或IP地址（即无NAT）之间进行一对一映射非常重要。捕获LAN上的流量允许我们使用MAC地址作为设备的标识符，以将其流量与包括网络中的许多其他设备的流量混合隔离。我们开发了一个脚本来自动化数据收集和存储过程。生成的跟踪作为pcap文件存储在连接到网关的1 TB存储的外部USB硬盘驱动器上，此设置允许连续几个月记录流量</p>
@@ -431,7 +431,7 @@
 <li>发往本地主机（LAN）或Internet服务器（WAN</li>
 <li>绑定到协议（TCP，UDP，ICMP或IGMP）和端口号。</li>
 </ul>
-<p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-055154.jpg" width="800"></div><br>图2提供了描绘两个设备所展示的潜在流量标志的视觉辅助，例如，Amazon Echo和LiFX灯泡都使用DNS（端口号53）和NTP（端口号123）。虽然Amazon Echo使用HTTP（端口号80），HTTPS（端口号443）和ICMP（端口号0），但LiFX灯泡不使用任何这些应用程序，此外，每个设备似乎与WAN服务器上的唯一端口号通信;用于Amazon Echo的TCP 33434和用于LiFX灯泡的UDP 56700，如图2（a）和2（b）中的顶部流程所示。最后，我们观察到Amazon Echo访问了许多域名，包括softwareupdates.amazon.com，device-metrics-su.amazon.com，example.org，pindorama.amazon.com和pool.ntp.org。然而，LiFX灯泡仅与两个域通信，即v2.broker.lifx.co和pool.ntp.org。</p>
+<p></p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-055154.jpg" width="800"></div><br>图2提供了描绘两个设备所展示的潜在流量标志的视觉辅助，例如，Amazon Echo和LiFX灯泡都使用DNS（端口号53）和NTP（端口号123）。虽然Amazon Echo使用HTTP（端口号80），HTTPS（端口号443）和ICMP（端口号0），但LiFX灯泡不使用任何这些应用程序，此外，每个设备似乎与WAN服务器上的唯一端口号通信;用于Amazon Echo的TCP 33434和用于LiFX灯泡的UDP 56700，如图2（a）和2（b）中的顶部流程所示。最后，我们观察到Amazon Echo访问了许多域名，包括softwareupdates.amazon.com，device-metrics-su.amazon.com，example.org，pindorama.amazon.com和pool.ntp.org。然而，LiFX灯泡仅与两个域通信，即v2.broker.lifx.co和pool.ntp.org。<p></p>
 <h3 id="IoT活动和卷模式（暂时先这么翻译）"><a href="#IoT活动和卷模式（暂时先这么翻译）" class="headerlink" title="IoT活动和卷模式（暂时先这么翻译）"></a>IoT活动和卷模式（暂时先这么翻译）</h3><p>我们从IoT设备的活动模式开始，这些模式由其流量属性定义，我们在每个流级别定义四个关键属性，以根据其网络活动来表征物联网设备：</p>
 <ul>
 <li><strong>流量</strong>：即下载和上传字节的总和</li>
@@ -439,32 +439,50 @@
 <li><strong>平均流量</strong>：即流量除以流量持续时间</li>
 <li><strong>设备休眠时间</strong>：（即物联网设备没有活动流的时间间隔）</li>
 </ul>
-<p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-060240.jpg" width="800"></div><br>我们使用在26周内收集的跟踪数据，在图3中绘制了一组选定的IoT设备的上述四个属性的概率分布，从图3a中可以看出每个物联网设备倾向于每个流交换少量数据。对于LiFX灯泡的情况（用红色条表示），26％的流量在[130,140]字节之间传输，20％在[120,130]字节之间传输，Belkin运动传感器的流量（由绿色条表示）略高;超过35％的流量在[2800,3800]字节之间传输。对于Amazon Echo（由蓝条表示），超过95％的流量传输少于1000个字节。虽然我们仅为少数设备提供流量直方图，但我们的大多数物联网设备都呈现出类似的可预测模式。</p>
+<p></p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-060240.jpg" width="800"></div><br>我们使用在26周内收集的跟踪数据，在图3中绘制了一组选定的IoT设备的上述四个属性的概率分布，从图3a中可以看出每个物联网设备倾向于每个流交换少量数据。对于LiFX灯泡的情况（用红色条表示），26％的流量在[130,140]字节之间传输，20％在[120,130]字节之间传输，Belkin运动传感器的流量（由绿色条表示）略高;超过35％的流量在[2800,3800]字节之间传输。对于Amazon Echo（由蓝条表示），超过95％的流量传输少于1000个字节。虽然我们仅为少数设备提供流量直方图，但我们的大多数物联网设备都呈现出类似的可预测模式。<p></p>
 <p>流动持续时间也出现类似的模式。参考图3（b），我们注意到Amazon Echo的流量持续时间为53秒，流量持续时间超过40％，而LiFX灯泡和Belkin运动传感器的持续时间为60秒分别为50％和21％。对于平均流速属性，图3（c）显示平均速率相当小，以每秒位数为单位，如定性预期。定量地，该图显示LiFX灯泡的平均流速为每秒18位，接近60％的时间。近30％的Belkin流的比特率在59到60比特/秒的范围内，而近40％的Amazon Echo流的比特率在70到71比特每秒的范围内。</p>
 <p>最后，就设备的睡眠时间而言，图3（d）显示Belkin运动传感器和LiFX灯泡表现出明显的睡眠模式，持续时间为1秒和60秒，概率分别为73％和48％。然而，对于Amazon Echo，观察到具有小概率的多个睡眠时间。这是因为Amazon Echo使其TCP连接保持活动状态，并且只有在断开Internet连接时才会进入休眠状态。我们的测试台中的其他设备也表现得像Echo，并且似乎没有占主导地位的睡眠模式。</p>
 <h3 id="IoT信令模式"><a href="#IoT信令模式" class="headerlink" title="IoT信令模式"></a>IoT信令模式</h3><p>我们现在关注应用层协议，使用端口号推断，物联网设备主要用于在LAN本地和/或外部与公共互联网上的服务器进行通信.</p>
-<h4 id="服务端口号"><a href="#服务端口号" class="headerlink" title="服务端口号"></a>服务端口号</h4><p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-062418.jpg" width="800"></div><br>图4显示了从各种IoT设备发起的所有流的服务器端端口号的文字云。对于每个设备，如果更频繁地使用端口，则在相应的字云中以更大的字体大小显示它。子标题（即{}内的数字）报告每个设备的唯一服务器端口数。可以看出，IoT设备各自与少数服务器端口唯一通信，而非IoT设备使用更广泛的服务（即图4（h）中显示了2382个独特端口，其中许多非常罕见） 。我们观察到非标准端口33434,56700,8883和25050分别在源自Amazon Echo，LiFX灯泡，Awair空气质量监测器和Netatmo气象站的流量中突出显示，如图4的顶行所示。此外，我们注意到来自同一制造商的设备共享某些端口，例如，端口号8443和3478在Belkin的运动传感器，电源开关和相机之间是常见的，如图4（e）-4（g）所示。我们也注意到，众所周知的标准端口号（如53（DNS），123（NTP），0（ICMP）和1900（SSDP））被许多物联网设备以及具有各种频率的非物联网使用，如图所示在图4中。此外，许多物联网设备也使用服务器端端口号443（TLS / SSL）。</p>
+<h4 id="服务端口号"><a href="#服务端口号" class="headerlink" title="服务端口号"></a>服务端口号</h4><p></p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-062418.jpg" width="800"></div><br>图4显示了从各种IoT设备发起的所有流的服务器端端口号的文字云。对于每个设备，如果更频繁地使用端口，则在相应的字云中以更大的字体大小显示它。子标题（即{}内的数字）报告每个设备的唯一服务器端口数。可以看出，IoT设备各自与少数服务器端口唯一通信，而非IoT设备使用更广泛的服务（即图4（h）中显示了2382个独特端口，其中许多非常罕见） 。我们观察到非标准端口33434,56700,8883和25050分别在源自Amazon Echo，LiFX灯泡，Awair空气质量监测器和Netatmo气象站的流量中突出显示，如图4的顶行所示。此外，我们注意到来自同一制造商的设备共享某些端口，例如，端口号8443和3478在Belkin的运动传感器，电源开关和相机之间是常见的，如图4（e）-4（g）所示。我们也注意到，众所周知的标准端口号（如53（DNS），123（NTP），0（ICMP）和1900（SSDP））被许多物联网设备以及具有各种频率的非物联网使用，如图所示在图4中。此外，许多物联网设备也使用服务器端端口号443（TLS / SSL）。<p></p>
 <h4 id="DNS查询"><a href="#DNS查询" class="headerlink" title="DNS查询"></a>DNS查询</h4><p>DNS是几乎所有联网设备使用的常见应用程序。由于物联网设备是为特定目的而定制设计的，因此它们访问与其供应商特定的端点服务器相对应的有限数量的域，我们在图5中绘制了由几个IoT设备以及非IoT访问的域名的词云</p>
-<p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-063141.jpg" width="800"></div><br>可以看出，IoT设备可以通过它们与之通信的域名进行相当区分，例如，如图5（a）-5（c）所示，Amazon Echo经常请求诸如example.com，example.net和example.org之类的域。hp.com和hpeprint.com的子域在HP打印机的DNS查询中可见。但是，我们也看到一些着名的域名在不同的设备之间共享。例如，belkin.com和d3gjecg2uu2faq.cloudfront.net通常被Belkin设备（即摄像机，运动传感器和电源开关）使用，如图5（d）-5（f）所示。或者pool.ntp.org在Google Dropcam，Awair空气质量监测器和LiFX灯泡产生的交通流量方面非常突出，如图5（b）-5（h）所示，再次考虑图5（i）中的非IoT，我们看到大约12000个访问过的唯一域，与IoT设备相比，其中只有少数域被重复访问。</p>
+<p></p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-063141.jpg" width="800"></div><br>可以看出，IoT设备可以通过它们与之通信的域名进行相当区分，例如，如图5（a）-5（c）所示，Amazon Echo经常请求诸如example.com，example.net和example.org之类的域。hp.com和hpeprint.com的子域在HP打印机的DNS查询中可见。但是，我们也看到一些着名的域名在不同的设备之间共享。例如，belkin.com和d3gjecg2uu2faq.cloudfront.net通常被Belkin设备（即摄像机，运动传感器和电源开关）使用，如图5（d）-5（f）所示。或者pool.ntp.org在Google Dropcam，Awair空气质量监测器和LiFX灯泡产生的交通流量方面非常突出，如图5（b）-5（h）所示，再次考虑图5（i）中的非IoT，我们看到大约12000个访问过的唯一域，与IoT设备相比，其中只有少数域被重复访问。<p></p>
 <p>我们还发现IoT设备在使用DNS协议的频率方面存在差异，我们从流量跟踪中观察到物联网设备在其运行的不同阶段生成DNS查询;例如，仅在启动阶段（例如Google Dropcamp）或与用户（例如Hello Barbie）交互时或定期（例如Amazon Echo）如图6所示，某些IoT设备在其DNS查询的频率中表现出特征签名。</p>
-<p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-064238.jpg" width="800"></div><br>LiFX灯泡和Amazon Echo非常频繁地发送DNS查询（即每5分钟），但像Belkin运动传感器这样的设备每30分钟只请求一次域名。</p>
+<p></p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-064238.jpg" width="800"></div><br>LiFX灯泡和Amazon Echo非常频繁地发送DNS查询（即每5分钟），但像Belkin运动传感器这样的设备每30分钟只请求一次域名。<p></p>
 <h4 id="NTP查询"><a href="#NTP查询" class="headerlink" title="NTP查询"></a>NTP查询</h4><p>如前所述，NTP是物联网设备使用的另一种流行协议，因为精确和可验证的时序对于物联网操作至关重要。许多物联网设备倾向于以周期性方式使用NTP协议（UDP端口123），以便将它们的时间与公共可用的NTP服务器同步。例如，Awair空气质量监测器，LiFX灯泡和Google Dropcam从pool.ntp.org获取时间服务器的IP地址。我们还发现时间同步在我们的测试台中反复出现，并且许多物联网设备在使用NTP时表现出可识别的模式。例如，Belkin电源开关，LiFX灯泡和SmartThings集线器分别每隔60,300和600秒发送NTP请求，如图7的直方图所示。</p>
-<p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-064828.jpg" width="800"></div></p>
+<p></p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-064828.jpg" width="800"></div><p></p>
 <h4 id="密码套件"><a href="#密码套件" class="headerlink" title="密码套件"></a>密码套件</h4><p>许多物联网设备使用TLS / SSL协议（端口号443）与Internet上 各自的服务器进行通信，为了启动TLS连接并与服务器协商安全算法，设备通过发送“客户端Hello”数据包开始握手，该数据包具有可以支持的“密码套件”列表，按其优先顺序排列。例如，图8（a）和8（b）描绘了Amazon Echo向两个不同的Amazon服务器提供的密码套件。每个密码套件（即4位代码）可以采用380个可能值中的一个，并表示密钥交换，批量加密和消息认证码（MAC）的算法</p>
-<p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-065458.jpg" width="800"></div><br>例如，由Amazon服务器协商的密码002f分别使用RSA，AES 128 CBC和SHA协议进行密钥交换，批量加密和消息认证。</p>
+<p></p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-065458.jpg" width="800"></div><br>例如，由Amazon服务器协商的密码002f分别使用RSA，AES 128 CBC和SHA协议进行密钥交换，批量加密和消息认证。<p></p>
 <p>在我们的设置中，我们发现28个IoT设备中有17个，包括Amazon Echo，August Doorbell Cam，Awair空气质量监视器，Belkin相机，Canary相机，Drop-cam，Google Chromecast，Hello Barbie，HP ENVY打印机,iHome，Netatmo欢迎相机，飞利浦Hue灯泡，皮克斯相框，Ring Doorbell，Trilby，Withings Aura智能睡眠传感器和Withings Scale，使用TLS / SSL进行通信.我们发现，当将SSL传送到不同的服务器时，Amazon Echo总共使用五个不同的密码套件字符串，Triby扬声器使用两个字符串，而Pixtar相框仅使用一个字符串进行所有SSL通信。</p>
 <p>我们将图9中这三个设备的唯一密码套件字符串绘制为离散信号：x轴是出现在提供的套件中的4位密码的顺序，y轴是各个密码的索引（即来自{1,2，…，380}的值。</p>
-<p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-065922.jpg" width="800"></div><br>可以看出，密码套件信号的集合为每个IoT设备发出了唯一的签名。在特殊情况下，我们发现Pixtar photoframe与8个门铃使用的18个套件中的一个共享其单个密码套件 - 我们将在§5.2中看到，仅依靠密码套件属性将无法有效地对Pixtar相框流量进行分类..</p>
+<p></p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-065922.jpg" width="800"></div><br>可以看出，密码套件信号的集合为每个IoT设备发出了唯一的签名。在特殊情况下，我们发现Pixtar photoframe与8个门铃使用的18个套件中的一个共享其单个密码套件 - 我们将在§5.2中看到，仅依靠密码套件属性将无法有效地对Pixtar相框流量进行分类..<p></p>
 <p>然而，有许多设备很少交换密码套件，而是希望长时间保持其TLS连接存活。例如，Google Dropcam在启动时建立与其自身服务器的TLS连接，并且只要它具有网络连接就维持此连接，而Amazon Echo和Pixstar照相框每小时分别启动平均1和2个TLS连接。</p>
 <p><strong>总结</strong>：在本节中，我们根据物联网设备的基础网络流量特征确定了8个关键属性。它们是流量，流量持续时间，平均流量，设备休眠时间，服务器端口号，DNS查询，NTP查询和密码套件。虽然可以通过仅考虑一个或两个流量属性（例如域名，端口号或密码套件列表）来唯一地识别某些设备（例如，Amazon Echo或LiFX灯泡），但这些设备都存在挑战。例如，在流量中很少观察到诸如密码套件列表之类的强属性（例如，每天仅一次）。作为另一示例，来自相同供应商的不同类型的设备访问类似的域并使用相同的端口号来访问云服务器。捕获诸如这些属性的出现次数（例如，访问域的次数或使用该端口的流的数量）等方面，结合其他属性，极大地提高了区分来自同一制造商的设备的预测能力。在下一节中，我们将使用这些属性的组合开发基于多阶段机器学习的算法，以帮助高精度地对物联网设备进行分类。</p>
 <h2 id="基于分类模型的机器学习"><a href="#基于分类模型的机器学习" class="headerlink" title="基于分类模型的机器学习"></a>基于分类模型的机器学习</h2><p>为了从我们的跟踪数据合成属性，我们首先使用Joy工具将原始pcap文件转换为每小时流量,然后，对于给定的IoT设备，我们计算上一节中针对每小时实例定义的流量活动和信令属性。从跨越26周的跟踪中获得的每个设备的实例数取决于诸如设备在线的持续时间或设备如何生成流量（自主或交互式）等因素,例如，Blipcare BP监视器只有13个小时实例，因为它仅在用户使用设备时才生成流量。另一方面，我们为Google Dropcam收集了4177个实例</p>
 <h3 id="多级设备分类架构"><a href="#多级设备分类架构" class="headerlink" title="多级设备分类架构"></a>多级设备分类架构</h3><p>我们注意到我们的三个属性，即“域名集”，“远程端口号集”和“密码套件集”是名义上的（即不被视为数值）和多值（例如，{“ 53“：3，”123“：1，”443“：2}表示一组远程端口号，其中三个出现端口号53，两次出现端口123，一次出现端口号443）。因此，我们为IoT分类器采用了两阶段分层架构，如图10所示。</p>
-<p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-073520.jpg" width="800"></div><br>除了这些独特的单词之外，我们将非IoT设备的所有相应单词聚合为“其他” - 每个Stage-0矩阵中称为“其他”的列表示在IoT流量中未看到的单词。该矩阵的每个单元格是给定实例中这种唯一单词的出现次数。如图10所示，阶段0的每个分类器产生两个输出，即暂定类和置信水平，其与其他单值定量属性（即流量，持续时间，速率，睡眠时间，DNS，NTP）一起（）间隔）被送入Stage-1分类器，产生最终输出（即设备识别具有置信水平）。</p>
+<p></p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-073520.jpg" width="800"></div><br>除了这些独特的单词之外，我们将非IoT设备的所有相应单词聚合为“其他” - 每个Stage-0矩阵中称为“其他”的列表示在IoT流量中未看到的单词。该矩阵的每个单元格是给定实例中这种唯一单词的出现次数。如图10所示，阶段0的每个分类器产生两个输出，即暂定类和置信水平，其与其他单值定量属性（即流量，持续时间，速率，睡眠时间，DNS，NTP）一起（）间隔）被送入Stage-1分类器，产生最终输出（即设备识别具有置信水平）。<p></p>
 <h4 id="第0级-字袋分类器"><a href="#第0级-字袋分类器" class="headerlink" title="第0级-字袋分类器"></a>第0级-字袋分类器</h4><p>我们使用朴素贝叶斯多分类器来分析我们机器的第0阶段中的每个单词包。已经表明[35]，当处理大量独特单词时，该分类器在文本分类中表现良好。在训练阶段，分类器采用单词的分布，例如个人独特的域名，并使用以下方法计算给定课程的每个单词的概率：</p>
-<p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-082106.jpg" width="500"></div><br>其中wj是训练数据集中的唯一单词（例如，端口号56700）; ci是类别标签（例如LiFX灯泡）; D是所有实例的数量。$n_l,c_i,w_j^{train}$是类标签为ci的每个实例中的wj出现次数，N是唯一字的总数（例如，我们的数据集中有N = 421个唯一端口号，在测试阶段，分类器需要为所有可能的类计算以下概率：</p>
-<p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-082825.jpg" width="400"></div><br>其中$W^{test}$表示${w_1:n_1^{test},w_2:n_2^{test},…,w_N:n_N^{test}}$；而$n_j^{test}$是wj在一个测试实例中的出现次数,$Pr(c_i^{train})$整个训练数据集中类ci的存在概率,（即ci训练实例的数量除以所有训练实例的总数）分类器最终选择给出一组给定单词及其出现的（2）中最大概率的类。请注意，如果训练实例在各个类之间公平分布，那么Naive Bayes Multinomial分类器就能很好地运行[35]。</p>
+<p></p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-082106.jpg" width="500"></div><br>其中wj是训练数据集中的唯一单词（例如，端口号56700）; ci是类别标签（例如LiFX灯泡）; D是所有实例的数量。$n_l,c_i,w_j^{train}$是类标签为ci的每个实例中的wj出现次数，N是唯一字的总数（例如，我们的数据集中有N = 421个唯一端口号，在测试阶段，分类器需要为所有可能的类计算以下概率：<p></p>
+<p></p><div align="center"><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-09-17-082825.jpg" width="400"></div><br>其中$W^{test}$表示${w_1:n_1^{test},w_2:n_2^{test},…,w_N:n_N^{test}}$；而$n_j^{test}$是wj在一个测试实例中的出现次数,$Pr(c_i^{train})$整个训练数据集中类ci的存在概率,（即ci训练实例的数量除以所有训练实例的总数）分类器最终选择给出一组给定单词及其出现的（2）中最大概率的类。请注意，如果训练实例在各个类之间公平分布，那么Naive Bayes Multinomial分类器就能很好地运行[35]。<p></p>
 <h4 id="第1级-分类器"><a href="#第1级-分类器" class="headerlink" title="第1级-分类器"></a>第1级-分类器</h4><p>我们有一个阶段1分类器，它可以获取所有定量属性以及每个阶段0分类器的输出对。由于阶段1属性不是线性可分的，并且阶段0分类器的输出是标称值，因此我们使用基于随机森林的阶段1分类器。选择随机森林的另一个原因是与其他决策树分类器相比，对过度拟合的高容忍度。</p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
     </div>
 
     
@@ -496,9 +514,9 @@
           
           <div class="post-tags">
             
-              <a href="/tags/IoT/" rel="tag"># IoT</a>
-            
               <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+            
+              <a href="/tags/IoT/" rel="tag"># IoT</a>
             
               <a href="/tags/网络流量/" rel="tag"># 网络流量</a>
             
@@ -802,24 +820,7 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     path: location.pathname
   });
 }, window.Valine);
-</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
 </script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
 
 </body>
 </html>
