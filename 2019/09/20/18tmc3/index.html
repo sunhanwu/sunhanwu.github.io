@@ -6,25 +6,25 @@
 
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/sunpages/images/apple-touch-icon-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/sunpages/images/favicon-32x32-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/sunpages/images/favicon-16x16-next.png?v=7.4.0">
-  <link rel="mask-icon" href="/sunpages/images/logo.svg?v=7.4.0" color="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
 
-<link rel="stylesheet" href="/sunpages/css/main.css?v=7.4.0">
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
 
 
-<link rel="stylesheet" href="/sunpages/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
 
 
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/sunpages/',
+    root: '/',
     scheme: 'Pisces',
     version: '7.4.0',
     exturl: false,
@@ -56,18 +56,20 @@
 </script>
 
   <meta name="description" content="继续数据预处理工作，在缓慢的批流工作进行了将近三天之后，完成了三个原始数据样本（不到2G）的数据的批流，进行完批流得到的是一个flow一个pcap文件，接下来需要做的工作就是通过python的Scapy库逐个读取flow，统计所需的统计属性">
-<meta name="keywords" content="流量,python,Scapy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="论文复现实验思路-数据预处理（二）">
-<meta property="og:url" content="https://yuandaima1.gitee.io/sunpages/2019/09/20/18tmc3/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/09/20/18tmc3/index.html">
 <meta property="og:site_name" content="SunPages">
 <meta property="og:description" content="继续数据预处理工作，在缓慢的批流工作进行了将近三天之后，完成了三个原始数据样本（不到2G）的数据的批流，进行完批流得到的是一个flow一个pcap文件，接下来需要做的工作就是通过python的Scapy库逐个读取flow，统计所需的统计属性">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-23T11:38:35.000Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-09-20T12:06:19.000Z">
+<meta property="article:modified_time" content="2019-09-23T11:38:35.000Z">
+<meta property="article:author" content="sunhanwu">
+<meta property="article:tag" content="流量">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="Scapy">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="论文复现实验思路-数据预处理（二）">
-<meta name="twitter:description" content="继续数据预处理工作，在缓慢的批流工作进行了将近三天之后，完成了三个原始数据样本（不到2G）的数据的批流，进行完批流得到的是一个flow一个pcap文件，接下来需要做的工作就是通过python的Scapy库逐个读取flow，统计所需的统计属性">
-  <link rel="canonical" href="https://yuandaima1.gitee.io/sunpages/2019/09/20/18tmc3/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/20/18tmc3/">
 
 
 <script id="page-configurations">
@@ -113,12 +115,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <div class="container use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -126,7 +128,7 @@
   <div class="site-meta">
 
     <div>
-      <a href="/sunpages/" class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">SunPages</span>
         <span class="logo-line-after"><i></i></span>
@@ -157,7 +159,7 @@
       
     
 
-    <a href="/sunpages/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
 
   </li>
       
@@ -168,7 +170,7 @@
       
     
 
-    <a href="/sunpages/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
 
   </li>
       
@@ -179,7 +181,7 @@
       
     
 
-    <a href="/sunpages/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
 
   </li>
       
@@ -190,7 +192,7 @@
       
     
 
-    <a href="/sunpages/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
 
   </li>
       
@@ -201,7 +203,7 @@
       
     
 
-    <a href="/sunpages/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
       
@@ -212,7 +214,7 @@
       
     
 
-    <a href="/sunpages/photo/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br>Photos</a>
+    <a href="/photo/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br>Photos</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -272,7 +274,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://yuandaima1.gitee.io/sunpages/sunpages/2019/09/20/18tmc3/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/20/18tmc3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="sunhanwu">
@@ -321,7 +323,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/sunpages/categories/学习科研/" itemprop="url" rel="index"><span itemprop="name">学习科研</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">学习科研</span></a></span>
 
                 
                 
@@ -340,7 +342,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/sunpages/2019/09/20/18tmc3/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/sunpages/2019/09/20/18tmc3/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/09/20/18tmc3/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/09/20/18tmc3/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -378,17 +380,17 @@
         <blockquote>
 <p>继续数据预处理工作，在缓慢的批流工作进行了将近三天之后，完成了三个原始数据样本（不到2G）的数据的批流，进行完批流得到的是一个flow一个pcap文件，接下来需要做的工作就是通过python的Scapy库逐个读取flow，统计所需的统计属性 </p>
 </blockquote><a id="more"></a>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> scapy.all <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> config <span class="keyword">import</span> *</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> scapy.all <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> config <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>上面是导入的库</p>
 </blockquote>
-<h2 id="一、获取所有的flow路径"><a href="#一、获取所有的flow路径" class="headerlink" title="一、获取所有的flow路径"></a>一、获取所有的flow路径</h2><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">GetPathList</span><span class="params">(data_path)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    获取流文件的路径信息</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        flow_path_list = [data_root_path + x <span class="keyword">for</span> x <span class="keyword">in</span> os.listdir(data_root_path)]</span><br><span class="line">        flow_path_list = sorted(flow_path_list,key= <span class="keyword">lambda</span> x: int(x.split(<span class="string">'/'</span>)[<span class="number">-1</span>].split(<span class="string">'.'</span>)[<span class="number">-2</span>]))</span><br><span class="line">        <span class="keyword">return</span> flow_path_list</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">"GetPathList Error!"</span>)</span><br><span class="line">        <span class="keyword">return</span> []</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="一、获取所有的flow路径"><a href="#一、获取所有的flow路径" class="headerlink" title="一、获取所有的flow路径"></a>一、获取所有的flow路径</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">GetPathList</span><span class="params">(data_path)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    获取流文件的路径信息</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        flow_path_list = [data_root_path + x <span class="keyword">for</span> x <span class="keyword">in</span> os.listdir(data_root_path)]</span><br><span class="line">        flow_path_list = sorted(flow_path_list,key= <span class="keyword">lambda</span> x: int(x.split(<span class="string">'/'</span>)[<span class="number">-1</span>].split(<span class="string">'.'</span>)[<span class="number">-2</span>]))</span><br><span class="line">        <span class="keyword">return</span> flow_path_list</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">"GetPathList Error!"</span>)</span><br><span class="line">        <span class="keyword">return</span> []</span><br></pre></td></tr></table></figure>
 <p>这个函数没有什么太多好讲的，只是有两点技巧说一下：</p>
 <ul>
 <li>列表生成表达式：在第6行使用列表生成表达式的形式生成列表，[含x表达式  for  x in  列表]</li>
 <li>lambda表达式 ：在 排序等函数中，可以 通过lambda表达式指定排序的关键字，即通过元素的那一部分进行排序</li>
 </ul>
-<h2 id="二、加载flow并得到统计数据"><a href="#二、加载flow并得到统计数据" class="headerlink" title="二、加载flow并得到统计数据"></a>二、加载flow并得到统计数据</h2><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">LoadOnePcap</span><span class="params">(flow_path)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    加载一个flow的pcap文件，计算需要的统计数据</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    packets = rdpcap(flow_path)</span><br><span class="line">    Volume = <span class="number">0</span> <span class="comment"># 数据总量</span></span><br><span class="line">    Duration = <span class="number">0</span> <span class="comment"># 持续时间</span></span><br><span class="line">    <span class="keyword">for</span> packet <span class="keyword">in</span> packets:</span><br><span class="line">        Volume += len(packets)</span><br><span class="line">    StartTime = packets[<span class="number">0</span>].time <span class="comment">#开始时间</span></span><br><span class="line">    EndTime = packets[<span class="number">-1</span>].time <span class="comment">#结束时间</span></span><br><span class="line">    Duration = EndTime - StartTime</span><br><span class="line">    <span class="keyword">if</span> Duration &gt; <span class="number">0</span>:</span><br><span class="line">        Rate = Volume / Duration</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        Rate = <span class="number">0</span></span><br><span class="line">    <span class="comment"># sleep time通过连续的两个flow之间的时间计算，不在这个函数中计算</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># DNS 变量用于存储dns查询,DNS_FLAG 表示是否含有DNS</span></span><br><span class="line">    DNSQuery = <span class="string">''</span></span><br><span class="line">    DNS_FLAG = <span class="literal">False</span></span><br><span class="line">    NTPQuery = <span class="string">''</span></span><br><span class="line">    NTP_FLAG = <span class="literal">False</span></span><br><span class="line">    <span class="comment"># 下面的这个循环遍历整个flow查找是否含有DNS查询</span></span><br><span class="line">    <span class="keyword">for</span> packet <span class="keyword">in</span> packets:</span><br><span class="line">        <span class="keyword">if</span> packet.haslayer(<span class="string">'DNS'</span>):</span><br><span class="line">            DNS_FLAG = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> packet.haslayer(<span class="string">'NTP'</span>):</span><br><span class="line">            NTP_FLAG = <span class="literal">True</span></span><br><span class="line">    <span class="comment">## 获取DNS查询的域名</span></span><br><span class="line">    <span class="keyword">if</span> DNS_FLAG:</span><br><span class="line">        DNSQuery = bytes.decode(packets[<span class="number">0</span>][<span class="string">'DNS'</span>].qd.qname)</span><br><span class="line">    <span class="keyword">if</span> NTP_FLAG:</span><br><span class="line">        NTPQuery = packets[<span class="number">0</span>][<span class="string">'UDP'</span>].id</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 下面几行处理得到远程端口号</span></span><br><span class="line">    TCP_FLAG = packets[<span class="number">0</span>].haslayer(<span class="string">'TCP'</span>)</span><br><span class="line">    UDP_FLAG = packets[<span class="number">0</span>].haslayer(<span class="string">'UDP'</span>)</span><br><span class="line">    <span class="keyword">if</span> TCP_FLAG:</span><br><span class="line">        TransPro = <span class="string">'TCP'</span></span><br><span class="line">    <span class="keyword">elif</span> UDP_FLAG:</span><br><span class="line">        TransPro = <span class="string">'UDP'</span></span><br><span class="line">    RemotePort = packets[<span class="number">0</span>][TransPro].dport</span><br><span class="line">    <span class="comment"># 下面一行得到mac地址</span></span><br><span class="line">    Mac = packets[<span class="number">0</span>][<span class="string">'Ethernet'</span>].src</span><br><span class="line">    flow_features = {</span><br><span class="line">        <span class="string">'Volume'</span>: Volume,</span><br><span class="line">        <span class="string">'StartTime'</span>:StartTime,</span><br><span class="line">        <span class="string">'EndTime'</span>:EndTime,</span><br><span class="line">        <span class="string">'Duration'</span>:Duration,</span><br><span class="line">        <span class="string">'Rate'</span>:Rate,</span><br><span class="line">        <span class="string">'DNSQuery'</span>:DNSQuery,</span><br><span class="line">        <span class="string">'NTPQuery'</span>:NTPQuery,</span><br><span class="line">        <span class="string">'RemotePort'</span>:RemotePort,</span><br><span class="line">        <span class="string">'TransPro'</span>:TransPro,</span><br><span class="line">        <span class="string">'Mac'</span>:Mac</span><br><span class="line">    }</span><br><span class="line">    print(<span class="string">'%s文件夹中,第%s个flow分析完毕！'</span>%(flow_path.split(<span class="string">'/'</span>)[<span class="number">-2</span>],flow_path.split(<span class="string">'/'</span>)[<span class="number">-1</span>].split(<span class="string">'.'</span>)[<span class="number">-2</span>]))</span><br><span class="line">    print(flow_features)</span><br><span class="line">    <span class="keyword">return</span> flow_features</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="二、加载flow并得到统计数据"><a href="#二、加载flow并得到统计数据" class="headerlink" title="二、加载flow并得到统计数据"></a>二、加载flow并得到统计数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">LoadOnePcap</span><span class="params">(flow_path)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    加载一个flow的pcap文件，计算需要的统计数据</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    packets = rdpcap(flow_path)</span><br><span class="line">    Volume = <span class="number">0</span> <span class="comment"># 数据总量</span></span><br><span class="line">    Duration = <span class="number">0</span> <span class="comment"># 持续时间</span></span><br><span class="line">    <span class="keyword">for</span> packet <span class="keyword">in</span> packets:</span><br><span class="line">        Volume += len(packets)</span><br><span class="line">    StartTime = packets[<span class="number">0</span>].time <span class="comment">#开始时间</span></span><br><span class="line">    EndTime = packets[<span class="number">-1</span>].time <span class="comment">#结束时间</span></span><br><span class="line">    Duration = EndTime - StartTime</span><br><span class="line">    <span class="keyword">if</span> Duration &gt; <span class="number">0</span>:</span><br><span class="line">        Rate = Volume / Duration</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        Rate = <span class="number">0</span></span><br><span class="line">    <span class="comment"># sleep time通过连续的两个flow之间的时间计算，不在这个函数中计算</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># DNS 变量用于存储dns查询,DNS_FLAG 表示是否含有DNS</span></span><br><span class="line">    DNSQuery = <span class="string">''</span></span><br><span class="line">    DNS_FLAG = <span class="literal">False</span></span><br><span class="line">    NTPQuery = <span class="string">''</span></span><br><span class="line">    NTP_FLAG = <span class="literal">False</span></span><br><span class="line">    <span class="comment"># 下面的这个循环遍历整个flow查找是否含有DNS查询</span></span><br><span class="line">    <span class="keyword">for</span> packet <span class="keyword">in</span> packets:</span><br><span class="line">        <span class="keyword">if</span> packet.haslayer(<span class="string">'DNS'</span>):</span><br><span class="line">            DNS_FLAG = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> packet.haslayer(<span class="string">'NTP'</span>):</span><br><span class="line">            NTP_FLAG = <span class="literal">True</span></span><br><span class="line">    <span class="comment">## 获取DNS查询的域名</span></span><br><span class="line">    <span class="keyword">if</span> DNS_FLAG:</span><br><span class="line">        DNSQuery = bytes.decode(packets[<span class="number">0</span>][<span class="string">'DNS'</span>].qd.qname)</span><br><span class="line">    <span class="keyword">if</span> NTP_FLAG:</span><br><span class="line">        NTPQuery = packets[<span class="number">0</span>][<span class="string">'UDP'</span>].id</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 下面几行处理得到远程端口号</span></span><br><span class="line">    TCP_FLAG = packets[<span class="number">0</span>].haslayer(<span class="string">'TCP'</span>)</span><br><span class="line">    UDP_FLAG = packets[<span class="number">0</span>].haslayer(<span class="string">'UDP'</span>)</span><br><span class="line">    <span class="keyword">if</span> TCP_FLAG:</span><br><span class="line">        TransPro = <span class="string">'TCP'</span></span><br><span class="line">    <span class="keyword">elif</span> UDP_FLAG:</span><br><span class="line">        TransPro = <span class="string">'UDP'</span></span><br><span class="line">    RemotePort = packets[<span class="number">0</span>][TransPro].dport</span><br><span class="line">    <span class="comment"># 下面一行得到mac地址</span></span><br><span class="line">    Mac = packets[<span class="number">0</span>][<span class="string">'Ethernet'</span>].src</span><br><span class="line">    flow_features = &#123;</span><br><span class="line">        <span class="string">'Volume'</span>: Volume,</span><br><span class="line">        <span class="string">'StartTime'</span>:StartTime,</span><br><span class="line">        <span class="string">'EndTime'</span>:EndTime,</span><br><span class="line">        <span class="string">'Duration'</span>:Duration,</span><br><span class="line">        <span class="string">'Rate'</span>:Rate,</span><br><span class="line">        <span class="string">'DNSQuery'</span>:DNSQuery,</span><br><span class="line">        <span class="string">'NTPQuery'</span>:NTPQuery,</span><br><span class="line">        <span class="string">'RemotePort'</span>:RemotePort,</span><br><span class="line">        <span class="string">'TransPro'</span>:TransPro,</span><br><span class="line">        <span class="string">'Mac'</span>:Mac</span><br><span class="line">    &#125;</span><br><span class="line">    print(<span class="string">'%s文件夹中,第%s个flow分析完毕！'</span>%(flow_path.split(<span class="string">'/'</span>)[<span class="number">-2</span>],flow_path.split(<span class="string">'/'</span>)[<span class="number">-1</span>].split(<span class="string">'.'</span>)[<span class="number">-2</span>]))</span><br><span class="line">    print(flow_features)</span><br><span class="line">    <span class="keyword">return</span> flow_features</span><br></pre></td></tr></table></figure>
 <p>通过上面的代码可以分析出，其实逻辑很简单，从每个flow中提取出10个值，有的直接值特征值，有一些是为了以后计算特征值而提取的中间值，每个值的含义如下：</p>
 <div class="table-container">
 <table>
@@ -454,25 +456,7 @@
 </table>
 </div>
 <p>将上述所有的值提取出来之后保存在字典中传出即可</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
     </div>
 
     
@@ -504,11 +488,11 @@
           
           <div class="post-tags">
             
-              <a href="/sunpages/tags/流量/" rel="tag"># 流量</a>
+              <a href="/tags/%E6%B5%81%E9%87%8F/" rel="tag"># 流量</a>
             
-              <a href="/sunpages/tags/python/" rel="tag"># python</a>
+              <a href="/tags/python/" rel="tag"># python</a>
             
-              <a href="/sunpages/tags/Scapy/" rel="tag"># Scapy</a>
+              <a href="/tags/Scapy/" rel="tag"># Scapy</a>
             
           </div>
         
@@ -518,7 +502,7 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/sunpages/2019/09/19/18tmc2/" rel="next" title="论文复现实验思路-数据预处理（一）">
+                <a href="/2019/09/19/18tmc2/" rel="next" title="论文复现实验思路-数据预处理（一）">
                   <i class="fa fa-chevron-left"></i> 论文复现实验思路-数据预处理（一）
                 </a>
               
@@ -528,7 +512,7 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/sunpages/2019/09/27/vim配置/" rel="prev" title="如何配置一个顺手vim系列（一）：安装插件">
+                <a href="/2019/09/27/vim%E9%85%8D%E7%BD%AE/" rel="prev" title="如何配置一个顺手vim系列（一）：安装插件">
                   如何配置一个顺手vim系列（一）：安装插件 <i class="fa fa-chevron-right"></i>
                 </a>
               
@@ -598,7 +582,7 @@
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
-          <a href="/sunpages/archives/">
+          <a href="/archives/%20%7C%7C%20archive">
         
           <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">博客</span>
@@ -610,7 +594,7 @@
       <div class="site-state-item site-state-categories">
         
           
-            <a href="/sunpages/categories/">
+            <a href="/categories/%20%7C%7C%20th">
           
         
         <span class="site-state-item-count">7</span>
@@ -623,7 +607,7 @@
       <div class="site-state-item site-state-tags">
         
           
-            <a href="/sunpages/tags/">
+            <a href="/tags/%20%7C%7C%20tags">
           
         
         <span class="site-state-item-count">18</span>
@@ -734,12 +718,20 @@
   
 
 
-  <script src="/sunpages/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/sunpages/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/sunpages/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/sunpages/js/utils.js?v=7.4.0"></script><script src="/sunpages/js/motion.js?v=7.4.0"></script>
-<script src="/sunpages/js/schemes/pisces.js?v=7.4.0"></script>
-<script src="/sunpages/js/next-boot.js?v=7.4.0"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.4.0.js"></script>
+
+<script src="/js/motion.js?v=7.4.0.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.0.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.0.js"></script>
+
 
 
 
@@ -763,7 +755,9 @@
 
   
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.css">
-<script src="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js"></script><script src="/sunpages/js/algolia-search.js?v=7.4.0"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js"></script>
+<script src="/js/algolia-search.js?v=7.4.0.js"></script>
+
 
 
 
@@ -810,7 +804,24 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     path: location.pathname
   });
 }, window.Valine);
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
 </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 </body>
 </html>

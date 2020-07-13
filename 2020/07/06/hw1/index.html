@@ -6,25 +6,25 @@
 
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/sunpages/images/apple-touch-icon-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/sunpages/images/favicon-32x32-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/sunpages/images/favicon-16x16-next.png?v=7.4.0">
-  <link rel="mask-icon" href="/sunpages/images/logo.svg?v=7.4.0" color="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
 
-<link rel="stylesheet" href="/sunpages/css/main.css?v=7.4.0">
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
 
 
-<link rel="stylesheet" href="/sunpages/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
 
 
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/sunpages/',
+    root: '/',
     scheme: 'Pisces',
     version: '7.4.0',
     exturl: false,
@@ -56,28 +56,29 @@
 </script>
 
   <meta name="description" content="纯手工实现线性回归（作业一）​    近年来机器学习和深度学习十分火热，应用十分广泛。在完成本科毕设过程中和在信工所实习的时候深感自己对于深度学习方面的知识掌握的远远不够，因此打算在暑假期间恶补一下深度学习。寻找学习资料的时候，在B站发现了一个宝藏教程, 台大李宏毅教授对于深度学习中的各种技术和算法讲解的十分透彻，并且公开了作业，甚至有些作业是以kaggle比赛的形式，我们也可以提交自己写的作业。">
-<meta name="keywords" content="Python,深度学习作业">
 <meta property="og:type" content="article">
 <meta property="og:title" content="纯手工实现线性回归（作业一）">
-<meta property="og:url" content="https://yuandaima1.gitee.io/sunpages/2020/07/06/hw1/index.html">
+<meta property="og:url" content="http://yoursite.com/2020/07/06/hw1/index.html">
 <meta property="og:site_name" content="SunPages">
 <meta property="og:description" content="纯手工实现线性回归（作业一）​    近年来机器学习和深度学习十分火热，应用十分广泛。在完成本科毕设过程中和在信工所实习的时候深感自己对于深度学习方面的知识掌握的远远不够，因此打算在暑假期间恶补一下深度学习。寻找学习资料的时候，在B站发现了一个宝藏教程, 台大李宏毅教授对于深度学习中的各种技术和算法讲解的十分透彻，并且公开了作业，甚至有些作业是以kaggle比赛的形式，我们也可以提交自己写的作业。">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ipic-picgo.oss-cn-beijing.aliyuncs.com/20200706230448.png">
 <meta property="og:image" content="https://ipic-picgo.oss-cn-beijing.aliyuncs.com/20200706232114.png">
 <meta property="og:image" content="https://ipic-picgo.oss-cn-beijing.aliyuncs.com/20200710233546.png">
 <meta property="og:image" content="https://ipic-picgo.oss-cn-beijing.aliyuncs.com/20200711001312.png">
 <meta property="og:image" content="https://ipic-picgo.oss-cn-beijing.aliyuncs.com/20200711004430.png">
 <meta property="og:image" content="https://ipic-picgo.oss-cn-beijing.aliyuncs.com/20200711005519.png">
-<meta property="og:image" content="https://yuandaima1.gitee.io/Users/sunhanwu/Library/Application%20Support/typora-user-images/image-20200711161810070.png">
+<meta property="og:image" content="http://yoursite.com/Users/sunhanwu/Library/Application%20Support/typora-user-images/image-20200711161810070.png">
 <meta property="og:image" content="https://ipic-picgo.oss-cn-beijing.aliyuncs.com/20200711165011.png">
 <meta property="og:image" content="https://ipic-picgo.oss-cn-beijing.aliyuncs.com/20200713204740.png">
-<meta property="og:updated_time" content="2020-07-13T17:00:37.168Z">
+<meta property="article:published_time" content="2020-07-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-07-13T17:00:37.168Z">
+<meta property="article:author" content="sunhanwu">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="深度学习作业">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="纯手工实现线性回归（作业一）">
-<meta name="twitter:description" content="纯手工实现线性回归（作业一）​    近年来机器学习和深度学习十分火热，应用十分广泛。在完成本科毕设过程中和在信工所实习的时候深感自己对于深度学习方面的知识掌握的远远不够，因此打算在暑假期间恶补一下深度学习。寻找学习资料的时候，在B站发现了一个宝藏教程, 台大李宏毅教授对于深度学习中的各种技术和算法讲解的十分透彻，并且公开了作业，甚至有些作业是以kaggle比赛的形式，我们也可以提交自己写的作业。">
 <meta name="twitter:image" content="https://ipic-picgo.oss-cn-beijing.aliyuncs.com/20200706230448.png">
-  <link rel="canonical" href="https://yuandaima1.gitee.io/sunpages/2020/07/06/hw1/">
+  <link rel="canonical" href="http://yoursite.com/2020/07/06/hw1/">
 
 
 <script id="page-configurations">
@@ -123,12 +124,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <div class="container use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -136,7 +137,7 @@
   <div class="site-meta">
 
     <div>
-      <a href="/sunpages/" class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">SunPages</span>
         <span class="logo-line-after"><i></i></span>
@@ -167,7 +168,7 @@
       
     
 
-    <a href="/sunpages/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
 
   </li>
       
@@ -178,7 +179,7 @@
       
     
 
-    <a href="/sunpages/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
 
   </li>
       
@@ -189,7 +190,7 @@
       
     
 
-    <a href="/sunpages/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
 
   </li>
       
@@ -200,7 +201,7 @@
       
     
 
-    <a href="/sunpages/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
 
   </li>
       
@@ -211,7 +212,7 @@
       
     
 
-    <a href="/sunpages/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
       
@@ -222,7 +223,7 @@
       
     
 
-    <a href="/sunpages/photo/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br>Photos</a>
+    <a href="/photo/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br>Photos</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -282,7 +283,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://yuandaima1.gitee.io/sunpages/sunpages/2020/07/06/hw1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/06/hw1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="sunhanwu">
@@ -331,7 +332,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/sunpages/categories/深度学习/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a></span>
 
                 
                 
@@ -350,7 +351,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/sunpages/2020/07/06/hw1/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/sunpages/2020/07/06/hw1/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2020/07/06/hw1/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/07/06/hw1/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -399,7 +400,7 @@
 </ul>
 <p><img src="https://ipic-picgo.oss-cn-beijing.aliyuncs.com/20200706230448.png" alt></p>
 <h3 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h3><p>基本了解了数据集合题目要求之后，就需要对数据进行预处理工作了，首先处理训练数据。</p>
-<h3 id="处理训练数据"><a href="#处理训练数据" class="headerlink" title="处理训练数据"></a>处理训练数据</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loadTrainData</span><span class="params">(trainDataFile)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    加载训练数据集，并且处理成需要的格式</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    trainData = pd.read_csv(trainDataFile, encoding=<span class="string">'big5'</span>)</span><br><span class="line">    <span class="comment"># 去除日期等误用数据</span></span><br><span class="line">    trainData = trainData.iloc[:, <span class="number">2</span>:]</span><br><span class="line">    <span class="comment"># 将NR替换为0,并将其转回为numpy</span></span><br><span class="line">    trainData[trainData == <span class="string">'NR'</span>] = <span class="number">0</span></span><br><span class="line">    <span class="comment"># 原始的数据大小为4320*25</span></span><br><span class="line">    trainDataArray = trainData.to_numpy().astype(<span class="string">'float64'</span>)</span><br><span class="line">    <span class="comment"># 重组数据</span></span><br><span class="line">    rows, columns = trainDataArray.shape</span><br><span class="line">    Data = []</span><br><span class="line">    <span class="keyword">for</span> day <span class="keyword">in</span> range(rows // <span class="number">18</span>):</span><br><span class="line">        rowLow = day * <span class="number">18</span></span><br><span class="line">        rowHigh = rowLow + <span class="number">18</span></span><br><span class="line">        rowPM25 = rowLow + <span class="number">9</span></span><br><span class="line">        <span class="keyword">for</span> columnLeft <span class="keyword">in</span> range(<span class="number">15</span>):</span><br><span class="line">            columnRight = columnLeft + <span class="number">9</span></span><br><span class="line">            OneTrainData = trainDataArray[rowLow:rowHigh, columnLeft:columnRight].reshape(<span class="number">-1</span>)</span><br><span class="line">            label = trainDataArray[rowPM25, columnRight]</span><br><span class="line">            oneSampleData = np.append(OneTrainData, label)</span><br><span class="line">            Data.append(oneSampleData)</span><br><span class="line">        <span class="keyword">if</span> rowHigh + <span class="number">18</span> &lt;= rows:</span><br><span class="line">            <span class="keyword">for</span> columnLeft_ <span class="keyword">in</span> range(<span class="number">15</span>, <span class="number">24</span>, <span class="number">1</span>):</span><br><span class="line">                leftData = trainDataArray[rowLow:rowHigh, columnLeft_:]</span><br><span class="line">                rightData = trainDataArray[rowLow+<span class="number">18</span>:rowHigh+<span class="number">18</span>, :<span class="number">9</span> - (<span class="number">24</span> - columnLeft_)]</span><br><span class="line">                OneTrainData = np.hstack((leftData, rightData)).reshape(<span class="number">-1</span>)</span><br><span class="line">                label = trainDataArray[rowPM25 + <span class="number">18</span>, <span class="number">9</span> - (<span class="number">24</span> - columnLeft_)]</span><br><span class="line">                oneSampleData = np.append(OneTrainData, label)</span><br><span class="line">                Data.append(oneSampleData)</span><br><span class="line">    Data = np.array(Data)</span><br><span class="line">    <span class="keyword">return</span> Data[:, :<span class="number">162</span>], Data[:, <span class="number">162</span>]<span class="function"><span class="keyword">def</span> <span class="title">loadTrainData</span><span class="params">(trainDataFile)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    加载训练数据集，并且处理成需要的格式</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    trainData = pd.read_csv(trainDataFile, encoding=<span class="string">'big5'</span>)</span><br><span class="line">    <span class="comment"># 去除日期等误用数据</span></span><br><span class="line">    trainData = trainData.iloc[:, <span class="number">2</span>:]</span><br><span class="line">    <span class="comment"># 将NR替换为0,并将其转回为numpy</span></span><br><span class="line">    trainData[trainData == <span class="string">'NR'</span>] = <span class="number">0</span></span><br><span class="line">    <span class="comment"># 原始的数据大小为4320*25</span></span><br><span class="line">    trainDataArray = trainData.to_numpy().astype(<span class="string">'float64'</span>)</span><br><span class="line">    <span class="comment"># 重组数据</span></span><br><span class="line">    rows, columns = trainDataArray.shape</span><br><span class="line">    Data = []</span><br><span class="line">    <span class="keyword">for</span> day <span class="keyword">in</span> range(rows // <span class="number">18</span>):</span><br><span class="line">        rowLow = day * <span class="number">18</span></span><br><span class="line">        rowHigh = rowLow + <span class="number">18</span></span><br><span class="line">        rowPM25 = rowLow + <span class="number">9</span></span><br><span class="line">        <span class="keyword">for</span> columnLeft <span class="keyword">in</span> range(<span class="number">15</span>):</span><br><span class="line">            columnRight = columnLeft + <span class="number">9</span></span><br><span class="line">            OneTrainData = trainDataArray[rowLow:rowHigh, columnLeft:columnRight].reshape(<span class="number">-1</span>)</span><br><span class="line">            label = trainDataArray[rowPM25, columnRight]</span><br><span class="line">            oneSampleData = np.append(OneTrainData, label)</span><br><span class="line">            Data.append(oneSampleData)</span><br><span class="line">    Data = np.array(Data)</span><br><span class="line">    <span class="keyword">return</span> Data[:, :<span class="number">162</span>], Data[:, <span class="number">162</span>]</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="处理训练数据"><a href="#处理训练数据" class="headerlink" title="处理训练数据"></a>处理训练数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loadTrainData</span><span class="params">(trainDataFile)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    加载训练数据集，并且处理成需要的格式</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    trainData = pd.read_csv(trainDataFile, encoding=<span class="string">'big5'</span>)</span><br><span class="line">    <span class="comment"># 去除日期等误用数据</span></span><br><span class="line">    trainData = trainData.iloc[:, <span class="number">2</span>:]</span><br><span class="line">    <span class="comment"># 将NR替换为0,并将其转回为numpy</span></span><br><span class="line">    trainData[trainData == <span class="string">'NR'</span>] = <span class="number">0</span></span><br><span class="line">    <span class="comment"># 原始的数据大小为4320*25</span></span><br><span class="line">    trainDataArray = trainData.to_numpy().astype(<span class="string">'float64'</span>)</span><br><span class="line">    <span class="comment"># 重组数据</span></span><br><span class="line">    rows, columns = trainDataArray.shape</span><br><span class="line">    Data = []</span><br><span class="line">    <span class="keyword">for</span> day <span class="keyword">in</span> range(rows // <span class="number">18</span>):</span><br><span class="line">        rowLow = day * <span class="number">18</span></span><br><span class="line">        rowHigh = rowLow + <span class="number">18</span></span><br><span class="line">        rowPM25 = rowLow + <span class="number">9</span></span><br><span class="line">        <span class="keyword">for</span> columnLeft <span class="keyword">in</span> range(<span class="number">15</span>):</span><br><span class="line">            columnRight = columnLeft + <span class="number">9</span></span><br><span class="line">            OneTrainData = trainDataArray[rowLow:rowHigh, columnLeft:columnRight].reshape(<span class="number">-1</span>)</span><br><span class="line">            label = trainDataArray[rowPM25, columnRight]</span><br><span class="line">            oneSampleData = np.append(OneTrainData, label)</span><br><span class="line">            Data.append(oneSampleData)</span><br><span class="line">        <span class="keyword">if</span> rowHigh + <span class="number">18</span> &lt;= rows:</span><br><span class="line">            <span class="keyword">for</span> columnLeft_ <span class="keyword">in</span> range(<span class="number">15</span>, <span class="number">24</span>, <span class="number">1</span>):</span><br><span class="line">                leftData = trainDataArray[rowLow:rowHigh, columnLeft_:]</span><br><span class="line">                rightData = trainDataArray[rowLow+<span class="number">18</span>:rowHigh+<span class="number">18</span>, :<span class="number">9</span> - (<span class="number">24</span> - columnLeft_)]</span><br><span class="line">                OneTrainData = np.hstack((leftData, rightData)).reshape(<span class="number">-1</span>)</span><br><span class="line">                label = trainDataArray[rowPM25 + <span class="number">18</span>, <span class="number">9</span> - (<span class="number">24</span> - columnLeft_)]</span><br><span class="line">                oneSampleData = np.append(OneTrainData, label)</span><br><span class="line">                Data.append(oneSampleData)</span><br><span class="line">    Data = np.array(Data)</span><br><span class="line">    <span class="keyword">return</span> Data[:, :<span class="number">162</span>], Data[:, <span class="number">162</span>]<span class="function"><span class="keyword">def</span> <span class="title">loadTrainData</span><span class="params">(trainDataFile)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    加载训练数据集，并且处理成需要的格式</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    trainData = pd.read_csv(trainDataFile, encoding=<span class="string">'big5'</span>)</span><br><span class="line">    <span class="comment"># 去除日期等误用数据</span></span><br><span class="line">    trainData = trainData.iloc[:, <span class="number">2</span>:]</span><br><span class="line">    <span class="comment"># 将NR替换为0,并将其转回为numpy</span></span><br><span class="line">    trainData[trainData == <span class="string">'NR'</span>] = <span class="number">0</span></span><br><span class="line">    <span class="comment"># 原始的数据大小为4320*25</span></span><br><span class="line">    trainDataArray = trainData.to_numpy().astype(<span class="string">'float64'</span>)</span><br><span class="line">    <span class="comment"># 重组数据</span></span><br><span class="line">    rows, columns = trainDataArray.shape</span><br><span class="line">    Data = []</span><br><span class="line">    <span class="keyword">for</span> day <span class="keyword">in</span> range(rows // <span class="number">18</span>):</span><br><span class="line">        rowLow = day * <span class="number">18</span></span><br><span class="line">        rowHigh = rowLow + <span class="number">18</span></span><br><span class="line">        rowPM25 = rowLow + <span class="number">9</span></span><br><span class="line">        <span class="keyword">for</span> columnLeft <span class="keyword">in</span> range(<span class="number">15</span>):</span><br><span class="line">            columnRight = columnLeft + <span class="number">9</span></span><br><span class="line">            OneTrainData = trainDataArray[rowLow:rowHigh, columnLeft:columnRight].reshape(<span class="number">-1</span>)</span><br><span class="line">            label = trainDataArray[rowPM25, columnRight]</span><br><span class="line">            oneSampleData = np.append(OneTrainData, label)</span><br><span class="line">            Data.append(oneSampleData)</span><br><span class="line">    Data = np.array(Data)</span><br><span class="line">    <span class="keyword">return</span> Data[:, :<span class="number">162</span>], Data[:, <span class="number">162</span>]</span><br></pre></td></tr></table></figure>
 <ul>
 <li>原始数据文件中，每天的数据有18个观测指标，每个观测指标记录24个数值，共有240天的数据。因此原始数据集（去除日期和指标名称等误用信息）对应的大小为4320*24</li>
 <li>一个样本对应同一天中18中观测指标中连续9个小时的观测数据，特征值个数为18*9=162，df的shape为(18,9)</li>
@@ -408,9 +409,9 @@
 </ul>
 <p><img src="https://ipic-picgo.oss-cn-beijing.aliyuncs.com/20200706232114.png" style="zoom:50%;"></p>
 <h3 id="处理测试数据"><a href="#处理测试数据" class="headerlink" title="处理测试数据"></a>处理测试数据</h3><p>测试数据和训练数据的处理方式类似，只是过程简单一些。测试数据是给出每天前9个小时各个观测指标的数值，要求我们预测每天第10个小时的PM2.5值</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loadTestData</span><span class="params">(testDataFile)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    加载测试数据</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    testData = pd.read_csv(testDataFile, encoding=<span class="string">'big5'</span>, header=<span class="literal">None</span>)</span><br><span class="line">    testData = testData.iloc[:, <span class="number">2</span>:]</span><br><span class="line">    testData[testData == <span class="string">'NR'</span>] = <span class="number">0</span></span><br><span class="line">    testDataArray = testData.to_numpy()</span><br><span class="line">    rows, column = testDataArray.shape</span><br><span class="line">    Data = []</span><br><span class="line">    <span class="keyword">for</span> day <span class="keyword">in</span> range(rows // <span class="number">18</span>):</span><br><span class="line">        rowLow = day * <span class="number">18</span></span><br><span class="line">        rowHigh = rowLow + <span class="number">18</span></span><br><span class="line">        OneTestData = testDataArray[rowLow:rowHigh, :].reshape(<span class="number">-1</span>)</span><br><span class="line">        Data.append(OneTestData)</span><br><span class="line">    Data = np.array(Data)</span><br><span class="line">    <span class="keyword">return</span> Data</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loadTestData</span><span class="params">(testDataFile)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    加载测试数据</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    testData = pd.read_csv(testDataFile, encoding=<span class="string">'big5'</span>, header=<span class="literal">None</span>)</span><br><span class="line">    testData = testData.iloc[:, <span class="number">2</span>:]</span><br><span class="line">    testData[testData == <span class="string">'NR'</span>] = <span class="number">0</span></span><br><span class="line">    testDataArray = testData.to_numpy()</span><br><span class="line">    rows, column = testDataArray.shape</span><br><span class="line">    Data = []</span><br><span class="line">    <span class="keyword">for</span> day <span class="keyword">in</span> range(rows // <span class="number">18</span>):</span><br><span class="line">        rowLow = day * <span class="number">18</span></span><br><span class="line">        rowHigh = rowLow + <span class="number">18</span></span><br><span class="line">        OneTestData = testDataArray[rowLow:rowHigh, :].reshape(<span class="number">-1</span>)</span><br><span class="line">        Data.append(OneTestData)</span><br><span class="line">    Data = np.array(Data)</span><br><span class="line">    <span class="keyword">return</span> Data</span><br></pre></td></tr></table></figure>
 <h3 id="数据归一化"><a href="#数据归一化" class="headerlink" title="数据归一化"></a>数据归一化</h3><p>由于不同特征表示的是空气质量的不同指标，其值域范围有很大的不同，这样的训练数据会很严重的影响模型的性能，至于是如何影响可以看下面模型调优里面关于数据归一化的相关介绍</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">normalization</span><span class="params">(data)</span>:</span></span><br><span class="line">	mu = np.mean(data, axis=<span class="number">0</span>)</span><br><span class="line">    sigma = np.std(data, axis=<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(data)):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(data[<span class="number">0</span>])):</span><br><span class="line">            <span class="keyword">if</span> sigma[j] != <span class="number">0</span>:</span><br><span class="line">                data[i][j] = (data[i][j] - mu[j]) / sigma[j]</span><br><span class="line">    <span class="keyword">return</span> data</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">normalization</span><span class="params">(data)</span>:</span></span><br><span class="line">	mu = np.mean(data, axis=<span class="number">0</span>)</span><br><span class="line">    sigma = np.std(data, axis=<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(data)):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(data[<span class="number">0</span>])):</span><br><span class="line">            <span class="keyword">if</span> sigma[j] != <span class="number">0</span>:</span><br><span class="line">                data[i][j] = (data[i][j] - mu[j]) / sigma[j]</span><br><span class="line">    <span class="keyword">return</span> data</span><br></pre></td></tr></table></figure>
 <p>我简单的将各个特征的极差(最大值和最小值的从差)绘制成如下的图像：</p>
 <p><img src="https://ipic-picgo.oss-cn-beijing.aliyuncs.com/20200710233546.png" style="zoom:50%;"></p>
 <ul>
@@ -418,13 +419,13 @@
 <li>使用归一化函数后这种数据之间的极差不平衡就会消失</li>
 </ul>
 <h2 id="定义模型"><a href="#定义模型" class="headerlink" title="定义模型"></a>定义模型</h2><h3 id="定义dataLoader"><a href="#定义dataLoader" class="headerlink" title="定义dataLoader"></a>定义dataLoader</h3><p>首先定义一个数据装载器，并于对数据进行shuffle操作，每次返回batch_size数据便于后续进行随机梯度下降。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dataIter</span><span class="params">(batchSize, feature, label, shuffle=True)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    将训练数据进行shuffle，按照一个batch_size的数据量返回</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    numExample = len(feature)</span><br><span class="line">    indexs = list(range(numExample))</span><br><span class="line">    <span class="keyword">if</span> shuffle:</span><br><span class="line">        random.shuffle(indexs)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, numExample, batchSize):</span><br><span class="line">        index = indexs[i:i + batchSize]</span><br><span class="line">        <span class="keyword">yield</span> feature[index], label[index]</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dataIter</span><span class="params">(batchSize, feature, label, shuffle=True)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    将训练数据进行shuffle，按照一个batch_size的数据量返回</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    numExample = len(feature)</span><br><span class="line">    indexs = list(range(numExample))</span><br><span class="line">    <span class="keyword">if</span> shuffle:</span><br><span class="line">        random.shuffle(indexs)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, numExample, batchSize):</span><br><span class="line">        index = indexs[i:i + batchSize]</span><br><span class="line">        <span class="keyword">yield</span> feature[index], label[index]</span><br></pre></td></tr></table></figure>
 <h3 id="定义线性回归模型和损失函数"><a href="#定义线性回归模型和损失函数" class="headerlink" title="定义线性回归模型和损失函数"></a>定义线性回归模型和损失函数</h3><ol>
 <li>定义线性回归模型</li>
 </ol>
 <p>线性回归是最简单的机器学习模型，对于每个特征值都有一个对应的参数w，模型中对应的参数$w_i$乘以$x_i$求和后加上bias，具体的公示如下：</p>
 <script type="math/tex; mode=display">
-\hat y_i = \sum {w_i* x_i} + b_i</script><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">regression</span><span class="params">(feature, param)</span>:</span></span><br><span class="line">    predict = np.dot(feature, param[<span class="number">0</span>]) + param[<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> predict</span><br></pre></td></tr></tbody></table></figure>
+\hat y_i = \sum {w_i* x_i} + b_i</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">regression</span><span class="params">(feature, param)</span>:</span></span><br><span class="line">    predict = np.dot(feature, param[<span class="number">0</span>]) + param[<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> predict</span><br></pre></td></tr></table></figure>
 <p>​    需要注意的是在具体计算的时候feature不是简单的一个向量，而是由多个向量组成的一个矩阵，对应变量维度信息如下：</p>
 <script type="math/tex; mode=display">
 w = param[0]\\
@@ -437,7 +438,7 @@ dim(\hat y) = (batch\_size, 1)</script><ol>
 </ol>
 <p>损失函数就是最普通的平方损失函数，就是直接计算模型预测的值$\hat y$和真实的$y$的差的值的平方的平均值。为了在求导过程中方便计算，一般有人多除以个2，也有人不除。下面是损失函数的公示：</p>
 <script type="math/tex; mode=display">
-Loss = \frac {1}{N} (y_i - (w_i x_i + b))^2</script><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Loss</span><span class="params">(predict, label)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> np.sum((label - predict) ** <span class="number">2</span>) / (<span class="number">2</span> *len(label))</span><br></pre></td></tr></tbody></table></figure>
+Loss = \frac {1}{N} (y_i - (w_i x_i + b))^2</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Loss</span><span class="params">(predict, label)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> np.sum((label - predict) ** <span class="number">2</span>) / (<span class="number">2</span> *len(label))</span><br></pre></td></tr></table></figure>
 <p>这里的predict和label都是长度为batch_size的向量</p>
 <h3 id="定义随机梯度下降函数MBGD"><a href="#定义随机梯度下降函数MBGD" class="headerlink" title="定义随机梯度下降函数MBGD"></a>定义随机梯度下降函数MBGD</h3><p>梯度下降算法是整个机器学习里面最为核心的算法。可以说整个无论是复杂的LSTM，CNN等深度学习网络，还是简单的线性回归/逻辑回归都是靠着各种各样的梯度下降算法来实现对参数的更新，从而实现让模型更加智能的目的。下面首先介绍SGD的实现过程，如果在后续实验过程中发现效果不好的话则换用其他梯度下降算法。</p>
 <div class="table-container">
@@ -472,30 +473,30 @@ Loss = \frac {1}{N} (y_i - (w_i x_i + b))^2</script><figure class="highlight pyt
 <script type="math/tex; mode=display">
 \frac{\partial L o s s}{\partial m}=\frac{\frac{1}{N} \sum_{i=1}^{N}\left(y_{i}-\left(m x_{i}+b\right)\right)^{2}}{\partial m}=-\frac{2}{N} \sum_{i=1}^{N} x_{i}\left(y_{i}-\left(m x_{i}+b\right)\right)\\
 \frac{\partial L o s s}{\partial b}=\frac{\frac{1}{N} \sum_{i=1}^{N}\left(y_{i}-\left(m x_{i}+b\right)\right)^{2}}{\partial b}=-\frac{2}{N} \sum_{i=1}^{N}\left(y_{i}-\left(m x_{i}+b\right)\right)</script><p>下面是对应的python代码实现</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">MBGD</span><span class="params">(param, lr, features, labels)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    使用SGD优化器</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    w = param[<span class="number">0</span>]</span><br><span class="line">    b = param[<span class="number">1</span>]</span><br><span class="line">    N = len(labels)</span><br><span class="line">    h = np.dot(features, w) + b</span><br><span class="line">    labels = labels.reshape(h.shape)</span><br><span class="line">    dw = features.T.dot((h - labels)) / N</span><br><span class="line">    db = np.sum((h - labels)) / N</span><br><span class="line">    new_w = w - lr * dw</span><br><span class="line">    new_b = b - lr * db</span><br><span class="line">    new_param = (new_w, new_b)</span><br><span class="line">    <span class="keyword">return</span> new_param</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">MBGD</span><span class="params">(param, lr, features, labels)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    使用SGD优化器</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    w = param[<span class="number">0</span>]</span><br><span class="line">    b = param[<span class="number">1</span>]</span><br><span class="line">    N = len(labels)</span><br><span class="line">    h = np.dot(features, w) + b</span><br><span class="line">    labels = labels.reshape(h.shape)</span><br><span class="line">    dw = features.T.dot((h - labels)) / N</span><br><span class="line">    db = np.sum((h - labels)) / N</span><br><span class="line">    new_w = w - lr * dw</span><br><span class="line">    new_b = b - lr * db</span><br><span class="line">    new_param = (new_w, new_b)</span><br><span class="line">    <span class="keyword">return</span> new_param</span><br></pre></td></tr></table></figure>
 <ul>
 <li>注意这里对参数w和b的求导方式和上面所述公示结果是一致的，只是将$\hat y$放在了前面而已</li>
 </ul>
 <h2 id="模型调优"><a href="#模型调优" class="headerlink" title="模型调优"></a>模型调优</h2><p>​    经过上述一系列的准备工作，已经能够跑起来一个简单的线性回归模型，下面是经过上面模型跑出来的loss曲线图, 模型在训练集和验证集上都能够有效的训练，并且没有出现过拟合现象。</p>
 <p><img src="https://ipic-picgo.oss-cn-beijing.aliyuncs.com/20200711001312.png" style="zoom:50%;"></p>
-<p>将预测得到的实验结果应用到测试数据集上得到结果, 并提交到kaggle上进行测试，发现自己写了个<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f4a9.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a9.png?v8">💩</span>，baseline的score是8.7377, 注意这里的score是越底越好</p>
+<p>将预测得到的实验结果应用到测试数据集上得到结果, 并提交到kaggle上进行测试，发现自己写了个:shit:，baseline的score是8.7377, 注意这里的score是越底越好</p>
 <p><img src="https://ipic-picgo.oss-cn-beijing.aliyuncs.com/20200711004430.png" style="zoom:50%;"></p>
 <p>所以必须对上述的模型进行调优</p>
 <h3 id="欠拟合"><a href="#欠拟合" class="headerlink" title="欠拟合"></a>欠拟合</h3><p>从上面的loss曲线图可以看出来，loss曲线还在下降中，并没有收敛。因此可以尝试增大epoch，增大训练的轮数，直到最后完全收敛。</p>
 <p>最后当epoch设置为1000的时候看到loss曲线有明显得到收敛。</p>
 <p><img src="https://ipic-picgo.oss-cn-beijing.aliyuncs.com/20200711005519.png" style="zoom:50%;"></p>
-<p>再次在kaggle上提交答案，发现结果如下<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8">😢</span></p>
+<p>再次在kaggle上提交答案，发现结果如下:cry:</p>
 <p><img src="/Users/sunhanwu/Library/Application Support/typora-user-images/image-20200711161810070.png" alt="image-20200711161810070" style="zoom:50%;"></p>
-<p>虽然对比baseline来说，我的模型依然和<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f4a9.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a9.png?v8">💩</span>一样，但是至少score降低了不少, 接着慢慢调试吧</p>
+<p>虽然对比baseline来说，我的模型依然和:shit:一样，但是至少score降低了不少, 接着慢慢调试吧</p>
 <h3 id="使用adagrad算法来更新学习率"><a href="#使用adagrad算法来更新学习率" class="headerlink" title="使用adagrad算法来更新学习率"></a>使用adagrad算法来更新学习率</h3><p>之前所有的训练使用的学习率都是固定不变的，在前期的时候可能loss的最低值可能距离起点位置比较远，使用较大的学习率没有什么问题，但是到后面如果学校率还是很大的话就有可能导致错过loss的最低值点，因此要使用adagrad算法来更新学习率。</p>
 <p>下面是adagrad算法的推导过程:</p>
 <p>普通的梯度下降过程为：</p>
 <script type="math/tex; mode=display">
 w ^ { t + 1 } \leftarrow w ^ { t } - p ^ { t } g ^ { t }  \\
 \eta ^ { t } = \frac { \eta ^ { t } } { \sqrt { t + 1 } }</script><p>普通学习率是固定的，要想让学习率逐步变小的话，一个最直接的办法就是让学习率除以迭代次数的1/2次方，这样当迭代次数特别大之后，学习率也会不断减小。基于这种想法，我们调整我们代码中的学习率。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learningRate = learningRate / np.sqrt(e + <span class="number">1</span>)</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learningRate = learningRate / np.sqrt(e + <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 <p><img src="https://ipic-picgo.oss-cn-beijing.aliyuncs.com/20200711165011.png" style="zoom: 33%;"></p>
-<p>发现结果好像炸了呀<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8">😢</span>, 看来事情并没有现象的那么简单。不能所有的参数都简单粗暴的直接减小，要根据不同参数给出不同的应对方案。所以才去的办法是每个参数的学习率除以之前微分的均方根。</p>
+<p>发现结果好像炸了呀:cry:, 看来事情并没有现象的那么简单。不能所有的参数都简单粗暴的直接减小，要根据不同参数给出不同的应对方案。所以才去的办法是每个参数的学习率除以之前微分的均方根。</p>
 <script type="math/tex; mode=display">
 w ^ { t + 1 } \leftarrow w ^ { t } - \frac { n ^ { t } } { \sigma ^ { t } } g ^ { t }  \\
 g ^ { t } = \frac { \partial L ( \theta ^ { t } ) } { \partial w }</script><ul>
@@ -504,29 +505,11 @@ g ^ { t } = \frac { \partial L ( \theta ^ { t } ) } { \partial w }</script><ul>
 <script type="math/tex; mode=display">
 \sigma ^ t = \sqrt {\frac {1}{t+1}\sum_{i=0}^{t}(g^i)^2}</script><p>随意最终版本的adagrad算法中参数的更新公示如下：</p>
 <script type="math/tex; mode=display">
-w^{t+1} \leftarrow w^t - \frac{\eta}{\sqrt {\sum_{i=0}^t(g^i)^2}} g ^t</script><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gradient = <span class="number">2</span> * np.dot(TrainData_.transpose(), np.dot(TrainData_, W) - TrainLabel)</span><br><span class="line">adagrad += gradient ** <span class="number">2</span></span><br><span class="line">W = W - learningRate * gradient / np.sqrt(adagrad + <span class="number">1e-10</span>)</span><br></pre></td></tr></tbody></table></figure>
+w^{t+1} \leftarrow w^t - \frac{\eta}{\sqrt {\sum_{i=0}^t(g^i)^2}} g ^t</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gradient = <span class="number">2</span> * np.dot(TrainData_.transpose(), np.dot(TrainData_, W) - TrainLabel)</span><br><span class="line">adagrad += gradient ** <span class="number">2</span></span><br><span class="line">W = W - learningRate * gradient / np.sqrt(adagrad + <span class="number">1e-10</span>)</span><br></pre></td></tr></table></figure>
 <p>上面的代码就是实现adagrad的核心代码。</p>
 <p><img src="https://ipic-picgo.oss-cn-beijing.aliyuncs.com/20200713204740.png" style="zoom: 33%;"></p>
 <p>使用adagrad之后，loss收敛的就特别快</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
     </div>
 
     
@@ -558,9 +541,9 @@ w^{t+1} \leftarrow w^t - \frac{\eta}{\sqrt {\sum_{i=0}^t(g^i)^2}} g ^t</script><
           
           <div class="post-tags">
             
-              <a href="/sunpages/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/Python/" rel="tag"># Python</a>
             
-              <a href="/sunpages/tags/深度学习作业/" rel="tag"># 深度学习作业</a>
+              <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%BD%9C%E4%B8%9A/" rel="tag"># 深度学习作业</a>
             
           </div>
         
@@ -570,7 +553,7 @@ w^{t+1} \leftarrow w^t - \frac{\eta}{\sqrt {\sum_{i=0}^t(g^i)^2}} g ^t</script><
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/sunpages/2020/07/04/2020-07-04-Pandas玩转数据透视表/" rel="next" title="Pandas玩转数据透视表">
+                <a href="/2020/07/04/2020-07-04-Pandas%E7%8E%A9%E8%BD%AC%E6%95%B0%E6%8D%AE%E9%80%8F%E8%A7%86%E8%A1%A8/" rel="next" title="Pandas玩转数据透视表">
                   <i class="fa fa-chevron-left"></i> Pandas玩转数据透视表
                 </a>
               
@@ -580,7 +563,7 @@ w^{t+1} \leftarrow w^t - \frac{\eta}{\sqrt {\sum_{i=0}^t(g^i)^2}} g ^t</script><
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/sunpages/2020/07/13/guide/" rel="prev" title="">
+                <a href="/2020/07/13/guide/" rel="prev" title="">
                    <i class="fa fa-chevron-right"></i>
                 </a>
               
@@ -650,7 +633,7 @@ w^{t+1} \leftarrow w^t - \frac{\eta}{\sqrt {\sum_{i=0}^t(g^i)^2}} g ^t</script><
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
-          <a href="/sunpages/archives/">
+          <a href="/archives/%20%7C%7C%20archive">
         
           <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">博客</span>
@@ -662,7 +645,7 @@ w^{t+1} \leftarrow w^t - \frac{\eta}{\sqrt {\sum_{i=0}^t(g^i)^2}} g ^t</script><
       <div class="site-state-item site-state-categories">
         
           
-            <a href="/sunpages/categories/">
+            <a href="/categories/%20%7C%7C%20th">
           
         
         <span class="site-state-item-count">7</span>
@@ -675,7 +658,7 @@ w^{t+1} \leftarrow w^t - \frac{\eta}{\sqrt {\sum_{i=0}^t(g^i)^2}} g ^t</script><
       <div class="site-state-item site-state-tags">
         
           
-            <a href="/sunpages/tags/">
+            <a href="/tags/%20%7C%7C%20tags">
           
         
         <span class="site-state-item-count">18</span>
@@ -786,12 +769,20 @@ w^{t+1} \leftarrow w^t - \frac{\eta}{\sqrt {\sum_{i=0}^t(g^i)^2}} g ^t</script><
   
 
 
-  <script src="/sunpages/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/sunpages/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/sunpages/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/sunpages/js/utils.js?v=7.4.0"></script><script src="/sunpages/js/motion.js?v=7.4.0"></script>
-<script src="/sunpages/js/schemes/pisces.js?v=7.4.0"></script>
-<script src="/sunpages/js/next-boot.js?v=7.4.0"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.4.0.js"></script>
+
+<script src="/js/motion.js?v=7.4.0.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.0.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.0.js"></script>
+
 
 
 
@@ -815,7 +806,9 @@ w^{t+1} \leftarrow w^t - \frac{\eta}{\sqrt {\sum_{i=0}^t(g^i)^2}} g ^t</script><
 
   
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.css">
-<script src="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js"></script><script src="/sunpages/js/algolia-search.js?v=7.4.0"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js"></script>
+<script src="/js/algolia-search.js?v=7.4.0.js"></script>
+
 
 
 
@@ -912,7 +905,24 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     path: location.pathname
   });
 }, window.Valine);
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
 </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 </body>
 </html>

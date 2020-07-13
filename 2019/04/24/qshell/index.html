@@ -6,25 +6,25 @@
 
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/sunpages/images/apple-touch-icon-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/sunpages/images/favicon-32x32-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/sunpages/images/favicon-16x16-next.png?v=7.4.0">
-  <link rel="mask-icon" href="/sunpages/images/logo.svg?v=7.4.0" color="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
 
-<link rel="stylesheet" href="/sunpages/css/main.css?v=7.4.0">
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
 
 
-<link rel="stylesheet" href="/sunpages/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
 
 
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/sunpages/',
+    root: '/',
     scheme: 'Pisces',
     version: '7.4.0',
     exturl: false,
@@ -55,23 +55,24 @@
   };
 </script>
 
-  <meta name="description" content="Linux/Mac OS 下七牛云同步工具qshell的配置与使用">
-<meta name="keywords" content="Linux,极客">
+  <meta name="description" content="Linux&#x2F;Mac OS 下七牛云同步工具qshell的配置与使用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="七牛云命令行上载工具使用">
-<meta property="og:url" content="https://yuandaima1.gitee.io/sunpages/2019/04/24/qshell/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/04/24/qshell/index.html">
 <meta property="og:site_name" content="SunPages">
-<meta property="og:description" content="Linux/Mac OS 下七牛云同步工具qshell的配置与使用">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:description" content="Linux&#x2F;Mac OS 下七牛云同步工具qshell的配置与使用">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://pdt3s257u.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20180821191839.png">
 <meta property="og:image" content="http://pdt3s257u.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20180821192733.png">
 <meta property="og:image" content="http://pdt3s257u.bkt.clouddn.com/%3CKey%20Prefix%3E2018-08-21/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20180821194833.png">
-<meta property="og:updated_time" content="2019-09-12T10:25:30.000Z">
+<meta property="article:published_time" content="2019-04-24T12:10:33.000Z">
+<meta property="article:modified_time" content="2019-09-12T10:25:30.000Z">
+<meta property="article:author" content="sunhanwu">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="极客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="七牛云命令行上载工具使用">
-<meta name="twitter:description" content="Linux/Mac OS 下七牛云同步工具qshell的配置与使用">
 <meta name="twitter:image" content="http://pdt3s257u.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20180821191839.png">
-  <link rel="canonical" href="https://yuandaima1.gitee.io/sunpages/2019/04/24/qshell/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/24/qshell/">
 
 
 <script id="page-configurations">
@@ -117,12 +118,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <div class="container use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -130,7 +131,7 @@
   <div class="site-meta">
 
     <div>
-      <a href="/sunpages/" class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">SunPages</span>
         <span class="logo-line-after"><i></i></span>
@@ -161,7 +162,7 @@
       
     
 
-    <a href="/sunpages/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
 
   </li>
       
@@ -172,7 +173,7 @@
       
     
 
-    <a href="/sunpages/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
 
   </li>
       
@@ -183,7 +184,7 @@
       
     
 
-    <a href="/sunpages/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
 
   </li>
       
@@ -194,7 +195,7 @@
       
     
 
-    <a href="/sunpages/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
 
   </li>
       
@@ -205,7 +206,7 @@
       
     
 
-    <a href="/sunpages/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
       
@@ -216,7 +217,7 @@
       
     
 
-    <a href="/sunpages/photo/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br>Photos</a>
+    <a href="/photo/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br>Photos</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -276,7 +277,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://yuandaima1.gitee.io/sunpages/sunpages/2019/04/24/qshell/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/24/qshell/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="sunhanwu">
@@ -325,7 +326,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/sunpages/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a></span>
 
                 
                 
@@ -344,7 +345,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/sunpages/2019/04/24/qshell/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/sunpages/2019/04/24/qshell/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/04/24/qshell/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/04/24/qshell/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -387,50 +388,32 @@
 <p><img src="http://pdt3s257u.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20180821191839.png" alt></p>
 <h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><ul>
 <li><p>编辑～/.zshrc 或者～/.bashrc文件将qshell路径添加到环境变量中，我的路径为</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/home/sun/文档/tools/qiniu</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/home/sun/文档/tools/qiniu</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使配置文件生效</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="登录账户"><a href="#登录账户" class="headerlink" title="登录账户"></a>登录账户</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qshell account ak sk</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="登录账户"><a href="#登录账户" class="headerlink" title="登录账户"></a>登录账户</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qshell account ak sk</span><br></pre></td></tr></table></figure>
 <p>马赛克位置分别填写个人的ak 和sk</p>
 <p><img src="http://pdt3s257u.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20180821192733.png" alt></p>
 <h2 id="qupload的使用"><a href="#qupload的使用" class="headerlink" title="qupload的使用"></a>qupload的使用</h2><ol>
 <li><p>配置文件qupload.json,每个参数的具体作用请参考<a href="https://github.com/qiniu/qshell/blob/master/docs/qupload.md" target="_blank" rel="noopener">官方文档</a></p>
-<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">   <span class="attr">"src_dir"</span>            :   <span class="string">"/home/sun/图片"</span>,</span><br><span class="line">   <span class="attr">"bucket"</span>             :   <span class="string">"ydm-ng"</span>,</span><br><span class="line">   <span class="attr">"up_host"</span>            :   <span class="string">"http://upload-z1.qiniu.com"</span>,</span><br><span class="line">   <span class="attr">"ignore_dir"</span>         :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"overwrite"</span>          :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"check_exists"</span>       :   <span class="literal">true</span>,</span><br><span class="line">   <span class="attr">"check_hash"</span>         :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"check_size"</span>         :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"rescan_local"</span>       :   <span class="literal">true</span>,</span><br><span class="line">   <span class="attr">"log_file"</span>           :   <span class="string">"upload.log"</span>,</span><br><span class="line">   <span class="attr">"log_level"</span>          :   <span class="string">"info"</span>,</span><br><span class="line">   <span class="attr">"log_rotate"</span>         :   <span class="number">1</span>,</span><br><span class="line">   <span class="attr">"log_stdout"</span>         :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"file_type"</span>          :   <span class="number">0</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="attr">"src_dir"</span>            :   <span class="string">"/home/sun/图片"</span>,</span><br><span class="line">   <span class="attr">"bucket"</span>             :   <span class="string">"ydm-ng"</span>,</span><br><span class="line">   <span class="attr">"up_host"</span>            :   <span class="string">"http://upload-z1.qiniu.com"</span>,</span><br><span class="line">   <span class="attr">"ignore_dir"</span>         :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"overwrite"</span>          :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"check_exists"</span>       :   <span class="literal">true</span>,</span><br><span class="line">   <span class="attr">"check_hash"</span>         :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"check_size"</span>         :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"rescan_local"</span>       :   <span class="literal">true</span>,</span><br><span class="line">   <span class="attr">"log_file"</span>           :   <span class="string">"upload.log"</span>,</span><br><span class="line">   <span class="attr">"log_level"</span>          :   <span class="string">"info"</span>,</span><br><span class="line">   <span class="attr">"log_rotate"</span>         :   <span class="number">1</span>,</span><br><span class="line">   <span class="attr">"log_stdout"</span>         :   <span class="literal">false</span>,</span><br><span class="line">   <span class="attr">"file_type"</span>          :   <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>执行命令为</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qshell qupload [&lt;ThreadCount&gt;] &lt;LocalUploadConfig&gt;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qshell qupload [&lt;ThreadCount&gt;] &lt;LocalUploadConfig&gt;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>第一个为可选参数，一般选10，第二个为配置文件路径</li>
 </ul>
 </li>
 <li><p>一般为了节省操作时间，在zshrc配置别名</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> qupload=<span class="string">"qshell qupload 10 /Users/sun/Documents/tools/qshell/qupload.json"</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> qupload=<span class="string">"qshell qupload 10 /Users/sun/Documents/tools/qshell/qupload.json"</span></span><br></pre></td></tr></table></figure>
 <p>在生效source ~/.zsh即可</p>
 <p><img src="http://pdt3s257u.bkt.clouddn.com/%3CKey%20Prefix%3E2018-08-21/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20180821194833.png" alt></p>
 </li>
 </ol>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
     </div>
 
     
@@ -462,9 +445,9 @@
           
           <div class="post-tags">
             
-              <a href="/sunpages/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
             
-              <a href="/sunpages/tags/极客/" rel="tag"># 极客</a>
+              <a href="/tags/%E6%9E%81%E5%AE%A2/" rel="tag"># 极客</a>
             
           </div>
         
@@ -474,7 +457,7 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/sunpages/2019/04/21/jupyter-notebook/" rel="next" title="在服务器上部署jupyterbook">
+                <a href="/2019/04/21/jupyter-notebook/" rel="next" title="在服务器上部署jupyterbook">
                   <i class="fa fa-chevron-left"></i> 在服务器上部署jupyterbook
                 </a>
               
@@ -484,7 +467,7 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/sunpages/2019/04/28/zsh/" rel="prev" title="Linux/MacOS 配置oh-my-zsh">
+                <a href="/2019/04/28/zsh/" rel="prev" title="Linux/MacOS 配置oh-my-zsh">
                   Linux/MacOS 配置oh-my-zsh <i class="fa fa-chevron-right"></i>
                 </a>
               
@@ -538,7 +521,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-Mac-OS-下七牛云同步工具qshell的配置与使用"><span class="nav-number">1.</span> <span class="nav-text">Linux/Mac OS 下七牛云同步工具qshell的配置与使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载与安装"><span class="nav-number">1.1.</span> <span class="nav-text">下载与安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置环境变量"><span class="nav-number">1.2.</span> <span class="nav-text">配置环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登录账户"><span class="nav-number">1.3.</span> <span class="nav-text">登录账户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qupload的使用"><span class="nav-number">1.4.</span> <span class="nav-text">qupload的使用</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-Mac-OS-下七牛云同步工具qshell的配置与使用"><span class="nav-number">1.</span> <span class="nav-text">Linux&#x2F;Mac OS 下七牛云同步工具qshell的配置与使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载与安装"><span class="nav-number">1.1.</span> <span class="nav-text">下载与安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置环境变量"><span class="nav-number">1.2.</span> <span class="nav-text">配置环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登录账户"><span class="nav-number">1.3.</span> <span class="nav-text">登录账户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qupload的使用"><span class="nav-number">1.4.</span> <span class="nav-text">qupload的使用</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -554,7 +537,7 @@
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
-          <a href="/sunpages/archives/">
+          <a href="/archives/%20%7C%7C%20archive">
         
           <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">博客</span>
@@ -566,7 +549,7 @@
       <div class="site-state-item site-state-categories">
         
           
-            <a href="/sunpages/categories/">
+            <a href="/categories/%20%7C%7C%20th">
           
         
         <span class="site-state-item-count">7</span>
@@ -579,7 +562,7 @@
       <div class="site-state-item site-state-tags">
         
           
-            <a href="/sunpages/tags/">
+            <a href="/tags/%20%7C%7C%20tags">
           
         
         <span class="site-state-item-count">18</span>
@@ -690,12 +673,20 @@
   
 
 
-  <script src="/sunpages/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/sunpages/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/sunpages/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/sunpages/js/utils.js?v=7.4.0"></script><script src="/sunpages/js/motion.js?v=7.4.0"></script>
-<script src="/sunpages/js/schemes/pisces.js?v=7.4.0"></script>
-<script src="/sunpages/js/next-boot.js?v=7.4.0"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.4.0.js"></script>
+
+<script src="/js/motion.js?v=7.4.0.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.0.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.0.js"></script>
+
 
 
 
@@ -719,7 +710,9 @@
 
   
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.css">
-<script src="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js"></script><script src="/sunpages/js/algolia-search.js?v=7.4.0"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js"></script>
+<script src="/js/algolia-search.js?v=7.4.0.js"></script>
+
 
 
 
@@ -766,7 +759,24 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     path: location.pathname
   });
 }, window.Valine);
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
 </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 </body>
 </html>

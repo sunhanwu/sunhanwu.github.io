@@ -6,25 +6,25 @@
 
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/sunpages/images/apple-touch-icon-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/sunpages/images/favicon-32x32-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/sunpages/images/favicon-16x16-next.png?v=7.4.0">
-  <link rel="mask-icon" href="/sunpages/images/logo.svg?v=7.4.0" color="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
 
-<link rel="stylesheet" href="/sunpages/css/main.css?v=7.4.0">
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
 
 
-<link rel="stylesheet" href="/sunpages/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
 
 
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/sunpages/',
+    root: '/',
     scheme: 'Pisces',
     version: '7.4.0',
     exturl: false,
@@ -56,21 +56,24 @@
 </script>
 
   <meta name="description" content="Linux服务器配置jupyter-notebook实现远程访问">
-<meta name="keywords" content="python,Linux,极客,开发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在服务器上部署jupyterbook">
-<meta property="og:url" content="https://yuandaima1.gitee.io/sunpages/2019/04/21/jupyter-notebook/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/04/21/jupyter-notebook/index.html">
 <meta property="og:site_name" content="SunPages">
 <meta property="og:description" content="Linux服务器配置jupyter-notebook实现远程访问">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://pdt3s257u.bkt.clouddn.com/Snip20180822_4.png">
 <meta property="og:image" content="http://pdt3s257u.bkt.clouddn.com/20180822/Snip20180822_7.png">
-<meta property="og:updated_time" content="2019-09-12T09:35:37.000Z">
+<meta property="article:published_time" content="2019-04-21T12:10:33.000Z">
+<meta property="article:modified_time" content="2019-09-12T09:35:37.000Z">
+<meta property="article:author" content="sunhanwu">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="极客">
+<meta property="article:tag" content="开发">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在服务器上部署jupyterbook">
-<meta name="twitter:description" content="Linux服务器配置jupyter-notebook实现远程访问">
 <meta name="twitter:image" content="http://pdt3s257u.bkt.clouddn.com/Snip20180822_4.png">
-  <link rel="canonical" href="https://yuandaima1.gitee.io/sunpages/2019/04/21/jupyter-notebook/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/21/jupyter-notebook/">
 
 
 <script id="page-configurations">
@@ -116,12 +119,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <div class="container use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -129,7 +132,7 @@
   <div class="site-meta">
 
     <div>
-      <a href="/sunpages/" class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">SunPages</span>
         <span class="logo-line-after"><i></i></span>
@@ -160,7 +163,7 @@
       
     
 
-    <a href="/sunpages/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
 
   </li>
       
@@ -171,7 +174,7 @@
       
     
 
-    <a href="/sunpages/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
 
   </li>
       
@@ -182,7 +185,7 @@
       
     
 
-    <a href="/sunpages/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
 
   </li>
       
@@ -193,7 +196,7 @@
       
     
 
-    <a href="/sunpages/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
 
   </li>
       
@@ -204,7 +207,7 @@
       
     
 
-    <a href="/sunpages/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
       
@@ -215,7 +218,7 @@
       
     
 
-    <a href="/sunpages/photo/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br>Photos</a>
+    <a href="/photo/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br>Photos</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -275,7 +278,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://yuandaima1.gitee.io/sunpages/sunpages/2019/04/21/jupyter-notebook/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/21/jupyter-notebook/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="sunhanwu">
@@ -324,7 +327,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/sunpages/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a></span>
 
                 
                 
@@ -343,7 +346,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/sunpages/2019/04/21/jupyter-notebook/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/sunpages/2019/04/21/jupyter-notebook/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/04/21/jupyter-notebook/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/04/21/jupyter-notebook/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -378,44 +381,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Linux服务器配置jupyter-notebook实现远程访问"><a href="#Linux服务器配置jupyter-notebook实现远程访问" class="headerlink" title="Linux服务器配置jupyter-notebook实现远程访问"></a>Linux服务器配置jupyter-notebook实现远程访问</h1><a id="more"></a><h2 id="下载anaconda"><a href="#下载anaconda" class="headerlink" title="下载anaconda"></a>下载anaconda</h2><p>在<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/" target="_blank" rel="noopener">清华镜像</a>上下载anaconda对应版本<br></p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-5.2.0-Linux-x86_64.sh</span><br><span class="line"></span><br><span class="line">sudo chmod +x Anaconda*</span><br></pre></td></tr></tbody></table></figure><p></p>
+        <h1 id="Linux服务器配置jupyter-notebook实现远程访问"><a href="#Linux服务器配置jupyter-notebook实现远程访问" class="headerlink" title="Linux服务器配置jupyter-notebook实现远程访问"></a>Linux服务器配置jupyter-notebook实现远程访问</h1><a id="more"></a><h2 id="下载anaconda"><a href="#下载anaconda" class="headerlink" title="下载anaconda"></a>下载anaconda</h2><p>在<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/" target="_blank" rel="noopener">清华镜像</a>上下载anaconda对应版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-5.2.0-Linux-x86_64.sh</span><br><span class="line"></span><br><span class="line">sudo chmod +x Anaconda*</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>注意安装过程中配置环境变量并且是环境变量生效</p>
 </blockquote>
-<h2 id="生成配置文件"><a href="#生成配置文件" class="headerlink" title="生成配置文件"></a>生成配置文件</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook --generate-config</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="生成配置文件"><a href="#生成配置文件" class="headerlink" title="生成配置文件"></a>生成配置文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook --generate-config</span><br></pre></td></tr></table></figure>
 <h2 id="生成秘钥"><a href="#生成秘钥" class="headerlink" title="生成秘钥"></a>生成秘钥</h2><blockquote>
-<p>进入ipython<br></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>  In  [<span class="number">1</span>]:  <span class="keyword">from</span> notebook.auth <span class="keyword">import</span> passwd</span><br><span class="line"><span class="number">2.</span>  In  [<span class="number">2</span>]: passwd()</span><br><span class="line"><span class="number">3.</span>  Enter password:</span><br><span class="line"><span class="number">4.</span>  Verify password:</span><br><span class="line"><span class="number">5.</span>  Out[<span class="number">2</span>]:  <span class="string">'sha1:ce23d945972f:34769685a7ccd3d08c84a18c63968a41f1140274'</span></span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>进入ipython<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>  In  [<span class="number">1</span>]:  <span class="keyword">from</span> notebook.auth <span class="keyword">import</span> passwd</span><br><span class="line"><span class="number">2.</span>  In  [<span class="number">2</span>]: passwd()</span><br><span class="line"><span class="number">3.</span>  Enter password:</span><br><span class="line"><span class="number">4.</span>  Verify password:</span><br><span class="line"><span class="number">5.</span>  Out[<span class="number">2</span>]:  <span class="string">'sha1:ce23d945972f:34769685a7ccd3d08c84a18c63968a41f1140274'</span></span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <p>复制秘钥，后面要用<br><img src="http://pdt3s257u.bkt.clouddn.com/Snip20180822_4.png" alt></p>
 <h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><ul>
-<li>vim ~/.jupyter/jupyter_notebook_config.py<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.  c.NotebookApp.ip=<span class="string">'服务器IP'</span></span><br><span class="line">2.  c.NotebookApp.password = u<span class="string">'sha:ce...刚才复制的那个秘钥'</span></span><br><span class="line">3.  c.NotebookApp.open_browser =  False</span><br></pre></td></tr></tbody></table></figure>
+<li>vim ~/.jupyter/jupyter_notebook_config.py<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.  c.NotebookApp.ip=<span class="string">'服务器IP'</span></span><br><span class="line">2.  c.NotebookApp.password = u<span class="string">'sha:ce...刚才复制的那个秘钥'</span></span><br><span class="line">3.  c.NotebookApp.open_browser =  False</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="后台启动jupyter-notebook"><a href="#后台启动jupyter-notebook" class="headerlink" title="后台启动jupyter-notebook"></a>后台启动jupyter-notebook</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">```bash</span><br><span class="line">nohup jupyter notebook &gt; jupyter.log &amp;</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="后台启动jupyter-lab"><a href="#后台启动jupyter-lab" class="headerlink" title="后台启动jupyter-lab"></a>后台启动jupyter-lab</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup jupyter-lab &gt;&gt; ./jupyter-notebook/jupyter-lab.log &amp;</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="后台启动jupyter-notebook"><a href="#后台启动jupyter-notebook" class="headerlink" title="后台启动jupyter-notebook"></a>后台启动jupyter-notebook</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">```bash</span><br><span class="line">nohup jupyter notebook &gt; jupyter.log &amp;</span><br></pre></td></tr></table></figure>
+<h2 id="后台启动jupyter-lab"><a href="#后台启动jupyter-lab" class="headerlink" title="后台启动jupyter-lab"></a>后台启动jupyter-lab</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup jupyter-lab &gt;&gt; ./jupyter-notebook/jupyter-lab.log &amp;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>后台运行并且生成配置文件</p>
 </blockquote>
 <p><img src="http://pdt3s257u.bkt.clouddn.com/20180822/Snip20180822_7.png" alt></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
     </div>
 
     
@@ -447,13 +432,13 @@
           
           <div class="post-tags">
             
-              <a href="/sunpages/tags/python/" rel="tag"># python</a>
+              <a href="/tags/python/" rel="tag"># python</a>
             
-              <a href="/sunpages/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
             
-              <a href="/sunpages/tags/极客/" rel="tag"># 极客</a>
+              <a href="/tags/%E6%9E%81%E5%AE%A2/" rel="tag"># 极客</a>
             
-              <a href="/sunpages/tags/开发/" rel="tag"># 开发</a>
+              <a href="/tags/%E5%BC%80%E5%8F%91/" rel="tag"># 开发</a>
             
           </div>
         
@@ -463,7 +448,7 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/sunpages/2019/04/17/dd/" rel="next" title="Linux系统dd命令使用">
+                <a href="/2019/04/17/dd/" rel="next" title="Linux系统dd命令使用">
                   <i class="fa fa-chevron-left"></i> Linux系统dd命令使用
                 </a>
               
@@ -473,7 +458,7 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/sunpages/2019/04/24/qshell/" rel="prev" title="七牛云命令行上载工具使用">
+                <a href="/2019/04/24/qshell/" rel="prev" title="七牛云命令行上载工具使用">
                   七牛云命令行上载工具使用 <i class="fa fa-chevron-right"></i>
                 </a>
               
@@ -543,7 +528,7 @@
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
-          <a href="/sunpages/archives/">
+          <a href="/archives/%20%7C%7C%20archive">
         
           <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">博客</span>
@@ -555,7 +540,7 @@
       <div class="site-state-item site-state-categories">
         
           
-            <a href="/sunpages/categories/">
+            <a href="/categories/%20%7C%7C%20th">
           
         
         <span class="site-state-item-count">7</span>
@@ -568,7 +553,7 @@
       <div class="site-state-item site-state-tags">
         
           
-            <a href="/sunpages/tags/">
+            <a href="/tags/%20%7C%7C%20tags">
           
         
         <span class="site-state-item-count">18</span>
@@ -679,12 +664,20 @@
   
 
 
-  <script src="/sunpages/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/sunpages/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/sunpages/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/sunpages/js/utils.js?v=7.4.0"></script><script src="/sunpages/js/motion.js?v=7.4.0"></script>
-<script src="/sunpages/js/schemes/pisces.js?v=7.4.0"></script>
-<script src="/sunpages/js/next-boot.js?v=7.4.0"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.4.0.js"></script>
+
+<script src="/js/motion.js?v=7.4.0.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.0.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.0.js"></script>
+
 
 
 
@@ -708,7 +701,9 @@
 
   
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.css">
-<script src="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js"></script><script src="/sunpages/js/algolia-search.js?v=7.4.0"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js"></script>
+<script src="/js/algolia-search.js?v=7.4.0.js"></script>
+
 
 
 
@@ -755,7 +750,24 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     path: location.pathname
   });
 }, window.Valine);
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
 </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 </body>
 </html>

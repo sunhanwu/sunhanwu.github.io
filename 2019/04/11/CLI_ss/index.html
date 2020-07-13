@@ -6,25 +6,25 @@
 
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/sunpages/images/apple-touch-icon-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/sunpages/images/favicon-32x32-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/sunpages/images/favicon-16x16-next.png?v=7.4.0">
-  <link rel="mask-icon" href="/sunpages/images/logo.svg?v=7.4.0" color="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
 
-<link rel="stylesheet" href="/sunpages/css/main.css?v=7.4.0">
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
 
 
-<link rel="stylesheet" href="/sunpages/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
 
 
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/sunpages/',
+    root: '/',
     scheme: 'Pisces',
     version: '7.4.0',
     exturl: false,
@@ -56,18 +56,19 @@
 </script>
 
   <meta name="description" content="ubuntu 16.04配置shadowsocks+proxychains4 实现终端代理">
-<meta name="keywords" content="Linux,极客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SSR命令行版本配置">
-<meta property="og:url" content="https://yuandaima1.gitee.io/sunpages/2019/04/11/CLI_ss/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/04/11/CLI_ss/index.html">
 <meta property="og:site_name" content="SunPages">
 <meta property="og:description" content="ubuntu 16.04配置shadowsocks+proxychains4 实现终端代理">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-12T09:34:57.000Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-04-11T12:10:33.000Z">
+<meta property="article:modified_time" content="2019-09-12T09:34:57.000Z">
+<meta property="article:author" content="sunhanwu">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="极客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SSR命令行版本配置">
-<meta name="twitter:description" content="ubuntu 16.04配置shadowsocks+proxychains4 实现终端代理">
-  <link rel="canonical" href="https://yuandaima1.gitee.io/sunpages/2019/04/11/CLI_ss/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/11/CLI_ss/">
 
 
 <script id="page-configurations">
@@ -113,12 +114,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <div class="container use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -126,7 +127,7 @@
   <div class="site-meta">
 
     <div>
-      <a href="/sunpages/" class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">SunPages</span>
         <span class="logo-line-after"><i></i></span>
@@ -157,7 +158,7 @@
       
     
 
-    <a href="/sunpages/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
 
   </li>
       
@@ -168,7 +169,7 @@
       
     
 
-    <a href="/sunpages/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
 
   </li>
       
@@ -179,7 +180,7 @@
       
     
 
-    <a href="/sunpages/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
 
   </li>
       
@@ -190,7 +191,7 @@
       
     
 
-    <a href="/sunpages/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
 
   </li>
       
@@ -201,7 +202,7 @@
       
     
 
-    <a href="/sunpages/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
       
@@ -212,7 +213,7 @@
       
     
 
-    <a href="/sunpages/photo/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br>Photos</a>
+    <a href="/photo/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br>Photos</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -272,7 +273,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://yuandaima1.gitee.io/sunpages/sunpages/2019/04/11/CLI_ss/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/11/CLI_ss/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="sunhanwu">
@@ -321,7 +322,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/sunpages/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a></span>
 
                 
                 
@@ -340,7 +341,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/sunpages/2019/04/11/CLI_ss/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/sunpages/2019/04/11/CLI_ss/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/04/11/CLI_ss/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/04/11/CLI_ss/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -377,39 +378,21 @@
       
         <h1 id="ubuntu-16-04配置shadowsocks-proxychains4-实现终端代理"><a href="#ubuntu-16-04配置shadowsocks-proxychains4-实现终端代理" class="headerlink" title="ubuntu 16.04配置shadowsocks+proxychains4 实现终端代理"></a>ubuntu 16.04配置shadowsocks+proxychains4 实现终端代理</h1><a id="more"></a><h2 id="安装Python-pip"><a href="#安装Python-pip" class="headerlink" title="安装Python-pip"></a>安装Python-pip</h2><ul>
 <li><p>ubuntu16.04默认安装Python2.7，所以不需要安装python，安装python的包管理工具就行了</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-pip</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-pip</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装shadowsocks</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install shadowsocks</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install shadowsocks</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>配置本地vim /home/ubuntu/shadowsocks.json</p>
-<figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">    "server":"11.22.33.44",# 你服务端的IP</span><br><span class="line">    "server_port":50003, # 你服务端的端口</span><br><span class="line">    "local_port":1080, #本地端口，一般默认1080</span><br><span class="line">    "password":"123456", #ss服务端设置的密码</span><br><span class="line">    "timeout":600, #超时设置 和服务端一样</span><br><span class="line">    "method":"aes-256-cfb" #加密方法 和服务端一样</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "server":"11.22.33.44",# 你服务端的IP</span><br><span class="line">    "server_port":50003, # 你服务端的端口</span><br><span class="line">    "local_port":1080, #本地端口，一般默认1080</span><br><span class="line">    "password":"123456", #ss服务端设置的密码</span><br><span class="line">    "timeout":600, #超时设置 和服务端一样</span><br><span class="line">    "method":"aes-256-cfb" #加密方法 和服务端一样</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>创建服务启动脚本shadowsocks.sh</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sslocal -c /home/ubuntu/shadowsocks.json</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sslocal -c /home/ubuntu/shadowsocks.json</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>可能会报错</p>
 </li>
 </ul>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
     </div>
 
     
@@ -441,9 +424,9 @@
           
           <div class="post-tags">
             
-              <a href="/sunpages/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
             
-              <a href="/sunpages/tags/极客/" rel="tag"># 极客</a>
+              <a href="/tags/%E6%9E%81%E5%AE%A2/" rel="tag"># 极客</a>
             
           </div>
         
@@ -453,7 +436,7 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/sunpages/2019/04/06/2/" rel="next" title="ryu控制器实现集线器">
+                <a href="/2019/04/06/2/" rel="next" title="ryu控制器实现集线器">
                   <i class="fa fa-chevron-left"></i> ryu控制器实现集线器
                 </a>
               
@@ -463,7 +446,7 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/sunpages/2019/04/14/CoolMusic/" rel="prev" title="音乐下载工具">
+                <a href="/2019/04/14/CoolMusic/" rel="prev" title="音乐下载工具">
                   音乐下载工具 <i class="fa fa-chevron-right"></i>
                 </a>
               
@@ -533,7 +516,7 @@
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
-          <a href="/sunpages/archives/">
+          <a href="/archives/%20%7C%7C%20archive">
         
           <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">博客</span>
@@ -545,7 +528,7 @@
       <div class="site-state-item site-state-categories">
         
           
-            <a href="/sunpages/categories/">
+            <a href="/categories/%20%7C%7C%20th">
           
         
         <span class="site-state-item-count">7</span>
@@ -558,7 +541,7 @@
       <div class="site-state-item site-state-tags">
         
           
-            <a href="/sunpages/tags/">
+            <a href="/tags/%20%7C%7C%20tags">
           
         
         <span class="site-state-item-count">18</span>
@@ -669,12 +652,20 @@
   
 
 
-  <script src="/sunpages/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/sunpages/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/sunpages/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/sunpages/js/utils.js?v=7.4.0"></script><script src="/sunpages/js/motion.js?v=7.4.0"></script>
-<script src="/sunpages/js/schemes/pisces.js?v=7.4.0"></script>
-<script src="/sunpages/js/next-boot.js?v=7.4.0"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.4.0.js"></script>
+
+<script src="/js/motion.js?v=7.4.0.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.0.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.0.js"></script>
+
 
 
 
@@ -698,7 +689,9 @@
 
   
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.css">
-<script src="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js"></script><script src="/sunpages/js/algolia-search.js?v=7.4.0"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js"></script>
+<script src="/js/algolia-search.js?v=7.4.0.js"></script>
+
 
 
 
@@ -745,7 +738,24 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     path: location.pathname
   });
 }, window.Valine);
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
 </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 </body>
 </html>

@@ -6,25 +6,25 @@
 
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/sunpages/images/apple-touch-icon-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/sunpages/images/favicon-32x32-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/sunpages/images/favicon-16x16-next.png?v=7.4.0">
-  <link rel="mask-icon" href="/sunpages/images/logo.svg?v=7.4.0" color="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
 
-<link rel="stylesheet" href="/sunpages/css/main.css?v=7.4.0">
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
 
 
-<link rel="stylesheet" href="/sunpages/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
 
 
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/sunpages/',
+    root: '/',
     scheme: 'Pisces',
     version: '7.4.0',
     exturl: false,
@@ -56,13 +56,12 @@
 </script>
 
   <meta name="description" content="实验一实验报告 孙汉武    16281047    安全1601">
-<meta name="keywords" content="操作系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="系统调用实验">
-<meta property="og:url" content="https://yuandaima1.gitee.io/sunpages/2019/03/01/lab1/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/03/01/lab1/index.html">
 <meta property="og:site_name" content="SunPages">
 <meta property="og:description" content="实验一实验报告 孙汉武    16281047    安全1601">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171700.jpg">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171717.jpg">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171721.jpg">
@@ -81,12 +80,13 @@
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171837.jpg">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171842.jpg">
 <meta property="og:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171850.jpg">
-<meta property="og:updated_time" content="2019-09-12T12:10:34.000Z">
+<meta property="article:published_time" content="2019-02-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-09-12T12:10:34.000Z">
+<meta property="article:author" content="sunhanwu">
+<meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="系统调用实验">
-<meta name="twitter:description" content="实验一实验报告 孙汉武    16281047    安全1601">
 <meta name="twitter:image" content="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171700.jpg">
-  <link rel="canonical" href="https://yuandaima1.gitee.io/sunpages/2019/03/01/lab1/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/01/lab1/">
 
 
 <script id="page-configurations">
@@ -132,12 +132,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <div class="container use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -145,7 +145,7 @@
   <div class="site-meta">
 
     <div>
-      <a href="/sunpages/" class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">SunPages</span>
         <span class="logo-line-after"><i></i></span>
@@ -176,7 +176,7 @@
       
     
 
-    <a href="/sunpages/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
 
   </li>
       
@@ -187,7 +187,7 @@
       
     
 
-    <a href="/sunpages/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
 
   </li>
       
@@ -198,7 +198,7 @@
       
     
 
-    <a href="/sunpages/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
 
   </li>
       
@@ -209,7 +209,7 @@
       
     
 
-    <a href="/sunpages/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
 
   </li>
       
@@ -220,7 +220,7 @@
       
     
 
-    <a href="/sunpages/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
       
@@ -231,7 +231,7 @@
       
     
 
-    <a href="/sunpages/photo/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br>Photos</a>
+    <a href="/photo/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br>Photos</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -291,7 +291,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://yuandaima1.gitee.io/sunpages/sunpages/2019/03/01/lab1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/01/lab1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="sunhanwu">
@@ -340,7 +340,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/sunpages/categories/操作系统实验/" itemprop="url" rel="index"><span itemprop="name">操作系统实验</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C/" itemprop="url" rel="index"><span itemprop="name">操作系统实验</span></a></span>
 
                 
                 
@@ -359,7 +359,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/sunpages/2019/03/01/lab1/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/sunpages/2019/03/01/lab1/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/03/01/lab1/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/03/01/lab1/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -403,7 +403,7 @@
 <ul>
 <li>源代码<code>getpid_c.c</code>：</li>
 </ul>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">pid_t</span> pid;</span><br><span class="line">	pid = getpid();</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,pid);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">pid_t</span> pid;</span><br><span class="line">	pid = getpid();</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,pid);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>编译源代码，得到可执行文件getpid_c</li>
 <li>执行可执行文件，得到程序的pid</li>
@@ -425,7 +425,7 @@
 <ul>
 <li>源代码<code>getpid_asm.c</code>：</li>
 </ul>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;  </span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>{  </span><br><span class="line">            <span class="keyword">pid_t</span> pid;  </span><br><span class="line">        <span class="function"><span class="keyword">asm</span> <span class="title">volatile</span> <span class="params">(  </span></span></span><br><span class="line"><span class="function"><span class="params">             <span class="string">"movl $0x14,%%eax\n\t"</span>  </span></span></span><br><span class="line"><span class="function"><span class="params">             <span class="string">"int $0x80\n\t"</span>  </span></span></span><br><span class="line"><span class="function"><span class="params">             <span class="string">"movl %%eax,%0\n\t"</span>  </span></span></span><br><span class="line"><span class="function"><span class="params">             :<span class="string">"=m"</span>(pid)  </span></span></span><br><span class="line"><span class="function"><span class="params">        )</span></span>;  </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" current PID is : %u\n"</span>,pid);  </span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;  </span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">            <span class="keyword">pid_t</span> pid;  </span><br><span class="line">        <span class="function"><span class="keyword">asm</span> <span class="title">volatile</span> <span class="params">(  </span></span></span><br><span class="line"><span class="function"><span class="params">             <span class="string">"movl $0x14,%%eax\n\t"</span>  </span></span></span><br><span class="line"><span class="function"><span class="params">             <span class="string">"int $0x80\n\t"</span>  </span></span></span><br><span class="line"><span class="function"><span class="params">             <span class="string">"movl %%eax,%0\n\t"</span>  </span></span></span><br><span class="line"><span class="function"><span class="params">             :<span class="string">"=m"</span>(pid)  </span></span></span><br><span class="line"><span class="function"><span class="params">        )</span></span>;  </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" current PID is : %u\n"</span>,pid);  </span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>编译源码，得到可执行文件getpid_asm</li>
 <li>执行可执行文件，得到程序的pid</li>
@@ -441,7 +441,7 @@
 <ul>
 <li>源代码<code>print_c.c</code>:</li>
 </ul>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Hello World!\n"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Hello World!\n"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>编译源码，得到可执行文件print_c</li>
 <li>执行文件，屏幕打印Hello World</li>
@@ -454,7 +454,7 @@
 <ul>
 <li>源代码<code>print_asm.asm</code>:</li>
 </ul>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">section data</span><br><span class="line">msg db "Hello World",0xA</span><br><span class="line">len equ $-msg</span><br><span class="line">section .text</span><br><span class="line">	global _start</span><br><span class="line">_start:</span><br><span class="line">	mov eax,4</span><br><span class="line">	mov ebx,1</span><br><span class="line">	mov ecx,msg</span><br><span class="line">	mov edx,len</span><br><span class="line">	int 0x80</span><br><span class="line">	mov eax,1</span><br><span class="line">	xor ebx,ebx</span><br><span class="line">	int 0x80</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">section data</span><br><span class="line">msg db &quot;Hello World&quot;,0xA</span><br><span class="line">len equ $-msg</span><br><span class="line">section .text</span><br><span class="line">	global _start</span><br><span class="line">_start:</span><br><span class="line">	mov eax,4</span><br><span class="line">	mov ebx,1</span><br><span class="line">	mov ecx,msg</span><br><span class="line">	mov edx,len</span><br><span class="line">	int 0x80</span><br><span class="line">	mov eax,1</span><br><span class="line">	xor ebx,ebx</span><br><span class="line">	int 0x80</span><br></pre></td></tr></table></figure>
 <ul>
 <li>汇编源码，得到对象文件print_asm.o</li>
 <li>链接得到可执行文件print_asm</li>
@@ -469,12 +469,12 @@
 <ul>
 <li>这个文件中以宏定义的形式定义了四种系统调用的方式，分别是不传递参数、传递一个参数、传递两个参数、传递三个参数</li>
 </ul>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> syscall0(NUMBER) ...</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> syscall1(NUMBER, ARG0) ...</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> syscall2(NUMBER, ARG0, ARG1) ...</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> syscall3(NUMBER, ARG0, ARG1, ARG2) ...</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> syscall0(NUMBER) ...</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> syscall1(NUMBER, ARG0) ...</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> syscall2(NUMBER, ARG0, ARG1) ...</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> syscall3(NUMBER, ARG0, ARG1, ARG2) ...</span></span><br></pre></td></tr></table></figure>
 <p>四个系统调用方式的中断向量号均为0x30.</p>
 <ul>
 <li>定义了20种系统调用函数</li>
 </ul>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">halt</span> <span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exit</span> <span class="params">(<span class="keyword">int</span> status)</span></span></span><br><span class="line"><span class="function">pid_t <span class="title">exec</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *file)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">wait</span> <span class="params">(<span class="keyword">pid_t</span> pid)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">create</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *file, <span class="keyword">unsigned</span> initial_size)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">remove</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *file)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">open</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *file)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">filesize</span> <span class="params">(<span class="keyword">int</span> fd)</span> </span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span> <span class="params">(<span class="keyword">int</span> fd, <span class="keyword">void</span> *buffer, <span class="keyword">unsigned</span> size)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">write</span> <span class="params">(<span class="keyword">int</span> fd, <span class="keyword">const</span> <span class="keyword">void</span> *buffer, <span class="keyword">unsigned</span> size)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">seek</span> <span class="params">(<span class="keyword">int</span> fd, <span class="keyword">unsigned</span> position)</span> </span>;</span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">tell</span> <span class="params">(<span class="keyword">int</span> fd)</span> </span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">close</span> <span class="params">(<span class="keyword">int</span> fd)</span></span>;</span><br><span class="line"><span class="keyword">mapid_t</span> mmap (<span class="keyword">int</span> fd, <span class="keyword">void</span> *addr);</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">munmap</span> <span class="params">(<span class="keyword">mapid_t</span> mapid)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">chdir</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *dir)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">mkdir</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *dir)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">readdir</span> <span class="params">(<span class="keyword">int</span> fd, <span class="keyword">char</span> name[READDIR_MAX_LEN + <span class="number">1</span>])</span> </span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isdir</span> <span class="params">(<span class="keyword">int</span> fd)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">inumber</span> <span class="params">(<span class="keyword">int</span> fd)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">halt</span> <span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exit</span> <span class="params">(<span class="keyword">int</span> status)</span></span></span><br><span class="line"><span class="function">pid_t <span class="title">exec</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *file)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">wait</span> <span class="params">(<span class="keyword">pid_t</span> pid)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">create</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *file, <span class="keyword">unsigned</span> initial_size)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">remove</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *file)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">open</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *file)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">filesize</span> <span class="params">(<span class="keyword">int</span> fd)</span> </span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span> <span class="params">(<span class="keyword">int</span> fd, <span class="keyword">void</span> *buffer, <span class="keyword">unsigned</span> size)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">write</span> <span class="params">(<span class="keyword">int</span> fd, <span class="keyword">const</span> <span class="keyword">void</span> *buffer, <span class="keyword">unsigned</span> size)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">seek</span> <span class="params">(<span class="keyword">int</span> fd, <span class="keyword">unsigned</span> position)</span> </span>;</span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">tell</span> <span class="params">(<span class="keyword">int</span> fd)</span> </span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">close</span> <span class="params">(<span class="keyword">int</span> fd)</span></span>;</span><br><span class="line"><span class="keyword">mapid_t</span> mmap (<span class="keyword">int</span> fd, <span class="keyword">void</span> *addr);</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">munmap</span> <span class="params">(<span class="keyword">mapid_t</span> mapid)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">chdir</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *dir)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">mkdir</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *dir)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">readdir</span> <span class="params">(<span class="keyword">int</span> fd, <span class="keyword">char</span> name[READDIR_MAX_LEN + <span class="number">1</span>])</span> </span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isdir</span> <span class="params">(<span class="keyword">int</span> fd)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">inumber</span> <span class="params">(<span class="keyword">int</span> fd)</span></span>;</span><br></pre></td></tr></table></figure>
 <p>上面的系统调用在下面的头文件中都有对应的系统调用号</p>
 </li>
 <li><p><code>/src/lib/syscallnr.h</code></p>
@@ -496,13 +496,13 @@
 </ol>
 <h2 id="Task-2-并发实验"><a href="#Task-2-并发实验" class="headerlink" title="Task 2 并发实验"></a>Task 2 并发实验</h2><h3 id="2-1-实验步骤"><a href="#2-1-实验步骤" class="headerlink" title="2.1 实验步骤"></a>2.1 实验步骤</h3><ol>
 <li><p>编写<code>cpu.c</code>程序，代码如下：</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sys/time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">if</span> (argc!=<span class="number">2</span>)</span><br><span class="line">	{</span><br><span class="line">		<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>,<span class="string">"usage:cpu&lt;string&gt;\n"</span>);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">char</span> *str=argv[<span class="number">1</span>];</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	{</span><br><span class="line">		sleep(<span class="number">1</span>);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%s\n"</span>,str);</span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sys/time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (argc!=<span class="number">2</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>,<span class="string">"usage:cpu&lt;string&gt;\n"</span>);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">char</span> *str=argv[<span class="number">1</span>];</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		sleep(<span class="number">1</span>);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%s\n"</span>,str);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>编译源码cpu.c，得到可执行文件cpu</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc cpu.c -o cpu</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc cpu.c -o cpu</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>执行cpu程序</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./cpu A &amp; ; ./cpu B &amp; ; ./cpu C &amp; ; ./cpu D</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./cpu A &amp; ; ./cpu B &amp; ; ./cpu C &amp; ; ./cpu D</span><br></pre></td></tr></table></figure>
 <p><img src="http://ipic-picgo.oss-cn-beijing.aliyuncs.com/2019-04-29-171801.jpg" width="600"></p>
 </li>
 <li><p>程序功能解释：</p>
@@ -516,10 +516,10 @@
 </ul>
 <h2 id="Task-3-内存分配实验"><a href="#Task-3-内存分配实验" class="headerlink" title="Task 3 内存分配实验"></a>Task 3 内存分配实验</h2><h3 id="3-1-实验步骤"><a href="#3-1-实验步骤" class="headerlink" title="3.1 实验步骤"></a>3.1 实验步骤</h3><ol>
 <li><p>编写<code>mem.c</code>程序，代码如下：</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">int</span> *p = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">	assert(p!=<span class="literal">NULL</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"(%d) address pointed to by p: %p\n"</span>,getpid(),p);</span><br><span class="line">	*p=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	{</span><br><span class="line">		sleep(<span class="number">1</span>);</span><br><span class="line">		*p=*p+<span class="number">1</span>;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"(%d) p: %d\n"</span>,getpid(),*p);</span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> *p = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">	assert(p!=<span class="literal">NULL</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"(%d) address pointed to by p: %p\n"</span>,getpid(),p);</span><br><span class="line">	*p=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		sleep(<span class="number">1</span>);</span><br><span class="line">		*p=*p+<span class="number">1</span>;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"(%d) p: %d\n"</span>,getpid(),*p);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>编译源码<code>mem.c</code>，得到可执行程序<code>mem</code></p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc mem.c -o mem</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc mem.c -o mem</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>执行mem程序</p>
 <ul>
@@ -565,10 +565,10 @@
 </ol>
 <h2 id="Task-4-共享问题"><a href="#Task-4-共享问题" class="headerlink" title="Task 4 共享问题"></a>Task 4 共享问题</h2><h3 id="4-1-实验步骤"><a href="#4-1-实验步骤" class="headerlink" title="4.1 实验步骤"></a>4.1 实验步骤</h3><ol>
 <li><p>编写程序<code>thread.c</code>,源码如下：</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="keyword">volatile</span> <span class="keyword">int</span> counter=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> loops;</span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">worker</span><span class="params">(<span class="keyword">void</span> *arg)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;loops;i++)</span><br><span class="line">	{</span><br><span class="line">		counter++;</span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">if</span>(argc!=<span class="number">2</span>)</span><br><span class="line">	{</span><br><span class="line">		<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>,<span class="string">"usage: thread &lt;value&gt;\n"</span>);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">	}</span><br><span class="line">	loops=atoi(argv[<span class="number">1</span>]);</span><br><span class="line">	<span class="keyword">pthread_t</span> p1,p2;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Initial value: %d\n"</span>,counter);</span><br><span class="line">	pthread_create(&amp;p1,<span class="literal">NULL</span>,worker,<span class="literal">NULL</span>);</span><br><span class="line">	pthread_create(&amp;p2,<span class="literal">NULL</span>,worker,<span class="literal">NULL</span>);</span><br><span class="line">	pthread_join(p1,<span class="literal">NULL</span>);</span><br><span class="line">	pthread_join(p2,<span class="literal">NULL</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Final value: %d\n"</span>,counter);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="keyword">volatile</span> <span class="keyword">int</span> counter=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> loops;</span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">worker</span><span class="params">(<span class="keyword">void</span> *arg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;loops;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		counter++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(argc!=<span class="number">2</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>,<span class="string">"usage: thread &lt;value&gt;\n"</span>);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	loops=atoi(argv[<span class="number">1</span>]);</span><br><span class="line">	<span class="keyword">pthread_t</span> p1,p2;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Initial value: %d\n"</span>,counter);</span><br><span class="line">	pthread_create(&amp;p1,<span class="literal">NULL</span>,worker,<span class="literal">NULL</span>);</span><br><span class="line">	pthread_create(&amp;p2,<span class="literal">NULL</span>,worker,<span class="literal">NULL</span>);</span><br><span class="line">	pthread_join(p1,<span class="literal">NULL</span>);</span><br><span class="line">	pthread_join(p2,<span class="literal">NULL</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Final value: %d\n"</span>,counter);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>编译源码<code>thread.c</code></p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o thread -lpthread thread.c</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o thread -lpthread thread.c</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>执行thread程序</p>
 <ul>
@@ -622,25 +622,7 @@
 <li>0x1fd5260这个地址指的是啥，就是每个进程的虚拟内存的地址吗？</li>
 <li>我尝试过将int换成其他类型的，发现并没有发生变化，这是为啥呢？</li>
 </ul>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
     </div>
 
     
@@ -672,7 +654,7 @@
           
           <div class="post-tags">
             
-              <a href="/sunpages/tags/操作系统/" rel="tag"># 操作系统</a>
+              <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag"># 操作系统</a>
             
           </div>
         
@@ -682,7 +664,7 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/sunpages/2018/09/11/ss_err/" rel="next" title="">
+                <a href="/2018/09/11/ss_err/" rel="next" title="">
                   <i class="fa fa-chevron-left"></i> 
                 </a>
               
@@ -692,7 +674,7 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/sunpages/2019/03/01/lab5/" rel="prev" title="文件系统实验">
+                <a href="/2019/03/01/lab5/" rel="prev" title="文件系统实验">
                   文件系统实验 <i class="fa fa-chevron-right"></i>
                 </a>
               
@@ -762,7 +744,7 @@
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
-          <a href="/sunpages/archives/">
+          <a href="/archives/%20%7C%7C%20archive">
         
           <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">博客</span>
@@ -774,7 +756,7 @@
       <div class="site-state-item site-state-categories">
         
           
-            <a href="/sunpages/categories/">
+            <a href="/categories/%20%7C%7C%20th">
           
         
         <span class="site-state-item-count">7</span>
@@ -787,7 +769,7 @@
       <div class="site-state-item site-state-tags">
         
           
-            <a href="/sunpages/tags/">
+            <a href="/tags/%20%7C%7C%20tags">
           
         
         <span class="site-state-item-count">18</span>
@@ -898,12 +880,20 @@
   
 
 
-  <script src="/sunpages/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/sunpages/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/sunpages/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/sunpages/js/utils.js?v=7.4.0"></script><script src="/sunpages/js/motion.js?v=7.4.0"></script>
-<script src="/sunpages/js/schemes/pisces.js?v=7.4.0"></script>
-<script src="/sunpages/js/next-boot.js?v=7.4.0"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.4.0.js"></script>
+
+<script src="/js/motion.js?v=7.4.0.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.0.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.0.js"></script>
+
 
 
 
@@ -927,7 +917,9 @@
 
   
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.css">
-<script src="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js"></script><script src="/sunpages/js/algolia-search.js?v=7.4.0"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js"></script>
+<script src="/js/algolia-search.js?v=7.4.0.js"></script>
+
 
 
 
@@ -974,7 +966,24 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     path: location.pathname
   });
 }, window.Valine);
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
 </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 </body>
 </html>
